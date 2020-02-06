@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
           this.cui = <CustomerInfo>res;
           console.log(this.cui);
           alert('로그인성공!');
+          this._router.navigateByUrl('/');
         } else {
           console.log(this.cui);
           alert('로그인 실패!');

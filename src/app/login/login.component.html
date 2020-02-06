@@ -1,7 +1,17 @@
-<div>
-  <label for="id">아이디</label>
-  <input type="text" id="id" [(ngModel)]="cui.cuiId" /><br>
-  <label for="pwd">비밀번호</label>
-  <input type="password" id="pwd" [(ngModel)]="cui.cuiPwd" /><br>
-  <button (click)="doLogin()">로그인</button>
+<div class="text-center">
+  <div class="form-signin">
+    <img class="mb-4" src="https://cdn.imweb.me/thumbnail/20171122/5a14f0387ba87.jpg" alt="" width="72" height="72"><!-- 일단 아무 로고 검색해서 넣음-->
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="inputId" class="sr-only">User ID</label>
+    <input type="text" id="inputId" class="form-control" placeholder="User ID" required autofocus [(ngModel)]="cui.cuiId">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required [(ngModel)]="cui.cuiPwd">
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="button" (click)="doLogin()">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+  </div>
 </div>
