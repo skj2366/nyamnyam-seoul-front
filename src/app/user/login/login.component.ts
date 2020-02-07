@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonService } from '../common/common.service';
+import { CommonService } from '../../common/common.service';
 import { Router } from '@angular/router';
-import { StorageService } from '../common/storage.service';
-import { CustomerInfo } from '../vo/customer-info';
+import { StorageService } from '../../common/storage.service';
+import { CustomerInfo } from '../../vo/customer-info';
 
 @Component({
   selector: 'app-login',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CommonService } from '../common/common.service';
-import { CustomerInfo } from '../vo/customer-info';
+import { CommonService } from '../../common/common.service';
+import { CustomerInfo } from '../../vo/customer-info';
 
 @Component({
   selector: 'app-signup',

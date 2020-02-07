@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ZoneInfo } from '../vo/zone-info';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-main',
@@ -14,14 +15,8 @@ export class MainComponent implements OnInit {
   constructor(private _router:Router) { }
 
   ngOnInit() {
+ 
   }
  
-  goSignUp() {
-    this._router.navigateByUrl('/signup');
-  }
-
-  goLogin() {
-    this._router.navigateByUrl('/login');
-  }
 
 }
