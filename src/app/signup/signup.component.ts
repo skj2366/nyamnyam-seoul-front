@@ -36,14 +36,33 @@ export class SignupComponent implements OnInit {
     )
   }
 
+  // doSendMail() {
+  //   this._cs.postJson('/send', this.cui).subscribe(
+  //     res => {
+  //       console.log(res);
+  //       console.log(this.cui.cuiEmail);
+  //       alert('메일 전송!');
+  //       this.isSend = true;
+  //       this.certificationNumber = <string>res;
+  //     },
+  //     err => {
+  //       console.log(err);
+  //     }
+  //   )
+  // }
+
   doSendMail() {
-    this._cs.postJson('/send', this.cui).subscribe(
+
+    // 여기에 인증번호 보낸 이력 있으면 isSend 바로 True 시키고 이메일 다시 안보내는 로직 추가 
+    // 그리고 인증번호 재전송 로직 추가
+
+    this._cs.postResString('/send', this.cui).subscribe(
       res => {
         console.log(res);
         console.log(this.cui.cuiEmail);
-        alert('메일 전송!');
+        alert('메일전송!');
         this.isSend = true;
-        this.certificationNumber = <string>res;
+        this.certificationNumber = res;
       },
       err => {
         console.log(err);
@@ -52,11 +71,32 @@ export class SignupComponent implements OnInit {
   }
 
   confirmCertificationNumber() {
-    
-    if(this.certificationNumber == this.certifi) {
-      this.isCerti = true;
-    }else {
-      alert('인증번호를 확인해주세요');
-    }
+    console.log(this.cui.cuiEmail);
+    this._cs.get('/cuc/' + this.cui.cuiEmail).subscribe(
+      res => {
+        console.log(res);
+        if(!res) {
+          alert('인증번호가 없습니다');
+        }else {
+          if(this.certificationNumber == res['cucCerNum']){
+            alert('인증번호 확인 완료!');
+            this.isCerti = true;
+          }else {
+            alert('인증번호를 다시 확인해 주세요');
+          }
+          
+        }
+      },
+      err => {
+        console.log(err);
+      }
+    )
+
+    // if(this.certificationNumber == this.certifi) {
+    //   this.isCerti = true;
+    // }else {
+    //   alert('인증번호를 확인해주세요');
+    // }
+
   }
 }
