@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './user/signup/signup.component';
 import { MenuComponent } from './menu/menu.component';
 import { MypageComponent } from './user/mypage/mypage.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MypageComponent } from './user/mypage/mypage.component';
     MainComponent,
     SignupComponent,
     MenuComponent,
-    MypageComponent
+    MypageComponent,
+    FooterComponent
   ],
   imports: [
     FormsModule,

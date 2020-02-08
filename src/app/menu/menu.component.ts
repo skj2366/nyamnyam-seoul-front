@@ -34,4 +34,7 @@ function myFunction() {
     this._router.navigateByUrl('/login');
   }
 
+  goMain() {
+    this._router.navigateByUrl('');
+  }
 }
