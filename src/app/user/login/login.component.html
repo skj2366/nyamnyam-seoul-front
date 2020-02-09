@@ -1,0 +1,26 @@
+<div class="container">
+<div class="row">
+  <div class="col-sm-3 col-md-6 col-lg-4">
+    <img src="../../../assets/imgs/3.gif">
+  </div>
+  <div class="col-sm-9 col-md-6 col-lg-8">
+    <div class="loginForm">
+      
+       <h1>Please sign in</h1>
+        <label for="inputId" class="sr-only">User ID</label>
+        <input type="text" id="inputId" class="form-control" placeholder="User ID" required autofocus [(ngModel)]="cui.cuiId">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required [(ngModel)]="cui.cuiPwd">
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+      
+        <button class="btn btn-outline-primary btn-block" type="button" (click)="doLogin()">Sign in</button>
+       
+        <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
