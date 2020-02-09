@@ -47,6 +47,7 @@ export class SignupComponent implements OnInit {
         } else if (res == 1) {
           console.log('인증번호 발송 이력 있음');
           alert('메일함에서 인증번호를 확인해 주세요');
+          this.isSend = true;
           return;
         } else {
           console.log('신규 가입 가능');
@@ -61,14 +62,12 @@ export class SignupComponent implements OnInit {
 
     // 여기에 인증번호 보낸 이력 있으면 isSend 바로 True 시키고 이메일 다시 안보내는 로직 추가 
     // 그리고 인증번호 재전송 로직 추가
-
+    this.isSend = true;
+    alert('메일전송!');
     this._cs.postResString('/send', this.cui).subscribe(
       res => {
         console.log(res);
         console.log(this.cui.cuiEmail);
-        alert('메일전송!');
-        this.isSend = true;
-        // this.certificationNumber = res;
       },
       err => {
         console.log(err);

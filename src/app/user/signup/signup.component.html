@@ -15,6 +15,7 @@
         [(ngModel)]="certificationNumber">
       <button class="btn btn-lg btn-primary btn-block" type="button" (click)="confirmCertificationNumber()">인증번호
         확인</button>
+      <button class="btn btn-lg btn-primary btn-block" type="button" (click)="doSendMail()">이메일 재전송</button>
     </div>
     <div class="form-signinput" *ngIf="isCerti">
       <label for="inputId" class="sr-only">User ID</label>
