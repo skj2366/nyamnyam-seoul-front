@@ -39,6 +39,6 @@ function myFunction() {
   }
 
   goMap() {
-    this._router.navigateByUrl('../search/map');
+    this._router.navigateByUrl('/map');
   }
 }
