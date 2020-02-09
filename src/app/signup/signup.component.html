@@ -1,25 +1,30 @@
 <div class="text-center">
   <div class="form-signin">
-    <img class="mb-4" src="https://cdn.imweb.me/thumbnail/20171122/5a14f0387ba87.jpg" alt="" width="72" height="72"><!-- 일단 아무 로고.-->
+    <img class="mb-4" src="https://cdn.imweb.me/thumbnail/20171122/5a14f0387ba87.jpg" alt="" width="72" height="72">
+    <!-- 일단 아무 로고.-->
     <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
     <label for="inputId" class="sr-only">User ID</label>
-    <input type="text" id="inputId" class="form-control" placeholder="User ID" required autofocus [(ngModel)]="cui.cuiId">
+    <input type="text" id="inputId" class="form-control" placeholder="User ID" required autofocus
+      [(ngModel)]="cui.cuiId">
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required [(ngModel)]="cui.cuiPwd">
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required
+      [(ngModel)]="cui.cuiPwd">
     <label for="inputName" class="sr-only">Name</label>
     <input type="text" id="inputName" class="form-control" placeholder="Name" required [(ngModel)]="cui.cuiName">
     <label for="inputNickname" class="sr-only">NickName</label>
-    <input type="text" id="inputNickname" class="form-control" placeholder="Nickname" required [(ngModel)]="cui.cuiNickname">
+    <input type="text" id="inputNickname" class="form-control" placeholder="Nickname" required
+      [(ngModel)]="cui.cuiNickname">
     <label for="inputBirth" class="sr-only">Birth</label>
     <input type="text" id="inputBirth" class="form-control" placeholder="Birth" required [(ngModel)]="cui.cuiBirth">
     <label for="inputEmail" class="sr-only">Email</label>
     <input type="text" id="inputEmail" class="form-control" placeholder="Email" required [(ngModel)]="cui.cuiEmail">
     <label for="inputPhone" class="sr-only">Phone</label>
-    <input type="text" id="inputPhone" class="form-control" placeholder="PhoneNumber" required [(ngModel)]="cui.cuiPhone">
+    <input type="text" id="inputPhone" class="form-control" placeholder="PhoneNumber" required
+      [(ngModel)]="cui.cuiPhone">
     <div class="checkbox mb-3">
       <label>
-        <input type="radio" value="1" name="trans" [(ngModel)]="cui.cuiTrans" > Male
-        <input type="radio" value="2" name="trans" [(ngModel)]="cui.cuiTrans" > Female
+        <input type="radio" value="1" name="trans" [(ngModel)]="cui.cuiTrans"> Male
+        <input type="radio" value="2" name="trans" [(ngModel)]="cui.cuiTrans"> Female
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="button" (click)="doSignUp()">Sign up</button>

@@ -12,7 +12,7 @@ export class SignupComponent implements OnInit {
 
   cui: CustomerInfo = new CustomerInfo();
 
-  constructor(private _router:Router, private _cs:CommonService) { }
+  constructor(private _router: Router, private _cs: CommonService) { }
 
   ngOnInit() {
   }
