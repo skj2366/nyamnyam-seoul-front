@@ -51,10 +51,23 @@ export class SignupComponent implements OnInit {
   //   )
   // }
 
+  checkEmail() {
+    this._cs.get('').subscribe(
+      res => {
+        if(!res) {
+          console.log(res);
+          
+        }
+      }
+    )
+  }
+
   doSendMail() {
 
     // 여기에 인증번호 보낸 이력 있으면 isSend 바로 True 시키고 이메일 다시 안보내는 로직 추가 
     // 그리고 인증번호 재전송 로직 추가
+
+    
 
     this._cs.postResString('/send', this.cui).subscribe(
       res => {
@@ -91,12 +104,6 @@ export class SignupComponent implements OnInit {
         console.log(err);
       }
     )
-
-    // if(this.certificationNumber == this.certifi) {
-    //   this.isCerti = true;
-    // }else {
-    //   alert('인증번호를 확인해주세요');
-    // }
 
   }
 }
