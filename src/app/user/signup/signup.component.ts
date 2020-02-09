@@ -37,33 +37,30 @@ export class SignupComponent implements OnInit {
   }
 
   checkEmail(): any {
-    this._cs.get('/cui/cuc/email', this.cui.cuiEmail).subscribe(
+    this._cs.get('/cui/cuc/email?email=' + this.cui.cuiEmail, { email: this.cui.cuiEmail }).subscribe(
       res => {
-        if (!res) {
-          console.log(res);
-
-          return 1;
+        console.log('이거는 타냐????????????');
+        if (res == 0) {
+          console.log('이미 가입된 메일');
+          alert('이미 가입된 이메일입니다');
+          return;
+        } else if (res == 1) {
+          console.log('인증번호 발송 이력 있음');
+          alert('메일함에서 인증번호를 확인해 주세요');
+          return;
         } else {
-          console.log(res);
-          alert('이미 가입된 이메일 입니다');
-          return 2;
+          console.log('신규 가입 가능');
+          this.doSendMail();
         }
       }
     )
   }
 
+  // 이메일 전송
   doSendMail() {
 
     // 여기에 인증번호 보낸 이력 있으면 isSend 바로 True 시키고 이메일 다시 안보내는 로직 추가 
     // 그리고 인증번호 재전송 로직 추가
-
-    if (this.checkEmail() == 1) {
-      console.log("this is do check");
-      return "qwe";
-    } else {
-      console.log("this is else check");
-      return "zxc";
-    }
 
     this._cs.postResString('/send', this.cui).subscribe(
       res => {
@@ -71,7 +68,7 @@ export class SignupComponent implements OnInit {
         console.log(this.cui.cuiEmail);
         alert('메일전송!');
         this.isSend = true;
-        this.certificationNumber = res;
+        // this.certificationNumber = res;
       },
       err => {
         console.log(err);
@@ -79,6 +76,7 @@ export class SignupComponent implements OnInit {
     )
   }
 
+  // 인증번호 확인 
   confirmCertificationNumber() {
     console.log(this.cui.cuiEmail);
     this._cs.get('/cuc/' + this.cui.cuiEmail).subscribe(
@@ -100,6 +98,7 @@ export class SignupComponent implements OnInit {
         console.log(err);
       }
     )
-
   }
+
+
 }
