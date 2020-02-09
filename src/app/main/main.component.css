@@ -1,0 +1,49 @@
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: rgb(170, 169, 169);
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #686565;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: rgb(155, 201, 95);
+    color: white;
+  }
+    
+  body {
+    margin: 10px;
+    font-size: 14px;
+  }
+  
+  select {    
+    width: 200px;
+    padding: .8em .5em;
+    font-family: inherit;
+    background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #999;
+    border-radius: 0px;
+  }
+  
+  select::-ms-expand {
+    /* for IE 11 */
+    display: none;
+  }
