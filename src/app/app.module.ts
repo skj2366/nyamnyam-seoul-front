@@ -11,6 +11,10 @@ import { SignupComponent } from './user/signup/signup.component';
 import { MenuComponent } from './menu/menu.component';
 import { MypageComponent } from './user/mypage/mypage.component';
 import { FooterComponent } from './footer/footer.component';
+import { MapComponent } from './search/map/map.component';
+import { ManageComponent } from './manage/manage/manage.component';
+import { ResultComponent } from './search/result/result.component';
+import { BoardComponent } from './user/board/board.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { FooterComponent } from './footer/footer.component';
     SignupComponent,
     MenuComponent,
     MypageComponent,
-    FooterComponent
+    FooterComponent,
+    MapComponent,
+    ManageComponent,
+    ResultComponent,
+    BoardComponent
   ],
   imports: [
     FormsModule,

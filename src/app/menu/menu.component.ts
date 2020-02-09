@@ -37,4 +37,8 @@ function myFunction() {
   goMain() {
     this._router.navigateByUrl('');
   }
+
+  goMap() {
+    this._router.navigateByUrl('../search/map');
+  }
 }
