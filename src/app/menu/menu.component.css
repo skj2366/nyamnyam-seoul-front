@@ -33,7 +33,7 @@ body {
   }
   
   #login{
-     display: inline-block;
+     display: inline;
      margin-left: 1200px;
      font-size: 20pt;
      color: black;

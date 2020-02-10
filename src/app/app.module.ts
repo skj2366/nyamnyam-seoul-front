@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { MapComponent } from './search/map/map.component';
 import { ManageComponent } from './manage/manage/manage.component';
 import { ResultComponent } from './search/result/result.component';
 import { BoardComponent } from './user/board/board.component';
+import { TotalComponent } from './search/total/total.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,15 @@ import { BoardComponent } from './user/board/board.component';
     MapComponent,
     ManageComponent,
     ResultComponent,
-    BoardComponent
+    BoardComponent,
+    TotalComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
