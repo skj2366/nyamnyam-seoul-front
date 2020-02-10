@@ -6,7 +6,7 @@
 <body>
 
 <div class="header">
-  <h2 id="logo" (click)="goMain()">냠냠 _ 서울</h2>
+  <h2 id="logo" (click)="goMain()">냠냠 _ 서울 <img src="../../assets/imgs/logo.png" style="height: 100px;"></h2>
      <div id="login">
       <a (click)="goLogin()" style="font: size 0.3em;">Sign In</a>
       <span>|</span>
@@ -16,7 +16,7 @@
 
 <div id="navbar">
   <a class="active" (click)="goMain()">Home</a>
-  <a href="javascript:void(0)" (click)="goMap()">지도검색</a>
+  <a (click)="goMap()">지도검색</a>
   <a href="javascript:void(0)">통합검색</a>
   <a href="javascript:void(0)">후기</a>
   <a href="javascript:void(0)">Contact</a>
