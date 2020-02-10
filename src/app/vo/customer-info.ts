@@ -13,4 +13,5 @@ export class CustomerInfo {
     cuiCretim: string;
     cuiModdat: string;
     cuiModtim: string;
+    tokken : string;
 }
