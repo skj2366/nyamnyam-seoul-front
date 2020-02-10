@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   cui: CustomerInfo = new CustomerInfo();
   isLogin: boolean = false;
 
-  constructor(public _router: Router, private _cs: CommonService) { }
+  constructor(public _router: Router, private _cs: CommonService, private _ss: StorageService) { }
 
   ngOnInit() {
   }
@@ -28,15 +28,21 @@ export class LoginComponent implements OnInit {
       alert('비밀번호 입력해주세요');
       return;
     }
+
     this._cs.postJson('/login', this.cui).subscribe(
       res => {
         if (res) {
           this.cui = <CustomerInfo>res;
-          console.log(this.cui);
-          alert('로그인성공!');
-          this._router.navigateByUrl('/');
+          if(this.cui.tokken) {
+            this._ss.setItem('cuiId', this.cui.cuiId);
+            this._ss.setItem('tokken', this.cui.tokken);
+            console.log(this._ss.getItems);
+            alert(this.cui.cuiId + ' 님 환영합니다.');
+            this._router.navigateByUrl('/');
+          }else {
+            return;
+          }
         } else {
-          console.log(this.cui);
           alert('로그인 실패!');
         }
       },
@@ -45,6 +51,17 @@ export class LoginComponent implements OnInit {
         alert('로그인에러');
       }
     )
+  }
+
+  doLogout() {
+    localStorage.clear();
+  }
+
+  validation() {
+    var reId = /^[a-z0-9_]+$/;
+    var rePwd = /^[a-z0-9_]{4,20}$/;
+    var id = document.querySelector('');
+    var pwd = document.querySelector('');
   }
 
 }
