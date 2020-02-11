@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ZoneInfo } from '../vo/zone-info';
 import * as $ from 'jquery';
+import { ZoneSubwayService } from '../search/zone-subway.service';
 
 @Component({
   selector: 'app-main',
@@ -9,14 +10,15 @@ import * as $ from 'jquery';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
-  //zoi : ZoneInfo = new ZoneInfo();
-  
-  constructor(private _router:Router) { }
+   
+  constructor(private _router:Router, private _zonsub : ZoneSubwayService) { }
 
   ngOnInit() {
- 
+    
   }
  
-
+  getZones() {
+    this._zonsub.getZone();
+  }
+  
 }

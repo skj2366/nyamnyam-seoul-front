@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ZoneSubwayService } from '../zone-subway.service';
 
 @Component({
   selector: 'app-map',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _zonsub : ZoneSubwayService, ) { }
 
   ngOnInit() {
+    
   }
 
+  getZones() {
+    this._zonsub.getZone();
+  }
+
+  
 }
