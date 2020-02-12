@@ -20,29 +20,30 @@ body {
   
   .header {
     background-color: white;
-    padding: 30px;
+    padding: 20px;
     text-align: center;
   }
 
   .header #logo {
-    background-color: #333;
-    color: blanchedalmond;
+    /* background-color: #333; */
+    color: rgb(7, 7, 7);
     font-family:'BMEULJIRO';
     font-size: 60pt;
-    margin:30px 500px;
+    margin:25px 500px;
   }
   
   #login, #logout{
      display: inline;
      margin-left: 1200px;
+     font-weight: border;
      font-size: 20pt;
-     color: black;
+     color: rgb(10, 10, 10);
      font-family: 'MapoPeacefull';
   }
 
   #navbar {
     overflow: hidden;
-    background-color: #00004d;
+    background-color: white;
     text-align: center;
   }
   
@@ -50,11 +51,12 @@ body {
     display: inline-block;
     margin-right: auto;
     margin-left: auto;
-    color: #f2f2f2;
+    color: #0e0d0d;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    font-weight: border;
   }
   
   #navbar a:hover {
