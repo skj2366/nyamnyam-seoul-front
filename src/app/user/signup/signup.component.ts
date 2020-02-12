@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
       res => {
         console.log(res);
         alert('success');
-        this._router.navigateByUrl('');
+        this._router.navigateByUrl('/login');
       },
       err => {
         console.log(err);

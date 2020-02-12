@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-
 <div class="header">
   <h2 id="logo" (click)="goMain()">냠냠 _ 서울 <img src="../../assets/imgs/logo.png" style="height: 100px;"></h2>
-     <div id="login">
-      <a (click)="goLogin()" style="font: size 0.3em;">Sign In</a>
-      <span>|</span>
-      <a (click)="goSignUp()" style="font: size 0.3em;">Sign Up</a>
-    </div>
+  <div id="login" *ngIf="!isLogin">
+    <a (click)="goLogin()" style="font: size 0.3em;">Sign In</a>
+    <span>|</span>
+    <a (click)="goSignUp()" style="font: size 0.3em;">Sign Up</a>
+  </div>
+  <div id="logout" *ngIf="isLogin">
+    <a (click)="doLogout()" style="font: size 0.3em;">Log Out</a>
+  </div>
 </div>
 
 <div id="navbar">
@@ -21,7 +17,3 @@
   <a href="javascript:void(0)">후기</a>
   <a href="javascript:void(0)">Contact</a>
 </div>
-
-
-</body>
-</html>

@@ -32,7 +32,7 @@ body {
     margin:30px 500px;
   }
   
-  #login{
+  #login, #logout{
      display: inline;
      margin-left: 1200px;
      font-size: 20pt;

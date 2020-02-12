@@ -9,7 +9,7 @@ export class StorageService {
   constructor() { }
 
   setItems(cui: CustomerInfo) {
-    for(var key in cui){
+    for (var key in cui) {
       localStorage.setItem(key, cui[key]);
     }
   }
@@ -18,12 +18,16 @@ export class StorageService {
     return localStorage.getItem(key);
   }
 
+  getItem(key: string) {
+    return localStorage.getItem(key);
+  }
+
   setItem(key: string, value: string) {
     localStorage.setItem(key, value);
   }
 
   setSession(key: string, value: string) {
-    sessionStorage.setItem(key,value);
+    sessionStorage.setItem(key, value);
   }
 
   getSession(key: string) {

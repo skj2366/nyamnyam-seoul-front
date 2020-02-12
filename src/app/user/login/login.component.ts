@@ -33,13 +33,14 @@ export class LoginComponent implements OnInit {
       res => {
         if (res) {
           this.cui = <CustomerInfo>res;
-          if(this.cui.tokken) {
-            this._ss.setItem('cuiId', this.cui.cuiId);
-            this._ss.setItem('tokken', this.cui.tokken);
+          if (this.cui.tokken) {
+            this._ss.setSession('cuiId', this.cui.cuiId);
+            this._ss.setSession('tokken', this.cui.tokken);
             console.log(this._ss.getItems);
             alert(this.cui.cuiId + ' 님 환영합니다.');
+            location.href = 'http://localhost/';
             this._router.navigateByUrl('/');
-          }else {
+          } else {
             return;
           }
         } else {
@@ -51,10 +52,6 @@ export class LoginComponent implements OnInit {
         alert('로그인에러');
       }
     )
-  }
-
-  doLogout() {
-    localStorage.clear();
   }
 
   validation() {

@@ -15,7 +15,7 @@ export class AuthInterceptorService implements HttpInterceptor {
     var tokken = localStorage.getItem('tokken');
     var headers: HttpHeaders = new HttpHeaders();
     console.log(req);
-    if ((req.url.indexOf('login') == -1 && req.url.indexOf('cui') == -1 && req.url.indexOf('send') == -1) && !tokken) {
+    if ((req.url.indexOf('login') == -1 && req.url.indexOf('cui') == -1 && req.url.indexOf('send') == -1 && req.url.indexOf('cuc') == -1) && !tokken) {
       console.log(req.url.indexOf('cui'));
       this._router.navigate(['/login']);
       return throwError('Auth Error');
