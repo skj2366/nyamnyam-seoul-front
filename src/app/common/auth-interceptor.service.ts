@@ -16,9 +16,9 @@ export class AuthInterceptorService implements HttpInterceptor {
     var headers: HttpHeaders = new HttpHeaders();
     console.log(req);
     if ((req.url.indexOf('login') == -1 && req.url.indexOf('cui') == -1 && req.url.indexOf('send') == -1 && req.url.indexOf('cuc') == -1) && !tokken) {
-      console.log(req.url.indexOf('cui'));
-      this._router.navigate(['/login']);
-      return throwError('Auth Error');
+      // console.log(req.url.indexOf('cui'));
+      // this._router.navigate(['/login']);
+      // return throwError('Auth Error');
     } else if (tokken) {
       headers = new HttpHeaders().set('x-auth-id', cuiId).set('x-auth-tokken', tokken);
     }

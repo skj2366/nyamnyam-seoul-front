@@ -1,35 +1,35 @@
 <div class="mResult">
 
-<div class="mapSearch"> 
+  <div class="mapSearch">
     <!--<select [(ngModel)]="getZones()" >
       <option disabled value="">지역 선택</option>
       <option **ngFor="let zone of zoneInfos">{{zone.zoneName}}</option>
     </select>
-    --> 
+    -->
     &nbsp;
     <select>
       <option selected>역 선택</option>
-      <option>옵션1</option>     
+      <option>옵션1</option>
     </select>
   </div>
-  <div class="map">
+  <div class="map" id="kakao-map" (click)="makeMap()">
     카카오API 지도오<br>
     왜 테두리 안 나옴<br>
     짜잉나네
   </div>
-      <div id="sort">
-      <a>거리순</a>/<a>평점순</a>/<a>가격낮은순</a>/<a>가격높은순</a>
-      </div>
-    <div class="flex-container">
-      <div class="flex-item">1</div>
-      <div class="flex-item">2</div>
-      <div class="flex-item">3</div>
-      <div class="flex-item">4</div>
-      <div class="flex-item">5</div>
-      <div class="flex-item">6</div>
-      <div class="flex-item">7</div>
-      <div class="flex-item">8</div>
-      <div class="flex-item">9</div>
-      <div class="flex-item">10</div>
-    </div>
+  <div id="sort">
+    <a>거리순</a>/<a>평점순</a>/<a>가격낮은순</a>/<a>가격높은순</a>
   </div>
+  <div class="flex-container">
+    <div class="flex-item">1</div>
+    <div class="flex-item">2</div>
+    <div class="flex-item">3</div>
+    <div class="flex-item">4</div>
+    <div class="flex-item">5</div>
+    <div class="flex-item">6</div>
+    <div class="flex-item">7</div>
+    <div class="flex-item">8</div>
+    <div class="flex-item">9</div>
+    <div class="flex-item">10</div>
+  </div>
+</div>
