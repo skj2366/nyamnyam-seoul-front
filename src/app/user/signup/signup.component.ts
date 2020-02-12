@@ -60,8 +60,6 @@ export class SignupComponent implements OnInit {
   // 이메일 전송
   doSendMail() {
 
-    // 여기에 인증번호 보낸 이력 있으면 isSend 바로 True 시키고 이메일 다시 안보내는 로직 추가 
-    // 그리고 인증번호 재전송 로직 추가
     this.isSend = true;
     alert('메일전송!');
     this._cs.postResString('/send', this.cui).subscribe(

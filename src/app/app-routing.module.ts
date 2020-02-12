@@ -8,6 +8,8 @@ import { ManageComponent } from './manage/manage/manage.component';
 import { BoardComponent } from './user/board/board.component';
 import { ResultComponent } from './search/result/result.component';
 import { MypageComponent } from './user/mypage/mypage.component';
+import { CanActivate } from '@angular/router/src/utils/preactivation';
+import { RouterGuardService } from './common/router-guard.service';
 
 const routes: Routes = [
   // {
@@ -22,30 +24,30 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-  },  
+  },
   {
     path: 'signup',
     component: SignupComponent
   },
   {
     path: 'map',
-    component : MapComponent
+    component: MapComponent
   },
   {
     path: 'result',
-    component : ResultComponent
+    component: ResultComponent
   },
   {
     path: 'manage',
-    component : ManageComponent
+    component: ManageComponent
   },
   {
     path: 'board',
-    component : BoardComponent
+    component: BoardComponent
   },
   {
     path: 'mypage',
-    component : MypageComponent
+    component: MypageComponent
   }
 
 ];
