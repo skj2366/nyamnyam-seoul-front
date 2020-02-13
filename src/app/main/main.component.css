@@ -5,7 +5,7 @@ width: 1500px;
 height: 500px;
 }
 
-#zone{
+#zone, #subway{
 width: 200px;
 padding: .8em .5em;
 border: 1px solid #999;
@@ -19,6 +19,9 @@ appearance: none;
 margin-top:50px
 }
 
+option {
+    background-color: #333333;
+}
 
 .w3-content{
     margin-top: 10px;

@@ -1,8 +1,9 @@
 <div class="search">
-<div>
+  <div>
     <select id="zone" [(ngModel)]="zoneValue" name="zoneValue" (change)="getSubwayInfo()">
       <option selected value="지역구 선택">지역구 선택</option>
-      <option *ngFor="let zone of zoneList" [value]="zone.zoneNum">{{zone.zoneName}}</option>
+      <option *ngFor="let zone of zoneList" [value]="zone.zoneNum">{{zone.zoneName}}
+      </option>
     </select> &nbsp;
     <select id="subway" [(ngModel)]="subValue" name="subValue" (change)="getSubValue(subValue)">
       <option selected value="지하철역 선택">지하철역 선택</option>
@@ -21,11 +22,12 @@
         <p *ngIf="sub.subwayLine12">| 공항철도 |</p>
         <p *ngIf="sub.subwayLine13">| 경의중앙선 |</p>
         <p *ngIf="sub.subwayLine14">| 경춘선 |</p>
-        <p *ngIf="sub.subwayLine15">| 우이신설 |</p>)
+        <p *ngIf="sub.subwayLine15">| 우이신설 |</p>
+        )
       </option>
     </select>
-    <button (click)="doSearch()">검색</button>
-</div>
+    <button (click)="doSearch(zoneValue, subValue)">검색</button>
+  </div>
 </div>
 <!-- !PAGE CONTENT! -->
 <div class="w3-content" style="max-width:1500px; margin-left: 100px;">
@@ -40,7 +42,7 @@
       <!-- <img src="../../assets/imgs/cookie.jpg" style="width:499.99px; height: 333.32px;"> -->
       <!-- <img src="../../assets/imgs/cookie.jpg" style="width:499.99px; height: 127px;"> -->
     </div>
-  
+
     <div class="w3-third">
       <img src="../../assets/imgs/cupcakes.jpg" style="width:499px; height: 248px;">
       <!-- <img src="../../assets/imgs/muffin.jpg" style="width:499.99px; height: 200px;"> -->
@@ -49,7 +51,7 @@
       <!-- <img src="../../assets/imgs/cookie.jpg" style="width:499.99px; height: 849.97px;">
       <img src="../../assets/imgs/cookie.jpg" style="width:499.99px; height: 312px;"> -->
     </div>
-  
+
     <div class="w3-third">
       <img src="../../assets/imgs/hungrry.jpg" style="width:499px; height: 488px;">
       <img src="../../assets/imgs/sushi.jpg" style="width:499px; height: 286px;">
@@ -59,6 +61,6 @@
       <img src="../../assets/imgs/cookie.jpg" style="width:499.99px; height: 499.99px;"> -->
     </div>
   </div>
-  
+
   <!-- End Page Content -->
-  </div>
+</div>

@@ -34,6 +34,10 @@ const routes: Routes = [
     component: MapComponent
   },
   {
+    path: 'map/:zoneValue/:subValue',
+    component: MapComponent
+  },
+  {
     path: 'result',
     component: ResultComponent
   },
