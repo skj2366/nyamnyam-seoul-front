@@ -61,4 +61,7 @@ export class LoginComponent implements OnInit {
     var pwd = document.querySelector('');
   }
 
+  goSignUp() {
+    this._router.navigateByUrl('/signup');
+  }
 }
