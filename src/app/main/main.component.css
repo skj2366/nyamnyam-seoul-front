@@ -1,10 +1,10 @@
 
-.container{
+/* .container{
     overflow: hidden;
     margin-top: 20px;
     background-color: antiquewhite;
-    width: 3000px;
-    margin-left: 200px;
+    width: 2000px;
+    margin-left: 250px;
 }
     
     .main-photo-list{
@@ -17,4 +17,8 @@
 .main-photo{
     width: 50px;
     border-radius: 5px;
+} */
+
+.w3-content{
+    margin-top: 10px;
 }
