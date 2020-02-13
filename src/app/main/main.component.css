@@ -1,23 +1,24 @@
-
-/* .container{
-    overflow: hidden;
-    margin-top: 20px;
-    background-color: antiquewhite;
-    width: 2000px;
-    margin-left: 250px;
+.search{
+background-image: url('../../assets/imgs/cook.jpg');
+margin-left: 100px;
+width: 1500px;
+height: 500px;
 }
-    
-    .main-photo-list{
-        display: inline-flex;
-        flex-flow: column wrap;
-        align-content: center;
-    }
-        
 
-.main-photo{
-    width: 50px;
-    border-radius: 5px;
-} */
+#zone{
+width: 200px;
+padding: .8em .5em;
+border: 1px solid #999;
+font-family: inherit;
+color: white;
+background: url('../../assets/imgs/arrow.jpg') no-repeat 95% 50%;
+border-radius: 0px;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+margin-top:50px
+}
+
 
 .w3-content{
     margin-top: 10px;
