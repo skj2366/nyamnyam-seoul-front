@@ -1,41 +1,61 @@
+<div class="container">
 
+
+  <!-- Blog entry -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <img src="../assets/imgs/hothot.gif" width="100%" height="210">
     <div class="container">
-    
-      
-      <!-- Blog entry -->
-      <div class="w3-card-4 w3-margin w3-white">
-        <img src="../assets/imgs/hothot.gif" width="100%" height="210">
-        <div class="container">
-          <h3 id="intro">Welcom, NyamNam_Seoul!</h3>
-          <h5 id="intro2">서울의 맛집이 궁금할 땐!? '냠냠_서울' <span class="w3-opacity"> February 29, 2020</span></h5>
-          <div class="conatiner-text">
-            <p id="introText">서울의 식당 정보를 찾을 때, 냠냠 서울!<br>
-              서울의 맛집을 지하철 역, 주소에 따라 검색하고 후기를 공유하세요!
-            </p>
-          </div>    
-        </div>
+      <h3 id="intro">Welcom, NyamNam_Seoul!</h3>
+      <h5 id="intro2">서울의 맛집이 궁금할 땐!? '냠냠_서울' <span class="w3-opacity"> February 29, 2020</span></h5>
+      <div class="conatiner-text">
+        <p id="introText">서울의 식당 정보를 찾을 때, 냠냠 서울!<br>
+          서울의 맛집을 지하철 역, 주소에 따라 검색하고 후기를 공유하세요!
+        </p>
       </div>
-      <!-- END BLOG ENTRIES -->
-      <div>
-        <form>
-          <select>
-            <option selected>지역구 선택</option>
-            <option>옵션1</option>        
-     </select> 
-      </form>
-     </div>
+    </div>
+  </div>
+  <!-- END BLOG ENTRIES -->
+  <div>
+    <form>
+      <select [(ngModel)]="zoneValue" name="zoneValue" (change)="getSubwayInfo()">
+        <option selected value="지역구 선택">지역구 선택</option>
+        <option *ngFor="let zone of zoneList" [value]="zone.zoneNum">{{zone.zoneName}}</option>
+      </select>
+      <select [(ngModel)]="subValue" name="subValue" (change)="getSubValue(subValue)">
+        <option selected value="지하철역 선택">지하철역 선택</option>
+        <option *ngFor="let sub of subList" [value]="sub.subwayNum">{{sub.subwayName}} (
+          <p *ngIf="sub.subwayLine1">| 1호선 |</p>
+          <p *ngIf="sub.subwayLine2">| 2호선 |</p>
+          <p *ngIf="sub.subwayLine3">| 3호선 |</p>
+          <p *ngIf="sub.subwayLine4">| 4호선 |</p>
+          <p *ngIf="sub.subwayLine5">| 5호선 |</p>
+          <p *ngIf="sub.subwayLine6">| 6호선 |</p>
+          <p *ngIf="sub.subwayLine7">| 7호선 |</p>
+          <p *ngIf="sub.subwayLine8">| 8호선 |</p>
+          <p *ngIf="sub.subwayLine9">| 9호선 |</p>
+          <p *ngIf="sub.subwayLine10">| 분당선 |</p>
+          <p *ngIf="sub.subwayLine11">| 신분당선 |</p>
+          <p *ngIf="sub.subwayLine12">| 공항철도 |</p>
+          <p *ngIf="sub.subwayLine13">| 경의중앙선 |</p>
+          <p *ngIf="sub.subwayLine14">| 경춘선 |</p>
+          <p *ngIf="sub.subwayLine15">| 우이신설 |</p>)
+        </option>
+      </select>
+      <button (click)="doSearch()">검색</button>
+    </form>
+  </div>
 
   <div class="main-photo-list">
-  <div class="main-photo" id="img1">
-  <img src="../../assets/imgs/table.jpg">
-</div>
-<div class="main-photo" id="img2">
-  <img src="../../assets/imgs/one.jpg">
-</div>
-<div class="main-photo" id="img3">
-  <img src="../../assets/imgs/cookie.jpg">
-</div>
-<div class="main-photo" id="img4">
-  <img src="../../assets/imgs/meat.jpg">
-</div>
-</div>
+    <div class="main-photo" id="img1">
+      <img src="../../assets/imgs/table.jpg">
+    </div>
+    <div class="main-photo" id="img2">
+      <img src="../../assets/imgs/one.jpg">
+    </div>
+    <div class="main-photo" id="img3">
+      <img src="../../assets/imgs/cookie.jpg">
+    </div>
+    <div class="main-photo" id="img4">
+      <img src="../../assets/imgs/meat.jpg">
+    </div>
+  </div>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ZoneInfo } from '../vo/zone-info';
 import * as $ from 'jquery';
 import { ZoneSubwayService } from '../search/zone-subway.service';
+import { CommonService } from '../common/common.service';
 
 @Component({
   selector: 'app-main',
@@ -11,14 +12,57 @@ import { ZoneSubwayService } from '../search/zone-subway.service';
 })
 export class MainComponent implements OnInit {
    
-  constructor(private _router:Router, private _zonsub : ZoneSubwayService) { }
+  zoneList:any;
+  zoneValue = '지역구 선택';
+  subList: any;
+  subValue = '지하철역 선택';
 
-  ngOnInit() {
-    
+  constructor(private _router:Router, private _zonsub : ZoneSubwayService, private _cs:CommonService) { }
+
+  async ngOnInit() {
+    this._cs.get('/zoi').subscribe(
+      res => {
+        console.log(res);
+        this.zoneList = res;
+        console.log(this.zoneList);
+      }, err => {
+        console.log(err);
+      }
+    )
+
   }
  
   getZones() {
     this._zonsub.getZone();
+  }
+
+  getZoneValue(exp) {
+    console.log(exp);
+  }
+
+  getSubValue(exp) {
+    console.log(exp);
+  }
+
+  getSubwayInfo() {
+    this.subValue = '지하철역 선택';
+    if(this.zoneValue != '지역구 선택' || !this.zoneValue) {
+      this._cs.get('/sui/' + this.zoneValue).subscribe(
+        res => {
+          console.log(res);
+          this.subList = res;
+        }
+      )
+    }
+  }
+
+  doSearch() {
+    if(!this.zoneValue || this.zoneValue == '지역구 선택' || !this.subValue || this.subValue == '지하철역 선택') {
+      alert('지역구와 지하철역을 선택해주세요');
+      return;
+    }else {
+      alert('검색');
+    }
   }
   
 }
