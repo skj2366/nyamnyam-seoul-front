@@ -30,6 +30,17 @@
       </div>
     </div>
   </div>
+  <div *ngIf="isSend && !isCerti">
+    <label for="inputCertification">
+      <h3>인증번호</h3>
+    </label>
+    <input type="text" id="inputCertification" class="form-control" placeholder="Certification Number"
+      [(ngModel)]="certificationNumber">
+    <br>
+    <button id="conNumber" type="button" (click)="confirmCertificationNumber()"> 인증번호 확인</button>
+    &nbsp;&nbsp;
+    <button id="reMail" type="button" (click)="doSendMail()">이메일 재전송</button>
+  </div>
   <div class="signinput" *ngIf="isCerti">
     <h2>Register</h2>
     <label for="inputId" class="sr-only">User ID</label>
@@ -58,5 +69,4 @@
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="button" (click)="doSignUp()">Sign up</button>
   </div>
-  <button class="btn btn-lg btn-primary btn-block" type="button" (click)="doSignUp()">Sign up</button>
 </div>
