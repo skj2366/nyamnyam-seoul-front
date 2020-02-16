@@ -1,4 +1,17 @@
 .footer{
-    font-size: 30pt;
-    color: tomato;
+    font-size: 15pt;
+    color: black;
+    text-align: center;
+}
+
+.footer h2{
+    display: inline;
+    font-family: 'SDKukdetopokki-Lt';
+    font-size: 18pt;
+}
+
+.footer p{
+    font-size: 10pt;
+    font-family: 'MapoPeacefull';
+    text-align: center;
 }

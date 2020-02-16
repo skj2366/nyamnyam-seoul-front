@@ -25,6 +25,10 @@ export class SignupComponent implements OnInit {
     this._router.navigateByUrl('/signup');
   }
 
+  goSignIn(){
+    this._router.navigateByUrl('/login');
+  }
+
   doSignUp() {
     console.log(this.cui);
     this._cs.postJson('/cui', this.cui).subscribe(

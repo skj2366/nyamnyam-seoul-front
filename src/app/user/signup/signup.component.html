@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-3 col-md-6 col-lg-4">
-          <img src="../../../assets/imgs/bakery.jpg" width="500px"height="650" style="border-radius: 10px;">
+          <img src="../../../assets/imgs/yippen.jpg" width="500px"height="650" style="border-radius: 10px;">
         </div>
         <div class="col-sm-9 col-md-6 col-lg-8">
           <div class="signupForm">
@@ -11,27 +11,30 @@
              <h1>Please sign up</h1>
              <br>
              <div class="form-sign-certi" *ngIf="!isCerti">
-              <label for="inputEmail" class="sr-only">Email</label>
+               <label for="inputEmail" class="sr-only">Email</label>
               <input type="email" id="inputEmail" class="form-control" placeholder="Email" required [(ngModel)]="cui.cuiEmail">
               <br>
-              <button class="btn btn-outline-primary" type="button" (click)="checkEmail()" *ngIf="!isSend">
+              <button id="checkBtn" type="button" (click)="checkEmail()" *ngIf="!isSend">
                 이메일 인증받기</button>
-            </div>
-                <br>
-             <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+            </div> 
+            <br>
+            <br>
+            <h4>이미 회원이신가요?</h4>
+            <button id="goBtn" type="button" (click)="goSignIn()">로그인</button>
             </div>
           </div>
         </div>
       </div>
 
       </div>
+
     <div *ngIf="isSend && !isCerti">
-      <label for="inputCertification">인증번호</label>
-      <input type="text" id="inputCertification" class="form-control" placeholder="Certification Number"
-        [(ngModel)]="certificationNumber">
-      <button class="btn btn-lg btn-primary btn-block" type="button" (click)="confirmCertificationNumber()">인증번호
-        확인</button>
-      <button class="btn btn-lg btn-primary btn-block" type="button" (click)="doSendMail()">이메일 재전송</button>
+      <label for="inputCertification"><h3>인증번호</h3></label>
+      <input type="text" id="inputCertification" class="form-control" placeholder="Certification Number" [(ngModel)]="certificationNumber">
+        <br>
+      <button id="conNumber" type="button" (click)="confirmCertificationNumber()"> 인증번호 확인</button>
+      &nbsp;&nbsp;
+      <button id="reMail" type="button" (click)="doSendMail()">이메일 재전송</button>
     </div>
     <div class="form-signinput" *ngIf="isCerti">
       <label for="inputId" class="sr-only">User ID</label>
@@ -60,5 +63,4 @@
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="button" (click)="doSignUp()">Sign up</button>
     </div>
-    <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
   </div>

@@ -1,28 +1,97 @@
+
 .search{
-background-image: url('../../assets/imgs/cook.jpg');
+background-image: url('../../assets/imgs/blackTable-2.jpg');
+margin-top: 20px;
 margin-left: 100px;
 width: 1500px;
-height: 500px;
+height: 200px;
 }
 
+.search #searchBox{
+border: 2px solid black;
+border-radius: 10px;
+background-color: rgba(245, 238, 238 , 0.5 );
+width: 1300px;
+height: 100px;
+padding-top: 1px;
+margin-left: 100px;
+}
+
+.search #searchBox #selectBox{
+ margin-left: 300px;
+}
+
+button{
+    background:rgb(15, 0, 22);
+    color:#fff;
+    border:none;
+    position:relative;
+    z-index: -0;
+    margin-top: 15px;
+    height:60px;
+    font-size:1.6em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+  }
+  button:hover{
+    background: rgba(228, 226, 231, 0.719);
+    color:rgb(15, 0, 22)
+  }
+  button:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: rgb(15, 0, 22);
+    transition:400ms ease all;
+  }
+  button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  button:hover:before,button:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+
 #zone, #subway{
-width: 200px;
-padding: .8em .5em;
+width: 250px;
+height: 45px;
+padding-left: 20px;
+/* padding: .8em .5em; */
 border: 1px solid #999;
 font-family: inherit;
-color: white;
+color: black;
 background: url('../../assets/imgs/arrow.jpg') no-repeat 95% 50%;
+background-color: white;
 border-radius: 0px;
 -webkit-appearance: none;
 -moz-appearance: none;
 appearance: none;
-margin-top:50px
-}
-
-option {
-    background-color: #333333;
+margin-top:20px;
 }
 
 .w3-content{
     margin-top: 10px;
+}
+
+#logo{
+    font-family: 'BMEULJIRO';
+    font-size: 30pt;
+}
+
+#intro1{
+    font-family: 'MapoPeacefull';
+    font-size: 20pt;
+}
+
+#intro2{
+    font-family: 'SDKukdetopokki-Lt';
+    font-size: 15pt;
 }

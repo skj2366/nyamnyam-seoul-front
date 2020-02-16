@@ -52,6 +52,10 @@ export class MenuComponent implements OnInit {
     this._router.navigateByUrl('/map');
   }
 
+  goBoard() {
+    this._router.navigateByUrl('/board');
+  }
+
   doLogout() {
     localStorage.clear();
     sessionStorage.clear();
