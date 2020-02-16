@@ -22,8 +22,7 @@
             <h4>이미 회원이신가요?</h4>
             <button id="goBtn" type="button" (click)="goSignIn()">로그인</button>
             </div>
-            <br>
-            <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+            
           </div>
         </div>
       </div>
@@ -38,7 +37,8 @@
       &nbsp;&nbsp;
       <button id="reMail" type="button" (click)="doSendMail()">이메일 재전송</button>
     </div>
-    <div class="form-signinput" *ngIf="isCerti">
+    <div class="signinput" *ngIf="isCerti">
+      <h2>Register</h2>
       <label for="inputId" class="sr-only">User ID</label>
       <input type="text" id="inputId" class="form-control" placeholder="User ID" required autofocus
         [(ngModel)]="cui.cuiId">
@@ -66,5 +66,4 @@
       <button class="btn btn-lg btn-primary btn-block" type="button" (click)="doSignUp()">Sign up</button>
     </div>
   </div>
-  <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
-</div>
+  

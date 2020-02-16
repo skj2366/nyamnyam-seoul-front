@@ -5,11 +5,11 @@ import { MainComponent } from './main/main.component';
 import { SignupComponent } from './user/signup/signup.component';
 import { MapComponent } from './search/map/map.component';
 import { ManageComponent } from './manage/manage/manage.component';
-import { BoardComponent } from './user/board/board.component';
 import { ResultComponent } from './search/result/result.component';
 import { MypageComponent } from './user/mypage/mypage.component';
 import { CanActivate } from '@angular/router/src/utils/preactivation';
 import { RouterGuardService } from './common/router-guard.service';
+import { BoardListComponent } from './board/board-list/board-list.component';
 
 const routes: Routes = [
   // {
@@ -47,7 +47,7 @@ const routes: Routes = [
   },
   {
     path: 'board',
-    component: BoardComponent
+    component: BoardListComponent
   },
   {
     path: 'mypage',
