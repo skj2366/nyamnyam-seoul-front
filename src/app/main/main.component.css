@@ -1,4 +1,4 @@
-/* 
+
 .search{
 background-image: url('../../assets/imgs/blackTable-2.jpg');
 margin-top: 20px;
@@ -19,9 +19,12 @@ margin-left: 100px;
 
 .search #searchBox #selectBox{
  margin-left: 300px;
-} */
+}
 
-.search {
+/* 
+  ============== 동근이가 가지고 놀던 부분 ============= 
+
+  .search {
   background-image: url('../../assets/imgs/blackTable-2.jpg');
   width: 70%;
   height: 200px;
@@ -35,19 +38,16 @@ margin-left: 100px;
   border: 2px solid black;
   border-radius: 10px;
   background-color: rgba(245, 238, 238 , 0.5 );
-  /* width: 80%; */
   vertical-align: middle;
   text-align: center;
   padding-top: 20px;
   margin-top: 50px;
-  /* margin: 0% 0% 0% 0%; */
-  
 }
 
 #searchBox {
   vertical-align: middle;
   text-align: center;
-}
+} */
 
 button{
     background:rgb(15, 0, 22);

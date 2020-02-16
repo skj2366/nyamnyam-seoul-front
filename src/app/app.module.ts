@@ -15,9 +15,10 @@ import { FooterComponent } from './footer/footer.component';
 import { MapComponent } from './search/map/map.component';
 import { ManageComponent } from './manage/manage/manage.component';
 import { ResultComponent } from './search/result/result.component';
-import { BoardComponent } from './user/board/board.component';
 import { AuthInterceptorService } from './common/auth-interceptor.service';
 import { TotalComponent } from './search/total/total.component';
+import { BoardListComponent } from './board/board-list/board-list.component';
+import { BoardWriteComponent } from './board/board-write/board-write.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +32,9 @@ import { TotalComponent } from './search/total/total.component';
     MapComponent,
     ManageComponent,
     ResultComponent,
-    BoardComponent,
-    TotalComponent
+    TotalComponent,
+    BoardListComponent,
+    BoardWriteComponent
   ],
   imports: [
     FormsModule,

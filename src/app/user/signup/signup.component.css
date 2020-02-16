@@ -109,3 +109,12 @@ h4{
 #reMail:hover{
     background-color: rgba(17, 21, 236, 0.356);
 }
+
+.signinput{
+    border : 1px solid steelblue;
+    border-radius: 10px;
+    width: 1000px;
+    height: 650px;
+    text-align: center;
+    margin-left:350px;
+}
