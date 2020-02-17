@@ -10,6 +10,7 @@ import { MypageComponent } from './user/mypage/mypage.component';
 import { CanActivate } from '@angular/router/src/utils/preactivation';
 import { RouterGuardService } from './common/router-guard.service';
 import { BoardListComponent } from './board/board-list/board-list.component';
+import { BoardWriteComponent } from './board/board-write/board-write.component';
 import { TotalComponent } from './search/total/total.component';
 
 const routes: Routes = [
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'board',
     component: BoardListComponent
+  },
+  {
+    path: 'boardWrite',
+    component: BoardWriteComponent
   },
   {
     path: 'mypage',

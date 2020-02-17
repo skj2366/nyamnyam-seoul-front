@@ -1,3 +1,42 @@
-<p>
-  board-list works!
-</p>
+
+<div class="contents" style="margin-right: 200px ; margin-left: 200px ; margin-top: 60px">
+  <h3 style="margin-right: auto ; margin-left: auto">식당 후기</h3>
+  <br>
+        <table class="reviewTable" border="1" style="width: 1500px">
+        <colgroup>
+          <col style="width:5%">
+          <col style="width:8%">
+          <col style="width:12%">
+          <col style="width:20%">
+          <col style="width:35%">
+          <col style="width:5%">
+          <col style="width:5%">
+          <col style="width:10%">
+        </colgroup>
+        <tr>
+          <th scope="col">번호</th>
+          <th scope="col">구</th>
+          <th scope="col">역</th>
+          <th scope="col">식당이름</th>
+          <th scope="col">제목</th>
+          <th scope="col">좋아요</th>
+          <th scope="col">조회수</th>
+          <th scope="col">작성시간</th>
+        </tr>
+        <tr *ngFor="let review of reviews">
+          <td>{{review.reiNum}}</td>
+          <td>지역</td>
+          <td>지하철역</td>
+          <td>식당이름</td>
+          <td><a href="/review/{{review.reiNum}}">{{review.reiTitle}}</a></td>
+          <td>{{review.reiLike}}</td>
+          <td>{{review.reiCount}}</td>        
+          <td>작성시간</td>         
+        </tr>
+        
+      </table>
+      <br>     
+      <div class="col text-right">
+      <button type="button" class="btn btn-outline-danger" onclick="location.href='/boardWrite'">글쓰기</button>
+      </div>
+</div>

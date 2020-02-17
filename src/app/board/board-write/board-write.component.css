@@ -1,0 +1,83 @@
+.boardwrite input#inputNickname{
+    margin-left: 10px;
+    margin-top: 20px;
+    width : 600px;
+    height: 40px; 
+    padding:5px 0px 0px 10px; 
+    border: 0px; 
+    border-bottom: 2px solid  rgb(5, 5, 90);
+    font-family: 'MapoPeacefull';
+}
+
+.boardwrite input#inputVisitDate{
+    margin-left: 10px;
+    margin-top: 20px;
+    width : 600px;
+    height: 40px; 
+    padding:5px 0px 0px 10px; 
+    border: 0px; 
+    border-bottom: 2px solid  rgb(5, 5, 90);
+    font-family: 'MapoPeacefull';
+}
+
+.boardwrite input#inputEmail{
+    margin-left: 10px;
+    margin-top: 20px;
+    width : 600px;
+    height: 40px; 
+    padding:5px 0px 0px 10px; 
+    border: 0px; 
+    border-bottom: 2px solid  rgb(5, 5, 90);
+    font-family: 'MapoPeacefull';
+}
+
+.boardwrite input#inputPhone{
+    margin-left: 10px;
+    margin-top: 20px;
+    width : 600px;
+    height: 40px; 
+    padding:5px 0px 0px 10px; 
+    border: 0px; 
+    border-bottom: 2px solid  rgb(5, 5, 90);
+    font-family: 'MapoPeacefull';
+}
+
+.box-radio-input input[type="radio"]{
+    display:none;
+}
+
+.box-radio-input input[type="radio"] + span{
+    display:inline-block;
+    background:none;
+    border:2px solid rgb(117, 112, 112);    
+    padding:0px 10px;
+    text-align:center;
+    height:35px;
+    line-height:33px;
+    font-weight:500;
+    cursor:pointer;
+}
+
+.box-radio-input input[type="radio"]:checked + span{
+    border:1px solid rgb(117, 112, 112);
+    background:rgb(117, 112, 112);
+    color:#fff;
+}
+
+.box-radio-input input[type="checkbox"] + span{
+    display:inline-block;
+    background:none;
+    border:2px solid rgb(117, 112, 112);    
+    padding:0px 10px;
+    text-align:center;
+    height:35px;
+    line-height:33px;
+    font-weight:500;
+    cursor:pointer;
+}
+
+.box-radio-input input[type="checkbox"]:checked + span{
+    border:1px solid rgb(117, 112, 112);
+    background:rgb(117, 112, 112);
+    color:#fff;
+}

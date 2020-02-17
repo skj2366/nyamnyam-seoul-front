@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReviewList } from 'src/app/vo/review-list';
 
 @Component({
   selector: 'app-board-list',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./board-list.component.css']
 })
 export class BoardListComponent implements OnInit {
+  reviews : ReviewList = new ReviewList();
 
   constructor() { }
 
