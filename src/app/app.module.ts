@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AgGridModule } from 'ag-grid-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { AuthInterceptorService } from './common/auth-interceptor.service';
 import { TotalComponent } from './search/total/total.component';
 import { BoardListComponent } from './board/board-list/board-list.component';
 import { BoardWriteComponent } from './board/board-write/board-write.component';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { BoardWriteComponent } from './board/board-write/board-write.component';
     AppRoutingModule,
     HttpClientModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule.withComponents([])
   ],
   providers: [
     {

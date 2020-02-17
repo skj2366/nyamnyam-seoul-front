@@ -1,0 +1,12 @@
+/deep/ .ag-root-wrapper-body.ag-layout-normal {
+	height: 400px; 
+} 
+
+/deep/ .ag-header-cell-label {
+	justify-content: center; 
+} /*ag-grid header에 모두 적용 */
+
+/deep/ [col-id=column_1] .ag-header-cell-text {
+	width: 100%; 
+	text-align: right; /*오른쪽 정렬을 위함 (default 왼쪽 정렬) */
+} /*.ag-header-cell-text는 header의 span class명, columnDefs에 지정해준 각 field로 column id가 지정되는데 정렬할 컬럼을 명시해주기 위함*/
