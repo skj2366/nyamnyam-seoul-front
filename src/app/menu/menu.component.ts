@@ -52,6 +52,9 @@ export class MenuComponent implements OnInit {
     this._router.navigateByUrl('/map');
   }
 
+  goTotal() {
+    this._router.navigateByUrl('/total');
+  } 
   goBoard() {
     this._router.navigateByUrl('/board');
   }

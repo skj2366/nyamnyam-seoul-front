@@ -25,7 +25,7 @@ input#inputId{
     padding:5px 0px 0px 10px; 
     border: 0px; 
     border-bottom: 2px solid  rgb(5, 5, 90);
-    font-family: 'MapoPeacefull';
+    
 }
 
 input#inputPassword{
@@ -34,7 +34,7 @@ input#inputPassword{
     padding:5px 0px 0px 10px; 
     border: 0px; 
     border-bottom: 2px solid  rgb(5, 5, 90);
-    font-family: 'MapoPeacefull';
+    
 }
 
 input:focus {
@@ -79,7 +79,7 @@ input[type="checkbox"]{
 }
 
 #registerBtn{
-    background-color: rgb(252, 77, 120);
+    background-color: rgb(175, 6, 6);
     border-radius: 10px;
     width: 200px;
     height: 50px;
@@ -88,7 +88,7 @@ input[type="checkbox"]{
     color: cornsilk;
 }
 #registerBtn:hover{
-    background-color: rgba(98, 17, 236, 0.651);
+    background-color: rgba(16, 2, 41, 0.541);
 }
 
 h4{

@@ -1,20 +1,21 @@
 
-.search{
+/* .search{
 background-image: url('../../assets/imgs/blackTable-2.jpg');
 margin-top: 20px;
 margin-left: 100px;
 width: 1500px;
 height: 200px;
-}
+} */
 
 .search #searchBox{
 border: 2px solid black;
 border-radius: 10px;
 background-color: rgba(245, 238, 238 , 0.5 );
-width: 1300px;
+width: 1460px;
 height: 100px;
 padding-top: 1px;
-margin-left: 100px;
+margin-left: 120px;
+margin-top: 20px;
 }
 
 .search #searchBox #selectBox{
@@ -89,8 +90,8 @@ button{
   }
 
 #zone, #subway{
-width: 250px;
-height: 45px;
+width: 280px;
+height: 50px;
 padding-left: 20px;
 /* padding: .8em .5em; */
 border: 1px solid #999;
@@ -98,11 +99,12 @@ font-family: inherit;
 color: black;
 background: url('../../assets/imgs/arrow.jpg') no-repeat 95% 50%;
 background-color: white;
+border: 1.5px solid black;
 border-radius: 0px;
 -webkit-appearance: none;
 -moz-appearance: none;
 appearance: none;
-margin-top:20px;
+margin-top:16px;
 }
 
 .w3-content{

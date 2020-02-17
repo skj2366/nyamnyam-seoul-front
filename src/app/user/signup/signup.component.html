@@ -12,61 +12,64 @@
             <br>
             <div class="form-sign-certi" *ngIf="!isCerti">
               <label for="inputEmail" class="sr-only">Email</label>
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email" required
-                [(ngModel)]="cui.cuiEmail">
+              <input type="email" id="inputEmail" class="fas fa-envelope fa-2x" placeholder="&#xf0e0; Email"  [(ngModel)]="cui.cuiEmail">
               <br>
-              <button id="checkBtn" type="button" (click)="checkEmail()" *ngIf="!isSend">
-                이메일 인증받기</button>
+              <br>
+              <button id="checkBtn" type="button" (click)="checkEmail()" *ngIf="!isSend"> 이메일 인증받기</button>
+              <br>
+              <br>
+              <br>
+              <h4>이미 회원이신가요?</h4>
+              <button id="goBtn" type="button" (click)="goSignIn()">로그인</button>
             </div>
-            <br>
-            <br>
-            <h4>이미 회원이신가요?</h4>
-            <button id="goBtn" type="button" (click)="goSignIn()">로그인</button>
-          </div>
 
+            <div *ngIf="isSend && !isCerti">
+              <br>
+              <br>
+              <label for="inputCertification">
+                <h3>인증번호</h3>
+              </label>
+              <input type="text" id="inputCertification" class="form-control" placeholder="Certification Number"
+                [(ngModel)]="certificationNumber">
+              <br>
+              <button id="conNumber" type="button" (click)="confirmCertificationNumber()"> 인증번호 확인</button>
+                &nbsp;&nbsp;
+              <button id="reMail" type="button" (click)="doSendMail()">이메일 재전송</button>
+              </div>
+
+            <div class="signinput" *ngIf="isCerti">
+              <label for="inputId" class="sr-only">User ID</label>
+              <input type="text" id="inputId" class="fas fa-user" placeholder="&#xf007; User ID" [(ngModel)]="cui.cuiId">
+              <label for="inputPassword" class="sr-only">Password</label>
+              <input type="password" id="inputPassword" class="fas fa-lock" placeholder="&#xf023; Password" [(ngModel)]="cui.cuiPwd">
+              <label for="inputName" class="sr-only">Name</label>
+              <input type="text" id="inputName" class="fas fa-signature" placeholder="&#xf5b7; Name" [(ngModel)]="cui.cuiName">
+              <label for="inputNickname" class="sr-only">NickName</label>
+              <input type="text" id="inputNickname" class="far fa-laugh" placeholder="&#xf599; Nickname" [(ngModel)]="cui.cuiNickname">
+              <label for="inputBirth" class="sr-only">Birth</label>
+              <input type="text" id="inputBirth" class="fas fa-birthday-cake" placeholder="&#xf1fd; Birth" [(ngModel)]="cui.cuiBirth">
+              <label for="inputEmail" class="sr-only">Email</label>
+              <input type="text" id="inputEmail" class="fas fa-envelope" placeholder="&#xf0e0; Email" [(ngModel)]="cui.cuiEmail">
+              <label for="inputPhone" class="sr-only">Phone</label>
+              <input type="text" id="inputPhone" class="fas fa-mobile-alt" placeholder="&#xf3cd; PhoneNumber" [(ngModel)]="cui.cuiPhone">
+              <br>
+              <br>
+              <div class="checks">
+                <label class="box-radio-input">
+                  <input type="radio" name="trans" value="1" [(ngModel)]="cui.cuiTrans">
+                    <span>Male</span>
+                </label>
+                &nbsp;&nbsp;
+                <label class="box-radio-input">
+                  <input type="radio" name="trans" value="2" [(ngModel)]="cui.cuiTrans">
+                    <span>Female</span>
+                </label>
+              </div>
+              <button id="upBtn" type="button" (click)="doSignUp()">Sign up</button>
+            </div>
+          </div>
         </div>
-        <br>
-        <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
       </div>
     </div>
-  </div>
-  <div *ngIf="isSend && !isCerti">
-    <label for="inputCertification">
-      <h3>인증번호</h3>
-    </label>
-    <input type="text" id="inputCertification" class="form-control" placeholder="Certification Number"
-      [(ngModel)]="certificationNumber">
-    <br>
-    <button id="conNumber" type="button" (click)="confirmCertificationNumber()"> 인증번호 확인</button>
-    &nbsp;&nbsp;
-    <button id="reMail" type="button" (click)="doSendMail()">이메일 재전송</button>
-  </div>
-  <div class="signinput" *ngIf="isCerti">
-    <h2>Register</h2>
-    <label for="inputId" class="sr-only">User ID</label>
-    <input type="text" id="inputId" class="form-control" placeholder="User ID" required autofocus
-      [(ngModel)]="cui.cuiId">
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required
-      [(ngModel)]="cui.cuiPwd">
-    <label for="inputName" class="sr-only">Name</label>
-    <input type="text" id="inputName" class="form-control" placeholder="Name" required [(ngModel)]="cui.cuiName">
-    <label for="inputNickname" class="sr-only">NickName</label>
-    <input type="text" id="inputNickname" class="form-control" placeholder="Nickname" required
-      [(ngModel)]="cui.cuiNickname">
-    <label for="inputBirth" class="sr-only">Birth</label>
-    <input type="text" id="inputBirth" class="form-control" placeholder="Birth" required [(ngModel)]="cui.cuiBirth">
-    <label for="inputEmail" class="sr-only">Email</label>
-    <input type="text" id="inputEmail" class="form-control" placeholder="Email" required [(ngModel)]="cui.cuiEmail">
-    <label for="inputPhone" class="sr-only">Phone</label>
-    <input type="text" id="inputPhone" class="form-control" placeholder="PhoneNumber" required
-      [(ngModel)]="cui.cuiPhone">
-    <div class="checkbox mb-3">
-      <label>
-        <input type="radio" value="1" name="trans" [(ngModel)]="cui.cuiTrans"> Male
-        <input type="radio" value="2" name="trans" [(ngModel)]="cui.cuiTrans"> Female
-      </label>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" type="button" (click)="doSignUp()">Sign up</button>
   </div>
 </div>

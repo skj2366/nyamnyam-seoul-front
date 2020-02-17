@@ -20,14 +20,14 @@
 }
 
 input#inputEmail{
-    margin-left: 25px;
+    margin-left: 20px;
     margin-top: 50px;
-    width : 430px;
+    width : 450px;
     height: 40px; 
-    padding:5px 0px 0px 10px; 
+    padding:0px 0px 0px 10px; 
     border: 0px; 
     border-bottom: 2px solid  rgb(5, 5, 90);
-    font-family: 'MapoPeacefull';
+    
 }
 
 input:focus {
@@ -35,14 +35,14 @@ input:focus {
 }
 
 input#inputCertification{
-    margin-left: 600px;
+    margin-left: 30px;
     margin-top: 20px;
-    width : 500px;
+    width : 400px;
     height: 40px; 
     padding:5px 0px 0px 10px; 
     border: 0px; 
     border-bottom: 2px solid  rgb(5, 5, 90);
-    font-family: 'MapoPeacefull';
+    font-family: 'BMEULJIRO';
     font-size: 20pt;
 }
 
@@ -66,7 +66,7 @@ h3{
 
 
 #goBtn{
-    background-color: rgb(252, 77, 120);
+    background-color:rgb(175, 6, 6);
     border-radius: 10px;
     width: 200px;
     height: 50px;
@@ -75,7 +75,7 @@ h3{
     color: cornsilk;
 }
 #goBtn:hover{
-    background-color: rgba(98, 17, 236, 0.651);
+    background-color: rgba(16, 2, 41, 0.541);
 }
 
 h4{
@@ -111,10 +111,126 @@ h4{
 }
 
 .signinput{
-    border : 1px solid steelblue;
-    border-radius: 10px;
-    width: 1000px;
+    /* border : 1px solid steelblue;
+    border-radius: 10px; */
+    width: 450px;
     height: 650px;
     text-align: center;
-    margin-left:350px;
+    margin-left:30px;
+    margin-top: -15px;
 }
+
+.signinput input#inputId{
+    margin-left: 10px;
+    margin-top: 20px;
+    width : 400px;
+    height: 40px; 
+    padding:5px 0px 0px 10px; 
+    border: 0px; 
+    border-bottom: 2px solid  rgb(5, 5, 90);
+   
+}
+
+.signinput input#inputPassword{
+    margin-left: 10px;
+    margin-top: 20px;
+    width : 400px;
+    height: 40px; 
+    padding:5px 0px 0px 10px; 
+    border: 0px; 
+    border-bottom: 2px solid  rgb(5, 5, 90);
+    
+}
+
+.signinput input#inputName{
+    margin-left: 10px;
+    margin-top: 20px;
+    width : 400px;
+    height: 40px; 
+    padding:5px 0px 0px 10px; 
+    border: 0px; 
+    border-bottom: 2px solid  rgb(5, 5, 90);
+    
+}
+
+.signinput input#inputNickname{
+    margin-left: 10px;
+    margin-top: 20px;
+    width : 400px;
+    height: 40px; 
+    padding:5px 0px 0px 10px; 
+    border: 0px; 
+    border-bottom: 2px solid  rgb(5, 5, 90);
+  
+}
+
+.signinput input#inputBirth{
+    margin-left: 10px;
+    margin-top: 20px;
+    width : 400px;
+    height: 40px; 
+    padding:5px 0px 0px 10px; 
+    border: 0px; 
+    border-bottom: 2px solid  rgb(5, 5, 90);
+    
+}
+
+.signinput input#inputEmail{
+    margin-left: 10px;
+    margin-top: 20px;
+    width : 400px;
+    height: 40px; 
+    padding:5px 0px 0px 10px; 
+    border: 0px; 
+    border-bottom: 2px solid  rgb(5, 5, 90);
+    
+}
+
+.signinput input#inputPhone{
+    margin-left: 10px;
+    margin-top: 20px;
+    width : 400px;
+    height: 40px; 
+    padding:5px 0px 0px 10px; 
+    border: 0px; 
+    border-bottom: 2px solid  rgb(5, 5, 90);
+    
+}
+
+.box-radio-input input[type="radio"]{
+    display:none;
+}
+
+.box-radio-input input[type="radio"] + span{
+    display:inline-block;
+    background:none;
+    border:2px solid black;    
+    padding:0px 10px;
+    text-align:center;
+    height:35px;
+    line-height:33px;
+    font-weight:500;
+    cursor:pointer;
+}
+
+.box-radio-input input[type="radio"]:checked + span{
+    border:1px solid rgb(2, 19, 51);
+    background:rgb(2, 19, 51);
+    color:#fff;
+}
+
+#upBtn{
+    margin-top: 6px;
+    background-color: rgb(2, 19, 51);
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    font-family: 'MapoPeacefull';
+    font-size: 15pt;
+    color: cornsilk;
+}
+
+#upBtn:hover{
+    background-color: rgb(214, 201, 245);
+}
+
