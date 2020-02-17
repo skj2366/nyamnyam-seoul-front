@@ -1,3 +1,51 @@
-<p>
-  board-write works!
-</p>
+
+<div class="boardwrite" style="margin-right: 650px ; margin-left: 650px ; margin-top: 60px">
+  <h3 style="margin-right: auto ; margin-left: auto">후기를 작성해주세요!</h3>
+
+  <label for="inputNickname">닉네임</label>
+  <input type="text" id="inputNickname" placeholder="Nickname" [(ngModel)]="cui.cuiNickname">
+  
+  <label for="inputVisitDate">방문날짜</label>
+  <input type="date" id="inputNickname" placeholder="VisitDate" [(ngModel)]="cui.reiDate">
+  <br>
+  <label for="inputVisitDate">방문시간</label>
+  <div class="checks" style="margin-right: 150px ; margin-left: 150px">
+    <label class="box-radio-input">
+      <input type="radio" name="times" value="1" [(ngModel)]="cui.reiTime">
+        <span>아침</span>
+    </label>
+    &nbsp;&nbsp;
+    <label class="box-radio-input">
+      <input type="radio" name="times" value="2" [(ngModel)]="cui.reiTime">
+        <span>점심</span>
+    </label>
+    &nbsp;&nbsp;
+    <label class="box-radio-input">
+      <input type="radio" name="times" value="3" [(ngModel)]="cui.reiTime">
+        <span>저녁</span>
+    </label>
+    &nbsp;&nbsp;
+    <label class="box-radio-input">
+      <input type="radio" name="times" value="4" [(ngModel)]="cui.reiTime">
+        <span>밤</span>
+    </label>
+  </div>
+  <br>
+  <label for="inputTheme">몇 명 ???? </label>
+  <div class="checks" style="margin-right: 150px ; margin-left: 150px">    
+    <label class="box-radio-input">
+      <input type="checkbox" name="trans" value="1" [(ngModel)]="cui.cuiTrans">
+        <span>혼자</span>
+    </label>
+    &nbsp;&nbsp;
+    <label class="box-radio-input">
+      <input type="checkbox" name="trans" value="1" [(ngModel)]="cui.cuiTrans">
+        <span>둘이서</span>
+    </label>
+    &nbsp;&nbsp;
+    <label class="box-radio-input">
+      <input type="checkbox" name="trans" value="1" [(ngModel)]="cui.cuiTrans">
+        <span>넷 이상</span>
+    </label>
+  </div>
+</div>
