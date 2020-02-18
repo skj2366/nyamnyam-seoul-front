@@ -1,12 +1,11 @@
 
+
 <div class="boardwrite" style="margin-right: 650px ; margin-left: 650px ; margin-top: 60px">
   <h3 style="margin-right: auto ; margin-left: auto">후기를 작성해주세요!</h3>
 
-  <label for="inputNickname">닉네임</label>
-  <input type="text" id="inputNickname" placeholder="Nickname" [(ngModel)]="cui.cuiNickname">
-  
-  <label for="inputVisitDate">방문날짜</label>
+  <input type="text" id="inputNickname" placeholder="Nickname" [(ngModel)]="cui.cuiNickname">  
   <input type="date" id="inputNickname" placeholder="VisitDate" [(ngModel)]="cui.reiDate">
+  <br>
   <br>
   <label for="inputVisitDate">방문시간</label>
   <div class="checks" style="margin-right: 150px ; margin-left: 150px">
@@ -31,20 +30,56 @@
     </label>
   </div>
   <br>
-  <label for="inputTheme">몇 명 ???? </label>
-  <div class="checks" style="margin-right: 150px ; margin-left: 150px">    
-    <label class="box-radio-input">
-      <input type="checkbox" name="trans" value="1" [(ngModel)]="cui.cuiTrans">
+  <br>
+  <label for="inputZoneSubway">방문구역</label>
+  <div id="selectBox" style="margin-left: 20px">
+    <select id="zone" [(ngModel)]="zoneValue" name="zoneValue" (change)="getSubwayInfo()">
+      <option selected value="지역구 선택">지역구 선택</option>
+      <option *ngFor="let zone of zoneList" [value]="zone.zoneNum">{{zone.zoneName}}
+      </option>
+    </select> &nbsp;
+    <select id="subway" [(ngModel)]="subValue" name="subValue" (change)="getSubValue(subValue)">
+      <option selected value="지하철역 선택">지하철역 선택</option>
+      <option *ngFor="let sub of subList" [value]="sub.subwayNum">{{sub.subwayName}} (
+        <p *ngIf="sub.subwayLine1">| 1호선 |</p>
+        <p *ngIf="sub.subwayLine2">| 2호선 |</p>
+        <p *ngIf="sub.subwayLine3">| 3호선 |</p>
+        <p *ngIf="sub.subwayLine4">| 4호선 |</p>
+        <p *ngIf="sub.subwayLine5">| 5호선 |</p>
+        <p *ngIf="sub.subwayLine6">| 6호선 |</p>
+        <p *ngIf="sub.subwayLine7">| 7호선 |</p>
+        <p *ngIf="sub.subwayLine8">| 8호선 |</p>
+        <p *ngIf="sub.subwayLine9">| 9호선 |</p>
+        <p *ngIf="sub.subwayLine10">| 분당선 |</p>
+        <p *ngIf="sub.subwayLine11">| 신분당선 |</p>
+        <p *ngIf="sub.subwayLine12">| 공항철도 |</p>
+        <p *ngIf="sub.subwayLine13">| 경의중앙선 |</p>
+        <p *ngIf="sub.subwayLine14">| 경춘선 |</p>
+        <p *ngIf="sub.subwayLine15">| 우이신설 |</p>
+        )
+      </option>
+    </select>
+  </div>
+  <br>
+  <label for="inputTheme">방문식당</label>  
+    <div class="ng-autocomplete" id="inputReiname" [(ngModel)]="rei.reiName" style="margin-right: 50px ; margin-left: 50px">
+      <ng-autocomplete aria-placeholder="VisitRestaurant" ></ng-autocomplete>
+    </div>
+  <br>
+  <label for="inputTheme">몇 명과 식사?</label>
+  <div class="checks" style="margin-right: 180px ; margin-left: 180px">    
+    <label class="box-check-input">
+      <input type="checkbox" name="themes" value="1" [(ngModel)]="cui.cuiTrans">
         <span>혼자</span>
     </label>
     &nbsp;&nbsp;
-    <label class="box-radio-input">
-      <input type="checkbox" name="trans" value="1" [(ngModel)]="cui.cuiTrans">
+    <label class="box-check-input">
+      <input type="checkbox" name="themes" value="1" [(ngModel)]="cui.cuiTrans">
         <span>둘이서</span>
     </label>
     &nbsp;&nbsp;
-    <label class="box-radio-input">
-      <input type="checkbox" name="trans" value="1" [(ngModel)]="cui.cuiTrans">
+    <label class="box-check-input">
+      <input type="checkbox" name="themes" value="1" [(ngModel)]="cui.cuiTrans">
         <span>넷 이상</span>
     </label>
   </div>
