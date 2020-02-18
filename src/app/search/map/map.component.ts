@@ -3,6 +3,7 @@ import { ZoneSubwayService } from '../zone-subway.service';
 import { KakaoMapService } from 'src/app/common/kakao-map.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonService } from 'src/app/common/common.service';
+import { RestaurantList } from 'src/app/vo/restaurant-list';
 
 @Component({
   selector: 'app-map',
@@ -13,7 +14,7 @@ export class MapComponent implements OnInit {
 
   zoneValue: number = 0;
   subValue: number = 0;
-  result;
+  rels: RestaurantList[];
 
   constructor(private _zonsub: ZoneSubwayService, private _km: KakaoMapService, route: ActivatedRoute, private _cs: CommonService) {
     this.zoneValue = route.snapshot.params['zoneValue'];
@@ -22,34 +23,22 @@ export class MapComponent implements OnInit {
 
   async ngOnInit() {
     if (this.zoneValue != 0 && this.zoneValue != undefined) {
-      this._cs.get('/rel?zoneNum=' + this.zoneValue + '&subwayNum=' + this.subValue).subscribe(
+      await this._cs.get('/rels?zoneNum=' + this.zoneValue + '&subwayNum=' + this.subValue).subscribe(
         res => {
-          if(this._cs.getObjectLength(res) != 0) {
-            console.log(res);
-            console.log(res[0].relLatitude);
-            console.log(res[0].relLongitude);
-            this._km.makeMap(res[0].relLongitude, res[0].relLatitude);
-          }else {
+          if (this._cs.getObjectLength(res) != 0) {
+            this.rels = <RestaurantList[]>res;
+            console.log(this.rels);
+            this._km.makeMapBySubway(0, this.rels);
+          } else {
             console.log('아무 것도 없음');
           }
+          // console.log(res);
         },
         err => {
           console.log(err);
         }
       )
     }
-  }
-
-  getZones() {
-    this._zonsub.getZone();
-  }
-
-  makeMap() {
-    this._km.makeMap(127, 37);
-  }
-
-  qwe() {
-    alert('zoneValue : ' + this.zoneValue + ' and subValue : ' + this.subValue);
   }
 
 }
