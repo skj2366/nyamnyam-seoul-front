@@ -13,6 +13,7 @@ export class MapComponent implements OnInit {
 
   zoneValue: number = 0;
   subValue: number = 0;
+  result;
 
   constructor(private _zonsub: ZoneSubwayService, private _km: KakaoMapService, route: ActivatedRoute, private _cs: CommonService) {
     this.zoneValue = route.snapshot.params['zoneValue'];
@@ -20,15 +21,17 @@ export class MapComponent implements OnInit {
   }
 
   async ngOnInit() {
-    // await this._km.makeMap(125, 37);
     if (this.zoneValue != 0 && this.zoneValue != undefined) {
-      // alert('zoneValue : ' + this.zoneValue + ' and subValue : ' + this.subValue);
       this._cs.get('/rel?zoneNum=' + this.zoneValue + '&subwayNum=' + this.subValue).subscribe(
         res => {
-          console.log(res);
-          console.log(res[0].relLatitude);
-          console.log(res[0].relLongitude);
-          this._km.makeMap(res[0].relLongitude, res[0].relLatitude);
+          if(this._cs.getObjectLength(res) != 0) {
+            console.log(res);
+            console.log(res[0].relLatitude);
+            console.log(res[0].relLongitude);
+            this._km.makeMap(res[0].relLongitude, res[0].relLatitude);
+          }else {
+            console.log('아무 것도 없음');
+          }
         },
         err => {
           console.log(err);

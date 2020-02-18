@@ -32,7 +32,6 @@ export class MainComponent implements OnInit {
         console.log(err);
       }
     )
-
   }
 
   getZones() {

@@ -58,4 +58,9 @@ export class CommonService {
     url = baseUrl + url;
     return this._http.put(url, obj, httpJson);
   }
+
+  getObjectLength(obj): number {
+      var length = Object.keys(obj).length;
+      return length;
+  }
 }
