@@ -1,11 +1,47 @@
 <div id="myGrid" class="contents" style="margin-right: 200px ; margin-left: 200px ; margin-top: 60px">
     <h2> 관리자 화면 </h2>
+    <h3>==유저관리==</h3>
     <ag-grid-angular ag-grid-angular #agGrid id="myGrid" 
                      style="min-width: 500px; min-height: 300px;"
                      [ngClass]="theme"                           
                      [rowData]="rowData"                          
                      [defaultColDef]="defaultColDef"             
-                     [columnDefs]="columnDefs"                 
+                     [columnDefs]="columnDefsUser"                 
+                     [pagination]="true"                      
+                     [paginationPageSize]=50                   
+                     [enableBrowserTooltips]="true"            
+                     [rowHeight]="30"                       
+                     (gridReady)="onGridReady($event)"
+                     (firstDataRendered)="fitColumnsSize($event)" 
+                     (rowDataChanged)="fitColumnsSize($event)">
+
+    </ag-grid-angular>
+
+    <br>
+    <h3>==식당관리==</h3>
+    <ag-grid-angular ag-grid-angular #agGrid id="myGrid" 
+                     style="min-width: 500px; min-height: 300px;"
+                     [ngClass]="theme"                           
+                     [rowData]="rowData"                          
+                     [defaultColDef]="defaultColDef"             
+                     [columnDefs]="columnDefsUser"                 
+                     [pagination]="true"                      
+                     [paginationPageSize]=50                   
+                     [enableBrowserTooltips]="true"            
+                     [rowHeight]="30"                       
+                     (gridReady)="onGridReady($event)"
+                     (firstDataRendered)="fitColumnsSize($event)" 
+                     (rowDataChanged)="fitColumnsSize($event)">
+
+    </ag-grid-angular>
+
+    <h3>==댓글관리==</h3>
+    <ag-grid-angular ag-grid-angular #agGrid id="myGrid" 
+                     style="min-width: 500px; min-height: 300px;"
+                     [ngClass]="theme"                           
+                     [rowData]="rowData"                          
+                     [defaultColDef]="defaultColDef"             
+                     [columnDefs]="columnDefsUser"                 
                      [pagination]="true"                      
                      [paginationPageSize]=50                   
                      [enableBrowserTooltips]="true"            
