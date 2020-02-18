@@ -1,0 +1,104 @@
+.result{
+    width: 1500px;
+    height: 1000px;
+    border: 2px solid black;
+    margin-left: 90px;
+    margin-top: 30px;
+}
+
+h3{
+    font-family: 'MapoPeacefull';
+    }
+
+#restaurant{
+    border-bottom: 2px solid rgb(5, 5, 90);
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+.ng-autocomplete {
+    width: 400px;
+    font-weight:bold;
+    font-family: 'BMHANNAAir';
+    font-size: 13pt; 
+}
+
+.infos #info1{
+    width: 400px;
+    margin-top: 30px;
+    margin-left: 100px;
+    border-bottom: 2px solid rgb(5, 5, 90);
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+.tab{
+    min-width: 320px;
+    max-width: 600px;
+    margin: 40px 0 0 100px;
+    height: 450px;
+    /* height: auto; 사이즈 대충 할려고 일단 주석*/
+    border-bottom: 1px solid rgb(5, 5, 90); /* 사이즈 볼려고 풀어 둠*/
+    /* border-left: 1px solid rgb(5, 5, 90);
+    border-right: 1px solid rgb(5, 5, 90); */
+    background: #ffffff;
+}
+
+.tab p{
+    margin: 0 0 20px;
+    line-height: 1.5;
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
+}
+
+.tab section{
+    display: none;
+    padding: 10px 0 0 20px;
+    border-top: 1px solid rgb(5, 5, 90);
+}
+
+/* 라디오 버튼 숨김 */
+.tab input{
+    display: none;
+}
+
+.tab label{
+    display: inline-block;
+    margin: 0 0 -1px 0;
+    padding: 15px 25px;
+    font-weight: 800;
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
+    text-align: center;
+    color: rgb(104, 98, 98);
+    border: 1px solid transparent;
+}
+
+.tab label:hover{
+    color: #ac0d0d;
+    cursor: pointer;
+}
+
+/*input 클릭시, label 스타일*/
+.tab input:checked + label{
+    color: black;
+    border: 1px solid rgb(5, 5, 90);
+    border-top: 5px solid rgb(5, 5, 90);
+    border-bottom: 1px solid #ffffff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3{
+    display: block;
+}
+
+.blog{
+    width: 1300px;
+    height: 200px;
+    /* height: auto; */
+    margin: auto;
+    border: 1px solid black;
+}

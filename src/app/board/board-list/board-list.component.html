@@ -1,6 +1,6 @@
 
-<div class="contents" style="margin-right: 200px ; margin-left: 200px ; margin-top: 60px">
-  <h3 style="margin-right: auto ; margin-left: auto">식당 후기</h3>
+<div class="contents">
+  <h2><b>식당 후기</b></h2>
   <br>
         <table class="reviewTable" border="1" style="width: 1500px">
         <colgroup>
@@ -23,6 +23,17 @@
           <th scope="col">조회수</th>
           <th scope="col">작성시간</th>
         </tr>
+        <tr *ngFor="let list of lists">
+          <td>{{list.no}}</td>
+          <td>{{list.gu}}</td>
+          <td>{{list.station}}</td>
+          <td>{{list.title}}</td>
+          <td>{{list.title}}</td>
+          <td>{{list.count}}</td>
+          <td>{{list.count}}</td>
+          <td>2020/02/18</td>
+        </tr>        
+            <!-- //디자인 볼려고 주석해둠//
         <tr *ngFor="let review of reviews">
           <td>{{review.reiNum}}</td>
           <td>지역</td>
@@ -32,11 +43,9 @@
           <td>{{review.reiLike}}</td>
           <td>{{review.reiCount}}</td>        
           <td>작성시간</td>         
-        </tr>
-        
+        </tr> -->        
       </table>
-      <br>     
-      <div class="col text-right">
+      <div>
       <button type="button" class="btn btn-outline-danger" onclick="location.href='/boardWrite'">글쓰기</button>
-      </div>
-</div>
+    </div>
+    </div>

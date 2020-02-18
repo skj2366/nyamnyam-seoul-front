@@ -1,10 +1,20 @@
+.contents{
+    margin-left: 90px ; 
+    margin-top: 30px;
+}
+
+h2{
+font-family: 'MapoPeacefull';
+}
+
 table.reviewTable {
     border-collapse: collapse;
     text-align: left;
     line-height: 1.5;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    margin: 20px 10px;
+    border: 0px;
+    /* border-top: 1px solid #ccc; */
+    /* border-bottom: 1px solid #ccc; */
+    margin: 15px 10px;
 }
 table.reviewTable th {
     width: 150px;
@@ -15,16 +25,35 @@ table.reviewTable th {
     background: #c94545;
     margin: 20px 10px;
     text-align: center;
+    border: 0px;
+    border-bottom:1px solid black;
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
 }
-table.reviewTable tbody th {
+/* table.reviewTable tbody th {
     width: 150px;
     padding: 10px;
-}
+    border-bottom:1px solid black;
+    font-family: 'BMHANNAAir';
+    font-size: 20pt;
+} */
 table.reviewTable td {
     width: 350px;
     padding: 10px;
     vertical-align: top;
+    border: 0px;
+    border-bottom:1px solid black;
+    font-family: 'BMHANNAAir';
+    font-size: 13pt;
 }
 table.reviewTable .even {
     background: #fdf3f5;
+    font-family: 'BMHANNAAir';
+}
+
+button {
+    width: 150px;
+    height: 40px;
+    margin-left: 1360px;
+    font-family: 'MapoPeacefull';
 }

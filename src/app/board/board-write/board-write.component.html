@@ -1,14 +1,14 @@
 
-
-<div class="boardwrite" style="margin-right: 650px ; margin-left: 650px ; margin-top: 60px">
-  <h3 style="margin-right: auto ; margin-left: auto">후기를 작성해주세요!</h3>
+<div class="boardwrite" style=" margin-left: 550px ; margin-top: 60px; margin-bottom: 40px;">
+  <h3>후기를 작성해주세요!</h3>
 
   <input type="text" id="inputNickname" placeholder="Nickname" [(ngModel)]="cui.cuiNickname">  
   <input type="date" id="inputNickname" placeholder="VisitDate" [(ngModel)]="cui.reiDate">
   <br>
   <br>
-  <label for="inputVisitDate">방문시간</label>
-  <div class="checks" style="margin-right: 150px ; margin-left: 150px">
+  <div class="checks" style="margin-left: 15px;">
+    <p>
+      <label for="inputVisitDate" id="time">방문시간</label>&nbsp;&nbsp;&nbsp;&nbsp;   
     <label class="box-radio-input">
       <input type="radio" name="times" value="1" [(ngModel)]="cui.reiTime">
         <span>아침</span>
@@ -28,11 +28,12 @@
       <input type="radio" name="times" value="4" [(ngModel)]="cui.reiTime">
         <span>밤</span>
     </label>
+  </p>
   </div>
   <br>
-  <br>
-  <label for="inputZoneSubway">방문구역</label>
-  <div id="selectBox" style="margin-left: 20px">
+  <div id="selectBox" style="margin-left: 15px;">
+    <p>
+    <label for="inputZoneSubway" id="visit">방문구역</label>&nbsp;&nbsp;&nbsp;&nbsp;   
     <select id="zone" [(ngModel)]="zoneValue" name="zoneValue" (change)="getSubwayInfo()">
       <option selected value="지역구 선택">지역구 선택</option>
       <option *ngFor="let zone of zoneList" [value]="zone.zoneNum">{{zone.zoneName}}
@@ -59,15 +60,19 @@
         )
       </option>
     </select>
+  </p>
   </div>
   <br>
-  <label for="inputTheme">방문식당</label>  
-    <div class="ng-autocomplete" id="inputReiname" [(ngModel)]="rei.reiName" style="margin-right: 50px ; margin-left: 50px">
+  <div class="ng-autocomplete" id="inputReiname" [(ngModel)]="rei.reiName" style="margin-left: 15px;">
+    <p>
+    <label for="inputRestaurant" id="restaurant">방문식당</label>  
       <ng-autocomplete aria-placeholder="VisitRestaurant" ></ng-autocomplete>
+    </p>
     </div>
   <br>
-  <label for="inputTheme">몇 명과 식사?</label>
-  <div class="checks" style="margin-right: 180px ; margin-left: 180px">    
+  <div class="checks" style="margin-left: 15px;">    
+    <p>
+  <label for="inputTheme" id="theme">몇 명과 식사?</label>&nbsp;&nbsp;&nbsp;&nbsp;  
     <label class="box-check-input">
       <input type="checkbox" name="themes" value="1" [(ngModel)]="cui.cuiTrans">
         <span>혼자</span>
@@ -82,5 +87,11 @@
       <input type="checkbox" name="themes" value="1" [(ngModel)]="cui.cuiTrans">
         <span>넷 이상</span>
     </label>
+  </p>
+  </div>
+
+  <div class="editor">
+    에디터 자리이이이이이이
+
   </div>
 </div>
