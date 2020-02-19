@@ -17,7 +17,6 @@ export class MainComponent implements OnInit {
   zoneValue = '지역구 선택';
   subList: any;
   subValue = '지하철역 선택';
-  // subLineList;
   isSearch: boolean = false;
 
   constructor(private _router: Router, private _zonsub: ZoneSubwayService, private _cs: CommonService) { }

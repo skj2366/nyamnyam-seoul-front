@@ -7,9 +7,8 @@
     </select>
     -->
     &nbsp;
-    <select>
-      <option selected>역 선택</option>
-      <option>옵션1</option>
+    <select [(ngModel)]="subValue" name="subValue">
+      <option selected [value]="subValue">{{subValue}}</option>
     </select>
   </div>
   <div class="map" id="kakao-map">
@@ -23,15 +22,5 @@
       <div>{{rel.relSubAddress}}</div>
       <div>{{rel.relCall}}</div>
     </div>
-    <!-- <div class="flex-item">1</div>
-    <div class="flex-item">2</div>
-    <div class="flex-item">3</div>
-    <div class="flex-item">4</div>
-    <div class="flex-item">5</div>
-    <div class="flex-item">6</div>
-    <div class="flex-item">7</div>
-    <div class="flex-item">8</div>
-    <div class="flex-item">9</div>
-    <div class="flex-item">10</div> -->
   </div>
 </div>
