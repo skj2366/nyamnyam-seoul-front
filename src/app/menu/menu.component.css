@@ -27,7 +27,8 @@ body {
 
   #login, #logout{
      display: inline;
-     margin-left: 1200px;
+     margin-left: 70%;
+     margin-right: auto;
      font-weight: border;
      font-size: 20pt;
      color: rgb(10, 10, 10);

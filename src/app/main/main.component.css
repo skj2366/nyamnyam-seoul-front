@@ -1,54 +1,18 @@
-
-/* .search{
-background-image: url('../../assets/imgs/blackTable-2.jpg');
-margin-top: 20px;
-margin-left: 100px;
-width: 1500px;
-height: 200px;
-} */
-
 .search #searchBox{
 border: 2px solid black;
 border-radius: 10px;
 background-color: rgba(245, 238, 238 , 0.5 );
-width: 1460px;
+width: 95%;
 height: 100px;
 padding-top: 1px;
-margin-left: 120px;
-margin-top: 20px;
+margin-left: 2%;
+margin-top: 2%;
 }
 
 .search #searchBox #selectBox{
- margin-left: 300px;
+ margin-left: 20.8%;
+ margin-right: auto;
 }
-
-/* 
-  ============== 동근이가 가지고 놀던 부분 ============= 
-
-  .search {
-  background-image: url('../../assets/imgs/blackTable-2.jpg');
-  width: 70%;
-  height: 200px;
-  text-align: center;
-  margin: auto;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.search #borderBox {
-  border: 2px solid black;
-  border-radius: 10px;
-  background-color: rgba(245, 238, 238 , 0.5 );
-  vertical-align: middle;
-  text-align: center;
-  padding-top: 20px;
-  margin-top: 50px;
-}
-
-#searchBox {
-  vertical-align: middle;
-  text-align: center;
-} */
 
 button{
     background:rgb(15, 0, 22);
@@ -56,8 +20,8 @@ button{
     border:none;
     position:relative;
     z-index: -0;
-    margin-top: 15px;
-    height:60px;
+    margin-top: 1.5%;
+    height:55px;
     font-size:1.6em;
     padding:0 2em;
     cursor:pointer;
@@ -90,7 +54,7 @@ button{
   }
 
 #zone, #subway{
-width: 280px;
+width: 25%;
 height: 50px;
 padding-left: 20px;
 /* padding: .8em .5em; */
@@ -108,7 +72,9 @@ margin-top:16px;
 }
 
 .w3-content{
-    margin-top: 10px;
+    margin-top: 2%;
+    margin-left: 1.6%;
+    margin-right: auto; 
 }
 
 #logo{

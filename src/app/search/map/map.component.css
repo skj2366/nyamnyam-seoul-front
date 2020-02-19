@@ -6,6 +6,38 @@
     
 }
 
+h3, .mapSearch #selectBox{
+display: inline;
+}
+
+.mapSearch #selectBox{
+    margin-top: 15px;
+    margin-left: 500px;
+}
+
+#zone, #subway{
+    width: 280px;
+    height: 50px;
+    padding-left: 20px;
+    /* padding: .8em .5em; */
+    border: 1px solid rgb(5, 5, 90);
+    font-family: inherit;
+    color: black;
+    background: url('../../../assets/imgs/arrow.jpg') no-repeat 95% 50%;
+    background-color: white;
+    border: 1.5px solid rgb(5, 5, 90);
+    border-radius: 0px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-top:16px;
+    }
+
+button{
+    margin-top: -5px; 
+    width: 150px;
+    height: 50px;
+    }
 
 .mResult{
     border: 1px solid tomato;

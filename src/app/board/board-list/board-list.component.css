@@ -7,6 +7,127 @@ h2{
 font-family: 'MapoPeacefull';
 }
 
+a{
+    float: right;
+    margin-right: 100px;
+    margin-bottom: 5px;
+}
+
+ #searchBox{
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgba(245, 238, 238 , 0.5 );
+    width: 1500px;
+    height: 200px;
+    padding-top: 1px;
+    margin-left: 20px;
+    margin-top: 20px;
+    }
+
+#sCondition{
+    margin-left: 200px;
+    margin-top: 13px
+}
+    
+#zone, #subway{
+    width: 250px;
+    height: 50px;
+    padding-left: 20px;
+    /* padding: .8em .5em; */
+    border: 1px solid #999;
+    color: black;
+    background: url('../../../assets/imgs/arrow.jpg') no-repeat 95% 50%;
+    background-color: white;
+    border: 1.5px solid rgb(5, 5, 90);
+    border-radius: 0px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-top:16px;
+    font-weight:bold;
+    font-family: 'BMHANNAAir';
+    font-size: 13pt;
+    }
+
+.box-radio-input input[type="radio"]{
+    display:none;
+}
+
+.box-radio-input input[type="radio"] + span{
+    display:inline-block;
+    background:none;
+    border:2px solid rgb(117, 112, 112);    
+    padding:0px 10px;
+    text-align:center;
+    height:35px;
+    line-height:33px;
+    font-weight:bold;
+    font-family: 'BMHANNAAir';
+    font-size: 13pt;
+    cursor:pointer;
+}
+
+.box-radio-input input[type="radio"]:checked + span{
+    border:1px solid rgb(117, 112, 112);
+    background:rgb(117, 112, 112);
+    color:#fff;
+}
+
+.box-check-input input[type="checkbox"] {
+    display: none;
+}
+
+.box-check-input input[type="checkbox"] + span{
+    display:inline-block;
+    background:none;
+    border:2px solid rgb(117, 112, 112);    
+    padding:0px 10px;
+    text-align:center;
+    height:35px;
+    line-height:33px;
+    font-weight:bold;
+    font-family: 'BMHANNAAir';
+    font-size: 13pt;;
+    cursor:pointer;
+}
+
+.box-check-input input[type="checkbox"]:checked + span{
+    font-family: 'BMHANNAAir';
+    border:1px solid rgb(117, 112, 112);
+    background:rgb(117, 112, 112);
+    color:#fff;
+}
+
+input{
+    width: 300px;
+    height: 50px;
+    border: 0px;
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
+    font-weight: bold;
+    border-bottom: 2px solid rgb(5, 5, 90);
+    background: rgba(245, 238, 238 , 0.5 );
+    padding:10px 0px 0px 10px; 
+}
+
+input:focus {
+    outline:none;
+}
+
+#theme{
+    border-bottom: 2px solid rgb(5, 5, 90);
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+#sSearch{
+   margin-left: 150px;
+   width: 150px;
+   height: 40px;
+   font-family: 'MapoPeacefull';
+}
+
 table.reviewTable {
     border-collapse: collapse;
     text-align: left;
@@ -51,7 +172,7 @@ table.reviewTable .even {
     font-family: 'BMHANNAAir';
 }
 
-button {
+#boardWrite{
     width: 150px;
     height: 40px;
     margin-left: 1360px;

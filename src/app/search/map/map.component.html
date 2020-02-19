@@ -1,16 +1,36 @@
 <div class="mResult">
-
-  <div class="mapSearch">
-    <!--<select [(ngModel)]="getZones()" >
-      <option disabled value="">지역 선택</option>
-      <option **ngFor="let zone of zoneInfos">{{zone.zoneName}}</option>
-    </select>
-    -->
-    &nbsp;
-    <select>
-      <option selected>역 선택</option>
-      <option>옵션1</option>
-    </select>
+  <div class="mapSearch">&nbsp;&nbsp;&nbsp;
+    <h3>지도 검색 화면</h3>
+    <div id="selectBox">
+      <select id="zone" [(ngModel)]="zoneValue" name="zoneValue" (change)="getSubwayInfo()">
+        <option selected value="지역구 선택">지역구 선택</option>
+        <option *ngFor="let zone of zoneList" [value]="zone.zoneNum">{{zone.zoneName}}
+        </option>
+      </select> &nbsp;
+      <select id="subway" [(ngModel)]="subValue" name="subValue" (change)="getSubValue(subValue)">
+        <option selected value="지하철역 선택">지하철역 선택</option>
+        <option *ngFor="let sub of subList" [value]="sub.subwayNum">{{sub.subwayName}} (
+          <p *ngIf="sub.subwayLine1">| 1호선 |</p>
+          <p *ngIf="sub.subwayLine2">| 2호선 |</p>
+          <p *ngIf="sub.subwayLine3">| 3호선 |</p>
+          <p *ngIf="sub.subwayLine4">| 4호선 |</p>
+          <p *ngIf="sub.subwayLine5">| 5호선 |</p>
+          <p *ngIf="sub.subwayLine6">| 6호선 |</p>
+          <p *ngIf="sub.subwayLine7">| 7호선 |</p>
+          <p *ngIf="sub.subwayLine8">| 8호선 |</p>
+          <p *ngIf="sub.subwayLine9">| 9호선 |</p>
+          <p *ngIf="sub.subwayLine10">| 분당선 |</p>
+          <p *ngIf="sub.subwayLine11">| 신분당선 |</p>
+          <p *ngIf="sub.subwayLine12">| 공항철도 |</p>
+          <p *ngIf="sub.subwayLine13">| 경의중앙선 |</p>
+          <p *ngIf="sub.subwayLine14">| 경춘선 |</p>
+          <p *ngIf="sub.subwayLine15">| 우이신설 |</p>
+          )
+        </option>
+      </select>
+      &nbsp;&nbsp;
+      <button type="button" class="btn btn-outline-success" (click)="doSearch(zoneValue, subValue)"> Search!</button>
+    </div>
   </div>
   <div class="map" id="kakao-map">
   </div>
