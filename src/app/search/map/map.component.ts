@@ -22,7 +22,7 @@ export class MapComponent implements OnInit {
   }
 
   async ngOnInit() {
-    if (this.zoneValue != 0 && this.zoneValue != undefined) {
+    if (this.zoneValue != 0 && this.zoneValue != undefined && this.zoneValue != null) {
       await this._cs.get('/rels?zoneNum=' + this.zoneValue + '&subwayNum=' + this.subValue).subscribe(
         res => {
           if (this._cs.getObjectLength(res) != 0) {
@@ -32,7 +32,6 @@ export class MapComponent implements OnInit {
           } else {
             console.log('아무 것도 없음');
           }
-          // console.log(res);
         },
         err => {
           console.log(err);
@@ -40,5 +39,6 @@ export class MapComponent implements OnInit {
       )
     }
   }
+
 
 }

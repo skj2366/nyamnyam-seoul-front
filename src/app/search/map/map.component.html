@@ -31,7 +31,20 @@
       &nbsp;&nbsp;
       <button type="button" class="btn btn-outline-success" (click)="doSearch(zoneValue, subValue)"> Search!</button>
     </div>
-  </div>
+
+  <!-- 뭔지 모르겠어서 머지하면서 accept both change함
+    <div class="mapSearch">
+    <select [(ngModel)]="getZones()" >
+      <option disabled value="">지역 선택</option>
+      <option **ngFor="let zone of zoneInfos">{{zone.zoneName}}</option>
+    </select>  --여기까지 원래 주석이었음
+   
+    &nbsp;
+    <select [(ngModel)]="subValue" name="subValue">
+      <option selected [value]="subValue">{{subValue}}</option>
+    </select>
+  </div> -->
+
   <div class="map" id="kakao-map">
   </div>
   <div id="sort">
@@ -43,15 +56,5 @@
       <div>{{rel.relSubAddress}}</div>
       <div>{{rel.relCall}}</div>
     </div>
-    <!-- <div class="flex-item">1</div>
-    <div class="flex-item">2</div>
-    <div class="flex-item">3</div>
-    <div class="flex-item">4</div>
-    <div class="flex-item">5</div>
-    <div class="flex-item">6</div>
-    <div class="flex-item">7</div>
-    <div class="flex-item">8</div>
-    <div class="flex-item">9</div>
-    <div class="flex-item">10</div> -->
   </div>
 </div>
