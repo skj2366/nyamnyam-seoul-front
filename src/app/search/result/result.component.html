@@ -1,15 +1,19 @@
 <div class="result">
     <h3>상세 결과!!!!!!!!!!</h3>
-    <div class="infos" style="margin-top: 20px;">
-    <div class="ng-autocomplete" id="inputReiname" [(ngModel)]="rei.reiName" style="margin-left: 100px;">
-      
-        <label for="inputRestaurant" id="restaurant">방문식당</label>  
-          <ng-autocomplete aria-placeholder="VisitRestaurant" ></ng-autocomplete>
-      
-        </div>
+    <div class="infos" style="margin-top: 5%;"> 
+        <input type="text" placeholder="식당 이름">
         <br>
         <h5 id="info1">평점 /음식 종류/ 뭐시기뭐시기</h5>
 
+        <div class="container">
+        <div id="foodPic">
+            <img src="../../../assets/imgs/breakfast.jpg">
+        </div>
+        
+        <div id="rMap">
+                <img src="../../../assets/imgs/breakfast.jpg">
+        </div>
+    </div>
         <div class="tab">
             <input id="tab1" type="radio" name="tabs" checked> <!--defalut tab-->
             <label for="tab1">대표 메뉴</label> 

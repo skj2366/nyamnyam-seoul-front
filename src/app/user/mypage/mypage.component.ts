@@ -11,5 +11,4 @@ export class MypageComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

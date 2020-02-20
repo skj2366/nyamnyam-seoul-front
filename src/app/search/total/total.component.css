@@ -1,12 +1,28 @@
+.total{
+  width: 95%;
+  height: auto;
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
 h3{
-    margin-left: 300px;
-    margin-top: 20px;
+    font-family: 'MapoPeacefull';
+    font-size: 200%;
+    margin-left: 5%;
+    margin-top: 1%;
+}
+
+h4{
+  font-family: 'MapoPeacefull';
+  font-size: 200%;
+  margin-left: 15%;
+  margin-bottom: -0.5%
 }
 
 .flex-container {   
     display: flex;
     float: center;
-    width: 1600px;
+    width: 80%;
     /* margin-left: 100px; */
     margin: 10px auto;
     /* margin-top: 50px; */
@@ -14,23 +30,26 @@ h3{
     border-radius: 5px;
     /* background: #60B99A; */
     flex-direction: row;
+    overflow: auto;
+    
   }
 
   .flex-item {
     display: inline-block;
-    width: 280px;
-    height: 200px;
+    width: 40%;
+    height: 70%;
     margin: 10px;
     padding: 20px;
-    color: #fff;
     text-align: center;
     border-radius: 5px;
-    background: #4584b1;
+    border: 2px solid rgb(5, 5, 90);
+    font-family: 'MapoPeacefull';
+    font-size: 20pt
   }
 
   img{
-      width: 260px;
-      height: 150px;
-      margin-left: -10px;
-      margin-top: -12px;
+      width: 200pt;
+      height:70%;
+      margin-left: -5px;
+      margin-top: -10px;
   }
