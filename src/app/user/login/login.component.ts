@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
             this._ss.setSession('tokken', this.cui.tokken);
             console.log(this._ss.getItems);
             alert(this.cui.cuiId + ' 님 환영합니다.');
-            location.href = 'http://localhost/';
+            // location.href = 'http://localhost/';
             this._router.navigateByUrl('/');
           } else {
             return;

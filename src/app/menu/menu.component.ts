@@ -14,12 +14,14 @@ export class MenuComponent implements OnInit {
 
   isLogin: boolean = false;
 
+   ngDoCheck(){
+     if(!this.isLogin){
+      this.getLoginInfo();
+     }
+   }
+
   ngOnInit() {
 
-    if (this._ss.getItem('tokken') || this._ss.getSession('tokken')) {
-      this.isLogin = true;
-      console.log(this.isLogin);
-    }
     // ---------------------------------------------
     window.onscroll = function () { myFunction() };
 
@@ -34,6 +36,13 @@ export class MenuComponent implements OnInit {
       }
     }
     // ---------------------------------------------
+  }
+
+  getLoginInfo() {
+    if (this._ss.getItem('tokken') || this._ss.getSession('tokken')) {
+      this.isLogin = true;
+      console.log(this.isLogin);
+    }
   }
 
   goSignUp() {
@@ -73,8 +82,8 @@ export class MenuComponent implements OnInit {
 
     // // location.reload();
     // // this._router.navigateByUrl('/login');
-    location.href = 'http://localhost/login';
-
+    // location.href = 'http://localhost/login';
+    this.isLogin=false;
     // this.ngOnInit();
   }
 }
