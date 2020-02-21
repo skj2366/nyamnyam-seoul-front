@@ -2,20 +2,8 @@ export class RestaurantList {
     relNum: number;
     relName: string;
     relCategory: string;
-    relMonStart: string;
-    relMonEnd: string;
-    relTueStart: string;
-    relTueEnd: string;
-    relWedStart: string;
-    relWedEnd: string;
-    relThuStart: string;
-    relThuEnd: string;
-    relFriStart: string;
-    relFriEnd: string;
-    relSatStart: string;
-    relSatEnd: string;
-    relSunStart: string;
-    relSunEnd: string;
+    relStringCategory: string;
+    
     relLatitude: number;
     relLongitude: number;
     zoneNum: number;

@@ -14,14 +14,18 @@ import { SubwayInfo } from '../vo/subway-info';
 export class MainComponent implements OnInit {
 
   zoneList: any;
-  zoneValue = '지역구 선택';
+  zoneValue:number = 0;
   subList: any;
-  subValue = '지하철역 선택';
+  subValue: number = 0;
   isSearch: boolean = false;
 
   constructor(private _router: Router, private _zonsub: ZoneSubwayService, private _cs: CommonService) { }
 
   async ngOnInit() {
+    this.getZones();
+  }
+
+  getZones() {
     this._cs.get('/zoi').subscribe(
       res => {
         console.log(res);
@@ -33,10 +37,6 @@ export class MainComponent implements OnInit {
     )
   }
 
-  getZones() {
-    this._zonsub.getZone();
-  }
-
   getZoneValue(exp) {
     console.log(exp);
   }
@@ -46,8 +46,8 @@ export class MainComponent implements OnInit {
   }
 
   getSubwayInfo() {
-    this.subValue = '지하철역 선택';
-    if (this.zoneValue != '지역구 선택' || !this.zoneValue) {
+    this.subValue = 0;
+    if (this.zoneValue) {
       this._cs.get('/sui/' + this.zoneValue).subscribe(
         res => {
           console.log(res);

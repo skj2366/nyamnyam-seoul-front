@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, inject, Optional, Inject } from '@angular/core';
 import { ZoneSubwayService } from '../zone-subway.service';
 import { KakaoMapService } from 'src/app/common/kakao-map.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from 'src/app/common/common.service';
 import { RestaurantList } from 'src/app/vo/restaurant-list';
+import { from, interval } from 'rxjs';
 
 @Component({
   selector: 'app-map',
@@ -14,14 +15,24 @@ export class MapComponent implements OnInit {
 
   zoneValue: number = 0;
   subValue: number = 0;
-  rels: RestaurantList[];
+  zoneList: any;
+  subList: any;
+  // rels: RestaurantList[];
+  rels;
 
-  constructor(private _zonsub: ZoneSubwayService, private _km: KakaoMapService, route: ActivatedRoute, private _cs: CommonService) {
+  constructor(private _zonsub: ZoneSubwayService, private _km: KakaoMapService, route: ActivatedRoute, private _cs: CommonService, private _router: Router) {
     this.zoneValue = route.snapshot.params['zoneValue'];
     this.subValue = route.snapshot.params['subValue'];
   }
 
   async ngOnInit() {
+    // await this.getZoneListAndSubwayList();
+    console.log(this.zoneList);
+    console.log(this.subList);
+    await this.getMap();
+  }
+
+  async getMap() {
     if (this.zoneValue != 0 && this.zoneValue != undefined && this.zoneValue != null) {
       await this._cs.get('/rels?zoneNum=' + this.zoneValue + '&subwayNum=' + this.subValue).subscribe(
         res => {
@@ -39,6 +50,34 @@ export class MapComponent implements OnInit {
       )
     }
   }
+
+  async getMaps() {
+    this.rels = this._cs.get(`/rels?zoneNum=${this.zoneValue}&subwayNum=${this.subValue}`).toPromise();
+  }
+
+
+  // async getAsyncData() {
+  //   this.rere = await this._cs.get('/zoi').toPromise();
+  //   console.log('No issues, I will wait until promise is resolved..');
+  //   console.log(this.rere);
+  // }
+
+  async getZone() {
+    this.zoneList = await this._cs.get('/zoi').toPromise();
+  }
+
+  async getSubway() {
+    // this.subValue = 0;
+    if(this.zoneValue) {
+      this.subList = await this._cs.get('/sui/' + this.zoneValue).toPromise(); 
+    }
+  }
+
+  async getZoneListAndSubwayList() {
+    await this.getZone();
+    await this.getSubway();
+  }
+
 
 
 }

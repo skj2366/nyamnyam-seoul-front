@@ -11,16 +11,27 @@ export class ZoneSubwayService {
 
   zoneInfos : ZoneInfo[];
   subwayinfos : SubwayInfo[];
+  zoneList;
+  subList;
 
   constructor(private _cs : CommonService) { }
 
   getZone() {
     this._cs.get('/zoi').subscribe(
       res => {
-        this.zoneInfos = <ZoneInfo[]>res;
+        // this.zoneInfos = <ZoneInfo[]>res;
+        this.zoneList = res;
         console.log(res);
       }, err => {
         console.log(err);
+      }
+    )
+  }
+
+  getZones(zone) {
+    return this._cs.get('/zoi').subscribe(
+      res => {
+        zone = res;
       }
     )
   }
@@ -46,7 +57,8 @@ export class ZoneSubwayService {
   getSubway() {
     this._cs.get('/sui').subscribe(
       res => {
-        this.subwayinfos = <SubwayInfo[]>res;
+        // this.subwayinfos = <SubwayInfo[]>res;
+        this.subList = res;
         console.log(res);
       }, err => {
         console.log(err);
