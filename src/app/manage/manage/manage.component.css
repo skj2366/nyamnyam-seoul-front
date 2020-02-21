@@ -7,6 +7,7 @@ h2, h3{
 } 
 
 /deep/ .ag-header-cell-label {
+	
 	justify-content: center; 
 } /*ag-grid header에 모두 적용 */
 
