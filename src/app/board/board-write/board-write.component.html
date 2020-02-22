@@ -66,7 +66,21 @@
   <div class="ng-autocomplete" id="inputReiname" [(ngModel)]="rei.reiName" style="margin-left: 15px;">
     <p>
     <label for="inputRestaurant" id="restaurant">방문식당</label>  
-      <ng-autocomplete aria-placeholder="VisitRestaurant" ></ng-autocomplete>
+      <ng-autocomplete [data]="data" [searchKeyword]="keyword"
+                        (selected)='selectEvent($event)'
+                        (inputChanged)='onChangeSearch($event)'
+                        (inputFocused)='onFocused($event)'
+                        [itemTemplate]="itemTemplate"
+                        [notFoundTemplate]="notFoundTemplate">                                 
+      </ng-autocomplete>
+      
+      <ng-template #itemTemplate let-item>
+      <a [innerHTML]="item.name"></a>
+      </ng-template>
+      
+      <ng-template #notFoundTemplate let-notFound>
+      <div [innerHTML]="notFound"></div>
+      </ng-template>
     </p>
     </div>
   <br>

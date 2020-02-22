@@ -21,6 +21,7 @@ import { AuthInterceptorService } from './common/auth-interceptor.service';
 import { TotalComponent } from './search/total/total.component';
 import { BoardListComponent } from './board/board-list/board-list.component';
 import { BoardWriteComponent } from './board/board-write/board-write.component';
+import { BoardResultComponent } from './board/board-result/board-result.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { BoardWriteComponent } from './board/board-write/board-write.component';
     ResultComponent,
     TotalComponent,
     BoardListComponent,
-    BoardWriteComponent
+    BoardWriteComponent,
+    BoardResultComponent
   ],
   imports: [
     FormsModule,
