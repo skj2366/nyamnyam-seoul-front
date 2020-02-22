@@ -17,8 +17,8 @@ export class MapComponent implements OnInit {
   subValue: number = 0;
   zoneList: any;
   subList: any;
-  // rels: RestaurantList[];
-  rels;
+  rels: RestaurantList[];
+  // rels;
 
   constructor(private _zonsub: ZoneSubwayService, private _km: KakaoMapService, route: ActivatedRoute, private _cs: CommonService, private _router: Router) {
     this.zoneValue = route.snapshot.params['zoneValue'];
@@ -26,7 +26,7 @@ export class MapComponent implements OnInit {
   }
 
   async ngOnInit() {
-    // await this.getZoneListAndSubwayList();
+    await this.getZoneListAndSubwayList();
     console.log(this.zoneList);
     console.log(this.subList);
     await this.getMap();
@@ -51,9 +51,9 @@ export class MapComponent implements OnInit {
     }
   }
 
-  async getMaps() {
-    this.rels = this._cs.get(`/rels?zoneNum=${this.zoneValue}&subwayNum=${this.subValue}`).toPromise();
-  }
+  // async getMaps() {
+  //   this.rels = this._cs.get(`/rels?zoneNum=${this.zoneValue}&subwayNum=${this.subValue}`).toPromise();
+  // }
 
 
   // async getAsyncData() {
@@ -68,14 +68,24 @@ export class MapComponent implements OnInit {
 
   async getSubway() {
     // this.subValue = 0;
-    if(this.zoneValue) {
-      this.subList = await this._cs.get('/sui/' + this.zoneValue).toPromise(); 
+    if (this.zoneValue) {
+      this.subList = await this._cs.get('/sui/' + this.zoneValue).toPromise();
     }
   }
 
   async getZoneListAndSubwayList() {
     await this.getZone();
     await this.getSubway();
+  }
+
+  async doSearch(zone, sub) {
+    if (!zone || zone == '지역구 선택' || !sub || sub == '지하철역 선택') {
+      alert('지역구와 지하철역을 선택해주세요');
+      return;
+    } else {
+      this._router.navigateByUrl('/map/' + this.zoneValue + '/' + this.subValue);
+      this.ngOnInit();
+    }
   }
 
 

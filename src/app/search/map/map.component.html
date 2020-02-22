@@ -3,12 +3,12 @@
     <h3>지도 검색 화면</h3>
     <div id="selectBox">
       <select id="zone" [(ngModel)]="zoneValue" name="zoneValue" (change)="getSubway()">
-        <option selected value="0">지역구 선택</option>
+        <option selected [value]="0">지역구 선택</option>
         <option *ngFor="let zone of zoneList" [value]="zone.zoneNum">{{zone.zoneName}}
         </option>
       </select> &nbsp;
       <select id="subway" [(ngModel)]="subValue" name="subValue">
-        <option selected value="0">지하철역 선택</option>
+        <option selected [value]="0">지하철역 선택</option>
         <option *ngFor="let sub of subList" [value]="sub.subwayNum">{{sub.subwayName}} (
           <p *ngIf="sub.subwayLine1">| 1호선 |</p>
           <p *ngIf="sub.subwayLine2">| 2호선 |</p>
@@ -32,16 +32,16 @@
       <button type="button" class="btn btn-outline-success" (click)="doSearch(zoneValue, subValue)"> Search!</button>
     </div>
 
-  <div class="map" id="kakao-map">
-  </div>
-  <div id="sort">
-    <a>거리순</a>/<a>평점순</a>/<a>가격낮은순</a>/<a>가격높은순</a>
-  </div>
-  <div class="flex-container">
-    <div class="flex-item" *ngFor="let rel of rels">
-      <div>{{rel.relName}}</div>
-      <div>{{rel.relSubAddress}}</div>
-      <div>{{rel.relCall}}</div>
+    <div class="map" id="kakao-map">
+    </div>
+    <div id="sort">
+      <a>거리순</a>/<a>평점순</a>/<a>가격낮은순</a>/<a>가격높은순</a>
+    </div>
+    <div class="flex-container">
+      <div class="flex-item" *ngFor="let rel of rels">
+        <div>{{rel.relName}}</div>
+        <div>{{rel.relSubAddress}}</div>
+        <div>{{rel.relCall}}</div>
+      </div>
     </div>
   </div>
-</div>

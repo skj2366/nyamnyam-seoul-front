@@ -2,13 +2,12 @@
   <div id="searchBox">
     <div id="selectBox">
       <select id="zone" [(ngModel)]="zoneValue" name="zoneValue" (change)="getSubwayInfo()">
-        <option selected value="0"
-        >지역구 선택</option>
+        <option selected [value]="0">지역구 선택</option>
         <option *ngFor="let zone of zoneList" [value]="zone.zoneNum">{{zone.zoneName}}
         </option>
       </select> &nbsp;
       <select id="subway" [(ngModel)]="subValue" name="subValue" (change)="getSubValue(subValue)">
-        <option selected value="0">지하철역 선택</option>
+        <option selected [value]="0">지하철역 선택</option>
         <option *ngFor="let sub of subList" [value]="sub.subwayNum">{{sub.subwayName}} (
           <p *ngIf="sub.subwayLine1">| 1호선 |</p>
           <p *ngIf="sub.subwayLine2">| 2호선 |</p>
@@ -41,7 +40,8 @@
 
 <!-- Blog entry -->
 <div class="w3-card-4 w3-white" style="width: 95%; margin-left: 2%; margin-top: 1%;">
-  <img src="../../assets/imgs/masala-1.jpg" alt="nyamnyam" style="width:95%; margin-left: 2%; height:300px; margin-top: 1%; ">
+  <img src="../../assets/imgs/masala-1.jpg" alt="nyamnyam"
+    style="width:95%; margin-left: 2%; height:300px; margin-top: 1%; ">
   <div class="w3-container">
     <h3 id="logo"><b>냠냠_서울</b><img src="../../assets/imgs/logo.png" style="width: 60px;"></h3>
     <h5 id="intro1">서울의 맛집을 찾아서!! <span class="w3-opacity">February 29, 2020</span></h5>
