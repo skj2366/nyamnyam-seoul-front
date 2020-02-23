@@ -45,6 +45,10 @@ const routes: Routes = [
     component: ResultComponent
   },
   {
+    path: 'result/:relNum',
+    component: ResultComponent
+  },
+  {
     path: 'total',
     component: TotalComponent
   },
@@ -57,7 +61,7 @@ const routes: Routes = [
     component: BoardListComponent
   },
   {
-    path: 'board/:boardNum',    
+    path: 'board/:boardNum',
     component: BoardResultComponent
   },
   {

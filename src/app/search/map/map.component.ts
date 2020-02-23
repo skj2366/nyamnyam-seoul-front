@@ -18,7 +18,10 @@ export class MapComponent implements OnInit {
   zoneList: any;
   subList: any;
   rels: RestaurantList[];
-  // rels;
+  subUrl: string = '/sui';
+  zoneUrl: string = '/zoi';
+  relsUrl: string = '/rels';
+  mapUrl: string = '/map';
 
   constructor(private _zonsub: ZoneSubwayService, private _km: KakaoMapService, route: ActivatedRoute, private _cs: CommonService, private _router: Router) {
     this.zoneValue = route.snapshot.params['zoneValue'];
@@ -27,8 +30,6 @@ export class MapComponent implements OnInit {
 
   async ngOnInit() {
     await this.getZoneListAndSubwayList();
-    console.log(this.zoneList);
-    console.log(this.subList);
     await this.getMap();
   }
 
@@ -55,19 +56,18 @@ export class MapComponent implements OnInit {
   //   this.rels = this._cs.get(`/rels?zoneNum=${this.zoneValue}&subwayNum=${this.subValue}`).toPromise();
   // }
 
-
-  // async getAsyncData() {
-  //   this.rere = await this._cs.get('/zoi').toPromise();
-  //   console.log('No issues, I will wait until promise is resolved..');
-  //   console.log(this.rere);
-  // }
-
   async getZone() {
     this.zoneList = await this._cs.get('/zoi').toPromise();
   }
 
   async getSubway() {
-    // this.subValue = 0;
+    this.subValue = 0;
+    if (this.zoneValue) {
+      this.subList = await this._cs.get('/sui/' + this.zoneValue).toPromise();
+    }
+  }
+
+  async getSubwayInit() {
     if (this.zoneValue) {
       this.subList = await this._cs.get('/sui/' + this.zoneValue).toPromise();
     }
@@ -75,7 +75,7 @@ export class MapComponent implements OnInit {
 
   async getZoneListAndSubwayList() {
     await this.getZone();
-    await this.getSubway();
+    await this.getSubwayInit();
   }
 
   async doSearch(zone, sub) {

@@ -14,11 +14,11 @@ export class MenuComponent implements OnInit {
 
   isLogin: boolean = false;
 
-   ngDoCheck(){
-     if(!this.isLogin){
+  ngDoCheck() {
+    if (!this.isLogin) {
       this.getLoginInfo();
-     }
-   }
+    }
+  }
 
   ngOnInit() {
 
@@ -63,7 +63,7 @@ export class MenuComponent implements OnInit {
 
   goTotal() {
     this._router.navigateByUrl('/total');
-  } 
+  }
   goBoard() {
     this._router.navigateByUrl('/board');
   }
@@ -76,6 +76,10 @@ export class MenuComponent implements OnInit {
     this._router.navigateByUrl('/manage');
   }
 
+  goPage(url) {
+    this._router.navigateByUrl(url);
+  }
+
   doLogout() {
     localStorage.clear();
     sessionStorage.clear();
@@ -83,7 +87,8 @@ export class MenuComponent implements OnInit {
     // // location.reload();
     // // this._router.navigateByUrl('/login');
     // location.href = 'http://localhost/login';
-    this.isLogin=false;
-    // this.ngOnInit();
+    this.isLogin = false;
+    alert('로그아웃 완료');
+    this.ngOnInit();
   }
 }

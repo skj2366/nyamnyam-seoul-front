@@ -33,11 +33,13 @@
     </div>
 
     <div class="map" id="kakao-map">
+      <span *ngIf="!rels">검색 결과가 없습니다.</span>
     </div>
     <div id="sort">
       <a>거리순</a>/<a>평점순</a>/<a>가격낮은순</a>/<a>가격높은순</a>
     </div>
     <div class="flex-container">
+      <span *ngIf="!rels">검색 결과가 없습니다.</span>
       <div class="flex-item" *ngFor="let rel of rels">
         <div>{{rel.relName}}</div>
         <div>{{rel.relSubAddress}}</div>
