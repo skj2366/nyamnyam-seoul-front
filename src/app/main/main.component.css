@@ -7,11 +7,13 @@ height: 100px;
 padding-top: 1px;
 margin-left: 2%;
 margin-top: 2%;
+font-family: 'BMEULJIRO';
 }
 
 .search #searchBox #selectBox{
  margin-left: 20.8%;
  margin-right: auto;
+ font-size: 15pt;
 }
 
 button{

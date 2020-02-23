@@ -22,6 +22,7 @@ import { TotalComponent } from './search/total/total.component';
 import { BoardListComponent } from './board/board-list/board-list.component';
 import { BoardWriteComponent } from './board/board-write/board-write.component';
 import { BoardResultComponent } from './board/board-result/board-result.component';
+import { UserDetailComponent } from './user/user-detail/user-detail.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { BoardResultComponent } from './board/board-result/board-result.componen
     TotalComponent,
     BoardListComponent,
     BoardWriteComponent,
-    BoardResultComponent
+    BoardResultComponent,
+    UserDetailComponent
   ],
   imports: [
     FormsModule,

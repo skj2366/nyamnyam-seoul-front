@@ -13,6 +13,7 @@ import { BoardListComponent } from './board/board-list/board-list.component';
 import { BoardWriteComponent } from './board/board-write/board-write.component';
 import { TotalComponent } from './search/total/total.component';
 import { BoardResultComponent } from './board/board-result/board-result.component';
+import { UserDetailComponent } from './user/user-detail/user-detail.component';
 
 const routes: Routes = [
   // {
@@ -71,6 +72,10 @@ const routes: Routes = [
   {
     path: 'mypage',
     component: MypageComponent
+  },
+  {
+    path: 'userDetail',
+    component: UserDetailComponent
   }
 
 ];
