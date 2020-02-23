@@ -15,3 +15,6 @@ h2, h3{
 	width: 100%; 
 	text-align: right; /*오른쪽 정렬을 위함 (default 왼쪽 정렬) */
 } /*.ag-header-cell-text는 header의 span class명, columnDefs에 지정해준 각 field로 column id가 지정되는데 정렬할 컬럼을 명시해주기 위함*/
+
+
+

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ZoneSubwayService } from 'src/app/search/zone-subway.service';
 import { CommonService } from 'src/app/common/common.service';
+import { RestaurantList } from 'src/app/vo/restaurant-list';
 
 @Component({
   selector: 'app-board-write',
@@ -15,6 +16,9 @@ export class BoardWriteComponent implements OnInit {
   subValue = '지하철역 선택';
 
   constructor(private _router: Router, private _zonsub: ZoneSubwayService, private _cs: CommonService) { }
+
+  keyword = 'relName';
+  restaurants = RestaurantList;
 
   async ngOnInit() {
     this._cs.get('/zoi').subscribe(
@@ -46,6 +50,19 @@ export class BoardWriteComponent implements OnInit {
 
   getSubValue(exp) {
     console.log(exp);
+  }
+
+  selectEvent(item) {
+    // do something with selected item
+  }
+ 
+  onChangeSearch(val: string) {
+    // fetch remote data from here
+    // And reassign the 'data' which is binded to 'data' property.
+  }
+  
+  onFocused(e){
+    // do something when input is focused
   }
 
 }

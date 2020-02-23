@@ -35,52 +35,40 @@ export class ManageComponent implements OnInit {
 
   constructor(public _router: Router, private _cs: CommonService) {
     let this_ = this; 
-      this.defaultColDef = {
+      this.defaultColDef = {        
         resizable: true, //컬럼 사이즈 조절 가능 여부 
-        lockPosition: true, //컬럼 드래그로 이동 방지 
+        lockPosition: true, //컬럼 드래그로 이동 방지
         rowSelection: 'multiple',
         filter : true
       };     
 
       this_.columnDefsUser = [
-        { headerName: '번호', field: 'cuiNum', width:60, cellStyle: { color: '#670000', textAlign: "center", backgroundColor: "white" }, headerCheckboxSelection: true},
+        { headerName: '번호', field: 'cuiNum', width:50, cellStyle: { color: '#4C4C4C', textAlign: "center", backgroundColor: "#FFA7A7" },checkboxSelection: true, headerCheckboxSelection: true},
         { headerName: '유저이름', field: 'cuiName', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
         { headerName: '유저아이디', field: 'cuiId', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-        { headerName: '유저닉네임', field: 'cuiNickname', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+        { headerName: '유저닉네임', field: 'cuiNickname', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true },
         { headerName: '유저이메일', field: 'cuiEmail', width: 200, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
         { headerName: '유저전화번호', field: 'cuiPhone', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
         { headerName: '생성날짜', field: 'cuiCredat', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
         { headerName: '생성시간', field: 'cuiCretim', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
         { headerName: '수정날짜', field: 'cuiModdat', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-        { headerName: '수정시간', field: 'cuiModtim', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } }
-        /* { 
+        { headerName: '수정시간', field: 'cuiModtim', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+        /* { headerName: 'Delete', field: 'delete', width:50,
+                                cellRenderer : function(params){return '<i class="icon-trash cell-btn-remove" title="Delete this record" ng-click="deleteRecord(data,'+params.node.id+')">'
+           }}
+        { 
           headerName: '컬럼2', field: 'column_2', width: 120, suppressSizeToFit: true, 
             cellRenderer: function(params) {
               return '<img src="assets/images/' + this_.getColumnTypeValue(params.value) + '.png" height="20px" width="20px"/> ';
             }, //cell value를 다루고 싶을 때             
         } */
-      ];
-      
-      var gridOptions = {
-        groupSelectsChildren: true,
-        suppressRowClickSelection: true,
-        suppressAggFuncInHeader: true,
-        
-        autoGroupColumnDef: {headerName: "번호", field: "cuiNum",
-            cellRenderer:'agGroupCellRenderer',
-            cellRendererParams: {
-                checkbox: function(params) {
-                    return params.node.group === true;
-                }
-            }
-        }
-      };
+      ];        
 
       this_.columnDefsRestaurant = [
-        { headerName: '번호', field: 'relNum', width: 30, cellStyle: { color: '#670000', textAlign: "center", backgroundColor: "white" }, headerCheckboxSelection: true},
+        { headerName: '번호', field: 'relNum', width: 30, cellStyle: { color: '#4C4C4C', textAlign: "center", backgroundColor: "#FFA7A7" }, checkboxSelection: true, headerCheckboxSelection: true},
         { headerName: '식당이름', field: 'relName', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-        { headerName: '식당주소', field: 'relSubAddress', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-        { headerName: '식당전화번호', field: 'relCall', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+        { headerName: '식당주소', field: 'relSubAddress', width: 120, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+        { headerName: '식당전화번호', field: 'relCall', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
         { headerName: '생성날짜', field: 'relCredat', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
         { headerName: '생성시간', field: 'relCretim', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
         { headerName: '수정날짜', field: 'relModdat', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
@@ -88,7 +76,7 @@ export class ManageComponent implements OnInit {
       ];
 
       this_.columnDefsComment = [
-        { headerName: '번호', field: 'coiNum', width: 30, cellStyle: { color: '#670000', textAlign: "center", backgroundColor: "white" }},
+        { headerName: '번호', field: 'coiNum', width: 30, cellStyle: { color: '#4C4C4C', textAlign: "center", backgroundColor: "#FFA7A7" },checkboxSelection: true, headerCheckboxSelection: true},
         { headerName: '서브번호', field: 'subNum', width: 30, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
         { headerName: '유저번호', field: 'cuiNum', width: 30, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }},
         { headerName: '식당번호', field: 'relNum', width: 30, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }},
@@ -110,7 +98,11 @@ export class ManageComponent implements OnInit {
       });
   }
 
- 
+  /* deleteRecord = function(params,rowIndex){
+    //delete from map using index 
+    // map.splice(1,rowIndex); 
+    gridOptions.api.setRowData(map);
+  } */
 
   
   onGridReady(params) { 

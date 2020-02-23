@@ -1,6 +1,17 @@
 <div id="myGrid" class="contents" style="margin-right: 200px ; margin-left: 200px ; margin-top: 60px">
     <h2> 관리자 화면 </h2>
     <h3>==유저관리==</h3>
+        <div>
+        <button type="button" class="btn btn-success" (click)="onAddRow()">
+            <span class="glyphicon glyphicon-plus"></span> Add New Row
+        </button>
+        <button type="button" class="btn btn-info" (click)="updateItems()">
+            <span class="glyphicon glyphicon-pencil"></span> Update Data
+        </button>
+        <button type="button" class="btn btn-danger" (click)="onRemoveSelected()">
+            <span class="glyphicon glyphicon-trash"></span> Delete Selected
+        </button>
+        </div>
     <ag-grid-angular ag-grid-angular #agGrid id="myGrid" 
                      style="min-width: 500px; min-height: 300px;"
                      [ngClass]="theme"                           
@@ -8,7 +19,7 @@
                      [defaultColDef]="defaultColDef"             
                      [columnDefs]="columnDefsUser"                 
                      [pagination]="true"                      
-                     [paginationPageSize]=50                               
+                     [paginationPageSize]=25                               
                      [rowHeight]="30"                       
                      (gridReady)="onGridReady($event)"
                      (firstDataRendered)="fitColumnsSize($event)" 
@@ -25,7 +36,7 @@
                      [defaultColDef]="defaultColDef"             
                      [columnDefs]="columnDefsRestaurant"                 
                      [pagination]="true"                      
-                     [paginationPageSize]=50                               
+                     [paginationPageSize]=25                               
                      [rowHeight]="30"                       
                      (gridReady)="onGridReady($event)"
                      (firstDataRendered)="fitColumnsSize($event)" 
@@ -41,7 +52,7 @@
                      [defaultColDef]="defaultColDef"             
                      [columnDefs]="columnDefsComment"                 
                      [pagination]="true"                      
-                     [paginationPageSize]=50                            
+                     [paginationPageSize]=25                            
                      [rowHeight]="30"                       
                      (gridReady)="onGridReady($event)"
                      (firstDataRendered)="fitColumnsSize($event)" 
