@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonService } from 'src/app/common/common.service';
 
 @Component({
   selector: 'app-board-result',
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 })
 export class BoardResultComponent implements OnInit {
 
-  constructor(private _cs : CommonModule) { }
+  constructor(private _cs : CommonService) { }
 
   ngOnInit() {
   }

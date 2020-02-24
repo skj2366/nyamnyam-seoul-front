@@ -1,19 +1,31 @@
 <div class="result">
     <h3>상세 결과!!!!!!!!!!</h3>
-    <div class="infos" style="margin-top: 5%;"> 
-        <input type="text" placeholder="식당 이름">
+    <div class="infos" style="margin-top: 3%;"> 
+        <input type="text" placeholder="식당 이름" [(ngModel)]="rel.relName">
         <br>
-        <h5 id="info1">평점 /음식 종류/ 뭐시기뭐시기</h5>
+        <input type="text" placeholder="음식 종류" [(ngModel)]="rel.relCategory">
+            <!--
+                <p *ngIf="rel.relCategory == '1'">한식</p>
+                <p *ngIf="rel.relCategory == '2'">중식</p>
+                <p *ngIf="rel.relCategory == '3'">일식</p>
+                <p *ngIf="rel.relCategory == '4'">양식</p>
+                <p *ngIf="rel.relCategory == '5'">카페</p>
+                <p *ngIf="rel.relCategory == '6'">기타</p>
+            -->
+        <input type="text" placeholder="음식 종류" [(ngModel)]="rel.relStringCategory" style ="margin-left: 5%">
+        <br>
+        <input type="text" placeholder="주소" [(ngModel)]="rel.relSubAddress" style ="width : 700px">
+        <br>
 
         <div class="container">
-        <div id="foodPic">
-            <img src="../../../assets/imgs/breakfast.jpg">
-        </div>
-        
-        <div id="rMap">
+            <div id="foodPic">
                 <img src="../../../assets/imgs/breakfast.jpg">
+            </div>
+            
+            <div id="rMap">
+                    <img src="../../../assets/imgs/breakfast.jpg">
+            </div>
         </div>
-    </div>
         <div class="tab">
             <input id="tab1" type="radio" name="tabs" checked> <!--defalut tab-->
             <label for="tab1">대표 메뉴</label> 
@@ -25,11 +37,11 @@
             <label for="tab3">리뷰</label> 
 
             <section id="content1">
-                <p>tab menu1의 내용</p>
+                <input type="text" [(ngModel)]="menu.meiName"><input>
             </section>
 
             <section id="content2">
-                <p>tab menu2의 내용</p>
+                <input type="text" [(ngModel)]="rel.relEtcTime"><input>
             </section>
 
             <section id="content3">
@@ -41,4 +53,5 @@
         <div class="blog">
             블로그 결과가 나와요
         </div>
+    </div>
 </div>
