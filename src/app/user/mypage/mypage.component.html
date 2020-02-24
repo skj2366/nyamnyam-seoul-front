@@ -1,11 +1,11 @@
 <div class="mypage">
-  <div class="tabmenu">
+  <div class="tabmenu" style="font-family: 'MapoPeacefull'">
     <ul>
       <li id="tab1" class="btnCon"> 
-        <input type="radio" checked name="tabmenu" id="tabmenu1">
+        <input class="radioInput" type="radio" checked name="tabmenu" id="tabmenu1">
         <label for="tabmenu1">좋아요 식당</label>
         <div class="tabCon" >
-            <table class="likeTable" border="1" style="width: 80%; margin-left: 98%">
+            <table class="likeTable" border="1px solid rgb(5, 5, 90)">
                 <colgroup>
                   <col style="width:7%">
                   <col style="width:20%">
@@ -26,10 +26,10 @@
       </li>
 
       <li id="tab2" class="btnCon">
-        <input type="radio" name="tabmenu" id="tabmenu2">
+        <input class="radioInput" type="radio" name="tabmenu" id="tabmenu2">
         <label for="tabmenu2">작성한 후기</label>
         <div class="tabCon" >
-            <table class="writeTable" border="1" style="width: 100%; margin-left: 45%">
+            <table class="writeTable" border="1px solid rgb(5, 5, 90)">
                 <colgroup>
                   <col style="width:6%">
                   <col style="width:25%">
@@ -56,19 +56,24 @@
       </li>    
 
       <li id="tab3" class="btnCon">
-        <input type="radio" name="tabmenu" id="tabmenu3">
+        <input class="radioInput" type="radio" name="tabmenu" id="tabmenu3">
         <label for="tabmenu3">회원 정보 수정</label>        
+        <div class="tabCon">
+          <div class="reLogin">
+            <br>
+              <h5 style="font-family: 'MapoPeacefull'">여러분의 개인정보 보호를 위해 한번 더 로그인 해주세요</h5>
+              <label for="inputId"></label>
+               <input type="text" class="fas fa-user fa-2x" id="inputId" placeholder="&#xf007; User ID" [(ngModel)]="cui.cuiId">
+              <br>
+              <label for="password"></label>
+               <input type="password" class="fas fa-key fa-2x" id="inputPassword" placeholder="&#xf023; Password" [(ngModel)]="cui.cuiPwd">
+               <br>
+               
+               <button id="signBtn" type="button" (click)="goUserDetail()">Sign In</button>
+          </div>
+        </div>
       </li>
-      <div class="tabCon">
-        왜 안 나와
-        <br>
-        <label for="inputId"></label>
-         <input type="text" class="fas fa-user fa-2x" id="inputId" placeholder="&#xf007; User ID" [(ngModel)]="cui.cuiId">
-        <br>
-        <br>
-        <label for="password"></label>
-         <input type="password" class="fas fa-key fa-2x" id="inputPassword" placeholder="&#xf023; Password" [(ngModel)]="cui.cuiPwd">
-      </div>
+
     </ul>
   </div>
 </div>
