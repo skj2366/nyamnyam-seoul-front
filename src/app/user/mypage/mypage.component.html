@@ -57,7 +57,34 @@
 
       <li id="tab3" class="btnCon">
         <input class="radioInput" type="radio" name="tabmenu" id="tabmenu3">
-        <label for="tabmenu3">회원 정보 수정</label>        
+        <label for="tabmenu3">작성한 댓글</label>
+        <div class="tabCon" >
+          <table class="writeTable" border="1px solid rgb(5, 5, 90)">
+              <colgroup>
+                <col style="width:6%">
+                <col style="width:25%">
+                <col style="width:40%">
+                <col style="width:13%">
+              </colgroup>
+              <tr>
+                <th scope="col">번호</th>
+                <th scope="col">후기 제목</th>
+                <th scope="col">작성 내용</th>
+                <th scope="col">작성일</th>
+              </tr>
+              <tr *ngFor="let list of lists">
+                <td>{{list.no}}</td>
+                <td>{{list.title}}</td>
+                <td>{{list.title}}</td>
+                <td>2020/02/18</td>
+              </tr>             
+            </table>   
+        </div>
+      </li>
+
+      <li id="tab4" class="btnCon">
+        <input class="radioInput" type="radio" name="tabmenu" id="tabmenu4">
+        <label for="tabmenu4">회원 정보 수정</label>        
         <div class="tabCon">
           <div class="reLogin">
             <br>
