@@ -2,17 +2,18 @@
     <h2> 관리자 화면 </h2>
     <h3>==유저관리==</h3>
         <div>
-        <button type="button" class="btn btn-success" (click)="onAddRow()">
-            <span class="glyphicon glyphicon-plus"></span> Add New Row
-        </button>
-        <button type="button" class="btn btn-info" (click)="updateItems()">
-            <span class="glyphicon glyphicon-pencil"></span> Update Data
-        </button>
-        <button type="button" class="btn btn-danger" (click)="onRemoveSelected()">
-            <span class="glyphicon glyphicon-trash"></span> Delete Selected
+        <button type="button" class="btn btn-outline-primary" (click)="onAddRowUser()">
+            <span class="glyphicon glyphicon-plus"></span> Add New User
+        </button> &nbsp;
+        <button type="button" class="btn btn-outline-success" (click)="updateItems()">
+            <span class="glyphicon glyphicon-pencil"></span> Update User
+        </button> &nbsp;
+        <button type="button" class="btn btn-outline-danger" (click)="onRemoveSelected()">
+            <span class="glyphicon glyphicon-trash"></span> Delete User Selected
         </button>
         </div>
-    <ag-grid-angular ag-grid-angular #agGrid id="myGrid" 
+        <br>
+    <ag-grid-angular ag-grid-angular #agGrid id="myGridUser" 
                      style="min-width: 500px; min-height: 300px;"
                      [ngClass]="theme"                           
                      [rowData]="rowDataUser"                          
@@ -29,7 +30,7 @@
 
     <br>
     <h3>==식당관리==</h3>
-    <ag-grid-angular ag-grid-angular #agGrid id="myGrid" 
+    <ag-grid-angular ag-grid-angular #agGrid id="myGridRestaurant" 
                      style="min-width: 500px; min-height: 300px;"
                      [ngClass]="theme"                           
                      [rowData]="rowDataRestaurant"                          
@@ -45,7 +46,7 @@
     </ag-grid-angular>
 
     <h3>==댓글관리==</h3>
-    <ag-grid-angular ag-grid-angular #agGrid id="myGrid" 
+    <ag-grid-angular ag-grid-angular #agGrid id="myGridComment" 
                      style="min-width: 500px; min-height: 300px;"
                      [ngClass]="theme"                           
                      [rowData]="rowDataComment"                          
