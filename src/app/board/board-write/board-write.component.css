@@ -124,9 +124,17 @@ h3{
     font-size: 13pt; 
 }
 
-.editor{
+/* .write{
     border: 2px solid black;
     width: 600px;
     height: 600px;
     margin-left: 15px;
+} */
+
+/* :host ::ng-deep .ck-editor__editable_inline {
+    min-height: 500px;
 }
+
+:host ::ng-deep .ck-editor__editable_inline {
+    min-height: 500px;
+} */

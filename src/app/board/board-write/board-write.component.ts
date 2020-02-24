@@ -4,16 +4,43 @@ import { ZoneSubwayService } from 'src/app/search/zone-subway.service';
 import { CommonService } from 'src/app/common/common.service';
 import { RestaurantList } from 'src/app/vo/restaurant-list';
 
+// @Component({
+//   selector: 'sampleEditor',
+//   template: `
+//   <ckeditor
+//     [(ngModel)]="ckeditorContent"
+//     [config]="{uiColor: '#a4a4a4'}"
+//     (change)="onChange($event)"
+//     (ready)="onReady($event)"
+//     (focus)="onFocus($event)"
+//     (blur)="onBlur($event)"
+//     debounce="500">
+//   </ckeditor>
+//   `,
+// })
+
+// export class SampleEditor {
+//   private ckeditorContent: string;
+//   constructor() {
+//     this.ckeditorContent = `<p>Greetings from CKEditor...</p>`;
+//   }
+// }
+
+
 @Component({
   selector: 'app-board-write',
   templateUrl: './board-write.component.html',
   styleUrls: ['./board-write.component.css']
 })
+
+
 export class BoardWriteComponent implements OnInit {
   zoneList: any;
   zoneValue = '지역구 선택';
   subList: any;
   subValue = '지하철역 선택';
+
+  // public editorValue: string = '';
 
   constructor(private _router: Router, private _zonsub: ZoneSubwayService, private _cs: CommonService) { }
 
