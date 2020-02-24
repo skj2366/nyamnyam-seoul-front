@@ -55,7 +55,9 @@ import { CKEditorModule } from 'ckeditor4-angular';
     HttpClientModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    AgGridModule.withComponents([]),
+    AgGridModule.withComponents([
+      ManageComponent
+    ]),
     AutocompleteLibModule
   ],
   providers: [

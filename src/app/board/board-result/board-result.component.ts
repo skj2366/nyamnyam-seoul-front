@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-board-result',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardResultComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _cs : CommonModule) { }
 
   ngOnInit() {
   }
 
+  getReviewDetail(){
+    
+  }
+   
 }

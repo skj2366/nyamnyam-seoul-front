@@ -82,7 +82,6 @@ const routes: Routes = [
     path: 'userDetail',
     component: UserDetailComponent
   }
-
 ];
 
 @NgModule({
