@@ -52,7 +52,9 @@ import { TotalResultComponent } from './search/total/total-result/total-result.c
     HttpClientModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    AgGridModule.withComponents([]),
+    AgGridModule.withComponents([
+      ManageComponent
+    ]),
     AutocompleteLibModule
   ],
   providers: [
