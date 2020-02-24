@@ -9,8 +9,17 @@ import { CommonService } from 'src/app/common/common.service';
 })
 export class TotalResultComponent implements OnInit {
 
+  isTotal:boolean = true;
   themeValue: string;
   themeString: string;
+
+  thl : any;
+  rels : any;
+  relUrl: string = '/rels';
+  thlUrl: string = '/thl';
+
+  rel:any;
+  scrollNow:number;
 
   constructor(private _router: Router, private route: ActivatedRoute, private _cs: CommonService) {
     this.themeValue = this.route.snapshot.params['theme'];    // router 기능의 theme라는 param을 스냅샷으로 받아옴.
@@ -74,14 +83,15 @@ export class TotalResultComponent implements OnInit {
     this.getRestaurantWithTheme();
   }
 
-  goResult() {
-    this._router.navigateByUrl('/result');
+  goResult(rel?:any) {
+    // this._router.navigateByUrl('/result');
+    this.rel = rel;
+    this.isTotal = false;
+    this.scrollNow = window.scrollY;
+    console.log(this.scrollNow);
+    window.scroll(0,0);
   }
 
-  thl;
-  rels;
-  relUrl: string = '/rels';
-  thlUrl: string = '/thl';
   async getTheme() {
     this.thl = await this._cs.get(this.thlUrl).toPromise();
     console.log(this.thl);
@@ -102,6 +112,15 @@ export class TotalResultComponent implements OnInit {
         console.log(err);
       }
     )
+  }
+
+  getResultTotal(evt) {
+    this.isTotal = evt;
+    setTimeout(() => {
+      scroll(0,this.scrollNow);
+      console.log(this.scrollNow);
+      console.log(scrollY);
+    },50);
   }
 
 }

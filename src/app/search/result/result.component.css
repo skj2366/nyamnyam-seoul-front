@@ -23,11 +23,11 @@ input{
         margin-left: 8%;
     }
 
-    input:focus {
+input:focus {
         outline:none;
     }
 
-    .container{
+.container{
         display: flex;
         float: right;
         flex-direction: column;

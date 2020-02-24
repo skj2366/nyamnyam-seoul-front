@@ -1,9 +1,9 @@
 <div class="result">
     <h3>상세 결과!!!!!!!!!!</h3>
     <div class="infos" style="margin-top: 5%;"> 
-        <input type="text" placeholder="식당 이름">
+        <input type="text" placeholder="식당 이름" value="{{rel.relName}}" readonly>
         <br>
-        <h5 id="info1">평점 /음식 종류/ 뭐시기뭐시기</h5>
+        <h5 id="info1">평점 /음식 종류 : {{rel.relStringCategory}}/ 뭐시기뭐시기</h5>
 
         <div class="container">
         <div id="foodPic">
@@ -23,17 +23,17 @@
 
             <input id="tab3" type="radio" name="tabs"> 
             <label for="tab3">리뷰</label> 
-
+            <!-- tab1 대표 메뉴-->
             <section id="content1">
-                <p>tab menu1의 내용</p>
+                <p>{{rel.relStringCategory}}</p>
             </section>
-
+            <!-- tab2 영업 시간-->
             <section id="content2">
-                <p>tab menu2의 내용</p>
+                <p>{{rel.relEtcTime}}</p>
             </section>
-
+            <!-- tab3 리뷰-->
             <section id="content3">
-                <p>tab menu3의 내용</p>
+                <p>{{rel.relCall}}</p>
             </section>
         </div>
         <br>
@@ -42,3 +42,4 @@
             블로그 결과가 나와요
         </div>
 </div>
+<button (click)="goBack()">뒤로가기</button>

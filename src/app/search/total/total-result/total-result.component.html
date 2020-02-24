@@ -1,11 +1,11 @@
-<div class="totalResult">
+<div class="totalResult" *ngIf="isTotal">
     <br>
     <h3>{{themeString}}</h3>
     <div class="container">
         <div class="items">
-            <div id="resultItem" *ngFor="let rel of rels">
+            <div id="resultItem" *ngFor="let rel of rels" (click)="goResult(rel)">
                 <div>
-                    <img id="themeImg" src="../../../assets/imgs/alone.jpg" (click)="goResult()">
+                    <img id="themeImg" src="../../../assets/imgs/alone.jpg">
                 </div>
                 <div>
                     {{rel.relName}}
@@ -56,3 +56,4 @@
     </div>
 
 </div>
+<app-result *ngIf="!isTotal" [test]="'asdasd'" [rel]="rel" (sendTotal)="getResultTotal($event)"></app-result>
