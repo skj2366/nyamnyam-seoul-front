@@ -23,7 +23,7 @@ export class MapComponent implements OnInit {
   relsUrl: string = '/rels';
   mapUrl: string = '/map';
 
-  constructor(private _zonsub: ZoneSubwayService, private _km: KakaoMapService, route: ActivatedRoute, private _cs: CommonService, private _router: Router) {
+  constructor(private _zonsub: ZoneSubwayService, private _km: KakaoMapService, private route: ActivatedRoute, private _cs: CommonService, private _router: Router) {
     this.zoneValue = route.snapshot.params['zoneValue'];
     this.subValue = route.snapshot.params['subValue'];
   }

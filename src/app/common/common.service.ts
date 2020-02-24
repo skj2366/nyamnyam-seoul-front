@@ -63,4 +63,14 @@ export class CommonService {
       var length = Object.keys(obj).length;
       return length;
   }
+
+  currencyFormat(money: number): string {
+    if (money == 0) return '0';
+    var rx = /(^[+-]?\d+)(\d{3})/;
+    var moneyStr = money + '';
+    while (rx.test(moneyStr)) {
+      moneyStr = moneyStr.replace(rx, `$1` + ',' + `$2`);
+    }
+    return moneyStr;
+  }
 }
