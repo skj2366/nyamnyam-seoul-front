@@ -1,4 +1,4 @@
-export class CustomerInfo {
+export class MenuInfo {
     meiNum : number;
     relNum : number;
     meiRelName : string;

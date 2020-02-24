@@ -3,7 +3,7 @@ export class RestaurantList {
     relName: string;
     relCategory: string;
     relStringCategory : string;
-    relEtcTime : number;
+    relEtcTime : string;
     relLatitude: number;
     relLongitude: number;
     zoneNum: number;
