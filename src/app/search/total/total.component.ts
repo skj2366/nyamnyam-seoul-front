@@ -14,7 +14,7 @@ export class TotalComponent implements OnInit {
 
   }
       goResult(){
-        this._router.navigateByUrl('/result');
+        this._router.navigateByUrl('/totalResult');
       }
 
 }

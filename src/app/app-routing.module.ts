@@ -14,7 +14,7 @@ import { BoardWriteComponent } from './board/board-write/board-write.component';
 import { TotalComponent } from './search/total/total.component';
 import { BoardResultComponent } from './board/board-result/board-result.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
-import { ExampleGridComponent } from './example-grid/example-grid.component';
+import { TotalResultComponent } from './search/total/total-result/total-result.component';
 
 const routes: Routes = [
   // {
@@ -53,6 +53,10 @@ const routes: Routes = [
   {
     path: 'total',
     component: TotalComponent
+  },
+  {
+    path: 'totalResult',
+    component: TotalResultComponent
   },
   {
     path: 'manage',

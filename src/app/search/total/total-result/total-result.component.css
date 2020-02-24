@@ -1,0 +1,49 @@
+.totalResult{
+    width: 90%;
+    height: 80%;
+    margin-left: 5%;
+    margin-top: 2%;
+   
+}
+
+h3{
+    font-family: 'BMEULJIRO';
+      font-size: 200%;
+      margin-left: 5%;
+      margin-top: 1%;
+  }
+
+.container{
+    display: flex;
+    float: center;
+    width: 80%;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 5px;
+    flex-direction: row;
+    overflow: auto;
+}
+
+.items{
+    margin-left: 100px;
+}
+
+#resultItem{
+    display: inline-block;
+    width: 280px;
+    height: 230px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid rgb(5, 5, 90);
+    font-family: 'BMEULJIRO';
+    font-size: 20pt;
+}
+
+#themeImg{
+    width: 250px;
+    height:150px;
+    margin-left: -5px;
+    margin-top: -10px;
+  }

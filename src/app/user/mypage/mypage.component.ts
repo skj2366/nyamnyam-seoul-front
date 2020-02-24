@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CustomerInfo } from 'src/app/vo/customer-info';
 
 @Component({
   selector: 'app-mypage',
