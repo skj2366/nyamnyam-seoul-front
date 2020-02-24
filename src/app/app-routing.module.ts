@@ -59,6 +59,10 @@ const routes: Routes = [
     component: TotalResultComponent
   },
   {
+    path: 'totalResult/:theme',
+    component: TotalResultComponent
+  },
+  {
     path: 'manage',
     component: ManageComponent
   },

@@ -13,8 +13,14 @@ export class TotalComponent implements OnInit {
   ngOnInit() {
 
   }
-      goResult(){
-        this._router.navigateByUrl('/totalResult');
-      }
+  goResult() {
+    this._router.navigateByUrl('/totalResult');
+  }
 
+  goResultByTheme(theme:string) {
+    if(theme) {
+      // alert(theme);
+      this._router.navigateByUrl(`/totalResult/${theme}`);
+    }
+  }
 }
