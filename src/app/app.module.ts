@@ -50,7 +50,9 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
     HttpClientModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    AgGridModule.withComponents([]),
+    AgGridModule.withComponents([
+      ManageComponent
+    ]),
     AutocompleteLibModule
   ],
   providers: [

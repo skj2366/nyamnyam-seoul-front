@@ -90,5 +90,6 @@ export class MenuComponent implements OnInit {
     this.isLogin = false;
     alert('로그아웃 완료');
     this.ngOnInit();
+    this._router.navigateByUrl('/login');
   }
 }
