@@ -4,6 +4,9 @@ import { CommonService } from 'src/app/common/common.service';
 import { CustomerInfo } from 'src/app/vo/customer-info';
 import { RestaurantList } from 'src/app/vo/restaurant-list';
 import { CommentList } from 'src/app/vo/comment-list';
+import { GridOptions, Grid } from 'ag-grid-community';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-manage',
@@ -11,9 +14,14 @@ import { CommentList } from 'src/app/vo/comment-list';
   styleUrls: ['./manage.component.css']
 })
 export class ManageComponent implements OnInit {
-  
+  imports : [
+    BrowserModule,
+    FormsModule
+  ]
+
   gridApi;
   gridColumnApi;
+  gridOptions : GridOptions;
   theme = "ag-theme-balham";
 
   rowDataUser = [];
@@ -39,12 +47,12 @@ export class ManageComponent implements OnInit {
         resizable: true, //컬럼 사이즈 조절 가능 여부 
         lockPosition: true, //컬럼 드래그로 이동 방지
         rowSelection: 'multiple',
-        filter : true
+        animateRows : true
       };     
 
       this_.columnDefsUser = [
         { headerName: '번호', field: 'cuiNum', width:50, cellStyle: { color: '#4C4C4C', textAlign: "center", backgroundColor: "#FFA7A7" },checkboxSelection: true, headerCheckboxSelection: true},
-        { headerName: '유저이름', field: 'cuiName', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+        { headerName: '유저이름', field: 'cuiName', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, },
         { headerName: '유저아이디', field: 'cuiId', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
         { headerName: '유저닉네임', field: 'cuiNickname', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true },
         { headerName: '유저이메일', field: 'cuiEmail', width: 200, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
@@ -97,13 +105,6 @@ export class ManageComponent implements OnInit {
         this.rowDataComment = <CommentList[]>res; 
       });
   }
-
-  /* deleteRecord = function(params,rowIndex){
-    //delete from map using index 
-    // map.splice(1,rowIndex); 
-    gridOptions.api.setRowData(map);
-  } */
-
   
   onGridReady(params) { 
     this.gridApi = params.api;
@@ -112,5 +113,57 @@ export class ManageComponent implements OnInit {
       
   fitColumnsSize(params) { 
     params.api.sizeColumnsToFit(); 
-  } //컬럼의 데이터에 맞춰서 사이즈 조절 
+  } //컬럼의 데이터에 맞춰서 사이즈 조절
+  
+  onAddRowUser() {
+    var newItem = this.gridApi.MyGridUser.createNewRowDataUser();
+    var res = this.gridApi.MyGridUser.updateRowData({ add: [newItem] });
+    console.log(res);
+    //var data = {'cuiName':res.add[0].data.cuiName, 'cuiId':res.add[0].data.cuiId, 'age':res.add[0].data.employee_age};
+    
+    /*this._cs.postJson('/cui', data).subscribe(
+        res => {
+          console.log(res);
+      },
+        err => {
+          if (err.error instanceof Error) {
+            console.log("Client-side error occured.");
+          } else {
+            console.log("Server-side error occured.");
+          }
+      });*/
+  }
+
+  createNewRowDataUser() {    
+    var newData = {
+      cuiName : 'a',
+      cuiId : 'a',
+      cuiNickname : 'a',
+      cuiEmail : 'a',
+      cuiPhone : 'a',
+      cuiCredat : new Date().getDate,
+      cuiCretim : new Date().getTime,
+      cuiModdat : new Date().getDate,
+      cuiModtim : new Date().getTime
+    };
+    return newData;
+  }
+
+  onRemoveSelected() {
+    var selectedData = this.gridApi.getSelectedRows();
+    var res = this.gridApi.updateRowData({ remove: selectedData });
+    console.log(res.remove[0].data.id);
+    var id = res.remove[0].data.id;
+    this._cs.delete('/cui/', ).subscribe(
+        res => {
+          console.log(res);
+      },
+      err => {
+        if (err.error instanceof Error) {
+          console.log("Client-side error occurred.");
+        } else {
+          console.log("Server-side error occurred.");
+        }
+      });
+  }
 }
