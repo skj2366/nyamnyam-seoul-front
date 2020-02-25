@@ -1,4 +1,4 @@
-export class ReviewList {
+export class ReviewInfo {
     reiNum : number;
     reiLike : number;
     reiTitle : string;

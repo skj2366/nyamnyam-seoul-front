@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ReviewList } from 'src/app/vo/review-list';
+import { ReviewInfo } from 'src/app/vo/review-info';
 import { CommonService } from 'src/app/common/common.service';
+import { ZoneSubwayService } from 'src/app/search/zone-subway.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-board-list',
@@ -8,12 +10,17 @@ import { CommonService } from 'src/app/common/common.service';
   styleUrls: ['./board-list.component.css']
 })
 export class BoardListComponent implements OnInit {
-  reviews : ReviewList = new ReviewList();
+  reviews : ReviewInfo = new ReviewInfo();
+  
+  zoneList: any;
+  subList: any;
+  zoneValue: number = 0;
+  subValue: number = 0;
 
   lists:any[] = [];
 
   //번호, 구, 역, 식당이름, 제목, 좋아요, 조회수, 작성시간
-  constructor(private _cs : CommonService) { 
+  constructor(private _cs : CommonService, private _zonsub: ZoneSubwayService, private _router: Router) { 
     for(var i =1; i<=10; i++){
       var list = {no : i, gu: 'jiyeokgu'+i, station : 'station'+i, title : 'title'+i, count: i};
       this.lists.push(list);
@@ -21,6 +28,34 @@ export class BoardListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getZones();
   }
 
+  getZones() {
+    this._cs.get('/zoi').subscribe(
+      res => {
+        console.log(res);
+        this.zoneList = res;
+        console.log(this.zoneList);
+      }, err => {
+        console.log(err);
+      }
+    )
+  }
+
+  getSubwayInfo() {
+    this.subValue = 0;
+    if (this.zoneValue) {
+      this._cs.get('/sui/' + this.zoneValue).subscribe(
+        res => {
+          console.log(res);
+          this.subList = res;
+        }
+      )
+    }
+  }
+
+  doSearchByCondition() {
+
+  }
 }
