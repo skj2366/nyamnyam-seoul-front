@@ -1,6 +1,6 @@
 .result{
     width: 95%;
-    height: 1000px;
+    height: auto;
     border: 2px solid black;
     margin-left: 3%;
     margin-top: 2%;
@@ -48,7 +48,7 @@ img{
     width: 495px;
     height: 305px;
 }
-.infos #info1{
+/* .infos #info1{
     width: 400px;
     margin-top: 30px;
     margin-left: 100px;
@@ -57,6 +57,40 @@ img{
     font-size: 15pt;
     font-weight: bold;
     margin-left: 8%;
+} */
+
+.infos #relName{
+    width: 15%;
+    height: 25px;
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
+    font-weight: bold;
+    border-bottom: 2px solid rgb(5, 5, 90);
+    margin-left: 8%;
+    margin-bottom: 2%;
+}
+
+.infos  #relCategory, #relStringCategory, #relCall{
+    display: inline-block;
+    width: 10%;
+    height: 25px;
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
+    font-weight: bold;
+    border-bottom: 2px solid rgb(5, 5, 90);
+    margin-left: 8%;
+    margin-bottom: 2%;
+}
+
+.infos #relSubAddress{
+    width: 40%;
+    height: 25px;
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
+    font-weight: bold;
+    border-bottom: 2px solid rgb(5, 5, 90);
+    margin-left: 8%;
+    margin-bottom: 2%;
 }
 
 .tab{
@@ -120,11 +154,17 @@ img{
     display: block;
 }
 
+#name{
+    text-decoration:underline solid rgb(5, 5, 90);
+}
+#price{
+    margin-left: 80%;
+}
+
 .blog{
     width: 90%;
-    height: 200px;
+    height: 230px;
     /* height: auto; */
-    margin: auto;
     border: 1px solid black;
     margin-left: 6%;
 }
