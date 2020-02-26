@@ -3,6 +3,7 @@ export class MenuInfo {
     relNum : number;
     meiRelName : string;
     meiName : string;
+    meiPrice: number;
 
     meiImg1 : File;
     meiImg1Name : string;

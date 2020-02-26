@@ -42,7 +42,7 @@
     <div class="flex-container">
       <br>
       <span *ngIf="!rels" style="font-size: 20pt;font-weight:bold; color:rgb(5, 5, 90);margin-left:5%;">검색 결과가 없습니다.</span>
-      <div class="flex-item" *ngFor="let rel of rels">
+      <div class="flex-item" *ngFor="let rel of rels" (click)="goRelPage(rel.relNum)">
         <div>{{rel.relName}}</div>
         <div>{{rel.relSubAddress}}</div>
         <div>{{rel.relCall}}</div>

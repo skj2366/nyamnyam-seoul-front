@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RestaurantList } from '../vo/restaurant-list';
 import { CommonService } from './common.service';
+import { Router } from '@angular/router';
 
 declare var kakao: any;
 
@@ -11,7 +12,7 @@ export class KakaoMapService {
 
   map;
 
-  constructor(private _cs: CommonService) { }
+  constructor(private _cs: CommonService, private _router:Router) { }
 
   // 단일 검색 시 makeMap 사용.
   makeMap(x, y) {
@@ -130,7 +131,7 @@ export class KakaoMapService {
     var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 
     // for (var i = 0; i < positions.length; i++) {
-    for (var rel of rels) {
+    for (let rel of rels) {
 
       // 마커 이미지의 이미지 크기
       var imageSize = new kakao.maps.Size(24, 35);
@@ -148,7 +149,7 @@ export class KakaoMapService {
 
       var iwContent = '<div style="padding:5px;">' + rel.relName + '<br>' + rel.relCall + '<br>' + rel.relSubAddress + '<br>&nbsp;</div>';//인포윈도우 내용
       var iwPosition = new kakao.maps.LatLng(rel.relLatitude, rel.relLongitude); //인포윈도우 표시 위치
-
+      
       // 인포윈도우를 생성합니다
       var infowindow = new kakao.maps.InfoWindow({
         position: iwPosition,
@@ -161,9 +162,13 @@ export class KakaoMapService {
       kakao.maps.event.addListener(marker, 'mouseover', this.makeOverListener(this.map, marker, infowindow));
       kakao.maps.event.addListener(marker, 'mouseout', this.makeOutListener(infowindow));
       // 마커에 클릭이벤트를 등록
-      kakao.maps.event.addListener(marker, 'click', function () {
-        // 클릭시 상세 페이지로 새페이지 열리게끔 !
-        window.open('http://localhost');
+      // kakao.maps.event.addListener(marker, 'click', function () {
+      //   // 클릭시 상세 페이지로 새페이지 열리게끔 ! 아..? 새로 안열려야하나
+      //   // window.open(`http://localhost/result/${rel.relNum}`);
+      // 
+      // });
+      kakao.maps.event.addListener(marker, 'click', () => {
+        this._router.navigateByUrl('/result/' + rel.relNum);
       });
     }
   }
@@ -179,6 +184,5 @@ export class KakaoMapService {
       infowindow.close();
     };
   }
-
 
 }

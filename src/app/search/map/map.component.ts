@@ -88,6 +88,9 @@ export class MapComponent implements OnInit {
     }
   }
 
+  goRelPage(relNum:number) {
+    this._router.navigateByUrl(`/result/${relNum}`);
+  }
 
 
 }
