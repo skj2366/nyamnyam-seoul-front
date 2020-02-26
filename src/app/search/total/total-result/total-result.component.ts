@@ -83,6 +83,7 @@ export class TotalResultComponent implements OnInit {
     this.getRestaurantWithTheme();
   }
 
+  // result-dk 용 
   goResult(rel?:any) {
     // this._router.navigateByUrl('/result');
     this.rel = rel;
@@ -90,6 +91,13 @@ export class TotalResultComponent implements OnInit {
     this.scrollNow = window.scrollY;
     console.log(this.scrollNow);
     window.scroll(0,0);
+  }
+  //
+
+  // result page로 이동시키기 , relNum 기준 
+  goResultPage(relNum:number) {
+    window.scroll(0,0);
+    this._router.navigateByUrl(`/result/${relNum}`);
   }
 
   async getTheme() {

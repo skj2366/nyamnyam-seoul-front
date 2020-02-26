@@ -3,7 +3,7 @@
     <h3>{{themeString}}</h3>
     <div class="container">
         <div class="items">
-            <div id="resultItem" *ngFor="let rel of rels" (click)="goResult(rel)">
+            <div id="resultItem" *ngFor="let rel of rels" (click)="goResultPage(rel.relNum)">
                 <div>
                     <img id="themeImg" src="../../../assets/imgs/alone.jpg">
                 </div>
