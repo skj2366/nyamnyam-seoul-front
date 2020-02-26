@@ -17,7 +17,7 @@ export class ResultComponent implements OnInit {
   constructor(private route : ActivatedRoute, private _cs : CommonService) { }
 
   async ngOnInit() {    
-    var relNum = this.route.snapshot.paramMap.get('relNum');
+    var relNum = this.route.snapshot.paramMap.get('relNum');    
     this.getRestaurantDetail(relNum);
     this.getMenu(relNum);
   }
@@ -27,10 +27,11 @@ export class ResultComponent implements OnInit {
     this._cs.get(url).subscribe(
       res => {
           this.rel = <RestaurantList>res;          
-          console.log(res);
+          console.log(this.rel);
           
         }
       , err => {
+          console.log('레스토랑상세 못가져옴');
           console.log(err);
         }      
     )

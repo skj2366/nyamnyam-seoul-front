@@ -1,21 +1,22 @@
 <div class="contents">
     <div class="board" style="margin-top: 5%;">
-        <div id="order1">
-        <h3 id="reiTitle">후기 제목</h3>
-        <h5 id="reiDate">2020/02/25</h5>
+        <div id="order1" style="margin-top: 3%;">
+        <h3 id="reiTitle">후기 제목 {{reviewTitle}}</h3>
+        <h5 id="reiDate">2020/02/25 {{reviewDate}}</h5>
     </div>
      
-        <h3 id="relName">식당 이름</h3>      
-        <h3 id="userNick">닉네임</h3>
+        <h3 id="relName">식당 이름 {{reviewRestaurant}}</h3>      
+        <h3 id="userNick">닉네임 {{userNick}}</h3>
     <br>
     <br>
         <div id="order3"> 
         <h5 id="oTitle" style="margin-left: 5%">방문 날짜/시간</h5> &nbsp; &nbsp;
-        <h5 id="visitDate">2020/02/25</h5> &nbsp;     
-        <h5 id="visitTime">16:52</h5>
+        <h5 id="visitDate">2020/02/25 {{visitDate}}</h5> &nbsp;     
+        <h5 id="visitTime">16:52 {{visitTime}}</h5>
     </div>    
     <br>
         <div id="boardContent">
+            {{reviewContents}}
             여기가 이제 <br>
             후기 내용이 <br>
             나오는 <br>

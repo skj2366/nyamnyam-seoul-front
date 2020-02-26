@@ -33,7 +33,9 @@ font-weight: bold;
 margin-left: 8%;
 /* margin-bottom: -12%; */
 }
+
 #reiDate{
+    font-family: 'BMHANNAAir';
     margin-left: 55%;
 }
 
@@ -62,9 +64,12 @@ margin-left: 8%;
 #relName, #userNick{
     display: inline;
 }
+
 #visitDate, #visitTime, #oTitle{
+    font-family: 'BMHANNAAir';
     display: inline;
 }
+
 #order3{
     width : 40%;
     height: auto;
