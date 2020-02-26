@@ -1,0 +1,46 @@
+<div class="result">
+  <h3>상세 결과!!!!!!!!!!</h3>
+  <div class="infos" style="margin-top: 5%;"> 
+      <input type="text" placeholder="식당 이름" value="{{rel.relName}}" readonly>
+      <br>
+      <h5 id="info1">평점 /음식 종류 : {{rel.relStringCategory}}/ 뭐시기뭐시기</h5>
+
+      <div class="container">
+          <div id="foodPic">
+              <img src="../../../assets/imgs/breakfast.jpg">
+          </div>
+          
+          <div id="rMap">
+                  <img src="../../../assets/imgs/breakfast.jpg">
+          </div>
+      </div>
+      <div class="tab">
+          <input id="tab1" type="radio" name="tabs" checked> <!--defalut tab-->
+          <label for="tab1">대표 메뉴</label> 
+
+          <input id="tab2" type="radio" name="tabs"> 
+          <label for="tab2">영업 시간</label> 
+
+          <input id="tab3" type="radio" name="tabs"> 
+          <label for="tab3">리뷰</label> 
+          <!-- tab1 대표 메뉴-->
+          <section id="content1">
+              <p>{{rel.relStringCategory}}</p>
+          </section>
+          <!-- tab2 영업 시간-->
+          <section id="content2">
+              <p>{{rel.relEtcTime}}</p>
+          </section>
+          <!-- tab3 리뷰-->
+          <section id="content3">
+              <p>{{rel.relCall}}</p>
+          </section>
+      </div>
+      <br>
+      <br>
+      <div class="blog">
+          블로그 결과가 나와요
+      </div>
+  </div>
+</div>
+<button (click)="goBack()">뒤로가기</button>

@@ -1,0 +1,170 @@
+.result{
+    width: 95%;
+    height: auto;
+    border: 2px solid black;
+    margin-left: 3%;
+    margin-top: 2%;
+}
+
+h3{
+    font-family: 'MapoPeacefull';
+    }
+
+input{
+        width: 300px;
+        height: 50px;
+        border: 0px;
+        font-family: 'BMHANNAAir';
+        font-size: 15pt;
+        font-weight: bold;
+        border-bottom: 2px solid rgb(5, 5, 90);
+        /* background: rgba(245, 238, 238 , 0.5 ); */
+        padding:10px 0px 0px 10px; 
+        margin-left: 8%;
+    }
+
+input:focus {
+        outline:none;
+    }
+
+.container{
+        display: flex;
+        float: right;
+        flex-direction: column;
+        width: 600px;
+        height: 630px;
+        margin-right: 70px; 
+        margin-top: -150px;
+        /* border: 2px solid rgb(5, 5, 90); */
+
+    }
+#foodPic, #rMap{
+    border: 2px solid rgb(5, 5, 90);
+    width: 500px;
+    height: 310px;
+}
+
+img{
+    width: 495px;
+    height: 305px;
+}
+/* .infos #info1{
+    width: 400px;
+    margin-top: 30px;
+    margin-left: 100px;
+    border-bottom: 2px solid rgb(5, 5, 90);
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
+    font-weight: bold;
+    margin-left: 8%;
+} */
+
+.infos #relName{
+    width: 15%;
+    height: 25px;
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
+    font-weight: bold;
+    border-bottom: 2px solid rgb(5, 5, 90);
+    margin-left: 8%;
+    margin-bottom: 2%;
+}
+
+.infos  #relCategory, #relStringCategory, #relCall{
+    display: inline-block;
+    width: 10%;
+    height: 25px;
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
+    font-weight: bold;
+    border-bottom: 2px solid rgb(5, 5, 90);
+    margin-left: 8%;
+    margin-bottom: 2%;
+}
+
+.infos #relSubAddress{
+    width: 40%;
+    height: 25px;
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
+    font-weight: bold;
+    border-bottom: 2px solid rgb(5, 5, 90);
+    margin-left: 8%;
+    margin-bottom: 2%;
+}
+
+.tab{
+    min-width: 320px;
+    max-width: 600px;
+    margin: 40px 0 0 8%;
+    height: 450px;
+    /* height: auto; 사이즈 대충 할려고 일단 주석*/
+    border-bottom: 1px solid rgb(5, 5, 90); /* 사이즈 볼려고 풀어 둠*/
+    /* border-left: 1px solid rgb(5, 5, 90);
+    border-right: 1px solid rgb(5, 5, 90); */
+    background: #ffffff;
+}
+
+.tab p{
+    margin: 0 0 20px;
+    line-height: 1.5;
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
+}
+
+.tab section{
+    display: none;
+    padding: 10px 0 0 20px;
+    border-top: 1px solid rgb(5, 5, 90);
+}
+
+/* 라디오 버튼 숨김 */
+.tab input{
+    display: none;
+}
+
+.tab label{
+    display: inline-block;
+    margin: 0 0 -1px 0;
+    padding: 15px 25px;
+    font-weight: 800;
+    font-family: 'BMHANNAAir';
+    font-size: 15pt;
+    text-align: center;
+    color: rgb(104, 98, 98);
+    border: 1px solid transparent;
+}
+
+.tab label:hover{
+    color: #ac0d0d;
+    cursor: pointer;
+}
+
+/*input 클릭시, label 스타일*/
+.tab input:checked + label{
+    color: black;
+    border: 1px solid rgb(5, 5, 90);
+    border-top: 5px solid rgb(5, 5, 90);
+    border-bottom: 1px solid #ffffff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3{
+    display: block;
+}
+
+#name{
+    text-decoration:underline solid rgb(5, 5, 90);
+}
+#price{
+    margin-left: 80%;
+}
+
+.blog{
+    width: 90%;
+    height: 230px;
+    /* height: auto; */
+    border: 1px solid black;
+    margin-left: 6%;
+}

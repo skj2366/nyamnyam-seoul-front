@@ -25,6 +25,7 @@ import { BoardResultComponent } from './board/board-result/board-result.componen
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { TotalResultComponent } from './search/total/total-result/total-result.component';
 import { CKEditorModule } from 'ckeditor4-angular';
+import { ResultDkComponent } from './search/result-dk/result-dk.component';
 // import { CKEditorModule } from 'ng2-ckeditor';
 
 
@@ -45,7 +46,8 @@ import { CKEditorModule } from 'ckeditor4-angular';
     BoardWriteComponent,
     BoardResultComponent,
     UserDetailComponent,
-    TotalResultComponent
+    TotalResultComponent,
+    ResultDkComponent
   ],
   imports: [
     FormsModule,
