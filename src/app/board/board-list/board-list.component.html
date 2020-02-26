@@ -6,7 +6,7 @@
     <div id="sCondition">
       <p>
     <select id="zone" [(ngModel)]="zoneValue" name="zoneValue" (change)="getSubwayInfo()">
-      <option selected value="지역구 선택">지역구 선택</option>
+      <option selected [value]="0">지역구 선택</option>
       <option *ngFor="let zone of zoneList" [value]="zone.zoneNum">{{zone.zoneName}}
       </option>
     </select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -15,24 +15,24 @@
        
     <label for="inputTheme" id="theme">몇 명과 식사?</label>&nbsp;&nbsp;&nbsp;&nbsp; 
             <label class="box-check-input">
-              <input type="checkbox" name="themes" value="1" [(ngModel)]="cui.cuiTrans">
+              <input type="checkbox" name="themes" value="1">
                 <span>혼자</span>
             </label>
             &nbsp;&nbsp;
             <label class="box-check-input">
-              <input type="checkbox" name="themes" value="1" [(ngModel)]="cui.cuiTrans">
+              <input type="checkbox" name="themes" value="1">
                 <span>둘이서</span>
             </label>
             &nbsp;&nbsp;
             <label class="box-check-input">
-              <input type="checkbox" name="themes" value="1" [(ngModel)]="cui.cuiTrans">
+              <input type="checkbox" name="themes" value="1">
                 <span>넷 이상</span>
             </label>
           </p>
         
 
         <select id="subway" [(ngModel)]="subValue" name="subValue" (change)="getSubValue(subValue)">
-          <option selected value="지하철역 선택">지하철역 선택</option>
+          <option selected [value]="0">지하철역 선택</option>
           <option *ngFor="let sub of subList" [value]="sub.subwayNum">{{sub.subwayName}} (
             <p *ngIf="sub.subwayLine1">| 1호선 |</p>
             <p *ngIf="sub.subwayLine2">| 2호선 |</p>
@@ -87,7 +87,7 @@
           <th scope="col">조회수</th>
           <th scope="col">작성시간</th>
         </tr>
-        <tr *ngFor="let list of lists">
+        <!-- <tr *ngFor="let list of lists">
           <td>{{list.no}}</td>
           <td>{{list.gu}}</td>
           <td>{{list.station}}</td>
@@ -96,7 +96,17 @@
           <td>{{list.count}}</td>
           <td>{{list.count}}</td>
           <td>2020/02/18</td>
-        </tr>        
+        </tr>        -->
+        <tr *ngFor="let list of lists">
+          <td>{{list.reiNum}}</td>
+          <td>{{list.zoneNum}}</td>
+          <td>{{list.subwayNum}}</td>
+          <td>{{list.relNum}}</td>
+          <td>{{list.reiTitle}}</td>
+          <td>{{list.reiLike}}</td>
+          <td>{{list.reiCount}}</td>
+          <td>{{list.reiCredat}}</td>
+        </tr> 
             <!-- //디자인 볼려고 주석해둠//
         <tr *ngFor="let review of reviews">
           <td>{{review.reiNum}}</td>
@@ -110,6 +120,6 @@
         </tr> -->        
       </table>
       <div>
-      <button type="button" id="boardWrite" class="btn btn-outline-danger" onclick="location.href='/boardWrite'">글쓰기</button>
+      <button type="button" id="boardWrite" class="btn btn-outline-danger" (click)="goPage('/boardWrite')">글쓰기</button>
     </div>
     </div>

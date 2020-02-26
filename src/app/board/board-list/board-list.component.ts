@@ -17,18 +17,19 @@ export class BoardListComponent implements OnInit {
   zoneValue: number = 0;
   subValue: number = 0;
 
-  lists:any[] = [];
+  lists:any = [];
 
   //번호, 구, 역, 식당이름, 제목, 좋아요, 조회수, 작성시간
   constructor(private _cs : CommonService, private _zonsub: ZoneSubwayService, private _router: Router) { 
-    for(var i =1; i<=10; i++){
-      var list = {no : i, gu: 'jiyeokgu'+i, station : 'station'+i, title : 'title'+i, count: i};
-      this.lists.push(list);
-    }
+    // for(var i =1; i<=10; i++){
+    //   var list = {no : i, gu: 'jiyeokgu'+i, station : 'station'+i, title : 'title'+i, count: i};
+    //   this.lists.push(list);
+    // }
   }
 
   ngOnInit() {
     this.getZones();
+    this.getReviewList();
   }
 
   getZones() {
@@ -57,5 +58,19 @@ export class BoardListComponent implements OnInit {
 
   doSearchByCondition() {
 
+  }
+
+  getSubValue(subValue?) {
+
+  }
+  
+  goPage(url:string) {
+    this._router.navigateByUrl(url);
+  }
+
+  async getReviewList() {
+    const url = '/rei';
+    this.lists = await this._cs.get(url).toPromise();
+    console.log(this.lists);
   }
 }
