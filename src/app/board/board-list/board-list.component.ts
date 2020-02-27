@@ -68,8 +68,13 @@ export class BoardListComponent implements OnInit {
     this._router.navigateByUrl(url);
   }
 
+  goBoardResult(reiNum:number) {
+    var url = `/board/${reiNum}`;
+    this._router.navigateByUrl(url);
+  }
+
   async getReviewList() {
-    const url = '/rei';
+    const url = '/reis/board';
     this.lists = await this._cs.get(url).toPromise();
     console.log(this.lists);
   }

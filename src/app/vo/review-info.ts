@@ -25,6 +25,11 @@ export class ReviewInfo {
     zoneNum: number;
     subwayNum: number;
 
+    cuiName: string;
+    relName: string;
+    zoneName: string;
+    subwayName: string;
+
     /*
     private Integer reiNum;
 	private Integer reiLike;
