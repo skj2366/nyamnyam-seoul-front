@@ -7,14 +7,14 @@
 }
 
 h3{
-    font-family: 'MapoPeacefull';
+    font-family: 'GyeonggiBatang'; 
     }
 
 input{
         width: 300px;
         height: 50px;
         border: 0px;
-        font-family: 'BMHANNAAir';
+        font-family: 'GyeonggiBatang'; 
         font-size: 15pt;
         font-weight: bold;
         border-bottom: 2px solid rgb(5, 5, 90);
@@ -48,21 +48,11 @@ img{
     width: 495px;
     height: 305px;
 }
-/* .infos #info1{
-    width: 400px;
-    margin-top: 30px;
-    margin-left: 100px;
-    border-bottom: 2px solid rgb(5, 5, 90);
-    font-family: 'BMHANNAAir';
-    font-size: 15pt;
-    font-weight: bold;
-    margin-left: 8%;
-} */
 
 .infos #relName{
     width: 15%;
     height: 25px;
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     font-size: 15pt;
     font-weight: bold;
     border-bottom: 2px solid rgb(5, 5, 90);
@@ -74,7 +64,7 @@ img{
     display: inline-block;
     width: 10%;
     height: 25px;
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     font-size: 15pt;
     font-weight: bold;
     border-bottom: 2px solid rgb(5, 5, 90);
@@ -85,7 +75,7 @@ img{
 .infos #relSubAddress{
     width: 40%;
     height: 25px;
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     font-size: 15pt;
     font-weight: bold;
     border-bottom: 2px solid rgb(5, 5, 90);
@@ -108,7 +98,7 @@ img{
 .tab p{
     margin: 0 0 20px;
     line-height: 1.5;
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     font-size: 15pt;
 }
 
@@ -128,7 +118,7 @@ img{
     margin: 0 0 -1px 0;
     padding: 15px 25px;
     font-weight: 800;
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     font-size: 15pt;
     text-align: center;
     color: rgb(104, 98, 98);

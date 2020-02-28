@@ -35,14 +35,14 @@ margin-left: 8%;
 }
 
 #reiDate{
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     margin-left: 55%;
 }
 
 #relName{
         width: 20%;
         height: 25px;
-        font-family: 'BMHANNAAir';
+        font-family: 'GyeonggiBatang'; 
         font-size: 17pt;
         font-weight: bold;
         border-bottom: 2px solid rgb(5, 5, 90);
@@ -53,7 +53,7 @@ margin-left: 8%;
 #userNick{
         width: 15%;
         height: 25px;
-        font-family: 'BMHANNAAir';
+        font-family: 'GyeonggiBatang'; 
         font-size: 13pt;
         font-weight: bold;
         border-bottom: 2px solid rgb(5, 5, 90);
@@ -66,7 +66,7 @@ margin-left: 8%;
 }
 
 #visitDate, #visitTime, #oTitle{
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     display: inline;
 }
 

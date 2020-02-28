@@ -55,27 +55,27 @@ ul{
 }
 
 .likeTable{
-  width: 100%; 
-  margin-left: 300px;
-  margin-right: 300px;
+  width:120%; 
+  margin-left: 110%;
+  /* margin-right: 50%; */
   text-align: center; 
-  font-family: 'MapoPeacefull';
+  font-family: 'GyeonggiBatang'; 
 }
 
 .writeTable{
-  width: 100%; 
-  margin-left: 300px;
-  margin-right: 300px;
+  width:180%; 
+  margin-left: 40%;
+  /* margin-right: 20%; */
   text-align: center; 
-  font-family: 'MapoPeacefull';
+  font-family: 'GyeonggiBatang'; 
 }
 
 .commentTable {
-  width: 100%; 
-  margin-left: 200px;
+  width:900px; 
+  margin-left: 20%;
   margin-right: 200px;
   text-align: center; 
-  font-family: 'MapoPeacefull';
+  font-family: 'GyeonggiBatang'; 
 }
 
 .reLogin{ 
@@ -110,7 +110,7 @@ input:focus {
   border-radius: 10px;
   width: 50%;
   height: 50px;
-  font-family: 'MapoPeacefull';
+  font-family: 'GyeonggiBatang'; 
   font-size: 15pt;
   color: cornsilk;
   margin-top: 5%;

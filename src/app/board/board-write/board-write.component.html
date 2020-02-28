@@ -1,8 +1,8 @@
-<div class="boardwrite" style=" margin-left: 450px ; margin-right: auto; margin-top: 60px; margin-bottom: 40px;">
-  <h3>후기를 작성해주세요!</h3>
-
+<div class="boardwrite">
+  
+  <div class="write">
   <input type="text" id="inputNickname" placeholder="Nickname" [(ngModel)]="cui.cuiNickname" readonly>  
-  <input type="date" id="inputNickname" placeholder="VisitDate" [(ngModel)]="rei.reiDate">
+  <input type="date" id="inputVisitDate" placeholder="VisitDate" [(ngModel)]="rei.reiDate">
   <br>
   <br>
   <div class="checks" style="margin-left: 15px;">
@@ -109,12 +109,16 @@
   </div>
   
   <div class="title">
-    <label for="title" id="theme">리뷰 제목</label>
-    <input type="text" name="titles" id="inputNickname" [(ngModel)]="rei.reiTitle">
+    <p>
+    <label for="inputTitle" id="title" style="margin-left: 10px">리뷰 제목</label>
+    <input type="text" name="titles" id="inputTitle" [(ngModel)]="rei.reiTitle">
+    </p>
   </div>
-  <div class="write">
+
+  <div class="writeEditor">
     <ckeditor [(data)]="rei.reiContents" [config]="ckEditorConfig" (change)="consoleCK()"></ckeditor>
   </div>
 
-  <button (click)="writeReview()">후기작성</button>
+  <button class="btn btn-outline-primary" (click)="writeReview()">후기작성</button>
+</div>
 </div>

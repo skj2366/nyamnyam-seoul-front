@@ -1,10 +1,11 @@
-h3{
-    font-family: 'MapoPeacefull';
+.write{
+    margin : 2% 20% 5% 20%;
+    border : 1px solid rgb(5, 5, 90);
 }
 
-#time, #visit, #restaurant, #theme{
+#time, #visit, #restaurant, #theme, #title{
     border-bottom: 2px solid rgb(5, 5, 90);
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     font-size: 12pt;
     font-weight: bold;
 }
@@ -16,7 +17,7 @@ h3{
     padding:5px 0px 0px 10px; 
     border: 0px; 
     border-bottom: 2px solid  rgb(5, 5, 90);
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     font-weight: bold;
     font-size: 12pt;
 }
@@ -29,7 +30,7 @@ h3{
     padding:5px 0px 0px 10px; 
     border: 0px; 
     border-bottom: 2px solid  rgb(5, 5, 90);
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     font-weight: bold;
 }
 
@@ -41,12 +42,21 @@ h3{
     padding:5px 0px 0px 10px; 
     border: 0px; 
     border-bottom: 2px solid  rgb(5, 5, 90);
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     font-weight: bold;
 }
 
 
-
+.boardwrite input#inputTitle{
+    margin-left: 10px;
+    width : 300px;
+    height: 38px; 
+    padding:5px 0px 0px 10px; 
+    border: 0px; 
+    border-bottom: 2px solid  rgb(5, 5, 90);
+    font-family: 'GyeonggiBatang'; 
+    font-weight: bold;
+}
 
 .box-radio-input input[type="radio"]{
     display:none;
@@ -61,7 +71,7 @@ h3{
     height:35px;
     line-height:33px;
     font-weight:bold;
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     font-size: 13pt;
     cursor:pointer;
 }
@@ -85,13 +95,13 @@ h3{
     height:35px;
     line-height:33px;
     font-weight:bold;
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     font-size: 13pt;;
     cursor:pointer;
 }
 
 .box-check-input input[type="checkbox"]:checked + span{
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     border:1px solid rgb(117, 112, 112);
     background:rgb(117, 112, 112);
     color:#fff;
@@ -113,28 +123,28 @@ h3{
     appearance: none;
     margin-top:16px;
     font-weight:bold;
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     font-size: 13pt;
     }
 
 .ng-autocomplete {
     width: 400px;
     font-weight:bold;
-    font-family: 'BMHANNAAir';
+    font-family: 'GyeonggiBatang'; 
     font-size: 13pt; 
 }
 
-/* .write{
-    border: 2px solid black;
-    width: 600px;
-    height: 600px;
-    margin-left: 15px;
-} */
-
-/* :host ::ng-deep .ck-editor__editable_inline {
-    min-height: 500px;
+input:focus {
+    outline:none;
 }
 
-:host ::ng-deep .ck-editor__editable_inline {
-    min-height: 500px;
-} */
+.writeEditor{
+    margin : 2% 1% 1% 1%;
+    border : 1px solid rgb(5, 5, 90);
+}
+button{
+    margin-left: 88%;
+    margin-bottom: 2%;
+    font-family: 'GyeonggiBatang'; 
+    font-weight: bold;
+}

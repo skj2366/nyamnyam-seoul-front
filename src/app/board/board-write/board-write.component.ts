@@ -9,28 +9,6 @@ import { ReviewInfo } from 'src/app/vo/review-info';
 import { ZoneInfo } from 'src/app/vo/zone-info';
 import { SubwayInfo } from 'src/app/vo/subway-info';
 
-// @Component({
-//   selector: 'sampleEditor',
-//   template: `
-//   <ckeditor
-//     [(ngModel)]="ckeditorContent"
-//     [config]="{uiColor: '#a4a4a4'}"
-//     (change)="onChange($event)"
-//     (ready)="onReady($event)"
-//     (focus)="onFocus($event)"
-//     (blur)="onBlur($event)"
-//     debounce="500">
-//   </ckeditor>
-//   `,
-// })
-
-// export class SampleEditor {
-//   private ckeditorContent: string;
-//   constructor() {
-//     this.ckeditorContent = `<p>Greetings from CKEditor...</p>`;
-//   }
-// }
-
 
 @Component({
   selector: 'app-board-write',
