@@ -19,6 +19,7 @@ export class BoardListComponent implements OnInit {
 
   lists:any = [];
 
+  inputRelName: string;
   //번호, 구, 역, 식당이름, 제목, 좋아요, 조회수, 작성시간
   constructor(private _cs : CommonService, private _zonsub: ZoneSubwayService, private _router: Router) { 
     // for(var i =1; i<=10; i++){
@@ -77,5 +78,25 @@ export class BoardListComponent implements OnInit {
     const url = '/reis/board';
     this.lists = await this._cs.get(url).toPromise();
     console.log(this.lists);
+  }
+
+  search() {
+    let url:string = '/search?';
+    if(this.zoneValue) {
+      url += `zoneNum=${this.zoneValue}&`;
+    }
+    if(this.subValue) {
+      url += `subwayNum=${this.subValue}&`;
+    }
+    if(this.inputRelName) {
+      url += `relName=${this.inputRelName}&`;
+    }
+    console.log(`url : ${url}`);
+    this._cs.get(url).subscribe(
+      res=>{
+        this.lists = res;
+        console.log(res);
+      }
+    )
   }
 }

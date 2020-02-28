@@ -54,10 +54,10 @@
         </select>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" placeholder="식당 이름">
+        <input type="text" placeholder="식당 이름" [(ngModel)]="inputRelName">
 
         &nbsp;&nbsp;
-        <button type="bytton" class="btn btn-outline-danger"  id="sSearch"> Search!</button>
+        <button type="bytton" class="btn btn-outline-danger" id="sSearch" (click)="search()"> Search!</button>
       </div>
     </div>
   <br>
@@ -106,7 +106,10 @@
           <td>{{list.reiLike}}</td>
           <td>{{list.reiCount}}</td>
           <td>{{list.reiCredat}}</td>
-        </tr> 
+        </tr>
+        <tr *ngIf="lists.length == 0">
+          <td colspan="8" style="text-align: center;">검색결과가 없습니다.</td>
+        </tr>
             <!-- //디자인 볼려고 주석해둠//
         <tr *ngFor="let review of reviews">
           <td>{{review.reiNum}}</td>
