@@ -3,6 +3,7 @@ import { ZoneInfo } from '../vo/zone-info';
 import { SubwayInfo } from '../vo/subway-info';
 import { CommonService } from '../common/common.service';
 import { resolve } from 'url';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,12 @@ export class ZoneSubwayService {
   subwayinfos : SubwayInfo[];
   zoneList;
   subList;
+  zonezone;
+  private subject = new Subject<any>();
 
-  constructor(private _cs : CommonService) { }
+  constructor(private _cs : CommonService) {
+    this.getZone();
+  }
 
   getZone() {
     this._cs.get('/zoi').subscribe(
@@ -28,12 +33,8 @@ export class ZoneSubwayService {
     )
   }
 
-  getZones(zone) {
-    return this._cs.get('/zoi').subscribe(
-      res => {
-        zone = res;
-      }
-    )
+  getZones() {
+    this.zonezone = this._cs.get('/zoi').toPromise();
   }
 
   // getZone(): Promise<any> {

@@ -15,6 +15,8 @@ import { TotalComponent } from './search/total/total.component';
 import { BoardResultComponent } from './board/board-result/board-result.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { TotalResultComponent } from './search/total/total-result/total-result.component';
+import { ReceiveComponent } from './test/receive/receive.component';
+import { ServeComponent } from './test/serve/serve.component';
 
 const routes: Routes = [
   // {
@@ -85,6 +87,14 @@ const routes: Routes = [
   {
     path: 'userDetail',
     component: UserDetailComponent
+  },
+  {
+    path: 'receive',
+    component: ReceiveComponent
+  },
+  {
+    path: 'serve',
+    component: ServeComponent
   }
 ];
 

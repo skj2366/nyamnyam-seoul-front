@@ -1,0 +1,6 @@
+<h2>Sibling-1</h2>
+<p>message: {{ message }}</p>
+<input type="text"
+  (input)="message = $event.target.value"
+  placeholder="message">
+<button (click)="goServe()">go Serve</button>
