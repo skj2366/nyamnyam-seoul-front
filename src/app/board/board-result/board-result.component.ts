@@ -21,29 +21,39 @@ export class BoardResultComponent implements OnInit {
   reviewNum : string = '';
   rei : ReviewInfo;
 
-  constructor(private _cs : CommonService, private route : ActivatedRoute) { }
+  reiNum : number;
+  constructor(private _cs : CommonService, private route : ActivatedRoute) {
+    this.reiNum = this.route.snapshot.params['boardNum'];
+  }
 
   ngOnInit() {
     //var reiNum = this.route.snapshot.paramMap.get('reiNum');
-    var reiNum = '0';
-    this.reviewNum = reiNum;
-    this.getReviewDetail(this.reviewNum);
+    // var reiNum = '0';
+    // this.reviewNum = reiNum;
+    this.getReviewDetail(this.reiNum);
   }
 
-  getReviewDetail(reviewNum){
+  // getReviewDetail(reviewNum){
+  //   var url = `/rei/${reviewNum}`;
+  //   this._cs.get(url).subscribe(
+  //     res => {
+  //       console.log(res);
+  //       this.rei = <ReviewInfo>res;
+  //       console.log(this.rei);
+  //       // this.reviewTitle = this.rei.reiTitle;
+  //       // this.reviewDate = this.rei.reiDate + this.rei.reiTime;        
+  //     },
+  //     err => {
+  //       console.log('리뷰상세 못가져옴');
+  //       console.log(err);
+  //     }
+  //   )
+  // }
+
+  async getReviewDetail(reviewNum) {
     var url = `/rei/${reviewNum}`;
-    this._cs.get(url).subscribe(
-      res => {
-        this.rei = <ReviewInfo>res;
-        console.log(this.rei);
-        // this.reviewTitle = this.rei.reiTitle;
-        // this.reviewDate = this.rei.reiDate + this.rei.reiTime;        
-      },
-      err => {
-        console.log('리뷰상세 못가져옴');
-        console.log(err);
-      }
-    )
+    this.rei = <ReviewInfo> await this._cs.get(url).toPromise();
+    console.log(this.rei);
   }
    
 }
