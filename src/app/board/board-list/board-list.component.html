@@ -63,8 +63,8 @@
   <br>
   <br>
     <div id="btn_group">
-      <button id="btnCreatDtOrder">최신순</button>
-      <button id="btnLikeOrder">좋아요순</button>
+      <button id="btnCreatDtOrder" (click)="sortByRecent($event)">최신순</button>
+      <button id="btnLikeOrder" (click)="sortByView($event)">조회수순</button>
     </div>
         <table class="reviewTable" border="1" style="width: 95%">
         <colgroup>

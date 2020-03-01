@@ -35,110 +35,6 @@ export class BoardWriteComponent implements OnInit {
   constructor(private _router: Router, private _zonsub: ZoneSubwayService, private _cs: CommonService, private _ss: StorageService) { }
 
   keyword = 'name';
-  relss = [
-    {
-      relNum: 1,
-      name: "삼미대포",
-      relCategory: "1",
-      relStringCategory: "대포맛",
-      relEtcTime: "매일 오전 08시 ~ 오후 10시",
-      relLatitude: 37.5050504,
-      relLongitude: 127.0450454,
-      zoneNum: 1,
-      subwayNum: 14,
-      relSubAddress: "강남구 선릉로93길 15 / 지번주소 : 역삼동 705-7 2H타워 1층 ",
-      relCall: "02-3453-8333",
-      relCredat: "20200216",
-      relCretim: "222218",
-      relModdat: "20200216",
-      relModtim: "222218"
-    },
-    {
-      relNum: 2,
-      name: "가비터",
-      relCategory: "1",
-      relStringCategory: "대포맛",
-      relEtcTime: "매일 오전 08시 ~ 오후 10시",
-      relLatitude: 37.5050504,
-      relLongitude: 127.0450454,
-      zoneNum: 1,
-      subwayNum: 14,
-      relSubAddress: "강남구 선릉로93길 15 / 지번주소 : 역삼동 705-7 2H타워 1층 ",
-      relCall: "02-3453-8333",
-      relCredat: "20200216",
-      relCretim: "222218",
-      relModdat: "20200216",
-      relModtim: "222218"
-    },
-    {
-      relNum: 3,
-      name: "뭐였지",
-      relCategory: "1",
-      relStringCategory: "대포맛",
-      relEtcTime: "매일 오전 08시 ~ 오후 10시",
-      relLatitude: 37.5050504,
-      relLongitude: 127.0450454,
-      zoneNum: 1,
-      subwayNum: 14,
-      relSubAddress: "강남구 선릉로93길 15 / 지번주소 : 역삼동 705-7 2H타워 1층 ",
-      relCall: "02-3453-8333",
-      relCredat: "20200216",
-      relCretim: "222218",
-      relModdat: "20200216",
-      relModtim: "222218"
-    },
-    {
-      relNum: 4,
-      name: "이건 되냐",
-      relCategory: "1",
-      relStringCategory: "대포맛",
-      relEtcTime: "매일 오전 08시 ~ 오후 10시",
-      relLatitude: 37.5050504,
-      relLongitude: 127.0450454,
-      zoneNum: 1,
-      subwayNum: 14,
-      relSubAddress: "강남구 선릉로93길 15 / 지번주소 : 역삼동 705-7 2H타워 1층 ",
-      relCall: "02-3453-8333",
-      relCredat: "20200216",
-      relCretim: "222218",
-      relModdat: "20200216",
-      relModtim: "222218"
-    },
-    {
-      relNum: 5,
-      name: "쩝",
-      relCategory: "1",
-      relStringCategory: "대포맛",
-      relEtcTime: "매일 오전 08시 ~ 오후 10시",
-      relLatitude: 37.5050504,
-      relLongitude: 127.0450454,
-      zoneNum: 1,
-      subwayNum: 14,
-      relSubAddress: "강남구 선릉로93길 15 / 지번주소 : 역삼동 705-7 2H타워 1층 ",
-      relCall: "02-3453-8333",
-      relCredat: "20200216",
-      relCretim: "222218",
-      relModdat: "20200216",
-      relModtim: "222218"
-    },
-    {
-      relNum: 6,
-      name: "크",
-      relCategory: "1",
-      relStringCategory: "대포맛",
-      relEtcTime: "매일 오전 08시 ~ 오후 10시",
-      relLatitude: 37.5050504,
-      relLongitude: 127.0450454,
-      zoneNum: 1,
-      subwayNum: 14,
-      relSubAddress: "강남구 선릉로93길 15 / 지번주소 : 역삼동 705-7 2H타워 1층 ",
-      relCall: "02-3453-8333",
-      relCredat: "20200216",
-      relCretim: "222218",
-      relModdat: "20200216",
-      relModtim: "222218"
-    }
-  ]
   relname = [];
 
   async ngOnInit() {
@@ -146,15 +42,6 @@ export class BoardWriteComponent implements OnInit {
   }
 
   async getZoneInfo() {
-    // await this._cs.get('/zoi').subscribe(
-    //   res => {
-    //     console.log(res);
-    //     this.zoneList = <ZoneInfo>res;
-    //     console.log(this.zoneList);
-    //   }, err => {
-    //     console.log(err);
-    //   }
-    // )
     this.zoneList = <ZoneInfo>await this._cs.get('/zoi').toPromise();
     console.log(this.zoneList);
   }

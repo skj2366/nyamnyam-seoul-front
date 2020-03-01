@@ -10,27 +10,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./board-list.component.css']
 })
 export class BoardListComponent implements OnInit {
-  reviews : ReviewInfo = new ReviewInfo();
-  
+  reviews: ReviewInfo = new ReviewInfo();
+
   zoneList: any;
   subList: any;
   zoneValue: number = 0;
   subValue: number = 0;
 
-  lists:any = [];
+  lists: any = [];
 
   inputRelName: string;
   //번호, 구, 역, 식당이름, 제목, 좋아요, 조회수, 작성시간
-  constructor(private _cs : CommonService, private _zonsub: ZoneSubwayService, private _router: Router) { 
-    // for(var i =1; i<=10; i++){
-    //   var list = {no : i, gu: 'jiyeokgu'+i, station : 'station'+i, title : 'title'+i, count: i};
-    //   this.lists.push(list);
-    // }
-  }
+  constructor(private _cs: CommonService, private _zonsub: ZoneSubwayService, private _router: Router) {}
 
   ngOnInit() {
     this.getZones();
     this.getReviewList();
+    document.getElementById('btnCreatDtOrder').style.background = '#c94545';
+    document.getElementById('btnCreatDtOrder').style.color = 'white';
   }
 
   getZones() {
@@ -64,12 +61,12 @@ export class BoardListComponent implements OnInit {
   getSubValue(subValue?) {
 
   }
-  
-  goPage(url:string) {
+
+  goPage(url: string) {
     this._router.navigateByUrl(url);
   }
 
-  goBoardResult(reiNum:number) {
+  goBoardResult(reiNum: number) {
     var url = `/board/${reiNum}`;
     this._router.navigateByUrl(url);
   }
@@ -81,22 +78,48 @@ export class BoardListComponent implements OnInit {
   }
 
   search() {
-    let url:string = '/search?';
-    if(this.zoneValue) {
+    let url: string = '/search?';
+    if (this.zoneValue) {
       url += `zoneNum=${this.zoneValue}&`;
     }
-    if(this.subValue) {
+    if (this.subValue) {
       url += `subwayNum=${this.subValue}&`;
     }
-    if(this.inputRelName) {
+    if (this.inputRelName) {
       url += `relName=${this.inputRelName}&`;
     }
     console.log(`url : ${url}`);
     this._cs.get(url).subscribe(
-      res=>{
+      res => {
         this.lists = res;
         console.log(res);
       }
-    )
+    );
+    document.getElementById('btnCreatDtOrder').style.background = '#c94545';
+    document.getElementById('btnCreatDtOrder').style.color = 'white';
+    document.getElementById('btnLikeOrder').style.background = 'white';
+    document.getElementById('btnLikeOrder').style.color = '#c94545';
+  }
+
+  sortByRecent(evt: any) {
+    if (this.lists) {
+      this.lists.sort((a: any, b: any) => {
+        return (a.reiCredat > b.reiCredat) ? -1 : (a.reiCredat < b.reiCredat) ? 1 : 0;
+      });
+    }
+    evt.target.style = 'background : #c94545; color : white;';
+    document.getElementById('btnLikeOrder').style.background = 'white';
+    document.getElementById('btnLikeOrder').style.color = '#c94545';
+  }
+
+  sortByView(evt: any) {
+    if (this.lists) {
+      this.lists.sort((a: any, b: any) => {
+        return (a.reiCount > b.reiCount) ? -1 : (a.reiCount < b.reiCount) ? 1 : 0;
+      });
+    }
+    evt.target.style = 'background : #c94545; color : white;';
+    document.getElementById('btnCreatDtOrder').style.background = 'white';
+    document.getElementById('btnCreatDtOrder').style.color = '#c94545';
   }
 }
