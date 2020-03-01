@@ -88,15 +88,16 @@ export class BoardListComponent implements OnInit {
     if (this.inputRelName) {
       url += `relName=${this.inputRelName}&`;
     }
-    if(this.checkValue.solo) {
-      url += `solo=${this.checkValue.solo}&`;
-    }
-    if(this.checkValue.two) {
-      url += `two=${this.checkValue.two}&`;
-    }
-    if(this.checkValue.four) {
-      url += `four=${this.checkValue.four}&`;
-    }
+    // if(this.checkValue.solo) {
+    //   url += `solo=${this.checkValue.solo}&`;
+    // }
+    // if(this.checkValue.two) {
+    //   url += `two=${this.checkValue.two}&`;
+    // }
+    // if(this.checkValue.four) {
+    //   url += `four=${this.checkValue.four}&`;
+    // }
+    url += `solo=${this.checkValue.solo}&two=${this.checkValue.two}&four=${this.checkValue.four}&`;
     console.log(`url : ${url}`);
     this._cs.get(url).subscribe(
       res => {
@@ -138,7 +139,7 @@ export class BoardListComponent implements OnInit {
     four : 0
   };
 
-  conlog(evt:any) {
+  checkboxValue(evt:any) {
     console.log(evt.target.value);
     if(evt.target.value == 1 && this.checkValue.solo == 0) {
       this.checkValue.solo = 1;
