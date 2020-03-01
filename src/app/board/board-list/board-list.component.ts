@@ -88,6 +88,15 @@ export class BoardListComponent implements OnInit {
     if (this.inputRelName) {
       url += `relName=${this.inputRelName}&`;
     }
+    if(this.checkValue.solo) {
+      url += `solo=${this.checkValue.solo}&`;
+    }
+    if(this.checkValue.two) {
+      url += `two=${this.checkValue.two}&`;
+    }
+    if(this.checkValue.four) {
+      url += `four=${this.checkValue.four}&`;
+    }
     console.log(`url : ${url}`);
     this._cs.get(url).subscribe(
       res => {
@@ -121,5 +130,38 @@ export class BoardListComponent implements OnInit {
     evt.target.style = 'background : #c94545; color : white;';
     document.getElementById('btnCreatDtOrder').style.background = 'white';
     document.getElementById('btnCreatDtOrder').style.color = '#c94545';
+  }
+
+  checkValue:any = {
+    solo : 0,
+    two : 0,
+    four : 0
+  };
+
+  conlog(evt:any) {
+    console.log(evt.target.value);
+    if(evt.target.value == 1 && this.checkValue.solo == 0) {
+      this.checkValue.solo = 1;
+      console.log(this.checkValue);
+    }else if(evt.target.value == 1 && this.checkValue.solo == 1) {
+      this.checkValue.solo = 0;
+      console.log(this.checkValue);
+    }
+
+    if(evt.target.value == 2 && this.checkValue.two == 0) {
+      this.checkValue.two = 1;
+      console.log(this.checkValue);
+    }else if(evt.target.value == 2 && this.checkValue.two == 1) {
+      this.checkValue.two = 0;
+      console.log(this.checkValue);
+    }
+
+    if(evt.target.value == 3 && this.checkValue.four == 0) {
+      this.checkValue.four = 1;
+      console.log(this.checkValue);
+    }else if(evt.target.value == 3 && this.checkValue.four == 1) {
+      this.checkValue.four = 0;
+      console.log(this.checkValue);
+    }
   }
 }
