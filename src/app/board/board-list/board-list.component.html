@@ -1,93 +1,93 @@
-
 <div class="contents">
   <h2><b>식당 후기</b></h2>
-  
+
   <div id="searchBox">
     <div id="sCondition">
       <p>
-    <select id="zone" [(ngModel)]="zoneValue" name="zoneValue" (change)="getSubwayInfo()">
-      <option selected [value]="0">지역구 선택</option>
-      <option *ngFor="let zone of zoneList" [value]="zone.zoneNum">{{zone.zoneName}}
-      </option>
-    </select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
-    <!-- 이거 넣으면 테이블이 안 나와... 왜...??? 일단 그냥 안 나오는 채로 디자인만... -->
-       
-    <label for="inputTheme" id="theme">몇 명과 식사?</label>&nbsp;&nbsp;&nbsp;&nbsp; 
-            <label class="box-check-input">
-              <input type="checkbox" name="themes" value="1" (click)="checkboxValue($event)">
-                <span>혼자</span>
-            </label>
-            &nbsp;&nbsp;
-            <label class="box-check-input">
-              <input type="checkbox" name="themes" value="2" (click)="checkboxValue($event)">
-                <span>둘이서</span>
-            </label>
-            &nbsp;&nbsp;
-            <label class="box-check-input">
-              <input type="checkbox" name="themes" value="3" (click)="checkboxValue($event)">
-                <span>넷 이상</span>
-            </label>
-          </p>
-        
-
-        <select id="subway" [(ngModel)]="subValue" name="subValue" (change)="getSubValue(subValue)">
-          <option selected [value]="0">지하철역 선택</option>
-          <option *ngFor="let sub of subList" [value]="sub.subwayNum">{{sub.subwayName}} (
-            <p *ngIf="sub.subwayLine1">| 1호선 |</p>
-            <p *ngIf="sub.subwayLine2">| 2호선 |</p>
-            <p *ngIf="sub.subwayLine3">| 3호선 |</p>
-            <p *ngIf="sub.subwayLine4">| 4호선 |</p>
-            <p *ngIf="sub.subwayLine5">| 5호선 |</p>
-            <p *ngIf="sub.subwayLine6">| 6호선 |</p>
-            <p *ngIf="sub.subwayLine7">| 7호선 |</p>
-            <p *ngIf="sub.subwayLine8">| 8호선 |</p>
-            <p *ngIf="sub.subwayLine9">| 9호선 |</p>
-            <p *ngIf="sub.subwayLine10">| 분당선 |</p>
-            <p *ngIf="sub.subwayLine11">| 신분당선 |</p>
-            <p *ngIf="sub.subwayLine12">| 공항철도 |</p>
-            <p *ngIf="sub.subwayLine13">| 경의중앙선 |</p>
-            <p *ngIf="sub.subwayLine14">| 경춘선 |</p>
-            <p *ngIf="sub.subwayLine15">| 우이신설 |</p>
-            )
+        <select id="zone" [(ngModel)]="zoneValue" name="zoneValue" (change)="getSubwayInfo()">
+          <option selected [value]="0">지역구 선택</option>
+          <option *ngFor="let zone of zoneList" [value]="zone.zoneNum">{{zone.zoneName}}
           </option>
-        </select>
+        </select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" placeholder="식당 이름" [(ngModel)]="inputRelName">
+        <!-- 이거 넣으면 테이블이 안 나와... 왜...??? 일단 그냥 안 나오는 채로 디자인만... -->
 
+        <label for="inputTheme" id="theme">몇 명과 식사?</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="box-check-input">
+          <input type="checkbox" name="themes" value="1" (click)="checkboxValue($event)">
+          <span>혼자</span>
+        </label>
         &nbsp;&nbsp;
-        <button type="bytton" class="btn btn-outline-danger" id="sSearch" (click)="search()"> Search!</button>
-      </div>
+        <label class="box-check-input">
+          <input type="checkbox" name="themes" value="2" (click)="checkboxValue($event)">
+          <span>둘이서</span>
+        </label>
+        &nbsp;&nbsp;
+        <label class="box-check-input">
+          <input type="checkbox" name="themes" value="3" (click)="checkboxValue($event)">
+          <span>넷 이상</span>
+        </label>
+        <button type="button" class="btn btn-outline-dark" id="sSearch" (click)="initFilter()"> Reset Filter!</button>
+      </p>
+
+
+      <select id="subway" [(ngModel)]="subValue" name="subValue" (change)="getSubValue(subValue)">
+        <option selected [value]="0">지하철역 선택</option>
+        <option *ngFor="let sub of subList" [value]="sub.subwayNum">{{sub.subwayName}} (
+          <p *ngIf="sub.subwayLine1">| 1호선 |</p>
+          <p *ngIf="sub.subwayLine2">| 2호선 |</p>
+          <p *ngIf="sub.subwayLine3">| 3호선 |</p>
+          <p *ngIf="sub.subwayLine4">| 4호선 |</p>
+          <p *ngIf="sub.subwayLine5">| 5호선 |</p>
+          <p *ngIf="sub.subwayLine6">| 6호선 |</p>
+          <p *ngIf="sub.subwayLine7">| 7호선 |</p>
+          <p *ngIf="sub.subwayLine8">| 8호선 |</p>
+          <p *ngIf="sub.subwayLine9">| 9호선 |</p>
+          <p *ngIf="sub.subwayLine10">| 분당선 |</p>
+          <p *ngIf="sub.subwayLine11">| 신분당선 |</p>
+          <p *ngIf="sub.subwayLine12">| 공항철도 |</p>
+          <p *ngIf="sub.subwayLine13">| 경의중앙선 |</p>
+          <p *ngIf="sub.subwayLine14">| 경춘선 |</p>
+          <p *ngIf="sub.subwayLine15">| 우이신설 |</p>
+          )
+        </option>
+      </select>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" placeholder="식당 이름" [(ngModel)]="inputRelName">
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" class="btn btn-outline-danger" id="sSearch" (click)="search()"> Search!</button>
     </div>
+  </div>
   <br>
   <br>
-    <div id="btn_group">
-      <button id="btnCreatDtOrder" (click)="sortByRecent($event)">최신순</button>
-      <button id="btnLikeOrder" (click)="sortByView($event)">조회수순</button>
-    </div>
-        <table class="reviewTable" border="1" style="width: 95%">
-        <colgroup>
-          <col style="width:4%">
-          <col style="width:7%">
-          <col style="width:12%">
-          <col style="width:20%">
-          <col style="width:35%">
-          <col style="width:6%">
-          <col style="width:6%">
-          <col style="width:9%">
-        </colgroup>
-        <tr>
-          <th scope="col">번호</th>
-          <th scope="col">구</th>
-          <th scope="col">역</th>
-          <th scope="col">식당이름</th>
-          <th scope="col">제목</th>
-          <th scope="col">좋아요</th>
-          <th scope="col">조회수</th>
-          <th scope="col">작성시간</th>
-        </tr>
-        <!-- <tr *ngFor="let list of lists">
+  <div id="btn_group">
+    <button id="btnCreatDtOrder" (click)="sortByRecent($event)">최신순</button>
+    <button id="btnLikeOrder" (click)="sortByView($event)">조회수순</button>
+  </div>
+  <table class="reviewTable" border="1" style="width: 95%">
+    <colgroup>
+      <col style="width:4%">
+      <col style="width:7%">
+      <col style="width:12%">
+      <col style="width:20%">
+      <col style="width:35%">
+      <col style="width:6%">
+      <col style="width:6%">
+      <col style="width:9%">
+    </colgroup>
+    <tr>
+      <th scope="col">번호</th>
+      <th scope="col">구</th>
+      <th scope="col">역</th>
+      <th scope="col">식당이름</th>
+      <th scope="col">제목</th>
+      <th scope="col">좋아요</th>
+      <th scope="col">조회수</th>
+      <th scope="col">작성시간</th>
+    </tr>
+    <!-- <tr *ngFor="let list of lists">
           <td>{{list.no}}</td>
           <td>{{list.gu}}</td>
           <td>{{list.station}}</td>
@@ -97,20 +97,20 @@
           <td>{{list.count}}</td>
           <td>2020/02/18</td>
         </tr>        -->
-        <tr *ngFor="let list of lists" (click)="goBoardResult(list.reiNum)">
-          <td>{{list.reiNum}}</td>
-          <td>{{list.zoneName}}</td>
-          <td>{{list.subwayName}}</td>
-          <td>{{list.relName}}</td>
-          <td>{{list.reiTitle}}</td>
-          <td>{{list.reiLike}}</td>
-          <td>{{list.reiCount}}</td>
-          <td>{{list.reiCredat}}</td>
-        </tr>
-        <tr *ngIf="lists.length == 0">
-          <td colspan="8" style="text-align: center;">검색결과가 없습니다.</td>
-        </tr>
-            <!-- //디자인 볼려고 주석해둠//
+    <tr *ngFor="let list of lists" (click)="goBoardResult(list.reiNum)">
+      <td>{{list.reiNum}}</td>
+      <td>{{list.zoneName}}</td>
+      <td>{{list.subwayName}}</td>
+      <td>{{list.relName}}</td>
+      <td>{{list.reiTitle}}</td>
+      <td>{{list.reiLike}}</td>
+      <td>{{list.reiCount}}</td>
+      <td>{{list.reiCredat}}</td>
+    </tr>
+    <tr *ngIf="lists.length == 0">
+      <td colspan="8" style="text-align: center;">검색결과가 없습니다.</td>
+    </tr>
+    <!-- //디자인 볼려고 주석해둠//
         <tr *ngFor="let review of reviews">
           <td>{{review.reiNum}}</td>
           <td>지역</td>
@@ -120,9 +120,9 @@
           <td>{{review.reiLike}}</td>
           <td>{{review.reiCount}}</td>        
           <td>작성시간</td>         
-        </tr> -->        
-      </table>
-      <div>
-      <button type="button" id="boardWrite" class="btn btn-outline-danger" (click)="goPage('/boardWrite')">글쓰기</button>
-    </div>
-    </div>
+        </tr> -->
+  </table>
+  <div>
+    <button type="button" id="boardWrite" class="btn btn-outline-danger" (click)="goPage('/boardWrite')">글쓰기</button>
+  </div>
+</div>

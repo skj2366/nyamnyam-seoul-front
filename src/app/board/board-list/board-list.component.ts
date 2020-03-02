@@ -165,4 +165,17 @@ export class BoardListComponent implements OnInit {
       console.log(this.checkValue);
     }
   }
+
+  initFilter() {
+    this.checkValue.solo = 0;
+    this.checkValue.two = 0;
+    this.checkValue.four = 0;
+    var checkBoxs = document.querySelectorAll('input[type="checkbox"]');
+    checkBoxs.forEach((value) => {
+      console.log(value);
+      value['checked'] = false;
+    });
+    this.zoneValue = 0;
+    this.subValue = 0;
+  }
 }

@@ -94,7 +94,7 @@ a{
 
 .box-check-input input[type="checkbox"]:checked + span{
     font-family: 'GyeonggiBatang'; ;
-    border:1px solid rgb(117, 112, 112);
+    border:2px solid rgb(117, 112, 112);
     background:rgb(117, 112, 112);
     color:#fff;
 }
