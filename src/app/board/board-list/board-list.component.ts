@@ -114,7 +114,7 @@ export class BoardListComponent implements OnInit {
   sortByRecent(evt: any) {
     if (this.lists) {
       this.lists.sort((a: any, b: any) => {
-        return (a.reiCredat > b.reiCredat) ? -1 : (a.reiCredat < b.reiCredat) ? 1 : 0;
+        return (a.reiNum > b.reiNum) ? -1 : (a.reiNum < b.reiNum) ? 1 : 0;
       });
     }
     evt.target.style = 'background : #c94545; color : white;';

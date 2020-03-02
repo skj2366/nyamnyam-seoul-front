@@ -116,7 +116,7 @@
   </div>
 
   <div class="writeEditor">
-    <ckeditor [(data)]="rei.reiContents" [config]="ckEditorConfig" (change)="consoleCK()"></ckeditor>
+    <ckeditor [(data)]="rei.reiContents" [config]="ckEditorConfig" type="divarea"></ckeditor>
   </div>
 
   <button class="btn btn-outline-primary" (click)="writeReview()">후기작성</button>

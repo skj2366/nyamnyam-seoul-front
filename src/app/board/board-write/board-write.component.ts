@@ -29,7 +29,54 @@ export class BoardWriteComponent implements OnInit {
   rei: ReviewInfo = new ReviewInfo();
 
   editorValue: string = '';
-  ckEditorConfig;
+  baseUrl: string = 'http://localhost:809/';
+  imgUrl: string = 'image/upload';
+  imgUrl2: string = 'it';
+  ckEditorConfig = {
+    filebrowserUploadUrl: this.baseUrl + this.imgUrl,
+    fileTools_requestHeaders: {
+      'X-Requested-With': 'xhr'
+      ,
+      Authorization: 'Bearer ' + sessionStorage.getItem('tokken')
+    },
+    filebrowserUploadMethod: 'xhr',
+    on: {
+      instanceReady: function (evt) {
+        var editor = evt.editor;
+        console.log('editor ===>', editor);
+      },
+      fileUploadRequest: function (evt) {
+        console.log('evt ===>', evt);
+      },
+    },
+    toolbar: [
+      {
+        name: 'document',
+        items: ['Undo', 'Redo']
+      },
+      {
+        name: 'styles',
+        items: ['Format']
+      },
+      {
+        name: 'basicstyles',
+        items: ['Bold', 'Italic', 'Strike', '-', 'RemoveFormat']
+      },
+      {
+        name: 'paragraph',
+        items: ['NumberedList', 'BulletedList']
+      },
+      {
+        name: 'links',
+        items: ['Link', 'Unlink']
+      },
+      {
+        name: 'insert',
+        items: ['Image']
+      },
+    ],
+    height: 800,
+  };
   email: string;
 
   constructor(private _router: Router, private _zonsub: ZoneSubwayService, private _cs: CommonService, private _ss: StorageService) { }
@@ -123,10 +170,10 @@ export class BoardWriteComponent implements OnInit {
     this.rei.zoneNum = this.zoneValue;
     this.rei.subwayNum = this.subValue;
     this.rei.cuiNum = this.cui.cuiNum;
-    if(!this.autocompleteValue.num) {
+    if (!this.autocompleteValue.num) {
       alert('식당이름을 확인해주세요');
       return;
-    }else {
+    } else {
       this.rei.relNum = this.autocompleteValue.num;
     }
     console.log('autocompleteValue');
@@ -142,5 +189,5 @@ export class BoardWriteComponent implements OnInit {
       }
     )
   }
-  notFound:string = '결과가 없습니다.';
+  notFound: string = '결과가 없습니다.';
 }
