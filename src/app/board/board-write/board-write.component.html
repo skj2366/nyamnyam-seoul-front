@@ -1,124 +1,120 @@
 <div class="boardwrite">
-  
+
   <div class="write">
-  <input type="text" id="inputNickname" placeholder="Nickname" [(ngModel)]="cui.cuiNickname" readonly>  
-  <input type="date" id="inputVisitDate" placeholder="VisitDate" [(ngModel)]="rei.reiDate">
-  <br>
-  <br>
-  <div class="checks" style="margin-left: 15px;">
-    <p>
-      <label for="inputVisitDate" id="time">방문시간</label>&nbsp;&nbsp;&nbsp;&nbsp;   
-    <label class="box-radio-input">
-      <input type="radio" name="times" value="1" [(ngModel)]="rei.reiTime">
-        <span>아침</span>
-    </label>
-    &nbsp;&nbsp;
-    <label class="box-radio-input">
-      <input type="radio" name="times" value="2" [(ngModel)]="rei.reiTime">
-        <span>점심</span>
-    </label>
-    &nbsp;&nbsp;
-    <label class="box-radio-input">
-      <input type="radio" name="times" value="3" [(ngModel)]="rei.reiTime">
-        <span>저녁</span>
-    </label>
-    &nbsp;&nbsp;
-    <label class="box-radio-input">
-      <input type="radio" name="times" value="4" [(ngModel)]="rei.reiTime">
-        <span>밤</span>
-    </label>
-  </p>
-  </div>
-  <br>
-  <div id="selectBox" style="margin-left: 15px;">
-    <p>
-    <label for="inputZoneSubway" id="visit">방문구역</label>&nbsp;&nbsp;&nbsp;&nbsp;   
-    <select id="zone" [(ngModel)]="zoneValue" name="zoneValue" (change)="getSubwayInfo()">
-      <option selected [value]="0">지역구 선택</option>
-      <option *ngFor="let zone of zoneList" [value]="zone.zoneNum">{{zone.zoneName}}
-      </option>
-    </select> &nbsp;
-    <select id="subway" [(ngModel)]="subValue" name="subValue" (change)="getRestaurantListForAutoComplete(subValue)">
-      <option selected [value]="0">지하철역 선택</option>
-      <option *ngFor="let sub of subList" [value]="sub.subwayNum">{{sub.subwayName}} (
-        <p *ngIf="sub.subwayLine1">| 1호선 |</p>
-        <p *ngIf="sub.subwayLine2">| 2호선 |</p>
-        <p *ngIf="sub.subwayLine3">| 3호선 |</p>
-        <p *ngIf="sub.subwayLine4">| 4호선 |</p>
-        <p *ngIf="sub.subwayLine5">| 5호선 |</p>
-        <p *ngIf="sub.subwayLine6">| 6호선 |</p>
-        <p *ngIf="sub.subwayLine7">| 7호선 |</p>
-        <p *ngIf="sub.subwayLine8">| 8호선 |</p>
-        <p *ngIf="sub.subwayLine9">| 9호선 |</p>
-        <p *ngIf="sub.subwayLine10">| 분당선 |</p>
-        <p *ngIf="sub.subwayLine11">| 신분당선 |</p>
-        <p *ngIf="sub.subwayLine12">| 공항철도 |</p>
-        <p *ngIf="sub.subwayLine13">| 경의중앙선 |</p>
-        <p *ngIf="sub.subwayLine14">| 경춘선 |</p>
-        <p *ngIf="sub.subwayLine15">| 우이신설 |</p>
-        )
-      </option>
-    </select>
-  </p>
-  </div>
-  <br>
-  <!-- [(ngModel)]="rei.reiName" -->
-  <div class="ng-autocomplete" id="inputReiname" style="margin-left: 15px;" *ngIf="subValue">
-    <p>
-    <label for="inputRestaurant" id="restaurant">방문식당</label>  
-      <ng-autocomplete [data]="relname" [searchKeyword]="keyword" 
-                        placeHolder="식당이름을 입력해주세요"
-                        (selected)='selectEvent($event)'
-                        (inputChanged)='onChangeSearch($event)'
-                        (inputFocused)='onFocused($event)'
-                        [itemTemplate]="itemTemplate"
-                        [notFoundTemplate]="notFoundTemplate"
-                        [(ngModel)]="autocompleteValue"
-                        name="autocompleteValue">
-      </ng-autocomplete>
-      
-      <ng-template #itemTemplate let-item>
-      <a [innerHTML]="item.name"></a>
-      </ng-template>
-      
-      <ng-template #notFoundTemplate>
-      <div [innerHTML]="notFound"></div>
-      </ng-template>
-    </p>
-  </div>
-  
-  <br>
-  <div class="checks" style="margin-left: 15px;">
-    <p>
-      <label for="inputTheme" id="theme">몇 명과 식사?</label>&nbsp;&nbsp;&nbsp;&nbsp;
-      <label class="box-radio-input">
-        <input type="radio" name="themes" value="1" [(ngModel)]="rei.reiTheme">
-        <span>혼자</span>
-      </label>
-      &nbsp;&nbsp;
-      <label class="box-radio-input">
-        <input type="radio" name="themes" value="2" [(ngModel)]="rei.reiTheme">
-        <span>둘이서</span>
-      </label>
-      &nbsp;&nbsp;
-      <label class="box-radio-input">
-        <input type="radio" name="themes" value="3" [(ngModel)]="rei.reiTheme">
-        <span>넷 이상</span>
-      </label>
-    </p>
-  </div>
-  
-  <div class="title">
-    <p>
-    <label for="inputTitle" id="title" style="margin-left: 10px">리뷰 제목</label>
-    <input type="text" name="titles" id="inputTitle" [(ngModel)]="rei.reiTitle">
-    </p>
-  </div>
+    <input type="text" id="inputNickname" placeholder="Nickname" [(ngModel)]="cui.cuiNickname" readonly>
+    <input type="date" id="inputVisitDate" placeholder="VisitDate" [(ngModel)]="rei.reiDate">
+    <br>
+    <br>
+    <div class="checks" style="margin-left: 15px;">
+      <p>
+        <label for="inputVisitDate" id="time">방문시간</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="box-radio-input">
+          <input type="radio" name="times" value="1" [(ngModel)]="rei.reiTime">
+          <span>아침</span>
+        </label>
+        &nbsp;&nbsp;
+        <label class="box-radio-input">
+          <input type="radio" name="times" value="2" [(ngModel)]="rei.reiTime">
+          <span>점심</span>
+        </label>
+        &nbsp;&nbsp;
+        <label class="box-radio-input">
+          <input type="radio" name="times" value="3" [(ngModel)]="rei.reiTime">
+          <span>저녁</span>
+        </label>
+        &nbsp;&nbsp;
+        <label class="box-radio-input">
+          <input type="radio" name="times" value="4" [(ngModel)]="rei.reiTime">
+          <span>밤</span>
+        </label>
+      </p>
+    </div>
+    <br>
+    <div id="selectBox" style="margin-left: 15px;">
+      <p>
+        <label for="inputZoneSubway" id="visit">방문구역</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <select id="zone" [(ngModel)]="zoneValue" name="zoneValue" (change)="getSubwayInfo()">
+          <option selected [value]="0">지역구 선택</option>
+          <option *ngFor="let zone of zoneList" [value]="zone.zoneNum">{{zone.zoneName}}
+          </option>
+        </select> &nbsp;
+        <select id="subway" [(ngModel)]="subValue" name="subValue"
+          (change)="getRestaurantListForAutoComplete(subValue)">
+          <option selected [value]="0">지하철역 선택</option>
+          <option *ngFor="let sub of subList" [value]="sub.subwayNum">{{sub.subwayName}} (
+            <p *ngIf="sub.subwayLine1">| 1호선 |</p>
+            <p *ngIf="sub.subwayLine2">| 2호선 |</p>
+            <p *ngIf="sub.subwayLine3">| 3호선 |</p>
+            <p *ngIf="sub.subwayLine4">| 4호선 |</p>
+            <p *ngIf="sub.subwayLine5">| 5호선 |</p>
+            <p *ngIf="sub.subwayLine6">| 6호선 |</p>
+            <p *ngIf="sub.subwayLine7">| 7호선 |</p>
+            <p *ngIf="sub.subwayLine8">| 8호선 |</p>
+            <p *ngIf="sub.subwayLine9">| 9호선 |</p>
+            <p *ngIf="sub.subwayLine10">| 분당선 |</p>
+            <p *ngIf="sub.subwayLine11">| 신분당선 |</p>
+            <p *ngIf="sub.subwayLine12">| 공항철도 |</p>
+            <p *ngIf="sub.subwayLine13">| 경의중앙선 |</p>
+            <p *ngIf="sub.subwayLine14">| 경춘선 |</p>
+            <p *ngIf="sub.subwayLine15">| 우이신설 |</p>
+            )
+          </option>
+        </select>
+      </p>
+    </div>
+    <br>
+    <!-- [(ngModel)]="rei.reiName" -->
+    <div class="ng-autocomplete" id="inputReiname" style="margin-left: 15px;" *ngIf="subValue">
+      <p>
+        <label for="inputRestaurant" id="restaurant">방문식당</label>
+        <ng-autocomplete [data]="relname" [searchKeyword]="keyword" placeHolder="식당이름을 입력해주세요"
+          (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
+          [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" [(ngModel)]="autocompleteValue"
+          name="autocompleteValue">
+        </ng-autocomplete>
 
-  <div class="writeEditor">
-    <ckeditor [(data)]="rei.reiContents" [config]="ckEditorConfig" type="divarea"></ckeditor>
-  </div>
+        <ng-template #itemTemplate let-item>
+          <a [innerHTML]="item.name"></a>
+        </ng-template>
 
-  <button class="btn btn-outline-primary" (click)="writeReview()">후기작성</button>
-</div>
+        <ng-template #notFoundTemplate>
+          <div [innerHTML]="notFound"></div>
+        </ng-template>
+      </p>
+    </div>
+
+    <br>
+    <div class="checks" style="margin-left: 15px;">
+      <p>
+        <label for="inputTheme" id="theme">몇 명과 식사?</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="box-radio-input">
+          <input type="radio" name="themes" value="1" [(ngModel)]="rei.reiTheme">
+          <span>혼자</span>
+        </label>
+        &nbsp;&nbsp;
+        <label class="box-radio-input">
+          <input type="radio" name="themes" value="2" [(ngModel)]="rei.reiTheme">
+          <span>둘이서</span>
+        </label>
+        &nbsp;&nbsp;
+        <label class="box-radio-input">
+          <input type="radio" name="themes" value="3" [(ngModel)]="rei.reiTheme">
+          <span>넷 이상</span>
+        </label>
+      </p>
+    </div>
+
+    <div class="title">
+      <p>
+        <label for="inputTitle" id="title" style="margin-left: 10px">리뷰 제목</label>
+        <input type="text" name="titles" id="inputTitle" [(ngModel)]="rei.reiTitle">
+      </p>
+    </div>
+
+    <div class="writeEditor">
+      <ckeditor [(data)]="rei.reiContents" [config]="ckEditorConfig" type="divarea"></ckeditor>
+    </div>
+
+    <button class="btn btn-outline-primary" (click)="writeReview()">후기작성</button>
+  </div>
 </div>
