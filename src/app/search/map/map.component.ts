@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from 'src/app/common/common.service';
 import { RestaurantList } from 'src/app/vo/restaurant-list';
 import { from, interval } from 'rxjs';
+import { MenuInfo } from 'src/app/vo/menu-info';
 
 @Component({
   selector: 'app-map',
@@ -18,10 +19,12 @@ export class MapComponent implements OnInit {
   zoneList: any;
   subList: any;
   rels: RestaurantList[];
+  meis: MenuInfo[];
   subUrl: string = '/sui';
   zoneUrl: string = '/zoi';
   relsUrl: string = '/rels';
   mapUrl: string = '/map';
+
 
   constructor(private _zonsub: ZoneSubwayService, private _km: KakaoMapService, private route: ActivatedRoute, private _cs: CommonService, private _router: Router) {
     this.zoneValue = route.snapshot.params['zoneValue'];

@@ -36,13 +36,18 @@
       <br>
       <span *ngIf="!rels" style="font-size: 20pt;font-weight:bold; color:rgb(5, 5, 90);margin-left:5%;">검색 결과가 없습니다.</span>
     </div>
-    <div id="sort">
-      <a>거리순</a>/<a>평점순</a>/<a>가격낮은순</a>/<a>가격높은순</a>
+    <br>
+    <div id="btn_group">
+        <button id="btnDistanceOrder">거리순</button>
+        <button id="btnRankOrder">평점순</button>
+        <button id="btnPriceIncreaseOrder">가격높은순</button>
+        <button id="btnPriceDecreaseOrder">가격낮은순</button>
     </div>
     <div class="flex-container">
       <br>
       <span *ngIf="!rels" style="font-size: 20pt;font-weight:bold; color:rgb(5, 5, 90);margin-left:5%;">검색 결과가 없습니다.</span>
-      <div class="flex-item" *ngFor="let rel of rels" (click)="goRelPage(rel.relNum)">
+      <div *ngFor="let mei of meis">{{mei.meiImg1Name}]</div>
+      <div class="flex-item" *ngFor="let rel of rels" (click)="goRelPage(rel.relNum)">        
         <div>{{rel.relName}}</div>
         <div>{{rel.relSubAddress}}</div>
         <div>{{rel.relCall}}</div>
