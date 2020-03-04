@@ -1,5 +1,79 @@
 <div id="myGrid" class="contents" style="margin-right: 200px ; margin-left: 200px ; margin-top: 60px">
-    <h2> 관리자 화면 </h2> 
+    <h2> 관리자 화면 </h2>    
+    <div class="tabmenu" style="font-family: 'MapoPeacefull'">
+        <ul>
+            <li id="tab1" class="btnCon">
+                <input class="radioInput" type="radio" checked name="tabmenu" id="tabmenu1">
+                <label for="tabmenu1">유저관리</label>
+                
+                <div class="tabCon">
+                    <div>
+                        <button type="button" class="btn btn-outline-primary" (click)="onAddRowUser()">Add Row</button>
+                        <button type="button" class="btn btn-outline-success" (click)="updateItemsUser()">Update Row</button>
+                        <button type="button" class="btn btn-outline-danger" (click)="onRemoveSelectedUser()">Remove Selected</button>
+                    </div>
+                    
+                    <br>
+                    <ag-grid-angular ag-grid-angular #agGrid id="myGridUser" 
+                        style="min-width: 1100px; min-height: 300px; margin-left: 110px; margin-right: 100px; "
+                        [ngClass]="theme"                           
+                        [rowData]="rowDataUser"                          
+                        [defaultColDef]="defaultColDef"             
+                        [columnDefs]="columnDefsUser"                 
+                        [pagination]="true"                      
+                        [paginationPageSize]=25                               
+                        [rowHeight]="30"                       
+                        (gridReady)="onGridUserReady($event)"
+                        (firstDataRendered)="fitColumnsSize($event)" 
+                        (rowDataChanged)="fitColumnsSize($event)">   
+                    </ag-grid-angular>
+                </div>                    
+            </li>
+
+            <li id="tab2" class="btnCon">
+                <input class="radioInput" type="radio" name="tabmenu" id="tabmenu2">
+                <label for="tabmenu2">식당 관리</label>
+                <div class="tabCon">
+                    <ag-grid-angular ag-grid-angular #agGrid id="myGridRestaurant" 
+                    style="min-width: 1100px; min-height: 300px; margin-left: 110px; margin-right: 100px;"
+                    [ngClass]="theme"                           
+                    [rowData]="rowDataRestaurant"                          
+                    [defaultColDef]="defaultColDef"             
+                    [columnDefs]="columnDefsRestaurant"                 
+                    [pagination]="true"                      
+                    [paginationPageSize]=25                               
+                    [rowHeight]="30"                       
+                    (gridReady)="onGridRestaurantReady($event)"
+                    (firstDataRendered)="fitColumnsSize($event)" 
+                    (rowDataChanged)="fitColumnsSize($event)">
+                    </ag-grid-angular>
+                </div>
+            </li>
+
+            <li id="tab3" class="btnCon">
+                <input class="radioInput" type="radio" name="tabmenu" id="tabmenu3">
+                <label for="tabmenu2">댓글 관리</label>
+                <div class="tabCon">
+                    <ag-grid-angular ag-grid-angular #agGrid id="myGridComment" 
+                    style="min-width: 1100px; min-height: 300px; margin-left: 110px; margin-right: 100px;"
+                    [ngClass]="theme"                           
+                    [rowData]="rowDataComment"                          
+                    [defaultColDef]="defaultColDef"             
+                    [columnDefs]="columnDefsComment"                 
+                    [pagination]="true"                      
+                    [paginationPageSize]=25                            
+                    [rowHeight]="30"                       
+                    (gridReady)="onGridCommantReady($event)"
+                    (firstDataRendered)="fitColumnsSize($event)" 
+                    (rowDataChanged)="fitColumnsSize($event)">  
+                    </ag-grid-angular>   
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <!--
     <div>
         <button type="button" class="btn btn-outline-primary" (click)="goAddUpDelete('add')">
             <span class="glyphicon glyphicon-plus"></span> Add New
@@ -61,5 +135,5 @@
                      (rowDataChanged)="fitColumnsSize($event)">
 
     </ag-grid-angular>
- 
+    -->
 </div>

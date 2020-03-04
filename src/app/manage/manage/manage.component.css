@@ -16,5 +16,55 @@ h2, h3{
 	text-align: right; /*오른쪽 정렬을 위함 (default 왼쪽 정렬) */
 } /*.ag-header-cell-text는 header의 span class명, columnDefs에 지정해준 각 field로 column id가 지정되는데 정렬할 컬럼을 명시해주기 위함*/
 
+ul{
+	list-style:none;
+  }
+  
+.tabmenu{ 
+max-width:95%; 
+margin: 2.5% 0 0 2%; 
+position:relative; 
+/* border: 2px solid rgb(5, 5, 90); */
+}
 
+.tabmenu ul li{
+display:  inline-block;
+width:32%; 
+/* float:left;   */
+text-align:center; 
+background : white;
+line-height:40px;
+border-bottom: 2px solid rgb(5, 5, 90); 
+}
+
+.tabmenu label{
+	display:block;
+	width:100%; 
+	height:30px;
+	line-height:30px;
+	font-size: 13pt;
+	font-weight: bold;
+}
+
+.tabmenu .radioInput{
+	display:none;
+}
+
+.tabCon{
+	display: none;
+	text-align:center; 
+	padding: 20px;
+	position:absolute; 
+	left:0; top:40px; 
+	box-sizing: border-box; 
+	/* border : 5px solid #e70404; */
+}
+
+.tabmenu input:checked ~ label{
+	background: rgba(203, 203, 235, 0.349);
+  }
+
+.tabmenu input:checked ~ .tabCon{
+	display:block;
+}
 

@@ -17,7 +17,6 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { TotalResultComponent } from './search/total/total-result/total-result.component';
 import { ReceiveComponent } from './test/receive/receive.component';
 import { ServeComponent } from './test/serve/serve.component';
-import { AddupdelComponent } from './manage/addupdel/addupdel.component';
 
 const routes: Routes = [
   // {
@@ -68,10 +67,6 @@ const routes: Routes = [
   {
     path: 'manage',
     component: ManageComponent
-  },
-  {
-    path: 'addUpDel/:param',
-    component: AddupdelComponent
   },
   {
     path: 'board',

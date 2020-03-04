@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CommonService } from 'src/app/common/common.service';
 import { CustomerInfo } from 'src/app/vo/customer-info';
 import { RestaurantList } from 'src/app/vo/restaurant-list';
 import { CommentList } from 'src/app/vo/comment-list';
-import { GridOptions, Grid } from 'ag-grid-community';
+import { GridOptions, Grid, Module } from 'ag-grid-community';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { GridColumnStyleBuilder } from '@angular/flex-layout/grid/typings/column/column';
 
 @Component({
   selector: 'app-manage',
@@ -19,9 +18,14 @@ export class ManageComponent implements OnInit {
     BrowserModule,
     FormsModule
   ]
-
-  gridApi;
-  gridColumnApi;
+  
+  private gridApiUser;
+  private gridApiRestaurant;
+  private gridApiComment;
+  private gridColumnApiUser;
+  private gridColumnApiRestaurant;
+  private gridColumnApiComment;
+ 
   gridOptions: GridOptions;
   theme = "ag-theme-balham";
 
@@ -38,11 +42,13 @@ export class ManageComponent implements OnInit {
   rel: RestaurantList = new RestaurantList();
   col: CommentList = new CommentList();
 
+  newCount = 1;
+
   ngOnInit() {
 
   }
 
-  constructor(public _router: Router, private _cs: CommonService) {
+  constructor(public _router: Router, private _cs: CommonService, private route : ActivatedRoute) {
     let this_ = this;
     this.defaultColDef = {
       resizable: true, //컬럼 사이즈 조절 가능 여부 
@@ -52,12 +58,12 @@ export class ManageComponent implements OnInit {
     };
 
     this_.columnDefsUser = [
-      { headerName: '번호', field: 'cuiNum', width: 50, cellStyle: { color: '#4C4C4C', textAlign: "center", backgroundColor: "#FFA7A7" }, checkboxSelection: true, headerCheckboxSelection: true },
-      { headerName: '유저이름', field: 'cuiName', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, },
-      { headerName: '유저아이디', field: 'cuiId', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+      { headerName: '번호', field: 'cuiNum', width: 70, cellStyle: { color: '#4C4C4C', textAlign: "center", backgroundColor: "#FFA7A7" }, checkboxSelection: true, headerCheckboxSelection: true },
+      { headerName: '유저이름', field: 'cuiName', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true },
+      { headerName: '유저아이디', field: 'cuiId', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true  },
       { headerName: '유저닉네임', field: 'cuiNickname', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true },
-      { headerName: '유저이메일', field: 'cuiEmail', width: 200, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-      { headerName: '유저전화번호', field: 'cuiPhone', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+      { headerName: '유저이메일', field: 'cuiEmail', width: 200, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true  },
+      { headerName: '유저전화번호', field: 'cuiPhone', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true  },
       { headerName: '생성날짜', field: 'cuiCredat', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
       { headerName: '생성시간', field: 'cuiCretim', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
       { headerName: '수정날짜', field: 'cuiModdat', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
@@ -74,14 +80,14 @@ export class ManageComponent implements OnInit {
     ];
 
     this_.columnDefsRestaurant = [
-      { headerName: '번호', field: 'relNum', width: 30, cellStyle: { color: '#4C4C4C', textAlign: "center", backgroundColor: "#FFA7A7" }, checkboxSelection: true, headerCheckboxSelection: true },
-      { headerName: '식당이름', field: 'relName', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-      { headerName: '식당주소', field: 'relSubAddress', width: 120, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-      { headerName: '식당전화번호', field: 'relCall', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-      { headerName: '생성날짜', field: 'relCredat', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-      { headerName: '생성시간', field: 'relCretim', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-      { headerName: '수정날짜', field: 'relModdat', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-      { headerName: '수정시간', field: 'relModtim', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } }
+      { headerName: '번호', field: 'relNum', width: 70, cellStyle: { color: '#4C4C4C', textAlign: "center", backgroundColor: "#FFA7A7" }, checkboxSelection: true, headerCheckboxSelection: true },
+      { headerName: '식당이름', field: 'relName', width: 140, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+      { headerName: '식당주소', field: 'relSubAddress', width: 400, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+      { headerName: '식당전화번호', field: 'relCall', width: 150, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+      { headerName: '생성날짜', field: 'relCredat', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+      { headerName: '생성시간', field: 'relCretim', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+      { headerName: '수정날짜', field: 'relModdat', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+      { headerName: '수정시간', field: 'relModtim', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } }
     ];
 
     this_.columnDefsComment = [
@@ -108,18 +114,140 @@ export class ManageComponent implements OnInit {
   }
 
   onGridReady(params) {
-    this.gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
-    console.log(this.gridApi);
+    // this.gridApi = params.api;
+    // this.gridColumnApi = params.columnApi;
+    // console.log(this.gridApi);
+  }
+
+  onGridUserReady(params) {
+    this.gridApiUser = params.api;
+    this.gridColumnApiUser = params.columnApi;
+    console.log("User호출");
+  }
+
+  onGridRestaurantReady(params) {
+    this.gridApiRestaurant = params.api;
+    this.gridColumnApiRestaurant = params.columnApi;
+    console.log("Restaurant호출");
+  }
+  
+  onGridCommantReady(params) {
+    this.gridApiComment = params.api;
+    this.gridColumnApiComment = params.columnApi;
+    console.log("Comment호출");
   }
 
   fitColumnsSize(params) {
     params.api.sizeColumnsToFit();
   } //컬럼의 데이터에 맞춰서 사이즈 조절
 
-  goAddUpDelete(param:string) {
-    if(param) {
-      this._router.navigateByUrl(`/addUpDel/${param}`);
+  getDate() {
+    var date = new Date();
+    console.log(date);
+    var year = date.getFullYear();
+    var mm = (date.getMonth()+1).toString();
+    var dd = (date.getDate()).toString();
+
+    if(dd.length<2) {
+      dd = "0" + dd;
+    } 
+    
+    if(mm.length<2) {
+      mm = "0" + mm;
+    } 
+    var dateString = year + mm + dd;
+    return dateString;
+  }
+
+  getTime() {
+    var time = new Date();
+    var hour = (time.getHours()).toString();
+    var min = (time.getMinutes()).toString();
+    var sec = (time.getSeconds()).toString();
+
+    if(hour.length<2) {
+      hour = "0" + hour;
+    }
+    if(min.length<2) {
+      min = "0" + min;
+    }
+    if(sec.length<2) {
+      sec = "0" + sec;
+    }
+
+    var timeString = hour + min + sec;
+    return timeString;
+  }
+
+  //////////// 유저 삽입, 수정, 삭제/////////////////
+  userCreateNewRowData() {
+    var date = new Date();
+    var newData = {
+      cuiName: "Name " + this.newCount,
+      cuiId: "Id" + this.newCount,
+      cuiNickname: "Nickname" + this.newCount,
+      cuiEmail: "abc" + this.newCount + "@abc.com",
+      cuiPhone: "01011111111",
+      cuiCredat: this.getDate(),
+      cuiCretim: this.getTime(),
+      cuiModdat: this.getDate(),
+      cuiModtim: this.getTime()
+    };
+    this.newCount++;
+    return newData;
+  }
+
+  onAddRowUser() {
+    var newItem = this.userCreateNewRowData();
+    var res = this.gridApiUser.updateRowData({ add: [newItem] });
+    this.printResult(res);
+  }
+
+  onRemoveSelectedUser() {
+    var selectedData = this.gridApiUser.getSelectedRows();
+    var res = this.gridApiUser.updateRowData({ remove: selectedData });
+    this.printResult(res);
+  }
+
+  updateItemsUser() {
+    var itemsToUpdate = [];
+    this.gridApiUser.forEachNodeAfterFilterAndSort(function(rowNode, index) {
+      if (index >= 5) {
+        return;
+      }
+      var data = rowNode.data;
+      data.price = Math.floor(Math.random() * 20000 + 20000);
+      itemsToUpdate.push(data);
+    });
+    var res = this.gridApiUser.updateRowData({ update: itemsToUpdate });
+    this.printResult(res);
+  }
+
+  //////////// 식당 삽입, 수정, 삭제/////////////////
+  restaurantCreateNewRowData() {
+
+  }
+
+
+  //////////// 댓글 삭제/////////////////
+
+  printResult(res) {
+    console.log("---------------------------------------");
+    if (res.add) {
+      res.add.forEach(function(rowNode) {
+        console.log("Added Row Node", rowNode.data);
+      });
+    }
+    if (res.remove) {
+      res.remove.forEach(function(rowNode) {
+        console.log("Removed Row Node", rowNode.data);
+      });
+    }
+    if (res.update) {
+      res.update.forEach(function(rowNode) {
+        console.log("Updated Row Node", rowNode.data);
+      });
     }
   }
+
 }
