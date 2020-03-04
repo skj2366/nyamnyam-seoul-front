@@ -28,6 +28,7 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { ResultDkComponent } from './search/result-dk/result-dk.component';
 import { ReceiveComponent } from './test/receive/receive.component';
 import { ServeComponent } from './test/serve/serve.component';
+import { AddupdelComponent } from './manage/addupdel/addupdel.component';
 // import { CKEditorModule } from 'ng2-ckeditor';
 
 
@@ -51,7 +52,8 @@ import { ServeComponent } from './test/serve/serve.component';
     TotalResultComponent,
     ResultDkComponent,
     ReceiveComponent,
-    ServeComponent
+    ServeComponent,
+    AddupdelComponent
   ],
   imports: [
     FormsModule,

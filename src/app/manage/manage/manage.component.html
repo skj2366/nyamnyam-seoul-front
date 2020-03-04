@@ -1,18 +1,19 @@
 <div id="myGrid" class="contents" style="margin-right: 200px ; margin-left: 200px ; margin-top: 60px">
-    <h2> 관리자 화면 </h2>
-    <h3>==유저관리==</h3>
-        <div>
-        <button type="button" class="btn btn-outline-primary" (click)="onAddRowUser()">
-            <span class="glyphicon glyphicon-plus"></span> Add New User
+    <h2> 관리자 화면 </h2> 
+    <div>
+        <button type="button" class="btn btn-outline-primary" (click)="goAddUpDelete('add')">
+            <span class="glyphicon glyphicon-plus"></span> Add New
         </button> &nbsp;
-        <button type="button" class="btn btn-outline-success" (click)="updateItems()">
-            <span class="glyphicon glyphicon-pencil"></span> Update User
+        <button type="button" class="btn btn-outline-success" (click)="goAddUpDelete('up')">
+            <span class="glyphicon glyphicon-pencil"></span> Update
         </button> &nbsp;
-        <button type="button" class="btn btn-outline-danger" (click)="onRemoveSelected()">
-            <span class="glyphicon glyphicon-trash"></span> Delete User Selected
+        <button type="button" class="btn btn-outline-danger" (click)="goAddUpDelete('del')">
+            <span class="glyphicon glyphicon-trash"></span> Delete
         </button>
-        </div>
-        <br>
+    </div>
+
+    <h3>==유저관리==</h3>     
+    <br>
     <ag-grid-angular ag-grid-angular #agGrid id="myGridUser" 
                      style="min-width: 500px; min-height: 300px;"
                      [ngClass]="theme"                           
@@ -60,4 +61,5 @@
                      (rowDataChanged)="fitColumnsSize($event)">
 
     </ag-grid-angular>
+ 
 </div>

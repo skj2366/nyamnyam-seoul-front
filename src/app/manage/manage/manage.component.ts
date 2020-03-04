@@ -117,70 +117,9 @@ export class ManageComponent implements OnInit {
     params.api.sizeColumnsToFit();
   } //컬럼의 데이터에 맞춰서 사이즈 조절
 
-  onAddRowUser() {
-    this.gridApi['myGridUser'].updateRowData({ add: [this.newData]});
-
-    this.gridApi.MyGridUser.updateRowData({add: [this.newData]})
-    var newItem = this.gridApi.MyGridUser.setRowData(this.createNewRowDataUser());
-    var res = this.gridApi.MyGridUser.updateRowData({ add: [newItem] });
-    console.log(res);
-    //var data = {'cuiName':res.add[0].data.cuiName, 'cuiId':res.add[0].data.cuiId, 'age':res.add[0].data.employee_age};
-
-    /*this._cs.postJson('/cui', data).subscribe(
-        res => {
-          console.log(res);
-      },
-        err => {
-          if (err.error instanceof Error) {
-            console.log("Client-side error occured.");
-          } else {
-            console.log("Server-side error occured.");
-          }
-      });*/
-  }
-
-  newData = {
-    cuiName: 'a',
-    cuiId: 'a',
-    cuiNickname: 'a',
-    cuiEmail: 'a',
-    cuiPhone: 'a',
-    cuiCredat: new Date().getDate,
-    cuiCretim: new Date().getTime,
-    cuiModdat: new Date().getDate,
-    cuiModtim: new Date().getTime
-  };
-
-  createNewRowDataUser() {
-    var newData = {
-      cuiName: 'a',
-      cuiId: 'a',
-      cuiNickname: 'a',
-      cuiEmail: 'a',
-      cuiPhone: 'a',
-      cuiCredat: new Date().getDate,
-      cuiCretim: new Date().getTime,
-      cuiModdat: new Date().getDate,
-      cuiModtim: new Date().getTime
-    };
-    return newData;
-  }
-
-  onRemoveSelected() {
-    var selectedData = this.gridApi.getSelectedRows();
-    var res = this.gridApi.updateRowData({ remove: selectedData });
-    console.log(res.remove[0].data.id);
-    var id = res.remove[0].data.id;
-    this._cs.delete('/cui/').subscribe(
-      res => {
-        console.log(res);
-      },
-      err => {
-        if (err.error instanceof Error) {
-          console.log("Client-side error occurred.");
-        } else {
-          console.log("Server-side error occurred.");
-        }
-      });
+  goAddUpDelete(param:string) {
+    if(param) {
+      this._router.navigateByUrl(`/addUpDel/${param}`);
+    }
   }
 }
