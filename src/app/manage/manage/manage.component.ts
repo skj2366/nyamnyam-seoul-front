@@ -80,9 +80,9 @@ export class ManageComponent implements OnInit {
     ];
 
     this_.columnDefsRestaurant = [
-      { headerName: '번호', field: 'relNum', width: 70, cellStyle: { color: '#4C4C4C', textAlign: "center", backgroundColor: "#FFA7A7" }, checkboxSelection: true, headerCheckboxSelection: true },
-      { headerName: '식당이름', field: 'relName', width: 140, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-      { headerName: '식당주소', field: 'relSubAddress', width: 400, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+      { headerName: '번호', field: 'relNum', width: 80, cellStyle: { color: '#4C4C4C', textAlign: "center", backgroundColor: "#FFA7A7" }, checkboxSelection: true, headerCheckboxSelection: true },
+      { headerName: '식당이름', field: 'relName', width: 180, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+      { headerName: '식당주소', field: 'relSubAddress', width: 500, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
       { headerName: '식당전화번호', field: 'relCall', width: 150, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
       { headerName: '생성날짜', field: 'relCredat', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
       { headerName: '생성시간', field: 'relCretim', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
@@ -181,7 +181,6 @@ export class ManageComponent implements OnInit {
 
   //////////// 유저 삽입, 수정, 삭제/////////////////
   userCreateNewRowData() {
-    var date = new Date();
     var newData = {
       cuiName: "Name " + this.newCount,
       cuiId: "Id" + this.newCount,
@@ -199,7 +198,7 @@ export class ManageComponent implements OnInit {
 
   onAddRowUser() {
     var newItem = this.userCreateNewRowData();
-    var res = this.gridApiUser.updateRowData({ add: [newItem] });
+    var res = this.gridApiUser.updateRowData({ add: [newItem], addIndex:0});
     this.printResult(res);
   }
 
@@ -209,6 +208,7 @@ export class ManageComponent implements OnInit {
     this.printResult(res);
   }
 
+  /*
   updateItemsUser() {
     var itemsToUpdate = [];
     this.gridApiUser.forEachNodeAfterFilterAndSort(function(rowNode, index) {
@@ -222,14 +222,56 @@ export class ManageComponent implements OnInit {
     var res = this.gridApiUser.updateRowData({ update: itemsToUpdate });
     this.printResult(res);
   }
+  */
+  
+  /*
+  updateItemsUser() {
+    var updateRows = [];
+    myGridUser.gridOpts.api.stopEditing();
+    myGridUser.gridOpts.api.forEachNode( function(rowNode, index) {
+        if(rowNode.data.edit){
+            updateRows.push(rowNode.data);
+        }
+    });
+    $("#updateRows").html(JSON.stringify(updateRows));
+  }
+  */
 
   //////////// 식당 삽입, 수정, 삭제/////////////////
   restaurantCreateNewRowData() {
+    var newData = {
+      relName: "Restaurant" + this.newCount,
+      relSubAddress: "도로명 주소 / 지번주소 : " + this.newCount,
+      relCall: "전화번호" + this.newCount,     
+      relCredat: this.getDate(),
+      relCretim: this.getTime(),
+      relModdat: this.getDate(),
+      relModtim: this.getTime()
+    };
+    this.newCount++;
+    return newData;
+  }
 
+  onAddRowRestaurant() {
+    var newItem = this.restaurantCreateNewRowData();
+    var res = this.gridApiRestaurant.updateRowData({ add: [newItem], addIndex:0});
+    this.printResult(res);
+  }
+
+  onRemoveSelectedRestaurant() {
+    var selectedData = this.gridApiRestaurant.getSelectedRows();
+    var res = this.gridApiRestaurant.updateRowData({ remove: selectedData });
+    this.printResult(res);
   }
 
 
   //////////// 댓글 삭제/////////////////
+  
+
+
+
+
+
 
   printResult(res) {
     console.log("---------------------------------------");
