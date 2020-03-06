@@ -7,7 +7,7 @@
                 <label for="tabmenu1">유저관리</label>
                 
                 <div class="tabCon">
-                    <div>
+                    <div class="buttonList">
                         <button type="button" class="btn btn-outline-primary" (click)="onAddRowUser()">Add Row</button>
                         <button type="button" class="btn btn-outline-success" (click)="updateItemsUser()">Update Row</button>
                         <button type="button" class="btn btn-outline-danger" (click)="onRemoveSelectedUser()">Remove Selected</button>
@@ -33,9 +33,17 @@
             <li id="tab2" class="btnCon">
                 <input class="radioInput" type="radio" name="tabmenu" id="tabmenu2">
                 <label for="tabmenu2">식당 관리</label>
+                
                 <div class="tabCon">
+                    <div class="buttonList">
+                        <button type="button" class="btn btn-outline-primary" (click)="onAddRowRestaurant()">Add Row</button>
+                        <button type="button" class="btn btn-outline-success" >Update Row</button>
+                        <button type="button" class="btn btn-outline-danger" (click)="onRemoveSelectedRestaurant()">Remove Selected</button>
+                    </div>
+                    
+                    <br>
                     <ag-grid-angular ag-grid-angular #agGrid id="myGridRestaurant" 
-                    style="min-width: 1100px; min-height: 300px; margin-left: 110px; margin-right: 100px;"
+                    style="min-width: 1250px; min-height: 300px; margin-left: 50px; margin-right: 50px;"
                     [ngClass]="theme"                           
                     [rowData]="rowDataRestaurant"                          
                     [defaultColDef]="defaultColDef"             
@@ -53,7 +61,15 @@
             <li id="tab3" class="btnCon">
                 <input class="radioInput" type="radio" name="tabmenu" id="tabmenu3">
                 <label for="tabmenu2">댓글 관리</label>
+                
                 <div class="tabCon">
+                    <div class="buttonList">
+                        <button type="button" class="btn btn-outline-primary" >Add Row</button>
+                        <button type="button" class="btn btn-outline-success" >Update Row</button>
+                        <button type="button" class="btn btn-outline-danger" >Remove Selected</button>
+                    </div>
+                    
+                    <br>
                     <ag-grid-angular ag-grid-angular #agGrid id="myGridComment" 
                     style="min-width: 1100px; min-height: 300px; margin-left: 110px; margin-right: 100px;"
                     [ngClass]="theme"                           
