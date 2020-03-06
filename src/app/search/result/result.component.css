@@ -11,9 +11,9 @@
 }
 
 #like{
-    margin-top: -5%;
+    margin-top: -3%;
     margin-left: -1%;
-    width: 10%;
+    width: 8%;
     height: 10%;
 }
 
@@ -156,7 +156,9 @@ img{
 }
 
 #name{
-    text-decoration:underline solid rgb(5, 5, 90);
+    border-bottom: 1.5px solid rgb(5, 5, 90);
+    width: 40%;
+    /* text-decoration:underline solid rgb(5, 5, 90); */
 }
 #price{
     margin-left: 80%;
