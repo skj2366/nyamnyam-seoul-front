@@ -1,6 +1,31 @@
+#myGrid{
+	margin-left: 5% ; 
+	margin-top: 5%;
+	width: 95%;
+    height: 700px;
+    
+}
+
 h2, h3{
 	font-family: 'MapoPeacefull';
 }
+
+.tabCon{
+	display:none; 
+	text-align:left; 
+	padding: 20px;
+	position:absolute; 
+	left:0; top:40px; 
+	box-sizing: border-box; 
+	/* border : 5px solid #e70404; */
+  }
+
+  #myGridUser{
+	min-width: 1100px; 
+	min-height: 300px; 
+	margin-left: 110px; 
+	margin-right: 100px;
+  }
 
 /deep/ .ag-root-wrapper-body.ag-layout-normal {
 	height: 400px; 

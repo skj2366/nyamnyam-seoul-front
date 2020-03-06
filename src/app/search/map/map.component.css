@@ -13,7 +13,8 @@ font-family: 'MapoPeacefull';
 
 .mapSearch #selectBox{
     margin-top: 15px;
-    margin-left: 50%;
+    margin-left: 3%;
+    width: 60%;
     font-family: 'BMEULJIRO';
     font-size: 110%;
 }
@@ -93,27 +94,25 @@ button{
     font-family: 'GyeonggiBatang'; 
   }
 
-  #sort{
-      /* float: right; */
-      margin-top: 20px;
-      margin-left: 76%;
-      font-family: 'GyeonggiBatang'; 
-      /* display: inline; */
-      
+  #btn_group{
+      width: auto;
+      height: auto;
+      margin-top: -13px;
+      margin-left: 73%;
   }
 
 #btn_group button{ 
-    border: 1px solid #c94545; 
+    border: 1px solid #230c5a; 
     background-color: rgba(0,0,0,0); 
-    color: #c94545; 
-    padding: 5px; 
+    color: #230c5a; 
+    /* padding: 5px;  */
     width: 80px;
-    height: 35px;
+    height: 30px;
 }
 
 #btn_group button:hover{ 
     color:white; 
-    background-color: #c94545; 
+    background-color: #230c5a; 
 }
 
 #btnDistanceOrder {

@@ -1,5 +1,5 @@
-<div id="myGrid" class="contents" style="margin-right: 200px ; margin-left: 200px ; margin-top: 60px">
-    <h2> 관리자 화면 </h2>    
+<div id="myGrid">
+    <h2> 관리자 화면</h2>    
     <div class="tabmenu" style="font-family: 'MapoPeacefull'">
         <ul>
             <li id="tab1" class="btnCon">
@@ -15,7 +15,6 @@
                     
                     <br>
                     <ag-grid-angular ag-grid-angular #agGrid id="myGridUser" 
-                        style="min-width: 1100px; min-height: 300px; margin-left: 110px; margin-right: 100px; "
                         [ngClass]="theme"                           
                         [rowData]="rowDataUser"                          
                         [defaultColDef]="defaultColDef"             
@@ -87,69 +86,4 @@
             </li>
         </ul>
     </div>
-
-
-    <!--
-    <div>
-        <button type="button" class="btn btn-outline-primary" (click)="goAddUpDelete('add')">
-            <span class="glyphicon glyphicon-plus"></span> Add New
-        </button> &nbsp;
-        <button type="button" class="btn btn-outline-success" (click)="goAddUpDelete('up')">
-            <span class="glyphicon glyphicon-pencil"></span> Update
-        </button> &nbsp;
-        <button type="button" class="btn btn-outline-danger" (click)="goAddUpDelete('del')">
-            <span class="glyphicon glyphicon-trash"></span> Delete
-        </button>
-    </div>
-
-    <h3>==유저관리==</h3>     
-    <br>
-    <ag-grid-angular ag-grid-angular #agGrid id="myGridUser" 
-                     style="min-width: 500px; min-height: 300px;"
-                     [ngClass]="theme"                           
-                     [rowData]="rowDataUser"                          
-                     [defaultColDef]="defaultColDef"             
-                     [columnDefs]="columnDefsUser"                 
-                     [pagination]="true"                      
-                     [paginationPageSize]=25                               
-                     [rowHeight]="30"                       
-                     (gridReady)="onGridReady($event)"
-                     (firstDataRendered)="fitColumnsSize($event)" 
-                     (rowDataChanged)="fitColumnsSize($event)">
-
-    </ag-grid-angular>
-
-    <br>
-    <h3>==식당관리==</h3>
-    <ag-grid-angular ag-grid-angular #agGrid id="myGridRestaurant" 
-                     style="min-width: 500px; min-height: 300px;"
-                     [ngClass]="theme"                           
-                     [rowData]="rowDataRestaurant"                          
-                     [defaultColDef]="defaultColDef"             
-                     [columnDefs]="columnDefsRestaurant"                 
-                     [pagination]="true"                      
-                     [paginationPageSize]=25                               
-                     [rowHeight]="30"                       
-                     (gridReady)="onGridReady($event)"
-                     (firstDataRendered)="fitColumnsSize($event)" 
-                     (rowDataChanged)="fitColumnsSize($event)">
-
-    </ag-grid-angular>
-
-    <h3>==댓글관리==</h3>
-    <ag-grid-angular ag-grid-angular #agGrid id="myGridComment" 
-                     style="min-width: 500px; min-height: 300px;"
-                     [ngClass]="theme"                           
-                     [rowData]="rowDataComment"                          
-                     [defaultColDef]="defaultColDef"             
-                     [columnDefs]="columnDefsComment"                 
-                     [pagination]="true"                      
-                     [paginationPageSize]=25                            
-                     [rowHeight]="30"                       
-                     (gridReady)="onGridReady($event)"
-                     (firstDataRendered)="fitColumnsSize($event)" 
-                     (rowDataChanged)="fitColumnsSize($event)">
-
-    </ag-grid-angular>
-    -->
 </div>

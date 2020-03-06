@@ -6,6 +6,17 @@
     margin-top: 2%;
 }
 
+#relName, #like{
+    display: inline;
+}
+
+#like{
+    margin-top: -5%;
+    margin-left: -1%;
+    width: 10%;
+    height: 10%;
+}
+
 h3{
     font-family: 'GyeonggiBatang'; 
     }
