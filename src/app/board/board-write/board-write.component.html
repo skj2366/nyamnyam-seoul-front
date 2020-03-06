@@ -112,7 +112,8 @@
     </div>
 
     <div class="writeEditor">
-      <ckeditor [(data)]="rei.reiContents" [config]="ckEditorConfig" type="divarea"></ckeditor>
+      <!-- <ckeditor [(data)]="rei.reiContents" [config]="ckEditorConfig" type="divarea"></ckeditor> -->
+      <ckeditor [(ngModel)]="rei.reiContents" [config]="ckEditorConfig" type="divarea"></ckeditor>
     </div>
 
     <button class="btn btn-outline-primary" (click)="writeReview()">후기작성</button>

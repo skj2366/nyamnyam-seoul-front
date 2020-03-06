@@ -30,9 +30,7 @@ export class BoardWriteComponent implements OnInit {
 
   editorValue: string = '';
   baseUrl: string = 'http://localhost:809/';
-  imgUrl: string = 'image/upload';
-  imgUrl2: string = 'it';
-  imgUrl3: string = 'upload/one';
+  imgUrl: string = 'upload/one';
   // ckEditorConfig = {
   //   filebrowserUploadUrl: this.baseUrl + this.imgUrl3,
   //   fileTools_requestHeaders: {
@@ -68,22 +66,50 @@ export class BoardWriteComponent implements OnInit {
   //   height: 800,
   // };
   ckEditorConfig = {
-    filebrowserUploadUrl: 'http://localhost:809/' + this.imgUrl,
-    // fileTools_requestHeaders: {
-    //     'X-Requested-With': 'xhr',
-    //     Authorization: 'Bearer ' + localStorage.getItem('access_token')
-    // },
+    filebrowserUploadUrl: `${this.baseUrl}${this.imgUrl}`,
+    fileTools_requestHeaders: {
+        'X-Requested-With': 'xhr',
+        Authorization: 'Bearer ' + sessionStorage.getItem('tokken')
+    },
     filebrowserUploadMethod: 'xhr',
     on: {
-        instanceReady: function( evt ) {
-            var editor = evt.editor;
-            console.log('editor ===>', editor);
-        },
-        fileUploadRequest: function(evt) {
-            console.log( 'evt ===>', evt );
-        },
+      instanceReady: function (evt) {
+        var editor = evt.editor;
+        console.log('editor ===>', editor);
+      },
+      fileUploadRequest: function (evt) {
+        console.log('evt ===>', evt);
+      },
     },
+      toolbar: [
+      {
+        name: 'document',
+        items: ['Undo', 'Redo']
+      },
+      {
+        name: 'styles',
+        items: ['Format']
+      },
+      {
+        name: 'basicstyles',
+        items: ['Bold', 'Italic', 'Strike', '-', 'RemoveFormat']
+      },
+      {
+        name: 'paragraph',
+        items: ['NumberedList', 'BulletedList']
+      },
+      {
+        name: 'links',
+        items: ['Link', 'Unlink']
+      },
+      {
+        name: 'insert',
+        items: ['Image']
+      },
+    ],
+    height: 800,
   };
+
   email: string;
 
   constructor(private _router: Router, private _zonsub: ZoneSubwayService, private _cs: CommonService, private _ss: StorageService) { }

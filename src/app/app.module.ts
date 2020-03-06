@@ -24,11 +24,12 @@ import { BoardWriteComponent } from './board/board-write/board-write.component';
 import { BoardResultComponent } from './board/board-result/board-result.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { TotalResultComponent } from './search/total/total-result/total-result.component';
-import { CKEditorModule } from 'ckeditor4-angular';
+// import { CKEditorModule } from 'ckeditor4-angular';
+
 import { ResultDkComponent } from './search/result-dk/result-dk.component';
 import { ReceiveComponent } from './test/receive/receive.component';
 import { ServeComponent } from './test/serve/serve.component';
-// import { CKEditorModule } from 'ng2-ckeditor';
+import { CKEditorModule } from 'ng2-ckeditor';
 
 
 @NgModule({
@@ -67,11 +68,11 @@ import { ServeComponent } from './test/serve/serve.component';
     AutocompleteLibModule   
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorService,
-      multi: true
-    }
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: AuthInterceptorService,
+    //   multi: true
+    // }
   ],
   bootstrap: [AppComponent]
 })

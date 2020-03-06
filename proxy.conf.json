@@ -1,0 +1,11 @@
+{
+    "/image/*" : {
+        "target" : "http://localhost:809",
+        "secure" : false,
+        "pathRewrite": {
+            "^/image/*": ""
+        },
+        "changeOrigin" : true,
+        "logLevel" : "debug"
+    }
+}
