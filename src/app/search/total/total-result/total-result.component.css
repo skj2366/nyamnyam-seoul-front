@@ -17,6 +17,7 @@ h3{
     display: flex;
     float: center;
     width: 80%;
+    /* height: 700px; */
     margin: 10px auto;
     padding: 15px;
     border-radius: 5px;
@@ -38,7 +39,7 @@ h3{
     border-radius: 5px;
     border: 2px solid rgb(5, 5, 90);
     font-family: 'GyeonggiBatang'; 
-    font-size: 20pt;
+    font-size: 15pt;
 }
 
 #themeImg{
