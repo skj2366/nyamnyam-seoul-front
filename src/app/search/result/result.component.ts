@@ -3,6 +3,7 @@ import { CommonService } from 'src/app/common/common.service';
 import { RestaurantList } from 'src/app/vo/restaurant-list';
 import { ActivatedRoute } from '@angular/router';
 import { MenuInfo } from 'src/app/vo/menu-info';
+import { KakaoMapService } from 'src/app/common/kakao-map.service';
 
 @Component({
   selector: 'app-result',
@@ -13,28 +14,33 @@ export class ResultComponent implements OnInit {
   rel : RestaurantList;
   menu : MenuInfo[];
   rNum : number;
+  
+  menuLength: number;
 
-  constructor(private route : ActivatedRoute, private _cs : CommonService) { }
+  constructor(private route : ActivatedRoute, private _cs : CommonService, private _ks: KakaoMapService) { }
 
   async ngOnInit() {    
     var relNum = this.route.snapshot.paramMap.get('relNum');    
-    this.getRestaurantDetail(relNum);
+    await this.getRestaurantDetail(relNum);
     this.getMenu(relNum);
+    
   }
 
-  getRestaurantDetail(rNum) {
+  async getRestaurantDetail(rNum) {
     var url = `/reln/${rNum}`;
-    this._cs.get(url).subscribe(
-      res => {
-          this.rel = <RestaurantList>res;          
-          console.log(this.rel);
+    // this._cs.get(url).subscribe(
+    //   res => {
+    //       this.rel = <RestaurantList>res;          
+    //       console.log(this.rel);
           
-        }
-      , err => {
-          console.log('레스토랑상세 못가져옴');
-          console.log(err);
-        }      
-    )
+    //     }
+    //   , err => {
+    //       console.log('레스토랑상세 못가져옴');
+    //       console.log(err);
+    //     }      
+    // )
+
+    this.rel = <RestaurantList> await this._cs.get(url).toPromise();
   }
 
   getMenu(rNum) {
@@ -43,11 +49,20 @@ export class ResultComponent implements OnInit {
       res => {
         this.menu = <MenuInfo[]>res;
         console.log(res);
+        this.menuLength = this._cs.getObjectLength(this.menu);
       },
       err => {
         console.log(err);
       }
     )
+  }
+
+  getMap() {
+    var id = 'kakao-map';
+    if(this.rel) {
+      alert(`${this.rel.relLatitude}, ${this.rel.relLongitude}`);
+      this._ks.makeMapByRestaurant(this.rel.relLatitude, this.rel.relLongitude, id);
+    }
   }
 
 }

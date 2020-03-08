@@ -40,6 +40,26 @@ export class KakaoMapService {
     this.map.relayout();
   }
 
+  makeMapByRestaurant(x, y, id) {
+    var container = document.getElementById(id);
+    var option = {
+      center: new kakao.maps.LatLng(y, x),
+      level: 3
+    };
+    this.map = new kakao.maps.Map(container, option);
+
+    var markerPosition = new kakao.maps.LatLng(y, x);
+    var marker = new kakao.maps.Marker({
+      position: this.map.getCenter()
+    });
+    marker.setMap(this.map);
+
+    setTimeout(() => {
+      this.map.relayout();
+      this.map.setCenter(markerPosition);
+    }, 500);
+  }
+
   // 지하철역으로 검색 시 역을 중심으로 결과 나오게끔 
   // 37.5171771,127.0401547 강남구청역
   // 37.497953,127.0260894 강남역

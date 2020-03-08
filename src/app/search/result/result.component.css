@@ -55,6 +55,11 @@ input:focus {
     height: 310px;
 }
 
+#kakao-map{
+    border: 2px solid rgb(5, 5, 90);
+    width: 500px;
+    height: 310px;
+}
 img{
     width: 495px;
     height: 305px;
