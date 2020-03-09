@@ -10,16 +10,6 @@ h2, h3{
 	font-family: 'MapoPeacefull';
 }
 
-.tabCon{
-	display:none; 
-	text-align:left; 
-	padding: 20px;
-	position:absolute; 
-	left:0; top:40px; 
-	box-sizing: border-box; 
-	/* border : 5px solid #e70404; */
-  }
-
   #myGridUser{
 	min-width: 1100px; 
 	min-height: 300px; 
@@ -40,6 +30,17 @@ h2, h3{
 	width: 100%; 
 	text-align: right; /*오른쪽 정렬을 위함 (default 왼쪽 정렬) */
 } /*.ag-header-cell-text는 header의 span class명, columnDefs에 지정해준 각 field로 column id가 지정되는데 정렬할 컬럼을 명시해주기 위함*/
+
+#updateRestaurant {
+	border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgba(245, 238, 238 , 0.5 );
+		width: 85%;
+		height: 200px;
+    padding-top: 1px;
+    margin-left: 5%;
+    margin-top: 2%;
+}
 
 ul{
 	list-style:none;
@@ -91,6 +92,10 @@ border-bottom: 2px solid rgb(5, 5, 90);
 
 .tabmenu input:checked ~ .tabCon{
 	display:block;
+}
+
+button {
+	margin-right: 5px;
 }
 
 

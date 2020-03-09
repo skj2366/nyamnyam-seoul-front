@@ -128,6 +128,9 @@ export class MypageComponent implements OnInit {
         console.log(err);
       }
     )
+  }
 
+  goBoardResult(reiNum : number) {
+    this._router.navigateByUrl(`/board/${reiNum}`);
   }
 }
