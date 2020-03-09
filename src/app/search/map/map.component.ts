@@ -27,8 +27,13 @@ export class MapComponent implements OnInit {
 
 
   constructor(private _zonsub: ZoneSubwayService, private _km: KakaoMapService, private route: ActivatedRoute, private _cs: CommonService, private _router: Router) {
-    this.zoneValue = route.snapshot.params['zoneValue'];
-    this.subValue = route.snapshot.params['subValue'];
+    console.log(this._cs.getObjectLength(route.snapshot.params));
+    if(this._cs.getObjectLength(route.snapshot.params) != 0) {
+      this.zoneValue = route.snapshot.params['zoneValue'];
+      this.subValue = route.snapshot.params['subValue'];
+    } else {
+      console.log('No Params');
+    }
   }
 
   async ngOnInit() {
@@ -45,6 +50,7 @@ export class MapComponent implements OnInit {
             console.log(this.rels);
             this._km.makeMapBySubway(0, this.rels);
           } else {
+            this.rels = null;
             console.log('아무 것도 없음');
           }
         },
@@ -95,5 +101,9 @@ export class MapComponent implements OnInit {
     this._router.navigateByUrl(`/result/${relNum}`);
   }
 
+  closeMap() {
+    document.getElementById('kakao-map').innerHTML = '<span style="font-size: 20pt;font-weight:bold; color:rgb(5, 5, 90);margin-left:5%;">검색 결과가 없습니다.</span>';
+    document.getElementById('kakao-map').style.backgroundColor = 'white';
+  }
 
 }
