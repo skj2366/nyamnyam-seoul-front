@@ -26,6 +26,13 @@ export class MapComponent implements OnInit {
   mapUrl: string = '/map';
 
 
+  //여기도...ㅎㅎ...
+  // menu : MenuInfo[];
+  // rNum : number;
+  
+  // menuLength: number;
+
+
   constructor(private _zonsub: ZoneSubwayService, private _km: KakaoMapService, private route: ActivatedRoute, private _cs: CommonService, private _router: Router) {
     console.log(this._cs.getObjectLength(route.snapshot.params));
     if(this._cs.getObjectLength(route.snapshot.params) != 0) {
@@ -39,6 +46,9 @@ export class MapComponent implements OnInit {
   async ngOnInit() {
     await this.getZoneListAndSubwayList();
     await this.getMap();
+    //이것도 복붙이지롱!!!
+    // var relNum = this.route.snapshot.paramMap.get('relNum'); 
+    // this.getMenu(relNum);
   }
 
   async getMap() {
@@ -96,6 +106,22 @@ export class MapComponent implements OnInit {
       this.ngOnInit();
     }
   }
+
+
+  //복붙한곳 여기다!!
+  // getMenu(rNum) {
+  //   var url = `/mei/${rNum}`;
+  //   this._cs.get(url).subscribe(
+  //     res => {
+  //       this.menu = <MenuInfo[]>res;
+  //       console.log(res);
+  //       this.menuLength = this._cs.getObjectLength(this.menu);
+  //     },
+  //     err => {
+  //       console.log(err);
+  //     }
+  //   )
+  // }
 
   goRelPage(relNum:number) {
     this._router.navigateByUrl(`/result/${relNum}`);

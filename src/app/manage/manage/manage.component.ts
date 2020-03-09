@@ -18,6 +18,11 @@ export class ManageComponent implements OnInit {
     BrowserModule,
     FormsModule
   ]
+
+  zoneList: any;
+  subList: any;
+  zoneValue: number = 0;
+  subValue: number = 0;
   
   private gridApiUser;
   private gridApiRestaurant;
@@ -45,7 +50,7 @@ export class ManageComponent implements OnInit {
   newCount = 1;
 
   ngOnInit() {
-
+    this.getZones();
   }
 
   constructor(public _router: Router, private _cs: CommonService, private route : ActivatedRoute) {
@@ -108,11 +113,35 @@ export class ManageComponent implements OnInit {
       this.rowDataRestaurant = <RestaurantList[]>res;
     });
 
-    this._cs.get('/col').subscribe((res) => {
+    this._cs.get('/coi').subscribe((res) => {
       this.rowDataComment = <CommentList[]>res;
     });
   }
 
+  getZones() {
+    this._cs.get('/zoi').subscribe(
+      res => {
+        console.log(res);
+        this.zoneList = res;
+        console.log(this.zoneList);
+      }, err => {
+        console.log(err);
+      }
+    )
+  }
+
+  getSubwayInfo() {
+    this.subValue = 0;
+    if (this.zoneValue) {
+      this._cs.get('/sui/' + this.zoneValue).subscribe(
+        res => {
+          console.log(res);
+          this.subList = res;
+        }
+      )
+    }
+  }
+  
   onGridReady(params) {
     // this.gridApi = params.api;
     // this.gridColumnApi = params.columnApi;
@@ -122,19 +151,19 @@ export class ManageComponent implements OnInit {
   onGridUserReady(params) {
     this.gridApiUser = params.api;
     this.gridColumnApiUser = params.columnApi;
-    console.log("User호출");
+    //console.log("User호출");
   }
 
   onGridRestaurantReady(params) {
     this.gridApiRestaurant = params.api;
     this.gridColumnApiRestaurant = params.columnApi;
-    console.log("Restaurant호출");
+    //console.log("Restaurant호출");
   }
   
   onGridCommantReady(params) {
     this.gridApiComment = params.api;
     this.gridColumnApiComment = params.columnApi;
-    console.log("Comment호출");
+    //console.log("Comment호출");
   }
 
   fitColumnsSize(params) {
@@ -238,6 +267,12 @@ export class ManageComponent implements OnInit {
   */
 
   //////////// 식당 삽입, 수정, 삭제/////////////////
+  async setRowDetail(params) {
+    console.log('row', params.data);
+    console.log(params.data['relName']);
+    
+  }
+
   restaurantCreateNewRowData() {
     var newData = {
       relName: "Restaurant" + this.newCount,
