@@ -16,8 +16,9 @@
         <br>
         <div class="container">
             <div id="foodPic">
-                <img *ngIf="menuLength != 0" [src]="menu[0].meiImg1Name">
-                <p *ngIf="menuLength == 0">등록된 메뉴가 없습니다.</p>
+                <!-- <img *ngIf="menuLength != 0" [src]="menu[0].meiImg1Name"> -->
+                <app-slider *ngIf="menuLength" [data]="menu"></app-slider>
+                <p *ngIf="!menuLength">등록된 사진이 없습니다.</p>
             </div>
             <br>
             <div id="kakao-map"></div>
