@@ -33,6 +33,7 @@
     "jquery": "^3.4.1",
     "kakao-maps-sdk": "^1.0.1",
     "ng-ckeditor": "^2.0.5",
+    "ng-image-slider": "^2.4.1",
     "ng2-ckeditor": "^1.2.6",
     "pretty-checkbox": "^3.0.3",
     "rxjs": "~6.3.3",

@@ -30,6 +30,8 @@ import { ResultDkComponent } from './search/result-dk/result-dk.component';
 import { ReceiveComponent } from './test/receive/receive.component';
 import { ServeComponent } from './test/serve/serve.component';
 import { CKEditorModule } from 'ng2-ckeditor';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { SliderComponent } from './component/slider/slider.component';
 
 
 @NgModule({
@@ -52,7 +54,8 @@ import { CKEditorModule } from 'ng2-ckeditor';
     TotalResultComponent,
     ResultDkComponent,
     ReceiveComponent,
-    ServeComponent
+    ServeComponent,
+    SliderComponent
   ],
   imports: [
     FormsModule,
@@ -65,7 +68,8 @@ import { CKEditorModule } from 'ng2-ckeditor';
     AgGridModule.withComponents([
       ManageComponent
     ]),
-    AutocompleteLibModule   
+    AutocompleteLibModule,
+    NgImageSliderModule   
   ],
   providers: [
     // {
