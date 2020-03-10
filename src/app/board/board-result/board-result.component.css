@@ -70,7 +70,7 @@ margin-left: 8%;
 }
 
 #order3{
-    width : 40%;
+    width : 35%;
     height: auto;
     margin-left: 55%;
     margin-bottom: 2%;
@@ -82,10 +82,26 @@ margin-left: 8%;
     height: auto;
     border: 1px solid rgb(5, 5, 90);
     margin-left: 18%;
+    padding: 5px;
 }
 img{
 width: 495px;
 height: 305px;
+}
+
+
+button{
+    height: 30px;
+    font-family: 'BMEULJIRO';
+    font-size: 90%;
+    border: 1px solid #230c5a; 
+    background-color: rgba(0,0,0,0);
+    color: #230c5a;  
+}
+
+button:hover{ 
+    color:white; 
+    background-color: #230c5a; 
 }
 
 /* img {

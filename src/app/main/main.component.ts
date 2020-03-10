@@ -28,7 +28,7 @@ export class MainComponent implements OnInit {
   getZones() {
     this._cs.get('/zoi').subscribe(
       res => {
-        console.log(res);
+        //console.log(res);
         this.zoneList = res;
         console.log(this.zoneList);
       }, err => {

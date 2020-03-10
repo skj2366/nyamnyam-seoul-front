@@ -49,6 +49,7 @@ export class CommonService {
     const data = this.makeFormData(obj);
     return this._http.post(url, data, httpData);
   }
+
   delete(url, param?) {
     url = baseUrl + url;
     return this._http.delete(url);

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/common/common.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ReviewInfo } from 'src/app/vo/review-info';
+import { RestaurantList } from 'src/app/vo/restaurant-list';
 
 
 @Component({
@@ -11,8 +12,11 @@ import { ReviewInfo } from 'src/app/vo/review-info';
 })
 export class BoardResultComponent implements OnInit {
   rei : ReviewInfo = new ReviewInfo();
-  reiNum : number;
-  constructor(private _cs : CommonService, private route : ActivatedRoute) {
+  
+  reiNum : number; //리뷰번호
+  relNum : number; //식당번호
+
+  constructor(private _cs : CommonService, private route : ActivatedRoute, private _router: Router) {
     this.reiNum = this.route.snapshot.params['boardNum'];
   }
 
@@ -27,6 +31,10 @@ export class BoardResultComponent implements OnInit {
     if(this.rei) {
       document.getElementById('boardContent').innerHTML = this.rei['reiContents'];
     }
+  }
+
+  goRelPage(relNum) {
+    this._router.navigateByUrl(`/result/${relNum}`);
   }
 
   test: string = `<p style="color:red;">asdasdasd</p>`

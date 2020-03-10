@@ -34,10 +34,10 @@
                 <label for="tabmenu2">식당 관리</label>
                                 
                 <div class="tabCon">
-                    <div class="updateRestaurant">
+                    <div class="updateRestaurant" >
                         <p>
                             <input [(ngModel)]="relName" type="text" id="relName" placeholder="식당 이름" style="width: 150px; height: 30px;">&nbsp;&nbsp;&nbsp;
-                            <select id="relCategory" name="relCategory" >
+                            <select id="relCategory" name="relCategory" [(ngModel)]="relCategory">
                                 <option selected value="0" disabled>카테고리 선택</option> 
                                 <option value="1">한식</option>
                                 <option value="2">중식</option>
@@ -46,7 +46,7 @@
                                 <option value="5">카페</option>
                                 <option value="6">기타</option>
                             </select>&nbsp;&nbsp;&nbsp;
-                            <input type="text" placeholder="카테고리 상세" id="relStringCategory" style="width: 150px; height: 30px;">&nbsp;&nbsp;&nbsp;
+                            <input type="text" [(ngModel)]="relStringCategory" placeholder="카테고리 상세" id="relStringCategory" style="width: 150px; height: 30px;">&nbsp;&nbsp;&nbsp;
                             <select id="zone" [(ngModel)]="zoneValue" name="zoneValue" (change)="getSubwayInfo()">
                                 <option selected [value]="0">지역구 선택</option>
                                 <option *ngFor="let zone of zoneList" [value]="zone.zoneNum">{{zone.zoneName}}</option>
@@ -74,9 +74,9 @@
                             </select>        
                         </p>
                         <p>
-                            <input type="text" id="relSubAddress" placeholder="상세주소" style="width: 400px; height: 30px;">&nbsp;&nbsp;&nbsp;
-                            <input type="text" id="relCall" placeholder="전화번호" style="width: 150px; height: 30px;">&nbsp;&nbsp;&nbsp;
-                            <input type="text" id="relEtcTime" placeholder="영업시간" style="width: 300px; height: 30px;">&nbsp;&nbsp;&nbsp;
+                            <input type="text" [(ngModel)]="relSubAddress" id="relSubAddress" placeholder="상세주소" style="width: 400px; height: 30px;">&nbsp;&nbsp;&nbsp;
+                            <input type="text" [(ngModel)]="relCall" id="relCall" placeholder="전화번호" style="width: 150px; height: 30px;">&nbsp;&nbsp;&nbsp;
+                            <input type="text" [(ngModel)]="relEtcTime" id="relEtcTime" placeholder="영업시간" style="width: 300px; height: 30px;">&nbsp;&nbsp;&nbsp;
                         </p>                        
                     </div>
                     <div class="buttonList">

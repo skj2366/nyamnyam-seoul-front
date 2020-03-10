@@ -19,6 +19,13 @@ export class ManageComponent implements OnInit {
     FormsModule
   ]
 
+  relName : string;
+  relCategory : string;
+  relStringCategory : string;
+  relEtcTime : string;
+  relSubAddress : string;
+  relCall : string;
+  
   zoneList: any;
   subList: any;
   zoneValue: number = 0;
@@ -121,9 +128,9 @@ export class ManageComponent implements OnInit {
   getZones() {
     this._cs.get('/zoi').subscribe(
       res => {
-        console.log(res);
+        //console.log(res);
         this.zoneList = res;
-        console.log(this.zoneList);
+        //console.log(this.zoneList);
       }, err => {
         console.log(err);
       }
@@ -135,11 +142,28 @@ export class ManageComponent implements OnInit {
     if (this.zoneValue) {
       this._cs.get('/sui/' + this.zoneValue).subscribe(
         res => {
+          //console.log(res);
+          this.subList = res;
+        }
+      )
+    }
+    else {
+      this._cs.get('/sui').subscribe(
+        res => {
           console.log(res);
           this.subList = res;
         }
       )
     }
+  }
+
+  getZoneValue(exp) {
+    console.log(exp);
+  }
+
+  getSubValue(exp) {
+    console.log(exp);
+    this.subValue = exp;
   }
   
   onGridReady(params) {
@@ -270,7 +294,14 @@ export class ManageComponent implements OnInit {
   async setRowDetail(params) {
     console.log('row', params.data);
     console.log(params.data['relName']);
-    
+    this.relName = params.data['relName'];
+    this.relCategory = params.data['relCategory'];
+    this.relStringCategory = params.data['relStringCategory'];
+    this.relSubAddress = params.data['relSubAddress'];
+    this.relCall = params.data['relCall'];
+    this.relEtcTime = params.data['relEtcTime'];
+    this.zoneValue = params.data['zoneNum'];
+    this.subValue = params.data['subwayNum'];
   }
 
   restaurantCreateNewRowData() {
@@ -302,7 +333,11 @@ export class ManageComponent implements OnInit {
 
   //////////// 댓글 삭제/////////////////
   
-
+  onRemoveSelectedComment() {
+    var selectedData = this.gridApiComment.getSelectedRows();
+    var res = this.gridApiComment.updateRowData({ remove: selectedData });
+    this.printResult(res);
+  }
 
 
 

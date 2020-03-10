@@ -67,6 +67,13 @@ export class BoardListComponent implements OnInit {
   }
 
   goBoardResult(reiNum: number) {
+    var count = `/reiCount/${reiNum}`;
+    this._cs.modifyJson(count, null).subscribe( 
+      res => {
+        console.log(res + "카운트 증가")
+      }
+    )
+
     var url = `/board/${reiNum}`;
     this._router.navigateByUrl(url);
   }
