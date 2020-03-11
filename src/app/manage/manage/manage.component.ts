@@ -19,6 +19,7 @@ export class ManageComponent implements OnInit {
     FormsModule
   ]
 
+  relNum : number;
   relName : string;
   relCategory : string;
   relStringCategory : string;
@@ -112,15 +113,15 @@ export class ManageComponent implements OnInit {
       { headerName: '생성시간', field: 'relCretim', width: 40, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } }
     ];
 
-    this._cs.get('/cui').subscribe((res) => {
+    this_._cs.get('/cui').subscribe((res) => {
       this.rowDataUser = <CustomerInfo[]>res;
     });  /*data의 type은 list, element는 dict여야 합니다. ex) data = [{"column_1": "row_1", "column_2": 1, ...}, {"column_1": "row_2", "column_2": 2, ...}, ...] }*/
 
-    this._cs.get('/rel').subscribe((res) => {
+    this_._cs.get('/rel').subscribe((res) => {
       this.rowDataRestaurant = <RestaurantList[]>res;
     });
 
-    this._cs.get('/coi').subscribe((res) => {
+    this_._cs.get('/coi').subscribe((res) => {
       this.rowDataComment = <CommentList[]>res;
     });
   }
@@ -184,7 +185,7 @@ export class ManageComponent implements OnInit {
     //console.log("Restaurant호출");
   }
   
-  onGridCommantReady(params) {
+  onGridCommentReady(params) {
     this.gridApiComment = params.api;
     this.gridColumnApiComment = params.columnApi;
     //console.log("Comment호출");
@@ -260,40 +261,35 @@ export class ManageComponent implements OnInit {
     var res = this.gridApiUser.updateRowData({ remove: selectedData });
     this.printResult(res);
   }
-
-  /*
-  updateItemsUser() {
-    var itemsToUpdate = [];
-    this.gridApiUser.forEachNodeAfterFilterAndSort(function(rowNode, index) {
-      if (index >= 5) {
-        return;
-      }
-      var data = rowNode.data;
-      data.price = Math.floor(Math.random() * 20000 + 20000);
-      itemsToUpdate.push(data);
-    });
-    var res = this.gridApiUser.updateRowData({ update: itemsToUpdate });
-    this.printResult(res);
-  }
-  */
-  
-  /*
+ 
   updateItemsUser() {
     var updateRows = [];
-    myGridUser.gridOpts.api.stopEditing();
-    myGridUser.gridOpts.api.forEachNode( function(rowNode, index) {
+    this.gridApiUser.stopEditing();
+    this.gridApiUser.forEachNode( function(rowNode, index) {
         if(rowNode.data.edit){
             updateRows.push(rowNode.data);
         }
     });
-    $("#updateRows").html(JSON.stringify(updateRows));
+    console.log(updateRows);
+    this._cs.modifyJson('/cui', updateRows).subscribe (
+      res => {
+        console.log(res);
+      }
+    )
+    var res = this.gridApiUser.updateRowData({ update: updateRows });
+    this.printResult(res);
+    var reset = this._cs.get('/cui').subscribe(
+      res => {
+        this.rowDataUser = <CustomerInfo[]>res;
+      }
+    )
   }
-  */
 
   //////////// 식당 삽입, 수정, 삭제/////////////////
   async setRowDetail(params) {
     console.log('row', params.data);
     console.log(params.data['relName']);
+    this.relNum = params.data['relNum'];
     this.relName = params.data['relName'];
     this.relCategory = params.data['relCategory'];
     this.relStringCategory = params.data['relStringCategory'];
@@ -306,28 +302,69 @@ export class ManageComponent implements OnInit {
 
   restaurantCreateNewRowData() {
     var newData = {
-      relName: "Restaurant" + this.newCount,
-      relSubAddress: "도로명 주소 / 지번주소 : " + this.newCount,
-      relCall: "전화번호" + this.newCount,     
+      relName: this.relName,
+      relSubAddress: this.relCategory,
+      relCall: this.relCall,     
       relCredat: this.getDate(),
       relCretim: this.getTime(),
       relModdat: this.getDate(),
       relModtim: this.getTime()
     };
-    this.newCount++;
     return newData;
   }
 
   onAddRowRestaurant() {
     var newItem = this.restaurantCreateNewRowData();
-    var res = this.gridApiRestaurant.updateRowData({ add: [newItem], addIndex:0});
-    this.printResult(res);
+    var insertItem = new RestaurantList();
+      insertItem.relName = this.relName;
+      insertItem.relCategory = this.relCategory;
+      insertItem.relStringCategory = this.relStringCategory;
+      insertItem.relSubAddress = this.relSubAddress;
+      insertItem.relCall = this.relCall;
+      insertItem.relEtcTime = this.relEtcTime;
+      insertItem.zoneNum = this.zoneValue;
+      insertItem.subwayNum = this.subValue;
+      insertItem.relCredat = newItem.relCredat;
+      insertItem.relCretim = newItem.relCretim;
+      insertItem.relModdat = newItem.relModdat;
+      insertItem.relModtim = newItem.relModtim;
+    this._cs.postJson('/rel', insertItem).subscribe(
+      res => {
+        console.log("식당 insert 성공")
+      }
+    )
+  }
+
+  onUpdateRestaurant(){
+    var updateItem = new RestaurantList();
+      updateItem.relNum = this.relNum;
+      updateItem.relName = this.relName;
+      updateItem.relCategory = this.relCategory;
+      updateItem.relStringCategory = this.relStringCategory;
+      updateItem.relSubAddress = this.relSubAddress;
+      updateItem.relCall = this.relCall;
+      updateItem.relEtcTime = this.relEtcTime;
+      updateItem.zoneNum = this.zoneValue;
+      updateItem.subwayNum = this.subValue;   
+      updateItem.relModdat = this.getDate();
+      updateItem.relModtim = this.getTime();
+    this._cs.modifyJson('/rel', updateItem).subscribe(
+      res => {
+        console.log("식당 업데이트 성공");
+      }
+    )
   }
 
   onRemoveSelectedRestaurant() {
     var selectedData = this.gridApiRestaurant.getSelectedRows();
+    //console.log(selectedData[0]['relNum']);
     var res = this.gridApiRestaurant.updateRowData({ remove: selectedData });
     this.printResult(res);
+    this._cs.delete(`/rel/${selectedData[0]['relNum']}`).subscribe(
+      res => {
+        console.log("식당 삭제 성공");
+      }
+    )
   }
 
 
@@ -337,11 +374,12 @@ export class ManageComponent implements OnInit {
     var selectedData = this.gridApiComment.getSelectedRows();
     var res = this.gridApiComment.updateRowData({ remove: selectedData });
     this.printResult(res);
+    this._cs.delete(`/coi/${selectedData[0]['coiNum']}`).subscribe(
+      res => {
+        console.log("댓글 삭제 성공");
+      }
+    )
   }
-
-
-
-
 
   printResult(res) {
     console.log("---------------------------------------");
