@@ -8,7 +8,7 @@
                 
                 <div class="tabCon">
                     <div class="buttonList">
-                        <button type="button" class="btn btn-outline-primary" (click)="onAddRowUser()">Add Row</button>
+                        <!--<button type="button" class="btn btn-outline-primary" (click)="onAddRowUser()">Add Row</button>-->
                         <button type="button" class="btn btn-outline-success" (click)="updateItemsUser()">Update Row</button>
                         <button type="button" class="btn btn-outline-danger" (click)="onRemoveSelectedUser()">Remove Selected</button>
                     </div>
@@ -81,7 +81,7 @@
                     </div>
                     <div class="buttonList">
                         <button type="button" class="btn btn-outline-primary" (click)="onAddRowRestaurant()">Add Restaurant</button>
-                        <button type="button" class="btn btn-outline-success" >Update Restaurant</button>
+                        <button type="button" class="btn btn-outline-success" (click)="onUpdateRestaurant()" >Update Restaurant</button>
                         <button type="button" class="btn btn-outline-danger" (click)="onRemoveSelectedRestaurant()">Remove Selected</button>
                     </div>
                     
@@ -124,7 +124,7 @@
                     [pagination]="true"                      
                     [paginationPageSize]=25                            
                     [rowHeight]="30"                       
-                    (gridReady)="onGridCommantReady($event)"
+                    (gridReady)="onGridCommentReady($event)"
                     (firstDataRendered)="fitColumnsSize($event)" 
                     (rowDataChanged)="fitColumnsSize($event)">  
                     </ag-grid-angular>   
