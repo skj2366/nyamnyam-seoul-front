@@ -13,12 +13,16 @@ export class CommentComponent implements OnInit {
   writeCoi: CommentInfo = new CommentInfo();
   cois: CommentInfo[] = new Array();
   @Input() reiNum;
+  isLogin: boolean = false;
 
   constructor(private _cs:CommonService, private _ss:StorageService) { }
 
   async ngOnInit() {
     if(this.reiNum) {
       await this.getCommentList(this.reiNum);
+    }
+    if(this._ss.getSession('tokken')) {
+      this.isLogin = true;
     }
   }
 
@@ -38,6 +42,16 @@ export class CommentComponent implements OnInit {
         this.ngOnInit();
       }
     )
+  }
+
+  html = '<p>asdasdasd</p>';
+  qwe(evt) {
+    var html = '';
+    html = '<input type="text"><button>입력</button>';
+    // document.getElementById('reComment').innerHTML = html;
+    console.log("child: ", evt.target);
+    console.log(evt.target.nextSibling);
+    evt.target.nextSibling.innerHTML = html;
   }
 
 }

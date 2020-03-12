@@ -2,9 +2,11 @@
 <div class="comment-list">
   <div *ngFor="let coi of cois">
     {{coi.coiContents}} - {{coi.cuiId}}
+    <span class="recomment" (click)="qwe($event)">답글 달기</span>
+    <div class="recommentlist" id="reComment"></div>
   </div>
 </div>
-<div class="comment">
+<div class="comment" *ngIf="isLogin">
   <label for="comment-input">댓글 입력 : </label>
   <input type="text" [(ngModel)]="writeCoi.coiContents">
   <button (click)="writeComment()">입력</button>

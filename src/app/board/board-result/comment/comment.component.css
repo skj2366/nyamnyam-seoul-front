@@ -6,3 +6,13 @@ button{
     background-color: rgba(0,0,0,0);
     color: #230c5a;  
 }
+
+.recomment {
+    font-size: 70%;
+    color: gray;
+}
+
+.recomment:hover {
+    color: blue;
+    cursor: pointer;
+}
