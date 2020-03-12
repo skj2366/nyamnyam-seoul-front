@@ -4,6 +4,7 @@ import { RestaurantList } from 'src/app/vo/restaurant-list';
 import { ActivatedRoute } from '@angular/router';
 import { MenuInfo } from 'src/app/vo/menu-info';
 import { KakaoMapService } from 'src/app/common/kakao-map.service';
+import { RestaurantBlog } from 'src/app/vo/restaurant-blog';
 
 @Component({
   selector: 'app-result',
@@ -12,6 +13,7 @@ import { KakaoMapService } from 'src/app/common/kakao-map.service';
 })
 export class ResultComponent implements OnInit {
   rel : RestaurantList;
+  blog : RestaurantBlog[];
   menu : MenuInfo[];
   rNum : number;
   
@@ -22,6 +24,7 @@ export class ResultComponent implements OnInit {
   async ngOnInit() {    
     var relNum = this.route.snapshot.paramMap.get('relNum');    
     await this.getRestaurantDetail(relNum);
+    this.getRestaurantBlogDetail(relNum);
     this.getMenu(relNum);
     
   }
@@ -41,6 +44,19 @@ export class ResultComponent implements OnInit {
     // )
 
     this.rel = <RestaurantList> await this._cs.get(url).toPromise();
+  }
+
+  getRestaurantBlogDetail(rNum) {
+    var url = `/blog/${rNum}`;
+    this._cs.get(url).subscribe(
+      res => {
+        this.blog = <RestaurantBlog[]>res;
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
   getMenu(rNum) {

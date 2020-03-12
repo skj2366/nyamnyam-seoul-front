@@ -56,8 +56,8 @@
         </div>
         <br>
 
-        <div class="blog">
-            블로그 결과가 나와요
+        <div class="blog" *ngFor="let b of blog">
+            <h6 id="blogContentTitle">{{b.blogContentTitle}}</h6>
         </div>
     </div>
     <button (click)="getMap()">버튼</button>

@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 import pymysql
+import datetime
 
 conn = pymysql.connect(host='localhost', 
                         port=3306, 
@@ -23,16 +24,29 @@ rows = curs.fetchall()
 #print(rows)
 
 try :
-    for name in rows:
-        print('name : ' + name['REL_NAME'])
+    for row in rows:
         url_base = 'https://search.naver.com/search.naver?where=post&sm=tab_jum&query='
-        url = url_base + name['REL_NAME']
+        url = url_base + row['REL_NAME']
         driver.get(url)
+        print(url)
         driver.implicitly_wait(10)
-        for list in driver.find_elements_by_css_selector('#main_pack > div.blog.section._blogBase._prs_blg > ul.type01 > li'):
+        for list in driver.find_elements_by_css_selector('#main_pack > div.blog.section._blogBase._prs_blg > ul.type01 > li'):                     
+            day = list.find_element_by_class_name('txt_inline').text
+            # print(day[:-1])
             contents = list.find_elements_by_css_selector('dl > dt > a')
-            print(contents)
+            title = [c.get_attribute('title') for c in contents][0]
+            href = [c.get_attribute('href') for c in contents][0]
+            # print(href)
+            now = datetime.datetime.now()
+            date = now.strftime("%Y%m%d")
+            time = now.strftime("%H%M%S")
+            print(date + time)
+            params = (row['REL_NUM'], title, href, day[:-1], date, time)
+            sql = 'INSERT INTO restaurant_blog (REL_NUM, BLOG_CONTENT_TITLE, BLOG_CONTENT_URL, BLOG_CONTENT_CREDAT, BLOG_CREDAT, BLOG_CRETIM) VALUES(%s, %s, %s, %s, %s, %s)'
 
+            curs.execute(sql, params)
+            conn.commit()                   
+    print('완료---------------------------------------')
 except Exception as e:
     print(e)
 
