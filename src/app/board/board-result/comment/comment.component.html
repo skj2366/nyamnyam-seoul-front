@@ -2,7 +2,7 @@
 <div class="comment-list">
   <div *ngFor="let coi of cois">
     {{coi.coiContents}} - {{coi.cuiId}}
-    <span class="recomment" (click)="qwe($event)">답글 달기</span>
+    <span *ngIf="isLogin" class="recomment" (click)="qwe($event)">답글 달기</span>
     <div class="recommentlist" id="reComment"></div>
   </div>
 </div>

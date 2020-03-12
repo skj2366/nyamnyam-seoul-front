@@ -39,6 +39,7 @@ export class CommentComponent implements OnInit {
     this._cs.postJson(url, this.writeCoi).subscribe(
       res=> {
         console.log(res);
+        this.writeCoi = new CommentInfo();
         this.ngOnInit();
       }
     )
