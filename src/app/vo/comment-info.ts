@@ -7,6 +7,8 @@ export class CommentInfo {
 
     cuiNum : number;
     reiNum : number;
+
+    cuiId: string;
     
     /*
     private Integer coiNum;

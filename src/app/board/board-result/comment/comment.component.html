@@ -1,0 +1,11 @@
+댓글
+<div class="comment-list">
+  <div *ngFor="let coi of cois">
+    {{coi.coiContents}} - {{coi.cuiId}}
+  </div>
+</div>
+<div class="comment">
+  <label for="comment-input">댓글 입력 : </label>
+  <input type="text" [(ngModel)]="writeCoi.coiContents">
+  <button (click)="writeComment()">입력</button>
+</div>

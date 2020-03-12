@@ -32,6 +32,7 @@ import { ServeComponent } from './test/serve/serve.component';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { SliderComponent } from './component/slider/slider.component';
+import { CommentComponent } from './board/board-result/comment/comment.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { SliderComponent } from './component/slider/slider.component';
     ResultDkComponent,
     ReceiveComponent,
     ServeComponent,
-    SliderComponent
+    SliderComponent,
+    CommentComponent
   ],
   imports: [
     FormsModule,
