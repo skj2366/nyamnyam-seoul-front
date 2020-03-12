@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CommonService } from 'src/app/common/common.service';
 import { CustomerInfo } from 'src/app/vo/customer-info';
 import { RestaurantList } from 'src/app/vo/restaurant-list';
-import { CommentList } from 'src/app/vo/comment-list';
+import { CommentInfo } from 'src/app/vo/comment-info';
 import { GridOptions, Grid, Module } from 'ag-grid-community';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -53,7 +53,7 @@ export class ManageComponent implements OnInit {
 
   cui: CustomerInfo = new CustomerInfo();
   rel: RestaurantList = new RestaurantList();
-  col: CommentList = new CommentList();
+  col: CommentInfo = new CommentInfo();
 
   newCount = 1;
 
@@ -122,7 +122,7 @@ export class ManageComponent implements OnInit {
     });
 
     this_._cs.get('/coi').subscribe((res) => {
-      this.rowDataComment = <CommentList[]>res;
+      this.rowDataComment = <CommentInfo[]>res;
     });
   }
 

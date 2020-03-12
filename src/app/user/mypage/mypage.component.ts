@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { RestaurantList } from 'src/app/vo/restaurant-list';
 import { LikeInfo } from 'src/app/vo/like-info';
 import { ReviewInfo } from 'src/app/vo/review-info';
-import { CommentList } from 'src/app/vo/comment-list';
+import { CommentInfo } from 'src/app/vo/comment-info';
 import { CommonService } from 'src/app/common/common.service';
 import { CustomerInfo } from 'src/app/vo/customer-info';
 import { StorageService } from 'src/app/common/storage.service';
@@ -23,7 +23,7 @@ export class MypageComponent implements OnInit {
 
   likeLists : LikeInfo[];
   reviewLists : ReviewInfo[];
-  commnetLists : CommentList[];
+  commnetLists : CommentInfo[];
 
   constructor(private _router: Router, private _cs : CommonService, private route : ActivatedRoute, private _ss : StorageService) { 
     for(var i =1; i<=10; i++){
@@ -121,7 +121,7 @@ export class MypageComponent implements OnInit {
     var url = `/coi/${cuiNum}`;
     this._cs.get(url).subscribe(
       res => {
-        this.commnetLists = <CommentList[]>res;
+        this.commnetLists = <CommentInfo[]>res;
         console.log(res);
       },
       err => {

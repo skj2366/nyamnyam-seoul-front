@@ -34,11 +34,13 @@ export class LoginComponent implements OnInit {
         if (res) {
           this.cui = <CustomerInfo>res;
           if (this.cui.tokken) {
-            this._ss.setSession('cuiId', this.cui.cuiId);
-            this._ss.setSession('tokken', this.cui.tokken);
-            this._ss.setSession('email', this.cui.cuiEmail);
-            this._ss.setSession('cuiGrade',this.cui.cuiGrade);
-            this._ss.setSession('nickname', this.cui.cuiNickname);
+            // this._ss.setSession('cuiNum', this.cui.cuiNum);
+            // this._ss.setSession('cuiId', this.cui.cuiId);
+            // this._ss.setSession('tokken', this.cui.tokken);
+            // this._ss.setSession('email', this.cui.cuiEmail);
+            // this._ss.setSession('cuiGrade',this.cui.cuiGrade);
+            // this._ss.setSession('nickname', this.cui.cuiNickname);
+            this._ss.setSessions(this.cui);
             console.log(this._ss.getItems);
             alert(this.cui.cuiId + ' 님 환영합니다.');
             this._router.navigateByUrl('/');

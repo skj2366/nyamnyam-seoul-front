@@ -26,6 +26,12 @@ export class StorageService {
     localStorage.setItem(key, value);
   }
 
+  setSessions(cui: CustomerInfo) {
+    for(var key in cui) {
+      sessionStorage.setItem(key, cui[key]);
+    }
+  }
+
   setSession(key: string, value: string) {
     sessionStorage.setItem(key, value);
   }

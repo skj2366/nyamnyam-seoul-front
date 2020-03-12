@@ -3,6 +3,8 @@ import { CommonService } from 'src/app/common/common.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReviewInfo } from 'src/app/vo/review-info';
 import { RestaurantList } from 'src/app/vo/restaurant-list';
+import { CommentInfo } from 'src/app/vo/comment-info';
+import { StorageService } from 'src/app/common/storage.service';
 
 
 @Component({
@@ -15,8 +17,9 @@ export class BoardResultComponent implements OnInit {
   
   reiNum : number; //리뷰번호
   relNum : number; //식당번호
+  coi: CommentInfo = new CommentInfo();
 
-  constructor(private _cs : CommonService, private route : ActivatedRoute, private _router: Router) {
+  constructor(private _cs : CommonService, private route : ActivatedRoute, private _router: Router, private _ss: StorageService) {
     this.reiNum = this.route.snapshot.params['boardNum'];
   }
 
@@ -38,5 +41,17 @@ export class BoardResultComponent implements OnInit {
   }
 
   test: string = `<p style="color:red;">asdasdasd</p>`
+
+  writeComment() {
+    const url = '/coi';
+    this.coi.cuiNum = Number(this._ss.getSession('cuiNum')); // ngOninit으로 뺄까 
+    console.log(this.coi.cuiNum);
+    this.coi.reiNum = this.reiNum;
+    this._cs.postJson(url, this.coi).subscribe(
+      res=> {
+        console.log(res);
+      }
+    )
+  }
    
 }

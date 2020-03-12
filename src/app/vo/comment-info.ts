@@ -1,4 +1,4 @@
-export class CommentList {
+export class CommentInfo {
     coiNum : number;
     subNum : number;
     coiContents : string;

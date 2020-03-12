@@ -24,7 +24,10 @@
         </div>
         <!-- <ckeditor [(data)]="rei.reiContents" readOnly="true"></ckeditor> -->
     </div>
-</div>
-<div class="comment">
-    <input type="text">
+    <div class="comment-list">댓글</div>
+    <div class="comment">
+        <label for="comment-input">댓글 입력 : </label>
+        <input type="text" [(ngModel)]="this.coi.coiContents">
+        <button (click)="writeComment()">입력</button>
+    </div>
 </div>
