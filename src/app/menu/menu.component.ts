@@ -9,7 +9,7 @@ import { StorageService } from '../common/storage.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  cuiGrade : String;
+  cuiGrade: string;
 
   constructor(private _router: Router, private _ss: StorageService) { }
 
@@ -18,13 +18,11 @@ export class MenuComponent implements OnInit {
   ngDoCheck() {
     if (!this.isLogin) {
       this.getLoginInfo();
+      // this.ngOnInit();
     }
   }
 
   ngOnInit() {
-
-    this.cuiGrade = this._ss.getSession('cuiGrade');
-    console.log(this.cuiGrade);
 
     // ---------------------------------------------
     window.onscroll = function () { myFunction() };
@@ -45,6 +43,8 @@ export class MenuComponent implements OnInit {
   getLoginInfo() {
     if (this._ss.getItem('tokken') || this._ss.getSession('tokken')) {
       this.isLogin = true;
+      this.cuiGrade = this._ss.getSession('cuiGrade');
+      console.log(this.cuiGrade);
       console.log(this.isLogin);
     }
   }
@@ -92,6 +92,7 @@ export class MenuComponent implements OnInit {
     // // this._router.navigateByUrl('/login');
     // location.href = 'http://localhost/login';
     this.isLogin = false;
+    this.cuiGrade = null;
     alert('로그아웃 완료');
     this.ngOnInit();
     this._router.navigateByUrl('/login');
