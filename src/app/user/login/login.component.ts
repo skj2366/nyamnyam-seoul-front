@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
             this._ss.setSession('cuiId', this.cui.cuiId);
             this._ss.setSession('tokken', this.cui.tokken);
             this._ss.setSession('email', this.cui.cuiEmail);
+            this._ss.setSession('cuiGrade',this.cui.cuiGrade);
             this._ss.setSession('nickname', this.cui.cuiNickname);
             console.log(this._ss.getItems);
             alert(this.cui.cuiId + ' 님 환영합니다.');

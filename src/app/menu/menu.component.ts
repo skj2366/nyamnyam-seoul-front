@@ -9,6 +9,7 @@ import { StorageService } from '../common/storage.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  cuiGrade : String;
 
   constructor(private _router: Router, private _ss: StorageService) { }
 
@@ -21,6 +22,9 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.cuiGrade = this._ss.getSession('cuiGrade');
+    console.log(this.cuiGrade);
 
     // ---------------------------------------------
     window.onscroll = function () { myFunction() };

@@ -19,5 +19,5 @@
   <a (click)="goTotal()">통합검색</a>
   <a (click)="goBoard()">후기</a>
   <a (click)="goMypage()">MyPage</a>
-  <a (click)="goManage()">관리</a>
+  <a *ngIf="cuiGrade =='M'" (click)="goManage()">관리</a>
 </div>

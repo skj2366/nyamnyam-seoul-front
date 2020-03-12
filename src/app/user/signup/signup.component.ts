@@ -11,8 +11,8 @@ import { CustomerInfo } from '../../vo/customer-info';
 export class SignupComponent implements OnInit {
 
   cui: CustomerInfo = new CustomerInfo();
-  isSend: boolean = false;
-  isCerti: boolean = false;
+  isSend: boolean = true;
+  isCerti: boolean = true;
   certificationNumber: string = '';
   certifi: string = '';
 
