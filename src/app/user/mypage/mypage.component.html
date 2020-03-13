@@ -14,7 +14,7 @@
                 <col style="width:27%">
               </colgroup>
               <tr>
-                <th scope="col"><input type="checkbox" id="checkAll"></th>
+                <th scope="col"><input type="checkbox" value="check1"/></th>
                 <th scope="col">번호</th>
                 <th scope="col">구</th>
                 <th scope="col">식당이름</th>
@@ -32,17 +32,21 @@
               
               <!--     
                  //디자인 볼려고 주석해둠//
-              <tr *ngFor="let like of likeLists" style="cursor:pointer" onmouseover="this.style.backgroundColor='#FFA7A7'" onmouseout="this.style.backgroundColor=''">
-                <td>1</td>
-                <td>zoneName</td>
-                <td><a href="/zoi/{{rel.relNum}}">{{zoi.zoiName}}</a></td>
-                <td>식당이름</td>
-                <td>{{like.reiTitle}}</td>     
-                <td>작성시간</td>         
+              <tr *ngFor="let like of likeLists" style="cursor:pointer" 
+                                                 onmouseover="this.style.backgroundColor='#FFA7A7'" onmouseout="this.style.backgroundColor=''"
+                                                 (click)="goRestaurantDetail(like.relNum)">
+                <td><input type="checkbox" name="checkGetId"></td>
+                <td>{{like.liiNum}}</td>
+                <td>{{like.zoneName}}</td>
+                <td>{{like.relName}}</td> 
+                <td>{{like.liiCredat}}</td>         
               </tr>
               -->        
             </table>
-        </div>        
+            <div>
+              <button type="button" id="buttonDel" class="btn btn-outline-danger" (click)="delContent('like')">삭제</button>
+            </div>
+        </div>                
       </li>
 
       <li id="tab2" class="btnCon">
@@ -79,14 +83,17 @@
                                                        onmouseover="this.style.backgroundColor='#FFA7A7'" onmouseout="this.style.backgroundColor=''"
                                                        (click)="goBoardResult(review.reiNum)">
                   <td><input type="checkbox" name="checkGetId"></td>
-                  <td>1</td>
-                  <td>식당이름</td>
+                  <td>{{review.reiNum}}</td>
+                  <td>{{review.relName}}</td>
                   <td>{{review.reiTitle}}</td>
-                  <td>{{review.reiModdat}}&nbsp;{{review.reiModtim}}</td>
+                  <td><u>{{review.reiModdat}}</u>&nbsp;{{review.reiModtim}}</td>
                   <td>{{review.reiCount}}</td>           
                 </tr>
     
-              </table>   
+              </table>
+              <div>
+                <button type="button" id="buttonDel" class="btn btn-outline-danger">삭제</button>
+              </div>   
         </div>  
       </li>    
 
@@ -127,14 +134,17 @@
                   <td>{{comment.colCredat}}&nbsp;{{comment.colCretim}}</td>          
                 </tr>
               -->    
-            </table>   
+            </table>
+            <div>
+              <button type="button" id="buttonDel" class="btn btn-outline-danger">삭제</button>
+            </div>   
         </div>
       </li>
 
       <li id="tab4" class="btnCon">
         <input class="radioInput" type="radio" name="tabmenu" id="tabmenu4">
         <label for="tabmenu4">회원 정보 수정</label>        
-        <div class="tabCon">
+        <div class="tabConEdit">
           <div class="reLogin">
             <br>
               <h5 style="font-family: 'MapoPeacefull'">여러분의 개인정보 보호를 위해 한번 더 로그인 해주세요</h5>

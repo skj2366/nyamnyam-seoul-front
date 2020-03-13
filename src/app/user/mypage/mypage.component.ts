@@ -7,6 +7,7 @@ import { CommentInfo } from 'src/app/vo/comment-info';
 import { CommonService } from 'src/app/common/common.service';
 import { CustomerInfo } from 'src/app/vo/customer-info';
 import { StorageService } from 'src/app/common/storage.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-mypage',
@@ -24,6 +25,7 @@ export class MypageComponent implements OnInit {
   likeLists : LikeInfo[];
   reviewLists : ReviewInfo[];
   commnetLists : CommentInfo[];
+
 
   constructor(private _router: Router, private _cs : CommonService, private route : ActivatedRoute, private _ss : StorageService) { 
     for(var i =1; i<=10; i++){
@@ -108,7 +110,7 @@ export class MypageComponent implements OnInit {
     var url = `/reis/${cuiNum}`;
     this._cs.get(url).subscribe(
       res => {
-        this.reviewLists = <ReviewInfo[]>res;
+        this.reviewLists = <ReviewInfo[]>res;        
         console.log(res);
       },
       err => {
@@ -133,4 +135,27 @@ export class MypageComponent implements OnInit {
   goBoardResult(reiNum : number) {
     this._router.navigateByUrl(`/board/${reiNum}`);
   }
+
+  delContent(param) {
+
+    var checkbox = $("input[name=checkGetId]:checked");
+    var rowData = [];
+
+    checkbox.each(function(i) {
+      var tr = checkbox.parent().parent().eq(i);
+      var td = tr.children();
+
+      rowData.push(tr.text());
+
+      if(param=='like') {
+
+      }else if(param=='review') {
+
+      }else if(param=='comment') {
+
+      }
+    })
+  }
+  
+  
 }
