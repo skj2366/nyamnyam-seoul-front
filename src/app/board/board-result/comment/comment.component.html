@@ -3,7 +3,10 @@
   <div *ngFor="let coi of baseCois">
 
     <span>{{coi.coiContents}} - {{coi.cuiId}}</span>
+    <span class="recomment"> {{coi.coiCredat}}</span>
     <span *ngIf="isLogin" class="recomment" (click)="qwe($event, coi)"> 답글 달기</span>
+    <span class="recomment" *ngIf="isLogin && cuiNum == coi.cuiNum" (click)="updateComment('base', coi)"> 수정 </span>
+    <span class="recomment" *ngIf="isLogin && cuiNum == coi.cuiNum" (click)="deleteComment(coi)"> 삭제 </span>
     <div *ngIf="coi.isWriteOpen">
       <textarea [(ngModel)]="writeReCoi.coiContents"></textarea>
       <button (click)="cancleReComment(coi)">취소</button>
@@ -13,7 +16,9 @@
     <p *ngIf="checkSubNum(coi.coiNum)" class="recomment" (click)="openReComment(coi)"> 답글 보기</p>
     <div *ngIf="coi.isCommentOpen">
       <div *ngFor="let re of reCois">
-        <div *ngIf="re.subNum == coi.coiNum"> ㄴ {{re.coiContents}} - {{re.cuiId}}</div>
+        <span *ngIf="re.subNum == coi.coiNum"> <img src="https://i.pinimg.com/236x/3c/db/a7/3cdba71d70c32a3cc9bc8654dd8387d9.jpg" style="width: 30px;"> {{re.coiContents}} - {{re.cuiId}}</span>
+        <span class="recomment" *ngIf="isLogin && cuiNum == re.cuiNum" (click)="updateComment('re', coi)"> 수정 </span>
+        <span class="recomment" *ngIf="isLogin && cuiNum == re.cuiNum" (click)="deleteComment(re)"> 삭제 </span>
       </div>
     </div>
 

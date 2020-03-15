@@ -3,6 +3,7 @@ import { CommonService } from 'src/app/common/common.service';
 import { CommentInfo } from 'src/app/vo/comment-info';
 import { StorageService } from 'src/app/common/storage.service';
 import { forEach } from '@angular/router/src/utils/collection';
+import { url } from 'inspector';
 
 @Component({
   selector: 'app-comment',
@@ -18,6 +19,8 @@ export class CommentComponent implements OnInit {
   reCois: CommentInfo[] = new Array<CommentInfo>();
   @Input() reiNum;
   isLogin: boolean = false;
+
+  cuiNum: any = this._ss.getSession('cuiNum');
 
   constructor(private _cs: CommonService, private _ss: StorageService) { }
 
@@ -135,4 +138,32 @@ export class CommentComponent implements OnInit {
     coi.isCommentOpen ? coi.isCommentOpen = false : coi.isCommentOpen = true;
   }
 
+  updateComment(type:string, coi:CommentInfo) {
+    if(type == 're') {
+      this.writeReCoi = coi;
+    }else {
+      this.writeCoi = coi;
+    }
+    const url = `/coi`;
+    this._cs.modifyJson(url, coi).subscribe(
+      res=>{
+        console.log(res);
+      }
+    )
+  }
+
+  deleteComment(coi) {
+    const url = `/coi/${coi.coiNum}`;
+    // alert(coi.coiNum);
+    // return;
+    this._cs.delete(url).subscribe(
+      res=>{
+        console.log(res);
+        alert('삭제되었습니다.');
+        this.getCommentList(this.reiNum);
+      }
+    )
+  }
+
+  
 }
