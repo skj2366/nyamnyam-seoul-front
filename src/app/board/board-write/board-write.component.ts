@@ -181,7 +181,7 @@ export class BoardWriteComponent implements OnInit {
   }
 
   async getCuiInfo() {
-    this.email = this._ss.getSession('email');
+    this.email = this._ss.getSession('cuiEmail');
     if (this.email) {
       const url = `/cui/byemail?cuiEmail=${this.email}`;
       this.cui = <CustomerInfo>await this._cs.get(url).toPromise();
