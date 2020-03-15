@@ -1,8 +1,23 @@
 댓글
-<div class="comment-list" *ngIf="cois.length != 0; else notComment">
-  <div *ngFor="let coi of cois">
-    {{coi.coiContents}} - {{coi.cuiId}}
-    <span *ngIf="isLogin" class="recomment" (click)="qwe($event, coi.coiNum)">답글 달기</span>
+<div class="comment-list" *ngIf="baseCois.length != 0; else notComment">
+  <div *ngFor="let coi of baseCois">
+
+    <span>{{coi.coiContents}} - {{coi.cuiId}}</span>
+    <span *ngIf="isLogin" class="recomment" (click)="qwe($event, coi)"> 답글 달기</span>
+    <div *ngIf="coi.isWriteOpen">
+      <textarea [(ngModel)]="writeReCoi.coiContents"></textarea>
+      <button (click)="cancleReComment(coi)">취소</button>
+      <button (click)="writeReComment(coi)">확인</button>
+    </div>
+
+    <p *ngIf="checkSubNum(coi.coiNum)" class="recomment" (click)="openReComment(coi)"> 답글 보기</p>
+    <div *ngIf="coi.isCommentOpen">
+      <div *ngFor="let re of reCois">
+        <div *ngIf="re.subNum == coi.coiNum"> ㄴ {{re.coiContents}} - {{re.cuiId}}</div>
+      </div>
+    </div>
+
+    <!-- <div *ngIf="reCois[0].subNum == coi.subNum">답글보기</div> -->
     <div class="recommentlist" id="reComment"></div>
   </div>
 </div>
@@ -13,6 +28,6 @@
 </ng-template>
 <div class="comment" *ngIf="isLogin">
   <label for="comment-input">댓글 입력 : </label>
-  <input type="text" [(ngModel)]="writeCoi.coiContents">
+  <textarea type="text" [(ngModel)]="writeCoi.coiContents"></textarea>
   <button (click)="writeComment()">입력</button>
 </div>
