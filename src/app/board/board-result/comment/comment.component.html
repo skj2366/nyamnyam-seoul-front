@@ -1,11 +1,16 @@
 댓글
-<div class="comment-list">
+<div class="comment-list" *ngIf="cois.length != 0; else notComment">
   <div *ngFor="let coi of cois">
     {{coi.coiContents}} - {{coi.cuiId}}
     <span *ngIf="isLogin" class="recomment" (click)="qwe($event)">답글 달기</span>
     <div class="recommentlist" id="reComment"></div>
   </div>
 </div>
+<ng-template #notComment>
+  <div>
+    댓글이 없습니다.
+  </div>
+</ng-template>
 <div class="comment" *ngIf="isLogin">
   <label for="comment-input">댓글 입력 : </label>
   <input type="text" [(ngModel)]="writeCoi.coiContents">

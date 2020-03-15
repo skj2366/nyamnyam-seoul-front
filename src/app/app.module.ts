@@ -33,9 +33,6 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { SliderComponent } from './component/slider/slider.component';
 import { CommentComponent } from './board/board-result/comment/comment.component';
-import { CommentBoxComponent } from './board/board-result/comment-box/comment-box.component';
-import { CommentsComponent } from './board/board-result/comments/comments.component';
-import { ChildboxComponent } from './board/board-result/childbox/childbox.component';
 
 
 @NgModule({
@@ -60,10 +57,7 @@ import { ChildboxComponent } from './board/board-result/childbox/childbox.compon
     ReceiveComponent,
     ServeComponent,
     SliderComponent,
-    CommentComponent,
-    CommentBoxComponent,
-    CommentsComponent,
-    ChildboxComponent
+    CommentComponent
   ],
   imports: [
     FormsModule,
