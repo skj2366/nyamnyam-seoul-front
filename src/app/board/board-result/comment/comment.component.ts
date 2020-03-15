@@ -45,14 +45,14 @@ export class CommentComponent implements OnInit {
     )
   }
 
-  html = '<p>asdasdasd</p>';
-  qwe(evt) {
-    var html = '';
-    html = '<input type="text"><button>입력</button>';
-    // document.getElementById('reComment').innerHTML = html;
-    console.log("child: ", evt.target);
-    console.log(evt.target.nextSibling);
-    evt.target.nextSibling.innerHTML = html;
+  qwe(evt, coiNum:number) {
+    // var html = '';
+    // html = '<input type="text"><button>입력</button>';
+    // // document.getElementById('reComment').innerHTML = html;
+    // console.log("child: ", evt.target);
+    // console.log(evt.target.nextSibling);
+    // evt.target.nextSibling.innerHTML = html;
+    alert(`개발중입니다. ${coiNum}`);
   }
 
 }
