@@ -83,7 +83,7 @@ export class ManageComponent implements OnInit {
       { headerName: '유저이름', field: 'cuiName', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true },
       { headerName: '유저아이디', field: 'cuiId', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true  },
       { headerName: '유저닉네임', field: 'cuiNickname', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true },
-      { headerName: '유저생년월일', field: 'cuiBirth', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true},
+      { headerName: '유저생년월일', field: 'cuiBirth', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true},
       { headerName: '유저이메일', field: 'cuiEmail', width: 200, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true  },
       { headerName: '유저전화번호', field: 'cuiPhone', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true  },
       { headerName: '생성날짜', field: 'cuiCredat', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
@@ -113,13 +113,16 @@ export class ManageComponent implements OnInit {
     ];
 
     this_.columnDefsComment = [
-      { headerName: '번호', field: 'coiNum', width: 30, cellStyle: { color: '#4C4C4C', textAlign: "center", backgroundColor: "#FFA7A7" }, checkboxSelection: true, headerCheckboxSelection: true },
-      { headerName: '서브번호', field: 'subNum', width: 30, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-      { headerName: '유저번호', field: 'cuiNum', width: 30, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-      { headerName: '식당번호', field: 'relNum', width: 30, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+      { headerName: '번호', field: 'coiNum', width: 70, cellStyle: { color: '#4C4C4C', textAlign: "center", backgroundColor: "#FFA7A7" }, checkboxSelection: true, headerCheckboxSelection: true },
+      { headerName: '유저번호', field: 'cuiNum', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+      { headerName: '유저아이디', field: 'cuiId', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }},
+      { headerName: '리뷰제목', field: 'reiTitle', width: 140, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+      { headerName: '서브번호', field: 'subNum', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
       { headerName: '댓글내용', field: 'coiContents', width: 300, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-      { headerName: '생성날짜', field: 'relCredat', width: 40, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-      { headerName: '생성시간', field: 'relCretim', width: 40, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } }
+      { headerName: '생성날짜', field: 'coiCredat', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+      { headerName: '생성시간', field: 'coiCretim', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
+      { headerName: '수정날짜', field: 'coiModdat', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }},
+      { headerName: '수정시간', field: 'coiModtim', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } }
     ];
 
     this_._cs.get('/cui').subscribe((res) => {
@@ -243,6 +246,17 @@ export class ManageComponent implements OnInit {
   }
 
   //////////// 유저 삽입, 수정, 삭제/////////////////
+  async setRowDetailUser(params) {
+    console.log('row', params.data);    
+    this.cuiNum = params.data['cuiNum'];
+    this.cuiName = params.data['cuiName'];
+    this.cuiId = params.data['cuiId'];
+    this.cuiNickname = params.data['cuiNickname'];
+    this.cuiBirth = params.data['cuiBirth'];
+    this.cuiEmail = params.data['cuiEmail'];
+    this.cuiPhone = params.data['cuiPhone'];    
+  }
+
   userCreateNewRowData() {
     var newData = {
       cuiName: "Name " + this.newCount,
@@ -269,6 +283,13 @@ export class ManageComponent implements OnInit {
     var selectedData = this.gridApiUser.getSelectedRows();
     var res = this.gridApiUser.updateRowData({ remove: selectedData });
     this.printResult(res);
+    var cuiNum = selectedData[0]['cuiNum'];
+    this._cs.delete(`/cui/${cuiNum}`).subscribe(
+      res => {
+        alert("유저 삭제 성공 아이디 ==> " + selectedData[0]['cuiId']);
+      }
+    )
+    ///////유저 삭제 시 : 
   }
  
   updateItemsUser() {
@@ -295,9 +316,9 @@ export class ManageComponent implements OnInit {
   }
 
   //////////// 식당 삽입, 수정, 삭제/////////////////
-  async setRowDetail(params) {
-    console.log('row', params.data);
-    console.log(params.data['relName']);
+  async setRowDetailRestaurant(params) {
+    // console.log('row', params.data);
+    // console.log(params.data['relName']);
     this.relNum = params.data['relNum'];
     this.relName = params.data['relName'];
     this.relCategory = params.data['relCategory'];
@@ -359,7 +380,7 @@ export class ManageComponent implements OnInit {
       updateItem.relModtim = this.getTime();
     this._cs.modifyJson('/rel', updateItem).subscribe(
       res => {
-        console.log("식당 업데이트 성공 ==> 번호 : " + updateItem.relNum + " / 이름 : " + updateItem.relName);
+        alert("식당 업데이트 성공 ==> 번호 : " + updateItem.relNum + " / 이름 : " + updateItem.relName);
       }
     )
   }
@@ -372,9 +393,15 @@ export class ManageComponent implements OnInit {
     var relNum = selectedData[0]['relNum'];
     this._cs.delete(`/rel/${relNum}`).subscribe(
       res => {
-        console.log("식당 삭제 성공 ==> " + relNum);
+        alert("식당 삭제 성공 ==> " + selectedData[0]['relName']);
       }
     )
+    ///////식당 삭제 시 : 메뉴 / 블로그 / 테마 / 좋아요 / 리뷰 / 댓글 삭제
+    this._cs.delete(`/meis/${relNum}`).subscribe();
+    this._cs.delete(`/blogs/${relNum}`).subscribe();
+    this._cs.delete(`/thl/${relNum}`).subscribe();
+    this._cs.delete(`/liis/${relNum}`).subscribe();
+    this._cs.delete(`/reis/${relNum}`).subscribe();
   }
 
 

@@ -9,7 +9,7 @@
                 <div class="tabCon">
                     <div class="buttonList">
                         <!--<button type="button" class="btn btn-outline-primary" (click)="onAddRowUser()">Add Row</button>-->
-                        <button type="button" class="btn btn-outline-success" (click)="updateItemsUser()">Update Row</button>
+                        <button type="button" class="btn btn-outline-success" (click)="updateItemsUser()">Update User</button>
                         <button type="button" class="btn btn-outline-danger" (click)="onRemoveSelectedUser()">Remove Selected</button>
                     </div>
                     
@@ -25,7 +25,9 @@
                         [rowHeight]="30"                       
                         (gridReady)="onGridUserReady($event)"
                         (firstDataRendered)="fitColumnsSize($event)" 
-                        (rowDataChanged)="fitColumnsSize($event)">   
+                        (rowDataChanged)="fitColumnsSize($event)"
+                        (rowClicked)="setRowDetailUser($event)">
+
                     </ag-grid-angular>
                 </div>                    
             </li>
@@ -99,14 +101,14 @@
                     (gridReady)="onGridRestaurantReady($event)"
                     (firstDataRendered)="fitColumnsSize($event)" 
                     (rowDataChanged)="fitColumnsSize($event)"    
-                    (rowClicked)="setRowDetail($event)">
+                    (rowClicked)="setRowDetailRestaurant($event)">
                     </ag-grid-angular>
                 </div>
             </li>
 
             <li id="tab3" class="btnCon">
                 <input class="radioInput" type="radio" name="tabmenu" id="tabmenu3">
-                <label for="tabmenu2">댓글 관리</label>
+                <label for="tabmenu3">댓글 관리</label>
                 
                 <div class="tabCon">
                     <div class="buttonList">
