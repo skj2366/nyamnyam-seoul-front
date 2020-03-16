@@ -289,7 +289,7 @@ export class ManageComponent implements OnInit {
         alert("유저 삭제 성공 아이디 ==> " + selectedData[0]['cuiId']);
       }
     )
-    ///////유저 삭제 시 : 
+    ///////유저 삭제 시 : 리뷰-댓글 / 라이크
   }
  
   updateItemsUser() {
@@ -396,7 +396,7 @@ export class ManageComponent implements OnInit {
         alert("식당 삭제 성공 ==> " + selectedData[0]['relName']);
       }
     )
-    ///////식당 삭제 시 : 메뉴 / 블로그 / 테마 / 좋아요 / 리뷰 / 댓글 삭제
+    ///////식당 삭제 시 : 메뉴 / 블로그 / 테마 / 좋아요 / 리뷰-댓글  삭제
     this._cs.delete(`/meis/${relNum}`).subscribe();
     this._cs.delete(`/blogs/${relNum}`).subscribe();
     this._cs.delete(`/thl/${relNum}`).subscribe();
