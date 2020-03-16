@@ -19,6 +19,14 @@ export class ManageComponent implements OnInit {
     FormsModule
   ]
 
+  cuiNum : number;
+  cuiId : string;
+  cuiName : string;
+  cuiNickname : string;
+  cuiBirth : string;
+  cuiEmail : string;
+  cuiPhone: string;  
+
   relNum : number;
   relName : string;
   relCategory : string;
@@ -75,6 +83,7 @@ export class ManageComponent implements OnInit {
       { headerName: '유저이름', field: 'cuiName', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true },
       { headerName: '유저아이디', field: 'cuiId', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true  },
       { headerName: '유저닉네임', field: 'cuiNickname', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true },
+      { headerName: '유저생년월일', field: 'cuiBirth', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true},
       { headerName: '유저이메일', field: 'cuiEmail', width: 200, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true  },
       { headerName: '유저전화번호', field: 'cuiPhone', width: 100, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }, editable: true  },
       { headerName: '생성날짜', field: 'cuiCredat', width: 60, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
@@ -350,7 +359,7 @@ export class ManageComponent implements OnInit {
       updateItem.relModtim = this.getTime();
     this._cs.modifyJson('/rel', updateItem).subscribe(
       res => {
-        console.log("식당 업데이트 성공");
+        console.log("식당 업데이트 성공 ==> 번호 : " + updateItem.relNum + " / 이름 : " + updateItem.relName);
       }
     )
   }
@@ -360,9 +369,10 @@ export class ManageComponent implements OnInit {
     //console.log(selectedData[0]['relNum']);
     var res = this.gridApiRestaurant.updateRowData({ remove: selectedData });
     this.printResult(res);
-    this._cs.delete(`/rel/${selectedData[0]['relNum']}`).subscribe(
+    var relNum = selectedData[0]['relNum'];
+    this._cs.delete(`/rel/${relNum}`).subscribe(
       res => {
-        console.log("식당 삭제 성공");
+        console.log("식당 삭제 성공 ==> " + relNum);
       }
     )
   }
@@ -374,9 +384,10 @@ export class ManageComponent implements OnInit {
     var selectedData = this.gridApiComment.getSelectedRows();
     var res = this.gridApiComment.updateRowData({ remove: selectedData });
     this.printResult(res);
-    this._cs.delete(`/coi/${selectedData[0]['coiNum']}`).subscribe(
+    var coiNum = selectedData[0]['coiNum'];
+    this._cs.delete(`/coi/${coiNum}`).subscribe(
       res => {
-        console.log("댓글 삭제 성공");
+        console.log("댓글 삭제 성공 ==> " + coiNum);
       }
     )
   }

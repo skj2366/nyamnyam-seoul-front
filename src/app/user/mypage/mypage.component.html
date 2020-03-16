@@ -20,18 +20,7 @@
                 <th scope="col">식당이름</th>
                 <th scope="col">좋아요 누른 날짜</th>
               </tr>
-              
-              <tr *ngFor="let list of lists" style="cursor:pointer" 
-                                             onmouseover="this.style.backgroundColor='#FFA7A7'" onmouseout="this.style.backgroundColor=''">
-                <td><input type="checkbox" name="checkGetId"></td>
-                <td>{{list.no}}</td>
-                <td>{{list.gu}}</td>
-                <td>{{list.title}}</td>
-                <td>2020/02/18</td>
-              </tr>                         
-              
-              <!--     
-                 //디자인 볼려고 주석해둠//
+               
               <tr *ngFor="let like of likeLists" style="cursor:pointer" 
                                                  onmouseover="this.style.backgroundColor='#FFA7A7'" onmouseout="this.style.backgroundColor=''"
                                                  (click)="goRestaurantDetail(like.relNum)">
@@ -41,7 +30,7 @@
                 <td>{{like.relName}}</td> 
                 <td>{{like.liiCredat}}</td>         
               </tr>
-              -->        
+                    
             </table>
             <div>
               <button type="button" id="buttonDel" class="btn btn-outline-danger" (click)="delContent('like')">삭제</button>
@@ -69,15 +58,7 @@
                   <th scope="col">제목</th>
                   <th scope="col">작성일</th>
                   <th scope="col">조회수</th>
-                </tr>
-                <!-- <tr *ngFor="let list of lists">
-                  <td>{{list.no}}</td>
-                  <td>{{list.title}}</td>
-                  <td>{{list.title}}</td>
-                  <td>2020/02/18</td>
-                  <td>{{list.count}}</td> 
-                </tr> -->
-                
+                </tr>               
         
                 <tr *ngFor="let review of reviewLists" style="cursor:pointer" 
                                                        onmouseover="this.style.backgroundColor='#FFA7A7'" onmouseout="this.style.backgroundColor=''"
@@ -92,7 +73,7 @@
     
               </table>
               <div>
-                <button type="button" id="buttonDel" class="btn btn-outline-danger">삭제</button>
+                <button type="button" id="buttonDel" class="btn btn-outline-danger" (click)="delContent('review')">삭제</button>
               </div>   
         </div>  
       </li>    
@@ -136,7 +117,7 @@
               -->    
             </table>
             <div>
-              <button type="button" id="buttonDel" class="btn btn-outline-danger">삭제</button>
+              <button type="button" id="buttonDel" class="btn btn-outline-danger" (click)="delContent('comment')">삭제</button>
             </div>   
         </div>
       </li>

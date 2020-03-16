@@ -8,6 +8,8 @@ import { CommonService } from 'src/app/common/common.service';
 import { CustomerInfo } from 'src/app/vo/customer-info';
 import { StorageService } from 'src/app/common/storage.service';
 import * as $ from 'jquery';
+import { isNgTemplate } from '@angular/compiler';
+import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-mypage',
@@ -35,9 +37,9 @@ export class MypageComponent implements OnInit {
   }  
 
   ngOnInit() {
-    //var cuiNum = this.route.snapshot.paramMap.get('relNum');
+    //var cuiNum = this.route.snapshot.paramMap.get('cuiNum');
     var cuiNum = 6;
-    //this.getLikes(cuiNum);
+    this.getLikes(cuiNum);
     this.getReviews(cuiNum);
     //this.getComments(cuiNum);
   }
@@ -93,7 +95,7 @@ export class MypageComponent implements OnInit {
 
 
   getLikes(cuiNum) {
-    var url = `/lii/${cuiNum}`;
+    var url = `/liis/${cuiNum}`;
     this._cs.get(url).subscribe(
       res => {
         this.likeLists = <LikeInfo[]>res;
@@ -132,30 +134,50 @@ export class MypageComponent implements OnInit {
     )
   }
 
+  goRestaurantDetail(relNum : number) {
+    this._router.navigateByUrl(`/result/${relNum}`);
+  }
+
   goBoardResult(reiNum : number) {
     this._router.navigateByUrl(`/board/${reiNum}`);
   }
 
   delContent(param) {
-
     var checkbox = $("input[name=checkGetId]:checked");
-    var rowData = [];
+    var rowData : any[];
+    const result : number[] = [];
+    var url;
 
     checkbox.each(function(i) {
       var tr = checkbox.parent().parent().eq(i);
       var td = tr.children();
-
       rowData.push(tr.text());
 
-      if(param=='like') {
+      rowData.forEach((item, index) => {
+        if(item.state === true) {
+          result.push(index);
+          console.log(result);
+        }
+      });
 
-      }else if(param=='review') {
+      // if(param=='like') {
+      //   while(result.length) {
+      //     url = `/lii/${result.values}`
+      //     this._cs.delete(url).subscribe(
+      //       res => {
+      //         console.log("delte like ==> " + result.values)
+      //       },
+      //       err => {
+      //         console.log(err)
+      //       }
+      //     )}        
 
-      }else if(param=='comment') {
+      // }else if(param=='review') {
 
-      }
+      // }else if(param=='comment') {
+
+      // }
     })
   }
-  
-  
+    
 }

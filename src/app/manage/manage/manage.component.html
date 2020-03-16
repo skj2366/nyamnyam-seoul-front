@@ -14,7 +14,8 @@
                     </div>
                     
                     <br>
-                    <ag-grid-angular ag-grid-angular #agGrid id="myGridUser" 
+                    <ag-grid-angular ag-grid-angular #agGrid id="myGridUser"
+                        style="min-width: 1100px; min-height: 300px; margin-left: 50px; margin-right: 50px;" 
                         [ngClass]="theme"                           
                         [rowData]="rowDataUser"                          
                         [defaultColDef]="defaultColDef"             
@@ -109,9 +110,7 @@
                 
                 <div class="tabCon">
                     <div class="buttonList">
-                        <button type="button" class="btn btn-outline-primary" >Add Row</button>
-                        <button type="button" class="btn btn-outline-success" >Update Row</button>
-                        <button type="button" class="btn btn-outline-danger" >Remove Selected</button>
+                        <button type="button" class="btn btn-outline-danger" (click)="onRemoveSelectedComment()">Remove Selected</button>
                     </div>
                     
                     <br>
