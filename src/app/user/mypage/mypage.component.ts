@@ -42,6 +42,15 @@ export class MypageComponent implements OnInit {
     this.getLikes(cuiNum);
     this.getReviews(cuiNum);
     this.getComments(cuiNum);
+
+    // 전체선택
+  //  function checkAll(){
+  //     if( $("#th_checkAll").is(':checked') ){
+  //       $("input[name=checkGetId]").prop("checked", true);
+  //     }else{
+  //       $("input[name=checkGetId]").prop("checked", false);
+  //     }
+  // }
   }
 
   doLogin() {
@@ -179,5 +188,8 @@ export class MypageComponent implements OnInit {
       // }
     })
   }
+
+
+
     
 }
