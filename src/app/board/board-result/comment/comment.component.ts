@@ -156,6 +156,10 @@ export class CommentComponent implements OnInit {
     const url = `/coi/${coi.coiNum}`;
     // alert(coi.coiNum);
     // return;
+    var confirmRes = confirm('삭제하시겠습니까?');
+    if(!confirmRes) {
+      return;
+    }
     this._cs.delete(url).subscribe(
       res=>{
         console.log(res);
