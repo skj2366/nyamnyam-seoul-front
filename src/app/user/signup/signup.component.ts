@@ -72,8 +72,11 @@ export class SignupComponent implements OnInit {
     alert('메일전송!');
     this._cs.postResString('/send', this.cui).subscribe(
       res => {
-        console.log(res);
-        console.log(this.cui.cuiEmail);
+        if(res) {
+          console.log(`${this.cui.cuiEmail} 로 이메일 전송 완료`);
+        }
+        // console.log(res);
+        // console.log(this.cui.cuiEmail);
       },
       err => {
         console.log(err);
@@ -83,13 +86,17 @@ export class SignupComponent implements OnInit {
 
   // 인증번호 확인 
   confirmCertificationNumber() {
-    console.log(this.cui.cuiEmail);
-    this._cs.get('/cuc/' + this.cui.cuiEmail).subscribe(
+    console.log(`인증 받는 메일 : ${this.cui.cuiEmail}`);
+    var cuiEmail = this.cui.cuiEmail;
+    var url = `/cuc/email?cucEmail=${cuiEmail}`;
+    this._cs.get(url).subscribe(
       res => {
         console.log(res);
         if (!res) {
           alert('인증번호가 없습니다');
         } else {
+          // console.log(`입력한 인증번호 : ${this.certificationNumber}`);
+          // console.log(`res인증번호 : ${res['cucCerNum']}`);
           if (this.certificationNumber == res['cucCerNum']) {
             alert('인증번호 확인 완료!');
             this.isCerti = true;
