@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CommonService } from 'src/app/common/common.service';
+import { MenuInfo } from 'src/app/vo/menu-info';
 
 @Component({
   selector: 'app-total-result',
@@ -20,6 +21,10 @@ export class TotalResultComponent implements OnInit {
 
   rel:any;
   scrollNow:number;
+
+  menu : MenuInfo[];
+  rNum : number;
+  menuLength: number;
 
   constructor(private _router: Router, private route: ActivatedRoute, private _cs: CommonService) {
     this.themeValue = this.route.snapshot.params['theme'];    // router 기능의 theme라는 param을 스냅샷으로 받아옴.
@@ -81,6 +86,20 @@ export class TotalResultComponent implements OnInit {
 
   ngOnInit() {
     this.getRestaurantWithTheme();
+  }
+
+  getMenu(rNum) {
+    var url = `/mei/${rNum}`;
+    this._cs.get(url).subscribe(
+      res => {
+        this.menu = <MenuInfo[]>res;
+        console.log(res);
+        this.menuLength = this._cs.getObjectLength(this.menu);
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
   // result-dk 용 

@@ -1,18 +1,72 @@
-button{
-    height: 30px;
+.comment-list{
+    margin-left: 10%;
+    border-top: 1px solid darkblue;
+    width: 80%;
+}
+
+h3{
     font-family: 'BMEULJIRO';
-    font-size: 90%;
+    margin-top: 1%;
+}
+
+.comment{
+    margin-left: 10%;
+}
+
+#commet-content{
+    border-bottom: 1px dashed darkgreen;
+    margin-bottom: 0.2%;
+}
+
+.comment textarea{
+    width: 70%;
+    height: 80px;
+}
+
+.comment textarea, button{
+    display: inline-block;
+}
+
+p{
+    /* font-weight: 300; */
+    font-size: 20pt;
+    margin-bottom: 0.2%; 
+    margin-left:3%;
+}
+
+#replyBtn{
+    height: 40px;
+    width: 200px;
+    font-family: 'BMEULJIRO';
+    font-size: 120%;
     border: 1px solid #230c5a; 
     background-color: rgba(0,0,0,0);
     color: #230c5a;  
 }
 
+#replyBtn:hover{
+    background-color: rgba(203, 203, 235, 0.349);
+}
+
 .recomment {
-    font-size: 70%;
+    font-size: 90%;
     color: gray;
 }
 
 .recomment:hover {
-    color: blue;
+    color:#230c5a; 
     cursor: pointer;
+}
+
+#commet-content button{
+    width: 60px;
+    font-family: 'BMEULJIRO';
+    font-size: 110%;
+    margin-bottom: 0.4%;
+    border: 1px solid #230c5a; 
+    background-color: rgba(0,0,0,0);
+}
+
+#commet-content button:hover{
+    background-color: rgba(203, 203, 235, 0.349);
 }

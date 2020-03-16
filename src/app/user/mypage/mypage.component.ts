@@ -9,7 +9,7 @@ import { CustomerInfo } from 'src/app/vo/customer-info';
 import { StorageService } from 'src/app/common/storage.service';
 import * as $ from 'jquery';
 import { isNgTemplate } from '@angular/compiler';
-import { runInThisContext } from 'vm';
+// import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-mypage',

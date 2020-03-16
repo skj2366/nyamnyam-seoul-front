@@ -63,6 +63,7 @@ export class ResultComponent implements OnInit {
     )
   }
 
+
   getMenu(rNum) {
     var url = `/mei/${rNum}`;
     this._cs.get(url).subscribe(

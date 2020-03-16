@@ -8,10 +8,10 @@
             <table class="likeTable" border="1px solid rgb(5, 5, 90)" >             
               <colgroup>
                 <col style="width:5%">
-                <col style="width:8%">
-                <col style="width:20%">
+                <col style="width:5%">
+                <col style="width:28%">
                 <col style="width:40%">
-                <col style="width:27%">
+                <col style="width:30%">
               </colgroup>
               <tr>
                 <th scope="col"><input type="checkbox" value="check1"/></th>
@@ -22,7 +22,7 @@
               </tr>
                
               <tr *ngFor="let like of likeLists" style="cursor:pointer" 
-                                                 onmouseover="this.style.backgroundColor='#FFA7A7'" onmouseout="this.style.backgroundColor=''"
+                                                 onmouseover="this.style.backgroundColor='rgba(255,234,244,0.5)'" onmouseout="this.style.backgroundColor=''"
                                                  (click)="goRestaurantDetail(like.relNum)">
                 <td><input type="checkbox" name="checkGetId"></td>
                 <td>{{like.liiNum}}</td>
@@ -61,7 +61,7 @@
                 </tr>               
         
                 <tr *ngFor="let review of reviewLists" style="cursor:pointer" 
-                                                       onmouseover="this.style.backgroundColor='#FFA7A7'" onmouseout="this.style.backgroundColor=''"
+                                                       onmouseover="this.style.backgroundColor='rgba(255,234,244,0.5)'" onmouseout="this.style.backgroundColor=''"
                                                        (click)="goBoardResult(review.reiNum)">
                   <td><input type="checkbox" name="checkGetId"></td>
                   <td>{{review.reiNum}}</td>
@@ -72,8 +72,10 @@
                 </tr>
     
               </table>
+              
               <div>
-                <button type="button" id="buttonDel" class="btn btn-outline-danger" (click)="delContent('review')">삭제</button>
+                <button type="button" id="buttonDel" class="btn btn-outline-danger" (click)="delContent('review')"
+                style="margin-left:10%">삭제</button>
               </div>   
         </div>  
       </li>    
@@ -82,13 +84,13 @@
         <input class="radioInput" type="radio" name="tabmenu" id="tabmenu3">
         <label for="tabmenu3">작성한 댓글</label>
         <div class="tabCon" >
-          <table class="commentTable" border="1px solid rgb(5, 5, 90)">
+          <table class="commentTable" border="1px solid rgb(5, 5, 90)" style="margin-left:2%">
               <colgroup>
                 <col style="width:5%">
-                <col style="width:8%">
+                <col style="width:5%">
                 <col style="width:30%">
                 <col style="width:40%">
-                <col style="width:17%">
+                <col style="width:30%">
               </colgroup>
               <tr>
                 <th scope="col"><input type="checkbox" id="checkAll"></th>
@@ -98,7 +100,7 @@
                 <th scope="col">작성일</th>
               </tr>
               <tr *ngFor="let list of lists" style="cursor:pointer" 
-                                             onmouseover="this.style.backgroundColor='#FFA7A7'" onmouseout="this.style.backgroundColor=''">
+                                             onmouseover="this.style.backgroundColor='rgba(255,234,244,0.5)'" onmouseout="this.style.backgroundColor=''">
                 <td><input type="checkbox" name="checkGetId"></td>
                 <td>{{list.no}}</td>
                 <td>{{list.title}}</td>
@@ -108,7 +110,7 @@
               
               <!--     
                   //디자인 볼려고 주석해둠//
-                <tr *ngFor="let comment of commnetLists" style="cursor:pointer" onmouseover="this.style.backgroundColor='#FFA7A7'" onmouseout="this.style.backgroundColor=''">
+                <tr *ngFor="let comment of commnetLists" style="cursor:pointer" onmouseover="this.style.backgroundColor='rgba(255,234,244,0.5)'" onmouseout="this.style.backgroundColor=''">
                   <td>1</td>
                   <td>식당이름</td>
                   <td>{{comment.colContents}}</td>
@@ -117,7 +119,8 @@
               -->    
             </table>
             <div>
-              <button type="button" id="buttonDel" class="btn btn-outline-danger" (click)="delContent('comment')">삭제</button>
+              <button type="button" id="buttonDel" class="btn btn-outline-danger" (click)="delContent('comment')" 
+              style="margin-left:3%" >삭제</button>
             </div>   
         </div>
       </li>

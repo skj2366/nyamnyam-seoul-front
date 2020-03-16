@@ -171,8 +171,24 @@ img{
 
 .blog{
     width: 90%;
-    height: 230px;
+    height: 80px;
     /* height: auto; */
     border: 1px solid black;
     margin-left: 6%;
+    margin-bottom: 0.3%;
+    text-align: center;
+}
+
+.blog #blogContentTitle{
+    font-family: 'GyeonggiBatang'; 
+    font-weight: bold;
+    margin-top: 2%;
+}
+
+#blogContentTitle, #blogContentCredat{
+    display: inline;
+}
+
+h6{
+    font-family: 'GyeonggiBatang';  
 }

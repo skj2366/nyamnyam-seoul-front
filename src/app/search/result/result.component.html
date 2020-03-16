@@ -56,8 +56,11 @@
         </div>
         <br>
 
-        <div class="blog" *ngFor="let b of blog">
-            <h6 id="blogContentTitle">{{b.blogContentTitle}}</h6>
+        <div class="blog" *ngFor="let b of blog" (click)="goBlog()">
+            <h5 id="blogContentTitle">{{b.blogContentTitle}}</h5> &nbsp; &nbsp; &nbsp; &nbsp;
+            <h6 id="blogContentCredat">{{b.blogContentCredat}}</h6>
+            <br>
+            <h6>{{b.blogContentUrl}}</h6>
         </div>
     </div>
     <button (click)="getMap()">버튼</button>
