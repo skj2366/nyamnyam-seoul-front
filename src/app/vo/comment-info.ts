@@ -9,6 +9,8 @@ export class CommentInfo {
     reiNum : number;
 
     cuiId: string;
+    reiTitle : string;
+    relName: string;
 
     isWriteOpen: boolean = false;
     isCommentOpen: boolean = false;

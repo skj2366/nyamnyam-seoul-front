@@ -197,6 +197,7 @@ export class BoardWriteComponent implements OnInit {
     // await this.getRestaurantListForAutoComplete();
     await this.getCuiInfo();
   }
+  
   autocompleteValue: any;
   writeReview() {
     const url = `/rei`;

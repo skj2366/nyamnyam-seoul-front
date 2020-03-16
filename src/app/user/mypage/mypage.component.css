@@ -5,6 +5,15 @@
     
 }
 
+
+#commentTable > tr:nth-child(2) {
+  counter-increment: Mycount;
+}
+#commentTable > tr:nth-child(2) > td#counters {
+  content : counter(Mycount) " ";
+}
+
+
 ul{
   list-style:none;
 }

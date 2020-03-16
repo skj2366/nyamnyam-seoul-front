@@ -41,7 +41,7 @@ export class MypageComponent implements OnInit {
     var cuiNum = 6;
     this.getLikes(cuiNum);
     this.getReviews(cuiNum);
-    //this.getComments(cuiNum);
+    this.getComments(cuiNum);
   }
 
   doLogin() {
