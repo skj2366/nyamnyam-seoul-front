@@ -6,13 +6,25 @@
 }
 
 
-#commentTable > tr:nth-child(2) {
+/* .commentTable > tr:nth-child(2) {
   counter-increment: Mycount;
 }
-#commentTable > tr:nth-child(2) > td#counters {
+.commentTable > tr:nth-child(2) > td#counters {
   content : counter(Mycount) " ";
-}
+} */
 
+table{
+ counter-reset:count 0;
+	}
+	/* tbody{
+	  counter-increment:group;
+	} */
+tbody tr{
+  counter-increment:count 1;
+	}
+	tbody td:nth-child(2):before{
+   content:counter(count)" ";
+ 	}
 
 ul{
   list-style:none;

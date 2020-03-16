@@ -33,7 +33,7 @@
 </div>
 </div>
 <ng-template #notComment>
-  <div>
+  <div class="notComment">
     댓글이 없습니다.
   </div>
 </ng-template>
@@ -43,3 +43,4 @@
   <textarea type="text" [(ngModel)]="writeCoi.coiContents"></textarea> &nbsp;
   <button id="replyBtn" (click)="writeComment()">댓글 입력</button>
 </div>
+<br>
