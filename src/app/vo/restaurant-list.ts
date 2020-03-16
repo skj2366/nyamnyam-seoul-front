@@ -15,6 +15,8 @@ export class RestaurantList {
     relModdat: string;
     relModtim: string;
 
+    meiImg1Name: string; // 식당 대표 이미지용, DB에는 없음
+
     /*
     private Integer relNum;
 	private String relName;
