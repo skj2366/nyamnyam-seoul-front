@@ -9,6 +9,16 @@ h3{
     margin-top: 1%;
 }
 
+.notComment{
+    margin-left: 10%;
+    border-top: 1px solid darkblue;
+    font-family: 'BMEULJIRO';
+    font-size: 150%;
+    margin-top: 1%;
+    width: 80%;
+
+}
+
 .comment{
     margin-left: 10%;
 }

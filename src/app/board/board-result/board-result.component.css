@@ -8,9 +8,10 @@
 
 .board{
     width: 70%;
-    height: 600px;
+    height: auto;
     margin-left: 13%;
     margin-top: -2%;
+    /* border: 2px solid black; */
 }
 
 .board  #reiTitle, #reiDate{
@@ -78,16 +79,17 @@ margin-left: 8%;
 }
 
 #boardContent{
-    width: 60%;
+    width: 80%;
     height: auto;
     border: 1px solid rgb(5, 5, 90);
-    margin-left: 18%;
+    margin-left: 13%;
     padding: 5px;
 }
-img{
+
+/* img{
 width: 495px;
 height: 305px;
-}
+} */
 
 
 button{

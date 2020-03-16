@@ -13,23 +13,28 @@
                 <col style="width:40%">
                 <col style="width:30%">
               </colgroup>
+              <thead>
               <tr>
                 <th scope="col"><input type="checkbox" value="check1"/></th>
+                <!-- <th scope="col">선택</th> -->
                 <th scope="col">번호</th>
                 <th scope="col">구</th>
                 <th scope="col">식당이름</th>
                 <th scope="col">좋아요 누른 날짜</th>
               </tr>
-               
+            </thead>
+            
+            <tbody>   
               <tr *ngFor="let like of likeLists" style="cursor:pointer" 
                                                  onmouseover="this.style.backgroundColor='rgba(255,234,244,0.5)'" onmouseout="this.style.backgroundColor=''"
                                                  (click)="goRestaurantDetail(like.relNum)">
                 <td><input type="checkbox" name="checkGetId"></td>
-                <td>{{like.liiNum}}</td>
+                <td></td>
                 <td>{{like.zoneName}}</td>
                 <td>{{like.relName}}</td> 
                 <td>{{like.liiCredat}}</td>         
               </tr>
+            </tbody>
                     
             </table>
             <div>
@@ -51,7 +56,9 @@
                   <col style="width:20%">
                   <col style="width:12%">
                 </colgroup>
-                <tr >
+
+                <thead>
+                <tr>
                   <th scope="col"><input type="checkbox" id="checkAll"></th>
                   <th scope="col">번호</th>
                   <th scope="col">식당 이름</th>
@@ -59,18 +66,21 @@
                   <th scope="col">작성일</th>
                   <th scope="col">조회수</th>
                 </tr>               
-        
+              </thead>
+
+              <tbody>
                 <tr *ngFor="let review of reviewLists" style="cursor:pointer" 
                                                        onmouseover="this.style.backgroundColor='rgba(255,234,244,0.5)'" onmouseout="this.style.backgroundColor=''"
                                                        (click)="goBoardResult(review.reiNum)">
                   <td><input type="checkbox" name="checkGetId"></td>
-                  <td>{{review.reiNum}}</td>
+                  <td></td>
                   <td>{{review.relName}}</td>
                   <td>{{review.reiTitle}}</td>
                   <td><u>{{review.reiModdat}}</u>&nbsp;{{review.reiModtim}}</td>
                   <td>{{review.reiCount}}</td>           
                 </tr>
-    
+              </tbody>
+
               </table>
               
               <div>
@@ -92,27 +102,32 @@
                 <col style="width:40%">
                 <col style="width:30%">
               </colgroup>
+
+              <thead>
               <tr>
                 <th scope="col"><input type="checkbox" id="checkAll"></th>
                 <th scope="col">번호</th>
                 <th scope="col">후기 제목</th>
                 <th scope="col">작성 내용</th>
                 <th scope="col">작성일</th>
-              </tr>            
+              </tr>  
+            </thead>
+            
+            <tbody>
               <tr *ngFor="let comment of commnetLists" style="cursor:pointer" 
                                                        onmouseover="this.style.backgroundColor='rgba(255,234,244,0.5)'" onmouseout="this.style.backgroundColor=''"
                                                        (click)="goBoardResult(comment.reiNum)">
                 <td><input type="checkbox" name="checkGetId"></td>
-                <td class="counters">{{comment.coiNum}}</td>
+                <td></td>
                 <td>{{comment.reiTitle}}</td>
                 <td>{{comment.coiContents}}</td>
                 <td><u>{{comment.coiCredat}}</u>&nbsp;{{comment.coiCretim}}</td>          
               </tr>
-                
+            </tbody>
             </table>
             <div>
               <button type="button" id="buttonDel" class="btn btn-outline-danger" (click)="delContent('comment')" 
-              style="margin-left:3%" >삭제</button>
+              style="margin-left:10%" >삭제</button>
             </div>   
         </div>
       </li>
