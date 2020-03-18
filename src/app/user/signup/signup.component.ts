@@ -135,7 +135,7 @@ export class SignupComponent implements OnInit {
         console.log(res);
         sessionStorage.clear();
         alert('회원 정보 수정 완료! 보안을 위해 다시 로그인 해주세요');
-        location.href = `http://localhost/login`;
+        location.href = `${this._cs.returnThisUrl()}/login`;
       }
     )
   }

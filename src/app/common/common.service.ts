@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
+const thisUrl = 'http://localhost:80';
 const baseUrl = 'http://localhost:809';
 const httpJson = {
   headers: new HttpHeaders(
@@ -77,5 +78,9 @@ export class CommonService {
 
   returnBaseUrl() {
     return baseUrl;
+  }
+
+  returnThisUrl() {
+    return thisUrl;
   }
 }
