@@ -37,8 +37,8 @@ export class MypageComponent implements OnInit {
   }  
 
   ngOnInit() {
-    //var cuiNum = this.route.snapshot.paramMap.get('cuiNum');
-    var cuiNum = 6;
+    var cuiNum =  this._ss.getSession('cuiNum');
+    console.log(cuiNum);
     this.getLikes(cuiNum);
     this.getReviews(cuiNum);
     this.getComments(cuiNum);
@@ -151,24 +151,13 @@ export class MypageComponent implements OnInit {
     this._router.navigateByUrl(`/board/${reiNum}`);
   }
 
+  inputCheckItem(param) {
+    console.log(param);
+  }
+
   delContent(param) {
-    var checkbox = $("input[name=checkGetId]:checked");
-    var rowData : any[];
-    const result : number[] = [];
-    var url;
-
-    checkbox.each(function(i) {
-      var tr = checkbox.parent().parent().eq(i);
-      var td = tr.children();
-      rowData.push(tr.text());
-
-      rowData.forEach((item, index) => {
-        if(item.state === true) {
-          result.push(index);
-          console.log(result);
-        }
-      });
-
+    console.log(param);
+    
       // if(param=='like') {
       //   while(result.length) {
       //     url = `/lii/${result.values}`
@@ -186,7 +175,7 @@ export class MypageComponent implements OnInit {
       // }else if(param=='comment') {
 
       // }
-    })
+    
   }
 
 

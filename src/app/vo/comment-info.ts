@@ -4,6 +4,8 @@ export class CommentInfo {
     coiContents : string;
     coiCredat : string;
     coiCretim : string;
+    coiModdat : string;
+    coiModtim : string;
 
     cuiNum : number;
     reiNum : number;

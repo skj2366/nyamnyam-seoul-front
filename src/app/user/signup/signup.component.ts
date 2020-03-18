@@ -31,6 +31,7 @@ export class SignupComponent implements OnInit {
 
   doSignUp() {
     console.log(this.cui);
+    console.log(this.cui.cuiBirth);
     this._cs.postJson('/cui', this.cui).subscribe(
       res => {
         console.log(res);
@@ -47,7 +48,7 @@ export class SignupComponent implements OnInit {
   checkEmail(): any {
     this._cs.get('/cui/cuc/email?email=' + this.cui.cuiEmail, { email: this.cui.cuiEmail }).subscribe(
       res => {
-        console.log('이거는 타냐????????????');
+        //console.log('이거는 타냐????????????');
         if (res == 0) {
           console.log('이미 가입된 메일');
           alert('이미 가입된 이메일입니다');
@@ -58,7 +59,7 @@ export class SignupComponent implements OnInit {
           this.isSend = true;
           return;
         } else {
-          console.log('신규 가입 가능');
+          //console.log('신규 가입 가능');
           this.doSendMail();
         }
       }

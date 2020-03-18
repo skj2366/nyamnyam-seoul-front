@@ -30,7 +30,7 @@ export class MainComponent implements OnInit {
       res => {
         //console.log(res);
         this.zoneList = res;
-        console.log(this.zoneList);
+        //console.log(this.zoneList);
       }, err => {
         console.log(err);
       }
@@ -38,11 +38,11 @@ export class MainComponent implements OnInit {
   }
 
   getZoneValue(exp) {
-    console.log(exp);
+    //console.log(exp);
   }
 
   getSubValue(exp) {
-    console.log(exp);
+    //console.log(exp);
   }
 
   getSubwayInfo() {
