@@ -74,4 +74,8 @@ export class CommonService {
     }
     return moneyStr;
   }
+
+  returnBaseUrl() {
+    return baseUrl;
+  }
 }
