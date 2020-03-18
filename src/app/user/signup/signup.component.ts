@@ -123,8 +123,15 @@ export class SignupComponent implements OnInit {
   }
 
   doModify() {
+    const url = `/cui`;
     console.log(this.cui);
-    alert('Edit Profile');
+    this._cs.modifyJson(url,this.cui).subscribe(
+      res => {
+        console.log(res);
+        alert('Edit Profile Complete!');
+        location.reload();
+      }
+    )
   }
 
 
