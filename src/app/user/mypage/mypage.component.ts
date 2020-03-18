@@ -31,6 +31,9 @@ export class MypageComponent implements OnInit {
 
   checkNum : number;
 
+  isLogin: boolean = false;
+  confirmCui: CustomerInfo = new CustomerInfo();
+
   constructor(private _router: Router, private _cs : CommonService, private route : ActivatedRoute, private _ss : StorageService) { 
     for(var i =1; i<=10; i++){
       var list = {no : i, gu: 'jiyeokgu'+i, station : 'station'+i, title : 'title'+i, count: i};
@@ -44,6 +47,19 @@ export class MypageComponent implements OnInit {
     this.getLikes(cuiNum);
     this.getReviews(cuiNum);
     this.getComments(cuiNum);
+    // this.isLogin = false;
+    if(this._ss.getSession('cuiId') && this._ss.getSession('tokken')) {
+      this.confirmCui.cuiNum = Number(this._ss.getSession('cuiNum'));
+      this.confirmCui.cuiId = this._ss.getSession('cuiId');
+
+      this.confirmCui.cuiBirth = this._ss.getSession('cuiBirth');
+      this.confirmCui.cuiEmail = this._ss.getSession('cuiEmail');
+      this.confirmCui.cuiName = this._ss.getSession('cuiName');
+      this.confirmCui.cuiNickname = this._ss.getSession('cuiNickname');
+      this.confirmCui.cuiPhone = this._ss.getSession('cuiPhone');
+      this.confirmCui.cuiPwd = '';
+      this.isLogin = true;
+    }
 
     // 전체선택
   //  function checkAll(){
@@ -56,34 +72,40 @@ export class MypageComponent implements OnInit {
   }
 
   doLogin() {
-    console.log(this.cui);
-    if (!this.cui.cuiId) {
-      alert('아이디를 입력해주세요');
-      return;
-    } else if (!this.cui.cuiPwd) {
+    console.log(this.confirmCui);
+    if (!this.confirmCui.cuiPwd) {
       alert('비밀번호 입력해주세요');
       return;
     }
 
-    this._cs.postJson('/login', this.cui).subscribe(
+    this._cs.postJson('/login', this.confirmCui).subscribe(
       res => {
         if (res) {
-          this.cui = <CustomerInfo>res;
-          this.cuiList = <CustomerInfo[]>res;
-          console.log(this.cuiList);
-          if (this.cui.tokken) {
-            this._ss.setSession('cuiId', this.cui.cuiId);
-            this._ss.setSession('tokken', this.cui.tokken);
-            this._ss.setSession('email', this.cui.cuiEmail);
-            this._ss.setSession('nickname', this.cui.cuiNickname);
-            console.log(this._ss.getItems);
-            alert(this.cui.cuiId + ' 님 환영합니다.');
-            this._router.navigateByUrl('/userDetail');
-          } else {
-            return;
-          }
+          console.log(res);
+          alert('OK');
+          this.confirmCui.cuiBirth = this._ss.getSession('cuiBirth');
+          this.confirmCui.cuiEmail = this._ss.getSession('cuiEmail');
+          this.confirmCui.cuiName = this._ss.getSession('cuiName');
+          this.confirmCui.cuiNickname = this._ss.getSession('cuiNickname');
+          this.confirmCui.cuiPhone = this._ss.getSession('cuiPhone');
+          this.confirmCui.cuiPwd = '';
+          this.isLogin = true;
+          // this.cui = <CustomerInfo>res;
+          // this.cuiList = <CustomerInfo[]>res;
+          // console.log(this.cuiList);
+          // if (this.cui.tokken) {
+          //   this._ss.setSession('cuiId', this.cui.cuiId);
+          //   this._ss.setSession('tokken', this.cui.tokken);
+          //   this._ss.setSession('email', this.cui.cuiEmail);
+          //   this._ss.setSession('nickname', this.cui.cuiNickname);
+          //   console.log(this._ss.getItems);
+          //   alert(this.cui.cuiId + ' 님 환영합니다.');
+          //   this._router.navigateByUrl('/userDetail');
+          // } else {
+          //   return;
+          // }
         } else {
-          alert('로그인 실패!');
+          alert('비밀번호를 확인해 주세요');
         }
       },
       err => {

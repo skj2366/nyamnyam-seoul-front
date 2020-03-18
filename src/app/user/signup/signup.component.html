@@ -42,9 +42,20 @@
               <label for="inputId" class="sr-only">User ID</label>
               <input type="text" id="inputId" class="fas fa-user" placeholder="&#xf007; User ID"
                 [(ngModel)]="cui.cuiId">
-              <label for="inputPassword" class="sr-only">Password</label>
-              <input type="password" id="inputPassword" class="fas fa-lock" placeholder="&#xf023; Password"
-                [(ngModel)]="cui.cuiPwd">
+              <div *ngIf="!type; else haveType">
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="fas fa-lock" placeholder="&#xf023; Password"
+                  [(ngModel)]="cui.cuiPwd">
+              </div>
+              <ng-template #haveType>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="fas fa-lock" placeholder="&#xf023; Password"
+                  [(ngModel)]="cui.cuiPwd">
+                <label for="confirmPassword" class="sr-only">Confirm</label>
+                <input type="password" id="confirmPassword" class="fas fa-lock" placeholder="&#xf023; ConfirmPassword"
+                  [(ngModel)]="confirmPwd">
+                <p *ngIf="(cui.cuiPwd !== confirmPwd) && confirmPwd" style="color: red; font-size: 10px; position: absolute; margin-left: 30px; margin-top: -10px;">비밀번호를 확인해주세요.</p>
+              </ng-template>
               <label for="inputName" class="sr-only">Name</label>
               <input type="text" id="inputName" class="fas fa-signature" placeholder="&#xf5b7; Name"
                 [(ngModel)]="cui.cuiName">
@@ -73,7 +84,8 @@
                   <span>Female</span>
                 </label>
               </div>
-              <button id="upBtn" type="button" (click)="doSignUp()">Sign up</button>
+              <button *ngIf="!type" id="upBtn" type="button" (click)="doSignUp()">Sign up</button>
+              <button *ngIf="type" id="upBtn" type="button" (click)="doModify()">Edit Profile</button>
             </div>
           </div>
         </div>

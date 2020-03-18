@@ -126,18 +126,21 @@
         <input class="radioInput" type="radio" name="tabmenu" id="tabmenu4">
         <label for="tabmenu4">회원 정보 수정</label>        
         <div class="tabConEdit">
-          <div class="reLogin">
+          <div class="reLogin" *ngIf="!isLogin; else modifyCustomer">
             <br>
               <h5 style="font-family: 'MapoPeacefull'">여러분의 개인정보 보호를 위해 한번 더 로그인 해주세요</h5>
               <label for="inputId"></label>
-               <input type="text" class="fas fa-user fa-2x" id="inputId" placeholder="&#xf007; User ID" [(ngModel)]="cui.cuiId">
+              <input type="text" class="fas fa-user fa-2x" id="inputId" placeholder="&#xf007; User ID" [(ngModel)]="confirmCui.cuiId" readonly>
               <br>
               <label for="password"></label>
-               <input type="password" class="fas fa-key fa-2x" id="inputPassword" placeholder="&#xf023; Password" [(ngModel)]="cui.cuiPwd">
-               <br>
-               
-               <button id="signBtn" type="button" (click)="doLogin()">Sign In</button>
+              <input type="password" class="fas fa-key fa-2x" id="inputPassword" placeholder="&#xf023; Password" [(ngModel)]="confirmCui.cuiPwd">
+              <br> 
+              <button id="signBtn" type="button" (click)="doLogin()">Sign In</button>
           </div>
+          <ng-template #modifyCustomer>
+            <!-- Loading... Modify Customer Info... -->
+            <app-signup [type]="'modify'" [inputCui]="confirmCui"></app-signup>
+          </ng-template>
         </div>
       </li>
 

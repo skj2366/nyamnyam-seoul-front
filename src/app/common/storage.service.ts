@@ -39,4 +39,5 @@ export class StorageService {
   getSession(key: string) {
     return sessionStorage.getItem(key);
   }
+  
 }

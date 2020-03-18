@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonService } from '../../common/common.service';
 import { CustomerInfo } from '../../vo/customer-info';
@@ -15,10 +15,19 @@ export class SignupComponent implements OnInit {
   isCerti: boolean = false;
   certificationNumber: string = '';
   certifi: string = '';
+  @Input() type: string;
+  @Input() inputCui: CustomerInfo;
+  confirmPwd: string = null;
 
   constructor(private _router: Router, private _cs: CommonService) { }
 
   ngOnInit() {
+    if(this.type === 'modify') {
+      this.isSend = true;
+      this.isCerti = true;
+      this.cui = this.inputCui;
+      console.log(this.inputCui);
+    }
   }
 
   goSignUp(){
@@ -111,6 +120,11 @@ export class SignupComponent implements OnInit {
         console.log(err);
       }
     )
+  }
+
+  doModify() {
+    console.log(this.cui);
+    alert('Edit Profile');
   }
 
 
