@@ -38,7 +38,99 @@
               <button id="reMail" type="button" (click)="doSendMail()">이메일 재전송</button>
             </div>
 
-            <div class="signinput" *ngIf="isCerti">
+            <!-- 회원 가입 -->
+            <div class="signinput" *ngIf="isCerti && !type; else haveType">
+              <label for="inputId" class="sr-only">User ID</label>
+              <input type="text" id="inputId" class="fas fa-user" placeholder="&#xf007; User ID"
+                [(ngModel)]="cui.cuiId">
+              <div>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="fas fa-lock" placeholder="&#xf023; Password"
+                  [(ngModel)]="cui.cuiPwd">
+                  <label for="confirmPassword" class="sr-only">Confirm</label>
+                  <input type="password" id="confirmPassword" class="fas fa-lock" placeholder="&#xf023; ConfirmPassword"
+                    [(ngModel)]="confirmPwd">
+                  <p *ngIf="(cui.cuiPwd !== confirmPwd) && confirmPwd" style="color: red; font-size: 10px; position: absolute; margin-left: 30px; margin-top: -10px;">비밀번호를 확인해주세요.</p>
+              </div>
+              <label for="inputName" class="sr-only">Name</label>
+              <input type="text" id="inputName" class="fas fa-signature" placeholder="&#xf5b7; Name"
+                [(ngModel)]="cui.cuiName">
+              <label for="inputNickname" class="sr-only">NickName</label>
+              <input type="text" id="inputNickname" class="far fa-laugh" placeholder="&#xf599; Nickname"
+                [(ngModel)]="cui.cuiNickname">
+              <label for="inputBirth" class="sr-only">Birth</label>
+              <input type="date" id="inputBirth" class="fas fa-birthday-cake" placeholder="&#xf1fd; Birth"
+                [(ngModel)]="cui.cuiBirth">
+              <label for="inputEmail" class="sr-only">Email</label>
+              <input type="text" id="inputEmail" class="fas fa-envelope" placeholder="&#xf0e0; Email"
+                [(ngModel)]="cui.cuiEmail" readonly>
+              <label for="inputPhone" class="sr-only">Phone</label>
+              <input type="test" maxlength="11" id="inputPhone" class="fas fa-mobile-alt" placeholder="&#xf3cd; PhoneNumber"
+                [(ngModel)]="cui.cuiPhone">
+              <br>
+              <br>
+              <div class="checks">
+                <label class="box-radio-input">
+                  <input type="radio" name="trans" value="1" [(ngModel)]="cui.cuiTrans">
+                  <span>Male</span>
+                </label>
+                &nbsp;&nbsp;
+                <label class="box-radio-input">
+                  <input type="radio" name="trans" value="2" [(ngModel)]="cui.cuiTrans">
+                  <span>Female</span>
+                </label>
+              </div>
+              <button id="upBtn" type="button" (click)="doSignUp()">Sign up</button>
+            </div>
+
+            <!-- 회원 수정 -->
+            <ng-template #haveType>
+              <div class="signinput" *ngIf="isCerti">
+                <label for="inputId" class="sr-only">User ID</label>
+                <input type="text" id="inputId" class="fas fa-user" placeholder="&#xf007; User ID"
+                  [(ngModel)]="cui.cuiId" readonly>
+                <div>
+                  <label for="inputPassword" class="sr-only">Password</label>
+                  <input type="password" id="inputPassword" class="fas fa-lock" placeholder="&#xf023; Password"
+                    [(ngModel)]="cui.cuiPwd">
+                    <label for="confirmPassword" class="sr-only">Confirm</label>
+                    <input type="password" id="confirmPassword" class="fas fa-lock" placeholder="&#xf023; ConfirmPassword"
+                      [(ngModel)]="confirmPwd">
+                    <p *ngIf="(cui.cuiPwd !== confirmPwd) && confirmPwd" style="color: red; font-size: 10px; position: absolute; margin-left: 30px; margin-top: -10px;">비밀번호를 확인해주세요.</p>
+                </div>
+                <label for="inputName" class="sr-only">Name</label>
+                <input type="text" id="inputName" class="fas fa-signature" placeholder="&#xf5b7; Name"
+                  [(ngModel)]="cui.cuiName" readonly>
+                <label for="inputNickname" class="sr-only">NickName</label>
+                <input type="text" id="inputNickname" class="far fa-laugh" placeholder="&#xf599; Nickname"
+                  [(ngModel)]="cui.cuiNickname">
+                <label for="inputBirth" class="sr-only">Birth</label>
+                <input type="date" id="inputBirth" class="fas fa-birthday-cake" placeholder="&#xf1fd; Birth"
+                  [(ngModel)]="cui.cuiBirth" readonly>
+                <label for="inputEmail" class="sr-only">Email</label>
+                <input type="text" id="inputEmail" class="fas fa-envelope" placeholder="&#xf0e0; Email"
+                  [(ngModel)]="cui.cuiEmail" readonly>
+                <label for="inputPhone" class="sr-only">Phone</label>
+                <input type="test" maxlength="11" id="inputPhone" class="fas fa-mobile-alt" placeholder="&#xf3cd; PhoneNumber"
+                  [(ngModel)]="cui.cuiPhone">
+                <br>
+                <br>
+                <div class="checks">
+                  <label class="box-radio-input">
+                    <input type="radio" name="trans" value="1" [(ngModel)]="cui.cuiTrans" disabled>
+                    <span>Male</span>
+                  </label>
+                  &nbsp;&nbsp;
+                  <label class="box-radio-input">
+                    <input type="radio" name="trans" value="2" [(ngModel)]="cui.cuiTrans" disabled>
+                    <span>Female</span>
+                  </label>
+                </div>
+                <button id="upBtn" type="button" (click)="doModify()">Edit Profile</button>
+              </div>
+            </ng-template>
+
+            <!-- <div class="signinput" *ngIf="isCerti">
               <label for="inputId" class="sr-only">User ID</label>
               <input type="text" id="inputId" class="fas fa-user" placeholder="&#xf007; User ID"
                 [(ngModel)]="cui.cuiId">
@@ -86,7 +178,8 @@
               </div>
               <button *ngIf="!type" id="upBtn" type="button" (click)="doSignUp()">Sign up</button>
               <button *ngIf="type" id="upBtn" type="button" (click)="doModify()">Edit Profile</button>
-            </div>
+            </div> -->
+
           </div>
         </div>
       </div>

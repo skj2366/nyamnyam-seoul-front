@@ -42,6 +42,12 @@ export class MypageComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(!this._ss.getSession('cuiId') || !this._ss.getSession('tokken')) {
+      var confirmResult = confirm('로그인 후 이용이 가능합니다. 로그인 페이지로 이동하시겠습니까?');
+      confirmResult ? (this._router.navigateByUrl('/login')) : history.back();
+      return;
+    }
+
     var cuiNum = this._ss.getSession('cuiNum');
     console.log(cuiNum);
     this.getLikes(cuiNum);
@@ -51,6 +57,7 @@ export class MypageComponent implements OnInit {
     if (this._ss.getSession('cuiId') && this._ss.getSession('tokken')) {
       this.confirmCui.cuiNum = Number(this._ss.getSession('cuiNum'));
       this.confirmCui.cuiId = this._ss.getSession('cuiId');
+      // this.setConfirmCui();
     }
 
     // 전체선택
@@ -64,14 +71,24 @@ export class MypageComponent implements OnInit {
   }
 
   setConfirmCui() {
-    this.confirmCui.cuiBirth = this._ss.getSession('cuiBirth');
+    // this.confirmCui.cuiBirth = this._ss.getSession('cuiBirth');
     this.confirmCui.cuiEmail = this._ss.getSession('cuiEmail');
     this.confirmCui.cuiName = this._ss.getSession('cuiName');
     this.confirmCui.cuiNickname = this._ss.getSession('cuiNickname');
     this.confirmCui.cuiPhone = this._ss.getSession('cuiPhone');
     this.confirmCui.cuiTrans = this._ss.getSession('cuiTrans');
     this.confirmCui.cuiPwd = '';
+
+    this.confirmCui.cuiBirth = this.stringToDate(this._ss.getSession('cuiBirth'));
     this.isLogin = true;
+  }
+
+  stringToDate(str: string) {
+    let year = str.substr(0,4);
+    let month = str.substr(4,2);
+    let day = str.substr(6,2);
+
+    return `${year}-${month}-${day}`;
   }
 
   confirmLogin() {

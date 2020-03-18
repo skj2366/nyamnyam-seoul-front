@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin() {
-    console.log(this.cui);
     if (!this.cui.cuiId) {
       alert('아이디를 입력해주세요');
       return;

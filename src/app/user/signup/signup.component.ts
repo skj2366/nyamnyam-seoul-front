@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonService } from '../../common/common.service';
 import { CustomerInfo } from '../../vo/customer-info';
+import { StorageService } from 'src/app/common/storage.service';
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +20,7 @@ export class SignupComponent implements OnInit {
   @Input() inputCui: CustomerInfo;
   confirmPwd: string = null;
 
-  constructor(private _router: Router, private _cs: CommonService) { }
+  constructor(private _router: Router, private _cs: CommonService, private _ss: StorageService) { }
 
   ngOnInit() {
     if(this.type === 'modify') {
@@ -123,13 +124,18 @@ export class SignupComponent implements OnInit {
   }
 
   doModify() {
+    if((this.cui.cuiPwd !== this.confirmPwd) || !this.cui.cuiPwd) {
+      alert('비밀번호를 확인해주세요');
+      return;
+    }
     const url = `/cui`;
     console.log(this.cui);
     this._cs.modifyJson(url,this.cui).subscribe(
       res => {
         console.log(res);
-        alert('Edit Profile Complete!');
-        location.reload();
+        sessionStorage.clear();
+        alert('회원 정보 수정 완료! 보안을 위해 다시 로그인 해주세요');
+        location.href = `http://localhost/login`;
       }
     )
   }
