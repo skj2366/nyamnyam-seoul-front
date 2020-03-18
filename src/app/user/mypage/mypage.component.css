@@ -97,6 +97,7 @@ ul{
   min-width: 2000px;
   margin-left: 5%;
   margin-right: 5%;
+  margin-top: 2%;
   /* margin-right: 50%; */
   text-align: center; 
   font-family: 'GyeonggiBatang'; 
@@ -154,6 +155,7 @@ input:focus {
 }
 
 #buttonDel button{ 
+  margin-left:10%;  
   border: 1px solid #c94545; 
   background-color: rgba(0,0,0,0); 
   color: #c94545; 
@@ -164,3 +166,5 @@ input:focus {
   color:white; 
   background-color: #c94545; 
 }
+
+

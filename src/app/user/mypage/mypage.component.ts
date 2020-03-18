@@ -9,6 +9,7 @@ import { CustomerInfo } from 'src/app/vo/customer-info';
 import { StorageService } from 'src/app/common/storage.service';
 import * as $ from 'jquery';
 import { isNgTemplate } from '@angular/compiler';
+import { discoverLocalRefs } from '@angular/core/src/render3/context_discovery';
 // import { runInThisContext } from 'vm';
 
 @Component({
@@ -28,6 +29,7 @@ export class MypageComponent implements OnInit {
   reviewLists : ReviewInfo[];
   commnetLists : CommentInfo[];
 
+  checkNum : number;
 
   constructor(private _router: Router, private _cs : CommonService, private route : ActivatedRoute, private _ss : StorageService) { 
     for(var i =1; i<=10; i++){
@@ -151,34 +153,55 @@ export class MypageComponent implements OnInit {
     this._router.navigateByUrl(`/board/${reiNum}`);
   }
 
-  inputCheckItem(param) {
-    console.log(param);
+  inputCheckItem(evt:any) {
+    var num = evt.target.value;
+    if($("input:checkbox[name='checkGetId']").is(":checked") == true) {
+      this.checkNum = num;
+      console.log(this.checkNum);
+    } else {
+      this.checkNum = null;
+    }   
   }
 
   delContent(param) {
     console.log(param);
-    
-      // if(param=='like') {
-      //   while(result.length) {
-      //     url = `/lii/${result.values}`
-      //     this._cs.delete(url).subscribe(
-      //       res => {
-      //         console.log("delte like ==> " + result.values)
-      //       },
-      //       err => {
-      //         console.log(err)
-      //       }
-      //     )}        
-
-      // }else if(param=='review') {
-
-      // }else if(param=='comment') {
-
-      // }
-    
+    var url;
+    if(this.checkNum != null) {
+      if(param=='like') {      
+        url = `/lii/${this.checkNum}`;
+        this._cs.delete(url).subscribe(
+          res => {
+            console.log("delete like ==> " + this.checkNum)
+          },
+          err => {
+            console.log(err)
+          }
+        )
+      } else if(param == 'review') {
+        url = `/rei/${this.checkNum}`;
+        this._cs.delete(url).subscribe(
+          res => {
+            console.log("delete review ==> " + this.checkNum)
+          },
+          err => {
+            console.log(err)
+          }
+        )      
+      } else if (param == 'comment') {
+        url = `/coi/${this.checkNum}`
+        this._cs.delete(url).subscribe(
+          res => {
+            console.log("delete comment ==> " + this.checkNum)
+          },
+          err => {
+            console.log(err)
+          }
+        )            
+      }
+    }
+    else {
+      alert('삭제를 할 아이템이 없습니다');
+    }    
   }
-
-
-
     
 }

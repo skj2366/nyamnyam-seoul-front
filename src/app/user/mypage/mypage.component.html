@@ -5,7 +5,7 @@
         <input class="radioInput" type="radio" checked name="tabmenu" id="tabmenu1">
         <label for="tabmenu1">좋아요 식당</label>
         <div class="tabCon">
-            <table class="likeTable" border="1px solid rgb(5, 5, 90)" >             
+            <table class="likeTable" border="1px solid rgb(5, 5, 90)">             
               <colgroup>
                 <col style="width:5%">
                 <col style="width:5%">
@@ -14,30 +14,29 @@
                 <col style="width:30%">
               </colgroup>
               <thead>
-              <tr>
-                <th scope="col"></th>
-                <!-- <th scope="col">선택</th> -->
-                <th scope="col">번호</th>
-                <th scope="col">구</th>
-                <th scope="col">식당이름</th>
-                <th scope="col">좋아요 누른 날짜</th>
-              </tr>
-            </thead>
-            
-            <tbody>   
-              <tr *ngFor="let like of likeLists" onmouseover="this.style.backgroundColor='rgba(255,234,244,0.5)'" onmouseout="this.style.backgroundColor=''">
-                <td><input type="checkbox" name="checkGetId" value={{like.liiNum}} (click)="inputCheckItem(like.liiNum)"></td>
-                <td></td>
-                <td>{{like.zoneName}}</td>
-                <td style="cursor:pointer" (click)="goRestaurantDetail(like.relNum)">{{like.relName}}</td> 
-                <td>{{like.liiCredat}}</td>         
-              </tr>
-            </tbody>
-                    
-            </table>
+                <tr>
+                  <th scope="col"></th>
+                  <!-- <th scope="col">선택</th> -->
+                  <th scope="col">번호</th>
+                  <th scope="col">구</th>
+                  <th scope="col">식당이름</th>
+                  <th scope="col">좋아요 누른 날짜</th>
+                </tr>
+              </thead>            
+              <tbody>   
+                <tr *ngFor="let like of likeLists" onmouseover="this.style.backgroundColor='rgba(255,234,244,0.5)'" onmouseout="this.style.backgroundColor=''" >
+                  <td><input type="checkbox" name="checkGetId" value={{like.liiNum}} (click)="inputCheckItem($event)"></td>
+                  <td></td>
+                  <td>{{like.zoneName}}</td>
+                  <td style="cursor:pointer" (click)="goRestaurantDetail(like.relNum)">{{like.relName}}</td> 
+                  <td>{{like.liiCredat}}</td>         
+                </tr>
+              </tbody>                                  
+            </table>                                      
             <div>
               <button type="button" id="buttonDel" class="btn btn-outline-danger" (click)="delContent('like')">삭제</button>
-            </div>
+            </div> 
+                  
         </div>                
       </li>
 
@@ -68,7 +67,7 @@
 
               <tbody>
                 <tr *ngFor="let review of reviewLists" onmouseover="this.style.backgroundColor='rgba(255,234,244,0.5)'" onmouseout="this.style.backgroundColor=''">
-                  <td><input type="checkbox" name="checkGetId" value={{review.reiNum}} (click)="inputCheckItem(review.reiNum)"></td>
+                  <td><input type="checkbox" name="checkGetId" value={{review.reiNum}} (click)="inputCheckItem($event)"></td>
                   <td></td>
                   <td>{{review.relName}}</td>
                   <td style="cursor:pointer" (click)="goBoardResult(review.reiNum)">{{review.reiTitle}}</td>
@@ -76,13 +75,11 @@
                   <td>{{review.reiCount}}</td>           
                 </tr>
               </tbody>
-
-              </table>
+            </table>
               
-              <div>
-                <button type="button" id="buttonDel" class="btn btn-outline-danger" (click)="delContent('review')"
-                style="margin-left:10%">삭제</button>
-              </div>   
+            <div>
+              <button type="button" id="buttonDel" class="btn btn-outline-danger" (click)="delContent('review')">삭제</button>
+            </div>   
         </div>  
       </li>    
 
@@ -111,17 +108,16 @@
             
             <tbody>
               <tr *ngFor="let comment of commnetLists" onmouseover="this.style.backgroundColor='rgba(255,234,244,0.5)'" onmouseout="this.style.backgroundColor=''">
-                <td><input type="checkbox" name="checkGetId" value={{comment.coiNum}} (click)="inputCheckItem(comment.coiNum)"></td>
+                <td><input type="checkbox" name="checkGetId" value={{comment.coiNum}} (click)="inputCheckItem($event)"></td>
                 <td></td>
                 <td style="cursor:pointer" (click)="goBoardResult(comment.reiNum)">{{comment.reiTitle}}</td>
                 <td>{{comment.coiContents}}</td>
                 <td><u>{{comment.coiCredat}}</u>&nbsp;{{comment.coiCretim}}</td>          
               </tr>
             </tbody>
-            </table>
+            </table>            
             <div>
-              <button type="button" id="buttonDel" class="btn btn-outline-danger" (click)="delContent('comment')" 
-              style="margin-left:10%" >삭제</button>
+              <button type="button" id="buttonDel" class="btn btn-outline-danger" (click)="delContent('comment')" >삭제</button>
             </div>   
         </div>
       </li>

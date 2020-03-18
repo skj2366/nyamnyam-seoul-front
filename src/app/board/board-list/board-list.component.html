@@ -72,7 +72,8 @@
       <col style="width:10%">
       <col style="width:13%">
       <col style="width:20%">
-      <col style="width:37%">
+      <col style="width:32%">
+      <col style="width:5%">
       <col style="width:6%">
       <col style="width:9%">
     </colgroup>
@@ -82,25 +83,18 @@
       <th scope="col">역</th>
       <th scope="col">식당이름</th>
       <th scope="col">제목</th>
+      <th scope="col">작성자</th>
       <th scope="col">조회수</th>
       <th scope="col">작성일</th>
     </tr>
-    <!-- <tr *ngFor="let list of lists">
-          <td>{{list.no}}</td>
-          <td>{{list.gu}}</td>
-          <td>{{list.station}}</td>
-          <td>{{list.title}}</td>
-          <td>{{list.title}}</td>
-          <td>{{list.count}}</td>
-          <td>{{list.count}}</td>
-          <td>2020/02/18</td>
-        </tr>        -->
+    
     <tr *ngFor="let list of lists" (click)="goBoardResult(list.reiNum)">
       <td>{{list.reiNum}}</td>
       <td>{{list.zoneName}}</td>
       <td>{{list.subwayName}}</td>
       <td>{{list.relName}}</td>
       <td>{{list.reiTitle}}</td>
+      <td>{{list.cuiNickname}}</td>
       <td>{{list.reiCount}}</td>
       <td>{{list.reiCredat}}</td>
     </tr>

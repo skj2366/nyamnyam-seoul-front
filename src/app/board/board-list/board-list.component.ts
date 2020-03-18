@@ -33,9 +33,9 @@ export class BoardListComponent implements OnInit {
   getZones() {
     this._cs.get('/zoi').subscribe(
       res => {
-        console.log(res);
+        //console.log(res);
         this.zoneList = res;
-        console.log(this.zoneList);
+        //console.log(this.zoneList);
       }, err => {
         console.log(err);
       }
@@ -47,7 +47,7 @@ export class BoardListComponent implements OnInit {
     if (this.zoneValue) {
       this._cs.get('/sui/' + this.zoneValue).subscribe(
         res => {
-          console.log(res);
+          //console.log(res);
           this.subList = res;
         }
       )
@@ -81,7 +81,7 @@ export class BoardListComponent implements OnInit {
   async getReviewList() {
     const url = '/reis/board';
     this.lists = await this._cs.get(url).toPromise();
-    console.log(this.lists);
+    //console.log(this.lists);
   }
 
   search() {
