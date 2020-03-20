@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TestService } from 'src/app/test.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { KakaoMapService } from 'src/app/common/kakao-map.service';
 // import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 // import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter';
@@ -58,7 +59,7 @@ export class ReceiveComponent implements OnInit {
     };
   }
 
-  constructor(private _test: TestService, private _route:ActivatedRoute, private _router:Router) { }
+  constructor(private _test: TestService, private _route:ActivatedRoute, private _router:Router, private _km: KakaoMapService) { }
 
   ngOnInit() {
   }

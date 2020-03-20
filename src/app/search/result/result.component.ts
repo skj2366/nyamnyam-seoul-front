@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, DoCheck } from '@angular/core';
 import { CommonService } from 'src/app/common/common.service';
 import { RestaurantList } from 'src/app/vo/restaurant-list';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,21 +14,34 @@ import { ReviewInfo } from 'src/app/vo/review-info';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css']
 })
-export class ResultComponent implements OnInit {
-  rel : RestaurantList;
-  blog : RestaurantBlog[];
-  menu : MenuInfo[];
-  reviews : ReviewInfo[];
-  rNum : number;
-  like : boolean = false;
-  lii : LikeInfo;
-  
+export class ResultComponent implements OnInit, DoCheck {
+  rel: RestaurantList;
+  blog: RestaurantBlog[];
+  menu: MenuInfo[];
+  reviews: ReviewInfo[];
+  rNum: number;
+  like: boolean = false;
+  lii: LikeInfo;
+
+  isLoading: boolean = false;
+
   menuLength: number;
+  loadMap: boolean = false;
 
-  constructor(private route : ActivatedRoute, private _cs : CommonService, private _ks: KakaoMapService, private _ss: StorageService, private _router : Router) { }
+  @ViewChild('kakaoMap') kakaoMap: ElementRef
 
-  async ngOnInit() {    
-    var relNum = this.route.snapshot.paramMap.get('relNum');    
+  constructor(private route: ActivatedRoute, private _cs: CommonService, private _ks: KakaoMapService, private _ss: StorageService, private _router: Router) { }
+
+  ngDoCheck(): void {
+    if(this.kakaoMap && !this.loadMap) {
+      console.log(`ngDoCheck()`);
+      this.getMap();
+      this.loadMap = true;
+    }
+  }
+
+  async ngOnInit() {
+    var relNum = this.route.snapshot.paramMap.get('relNum');
     await this.getRestaurantDetail(relNum);
     this.getRestaurantBlogDetail(relNum);
     this.getMenu(relNum);
@@ -42,7 +55,7 @@ export class ResultComponent implements OnInit {
     //   res => {
     //       this.rel = <RestaurantList>res;          
     //       console.log(this.rel);
-          
+
     //     }
     //   , err => {
     //       console.log('레스토랑상세 못가져옴');
@@ -50,7 +63,8 @@ export class ResultComponent implements OnInit {
     //     }      
     // )
 
-    this.rel = <RestaurantList> await this._cs.get(url).toPromise();
+    this.rel = <RestaurantList>await this._cs.get(url).toPromise();
+    console.log(this.rel);
   }
 
   getRestaurantBlogDetail(rNum) {
@@ -94,14 +108,14 @@ export class ResultComponent implements OnInit {
       err => {
         console.log(err);
       }
-     )
-    }
+    )
+  }
 
   getMap() {
-    var id = 'kakao-map';
-    if(this.rel) {
-      alert(`${this.rel.relLatitude}, ${this.rel.relLongitude}`);
-      this._ks.makeMapByRestaurant(this.rel.relLatitude, this.rel.relLongitude, id);
+    console.log(this.kakaoMap);
+    const id = 'kakao-map';
+    if (this.rel) {
+      this._ks.makeMapResult(this.rel, id);
     }
   }
 
@@ -115,7 +129,7 @@ export class ResultComponent implements OnInit {
     writeLike.cuiNum = Number(cuiNum);
     writeLike.relNum = this.rel.relNum;
     this._cs.postJson(url, writeLike).subscribe(
-      res=>{
+      res => {
         console.log(res);
         this.getLike();
       }
@@ -130,7 +144,7 @@ export class ResultComponent implements OnInit {
     this._cs.delete(url).subscribe(
       res => {
         console.log(res);
-        if(res) {
+        if (res) {
           this.like = false;
         }
       }
@@ -140,20 +154,20 @@ export class ResultComponent implements OnInit {
   getLike() {
     const url = `/lii/${this._ss.getSession('cuiNum')}/${this.rel.relNum}`;
     this._cs.get(url).subscribe(
-      res=> {
+      res => {
         console.log(res);
-        if(res) {
+        if (res) {
           this.like = true;
           this.lii = <LikeInfo>res;
 
-        }else {
+        } else {
           this.like = false;
         }
       }
     )
   }
 
-  getReview(){
+  getReview() {
 
   }
 

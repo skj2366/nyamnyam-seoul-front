@@ -21,7 +21,7 @@
                 <p *ngIf="!menuLength">등록된 사진이 없습니다.</p>
             </div>
             <br>
-            <div id="kakao-map"></div>
+            <div #kakaoMap id="kakao-map"></div>
             <!-- <div id="rMap">
                 <img src="../../../assets/imgs/breakfast.jpg">
             </div> -->
@@ -63,5 +63,5 @@
             <h6 id="blogContentCredat">{{b.blogContentCredat}}</h6>
         </div>
     </div>
-    <button (click)="getMap()">버튼</button>
+    <!-- <button (click)="getMap()">버튼</button> -->
 </div>

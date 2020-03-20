@@ -40,24 +40,52 @@ export class KakaoMapService {
     this.map.relayout();
   }
 
-  makeMapByRestaurant(x, y, id) {
-    var container = document.getElementById(id);
-    var option = {
-      center: new kakao.maps.LatLng(y, x),
-      level: 3
+  makeMapResult(rel, id) {
+    console.log(`${rel.relLatitude}, ${rel.relLongitude}, id : ${id}`);
+    var container = document.getElementById('kakao-map');
+    var options = {
+      center: new kakao.maps.LatLng(rel.relLatitude, rel.relLongitude),
+      level: 4
     };
-    this.map = new kakao.maps.Map(container, option);
+    this.map = new kakao.maps.Map(container, options);
 
-    var markerPosition = new kakao.maps.LatLng(y, x);
+    var markerPosition = new kakao.maps.LatLng(rel.relLatitude, rel.relLongitude);
+
+    var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+    var imageSize = new kakao.maps.Size(24, 35);
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
     var marker = new kakao.maps.Marker({
-      position: this.map.getCenter()
+      position: this.map.getCenter(),
+      image: markerImage
     });
     marker.setMap(this.map);
+
+    var iwContent = `<div style="padding:5px; width:450px; height:auto; border: 1px solid black; border-radius: 5px;"><img src="${rel.meiImg1Name}" style="width:10%; height:auto;">&nbsp;<b>${rel.relName}</b><br>${rel.relCall}<br>${rel.relSubAddress}<br></div>`;//인포윈도우 내용
+    // var iwContent = `<div style="padding:5px;">Hello World!</div>`;
+    var iwPosition = new kakao.maps.LatLng(rel.relLatitude, rel.relLongitude); //인포윈도우 표시 위치
+    var iwRemoveable = true;
+
+    var infowindow = new kakao.maps.InfoWindow({
+      position: iwPosition,
+      content: iwContent,
+      removable : iwRemoveable
+    });
+
+    infowindow.open(this.map, marker); 
+
+    kakao.maps.event.addListener(marker, 'click', this.makeClickListener(this.map, marker, infowindow));
 
     setTimeout(() => {
       this.map.relayout();
       this.map.setCenter(markerPosition);
     }, 500);
+  }
+
+  makeClickListener(map, marker, infowindow) {
+    return function () {
+      infowindow.open(map, marker);
+    };
   }
 
   // 지하철역으로 검색 시 역을 중심으로 결과 나오게끔 
