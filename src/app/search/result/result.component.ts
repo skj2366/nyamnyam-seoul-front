@@ -7,6 +7,7 @@ import { KakaoMapService } from 'src/app/common/kakao-map.service';
 import { RestaurantBlog } from 'src/app/vo/restaurant-blog';
 import { StorageService } from 'src/app/common/storage.service';
 import { LikeInfo } from 'src/app/vo/like-info';
+import { ReviewInfo } from 'src/app/vo/review-info';
 
 @Component({
   selector: 'app-result',
@@ -17,6 +18,7 @@ export class ResultComponent implements OnInit {
   rel : RestaurantList;
   blog : RestaurantBlog[];
   menu : MenuInfo[];
+  reviews : ReviewInfo[];
   rNum : number;
   like : boolean = false;
   lii : LikeInfo;
@@ -30,6 +32,7 @@ export class ResultComponent implements OnInit {
     await this.getRestaurantDetail(relNum);
     this.getRestaurantBlogDetail(relNum);
     this.getMenu(relNum);
+    this.getReviews(relNum);
     this.getLike();
   }
 
@@ -77,6 +80,18 @@ export class ResultComponent implements OnInit {
       }
     )
   }
+
+  getReviews(rNum) {
+    var url = `/reisrel/${rNum}`;
+    this._cs.get(url).subscribe(
+      res => {
+        this.reviews = <ReviewInfo[]>res;
+      },
+      err => {
+        console.log(err);
+      }
+     )
+    }
 
   getMap() {
     var id = 'kakao-map';
@@ -132,6 +147,10 @@ export class ResultComponent implements OnInit {
         }
       }
     )
+  }
+
+  getReview(){
+
   }
 
 }

@@ -50,8 +50,10 @@
                 <p>{{rel.relEtcTime}}</p>
             </section>
             <!-- tab3 리뷰-->
-            <section id="content3">
-                리뷰
+            <section id="content3" *ngFor="let review of reviews">
+                <ol>
+                    <li>&nbsp;{{review.reiTitle}}&nbsp;||&nbsp;{{review.cuiNickname}}&nbsp;||&nbsp;{{review.reiCredat}}</li>
+                </ol>
             </section>
         </div>
         <br>

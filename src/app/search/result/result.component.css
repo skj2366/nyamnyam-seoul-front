@@ -196,3 +196,10 @@ h6{
 #blog a {
     font-family: 'GyeonggiBatang';    
 }
+
+ol {
+    display: block;
+    list-style-type: decimal;
+    margin-top: 1em;
+    font-family: 'GyeonggiBatang';
+}
