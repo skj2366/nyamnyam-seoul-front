@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/common/common.service';
 import { RestaurantList } from 'src/app/vo/restaurant-list';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MenuInfo } from 'src/app/vo/menu-info';
 import { KakaoMapService } from 'src/app/common/kakao-map.service';
 import { RestaurantBlog } from 'src/app/vo/restaurant-blog';
@@ -25,7 +25,7 @@ export class ResultComponent implements OnInit {
   
   menuLength: number;
 
-  constructor(private route : ActivatedRoute, private _cs : CommonService, private _ks: KakaoMapService, private _ss: StorageService) { }
+  constructor(private route : ActivatedRoute, private _cs : CommonService, private _ks: KakaoMapService, private _ss: StorageService, private _router : Router) { }
 
   async ngOnInit() {    
     var relNum = this.route.snapshot.paramMap.get('relNum');    
@@ -64,6 +64,10 @@ export class ResultComponent implements OnInit {
         console.log(err);
       }
     )
+  }
+
+  goBoardResult(reiNum: number) {
+    this._router.navigateByUrl(`/board/${reiNum}`);
   }
 
 

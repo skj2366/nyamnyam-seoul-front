@@ -52,7 +52,7 @@
             <!-- tab3 리뷰-->
             <section id="content3" *ngFor="let review of reviews">
                 <ol>
-                    <li>&nbsp;{{review.reiTitle}}&nbsp;||&nbsp;{{review.cuiNickname}}&nbsp;||&nbsp;{{review.reiCredat}}</li>
+                    <li style="cursor:pointer" (click)="goBoardResult(review.reiNum)">&nbsp;{{review.reiTitle}}&nbsp;||&nbsp;{{review.cuiNickname}}&nbsp;||&nbsp;{{review.reiCredat}}</li>
                 </ol>
             </section>
         </div>

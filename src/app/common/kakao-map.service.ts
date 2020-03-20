@@ -167,7 +167,7 @@ export class KakaoMapService {
         image: markerImage // 마커 이미지 
       });
 
-      var iwContent = '<div style="padding:5px;">' + rel.relName + '<br>' + rel.relCall + '<br>' + rel.relSubAddress + '<br>&nbsp;</div>';//인포윈도우 내용
+      var iwContent = '<div style="padding:5px; width:450px; height:80px">' + rel.relName + '<br>' + rel.relCall + '<br>' + rel.relSubAddress + '<br>&nbsp;</div>';//인포윈도우 내용
       var iwPosition = new kakao.maps.LatLng(rel.relLatitude, rel.relLongitude); //인포윈도우 표시 위치
       
       // 인포윈도우를 생성합니다
