@@ -130,6 +130,7 @@ input:focus {
 }
 
 table.reviewTable {
+    counter-reset: count 0;
     border-collapse: collapse;
     text-align: center;
     line-height: 1.5;
@@ -138,6 +139,15 @@ table.reviewTable {
     /* border-bottom: 1px solid #ccc; */
     margin: 15px 10px;
 }
+
+table.reviewTable tbody tr {
+    counter-increment:count 1;
+}
+
+table.reviewTable tbody td:nth-child(1):before{
+    content:counter(count)" ";
+}
+
 table.reviewTable th {
     width: 50px;
     padding: 10px;

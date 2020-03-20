@@ -110,8 +110,8 @@
               <tr *ngFor="let comment of commnetLists" onmouseover="this.style.backgroundColor='rgba(255,234,244,0.5)'" onmouseout="this.style.backgroundColor=''">
                 <td><input type="checkbox" name="checkGetId" value={{comment.coiNum}} (click)="inputCheckItem($event)"></td>
                 <td></td>
-                <td style="cursor:pointer" (click)="goBoardResult(comment.reiNum)">{{comment.reiTitle}}</td>
-                <td>{{comment.coiContents}}</td>
+                <td>{{comment.reiTitle}}</td>
+                <td style="cursor:pointer" (click)="goBoardResult(comment.reiNum)">{{comment.coiContents}}</td>
                 <td><u>{{comment.coiCredat}}</u>&nbsp;{{comment.coiCretim}}</td>          
               </tr>
             </tbody>

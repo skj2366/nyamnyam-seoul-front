@@ -48,7 +48,7 @@
       <span *ngIf="!rels" style="font-size: 20pt;font-weight:bold; color:rgb(5, 5, 90);margin-left:5%;">검색 결과가 없습니다.</span>
       <!-- <div *ngFor="let mei of meis">{{mei.meiImg1Name}}</div> -->
       <div class="flex-item" *ngFor="let rel of rels" (click)="goRelPage(rel.relNum)">        
-          <img src="menu[0].meiImg1Name">
+        <img src="menu[0].meiImg1Name">
         <div>{{rel.relName}}</div>
         <div>{{rel.relSubAddress}}</div>
         <div>{{rel.relCall}}</div>
