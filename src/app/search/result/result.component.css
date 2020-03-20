@@ -199,7 +199,8 @@ h6{
 
 ol {
     display: block;
-    list-style-type: decimal;
+    list-style-type: disc;
     margin-top: 1em;
     font-family: 'GyeonggiBatang';
+    font-size: 15pt;
 }
