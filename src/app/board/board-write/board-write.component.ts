@@ -132,7 +132,7 @@ export class BoardWriteComponent implements OnInit {
     if (this.zoneValue && this.zoneValue != 0) {
       this._cs.get('/sui/' + this.zoneValue).subscribe(
         res => {
-          console.log(res);
+          //console.log(res);
           this.subList = <SubwayInfo>res;
         }
       )
@@ -140,11 +140,11 @@ export class BoardWriteComponent implements OnInit {
   }
 
   getZoneValue(exp) {
-    console.log(exp);
+    //console.log(exp);
   }
 
   getSubValue(exp) {
-    console.log(exp);
+    //console.log(exp);
   }
 
   selectEvent(item) {
@@ -176,8 +176,8 @@ export class BoardWriteComponent implements OnInit {
     for (let rel of this.rels) {
       this.relname.push({ num: rel.relNum, name: rel.relName, zoneNum: rel.zoneNum, subwayNum: rel.subwayNum });
     }
-    console.log(this.relname)
-    console.log(this.rels);
+    //console.log(this.relname)
+    //console.log(this.rels);
   }
 
   async getCuiInfo() {

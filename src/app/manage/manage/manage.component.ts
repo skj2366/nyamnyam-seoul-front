@@ -59,10 +59,6 @@ export class ManageComponent implements OnInit {
   columnDefsComment = [];
   defaultColDef = {};
 
-  cui: CustomerInfo = new CustomerInfo();
-  rel: RestaurantList = new RestaurantList();
-  col: CommentInfo = new CommentInfo();
-
   newCount = 1;
 
   ngOnInit() {
@@ -121,7 +117,7 @@ export class ManageComponent implements OnInit {
       { headerName: '댓글내용', field: 'coiContents', width: 300, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
       { headerName: '생성날짜', field: 'coiCredat', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
       { headerName: '생성시간', field: 'coiCretim', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
-      { headerName: '수정날짜', field: 'coiModdat', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" }},
+      { headerName: '수정날짜', field: 'coiModdat', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } },
       { headerName: '수정시간', field: 'coiModtim', width: 80, cellStyle: { color: '#5D5D5D', textAlign: "center", backgroundColor: "white" } }
     ];
 
@@ -311,6 +307,7 @@ export class ManageComponent implements OnInit {
     var reset = this._cs.get('/cui').subscribe(
       res => {
         this.rowDataUser = <CustomerInfo[]>res;
+        console.log(res);
       }
     )
   }

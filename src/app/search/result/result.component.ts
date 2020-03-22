@@ -122,18 +122,21 @@ export class ResultComponent implements OnInit, DoCheck {
   likeRestaurant() {
     // alert('좋아요~');
     // this.like = true;
-
-    const url = `/lii`;
-    var cuiNum = this._ss.getSession('cuiNum');
-    let writeLike = new LikeInfo();
-    writeLike.cuiNum = Number(cuiNum);
-    writeLike.relNum = this.rel.relNum;
-    this._cs.postJson(url, writeLike).subscribe(
-      res => {
-        console.log(res);
-        this.getLike();
-      }
-    )
+    if(!this._ss.getSession('cuiNum')){
+      alert('로그인해주세요~');
+    } else {
+      const url = `/lii`;
+      var cuiNum = this._ss.getSession('cuiNum');
+      let writeLike = new LikeInfo();
+      writeLike.cuiNum = Number(cuiNum);
+      writeLike.relNum = this.rel.relNum;
+      this._cs.postJson(url, writeLike).subscribe(
+        res => {
+          console.log(res);
+          this.getLike();
+        }
+      )
+    }    
   }
 
   unLikeRestaurant() {
@@ -151,7 +154,7 @@ export class ResultComponent implements OnInit, DoCheck {
     )
   }
 
-  getLike() {
+  getLike() {    
     const url = `/lii/${this._ss.getSession('cuiNum')}/${this.rel.relNum}`;
     this._cs.get(url).subscribe(
       res => {
