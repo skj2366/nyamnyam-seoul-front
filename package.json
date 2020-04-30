@@ -30,7 +30,7 @@
     "ckeditor": "^4.12.1",
     "ckeditor4-angular": "^1.0.0-beta.2",
     "core-js": "^2.5.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "kakao-maps-sdk": "^1.0.1",
     "ng-ckeditor": "^2.0.5",
     "ng-image-slider": "^2.4.1",
